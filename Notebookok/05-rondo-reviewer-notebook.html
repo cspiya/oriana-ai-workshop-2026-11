@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. gyakorlat: RONDO: független ellenőrzés (reviewer-recept, R1, R2 és stop-döntés) · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Notebook v2 a 5. gyakorlathoz. Tartalom: Feladatok/05-rondo-reviewer.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. -->
+<body class="notebook v2" data-depth="1" data-current="05">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="05" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>5. gyakorlat · 13:25–13:45 · 13:45–14:15 · 14:50–15:10</span><span class="badge ba">BA</span><span class="badge sa">Sales-Account</span><span>vezeti: Kemény Krisztián · körbejár: Piya Csaba</span></div>
+      <h1 id="cim">RONDO: független ellenőrzés (reviewer-recept, R1, R2 és stop-döntés)</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>A 4. gyakorlat első változatát egy független ellenőr vizsgálja meg a te receptedből és szűk csomagodból, a javítást újraellenőrzi, te pedig kimondott stop-feltétellel eldöntöd, hogy a munka lezárható-e.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">reviewer-recept (Skill vagy brief)</li>
+          <li data-csoport="2">szűk review-csomag</li>
+          <li data-csoport="3">függetlenségi próba</li>
+          <li data-csoport="4">három réteg: kód, forrás, rubrika</li>
+          <li data-csoport="5">R1 és R2: az első és a második független kör</li>
+          <li data-csoport="6">stop-döntés</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ 70 perc</span><span>🤖 GPT-6 Luna (recept) · GPT-6.1 Sol (reviewer)</span><span>📁 Munka/05-Reviewer</span><span>mód: önálló (az A fázis közös)</span><span>Vezeti: Kemény Krisztián</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>a 4. gyakorlat első változata (<code>v1/</code>), a <code>kriteriumok.md</code> és az <code>agent-brief.md</code> megvan</li>
+          <li>a készítő nem ellenőrizheti önmagát: ugyanazt a vakfoltot viszi tovább</li>
+          <li>BA-sávon KAPU II (az FDD-egység ellenőrzése a fejlesztésre adás előtt), Sales-Account sávon az ajánlati számok és vállalások ellenőrzése</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>reviewer/SKILL.md</code> vagy <code>reviewer-brief.md</code>: az újrahasználható ellenőrző recept</li>
+          <li><code>review/</code> és <code>csomag-jegyzek.md</code>: a reviewer szűk bemenete</li>
+          <li><code>R1.md</code>, <code>R2.md</code>: a két független ellenőrzés jelentése</li>
+          <li><code>stop-dontes.md</code>: a kimondott lezárási döntés; BA-sávon lezárt vagy feltételes döntésnél a végleges FDD-egység az <code>fdd/</code> mappában</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> a „kész” csak akkor ér valamit, ha nem a készítő mondja ki: friss, szűk bemenettel dolgozó ellenőr, három réteg és egy előre kimondott megállás kell hozzá. A RONDO-eset valós cég (RONDO Hullámkartongyártó Kft.), kitalált projekttel: a cégadatlap valós, minden más kitalált.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-racs">
+      <div class="start-box">
+        <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+        <div class="say">Kezdjük az 5. gyakorlatot.</div>
+        <p>Az asszisztens beolvassa a profilodat és a 4. gyakorlat kimeneteit, elmondja a menetet, és azonnal jön az 1. lépés kérdése.</p>
+      </div>
+      <div class="start-box">
+        <div class="label">A B fázisnál (13:45), a C fázisnál (14:50) vagy ha megszakadtál</div>
+        <div class="say">Folytassuk az 5. gyakorlatot.</div>
+        <p>A <code>Munka/05-Reviewer</code> és a <code>Munka/04-Agent</code> fájljaiból megállapítja, hol tartasz, például: „5. gyakorlat, B fázis: R1.”</p>
+      </div>
+      <div class="start-box alt">
+        <div class="label">Az R1-hez: friss Work-beszélgetés, alapból külön review-projektben, GPT-6.1 Sol</div>
+        <div class="say">RONDO 05 reviewer R1</div>
+        <p>A reviewer a receptedet és a <code>review/</code> csomagot olvassa. A maker beszélgetését, naplóját és önértékelését nem kapja meg.</p>
+      </div>
+      <div class="start-box alt">
+        <div class="label">Az R2-höz, 14:50-kor: friss Work-beszélgetés a review-projektben, GPT-6.1 Sol</div>
+        <div class="say">RONDO 05 reviewer R2</div>
+        <p>A reviewer a receptet, a frissített csomagot és az R1-et olvassa, és a javított tételeket újraellenőrzi. Nem javít, és nem dönt a lezárásról.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>A maker–reviewer hurok: ma az R1-től a stop-döntésig jutunk</h2>
+    <p>A hurok minden körben ugyanazt kéri: a gép mér, egy független ellenőr megnézi, a javítás után újraellenőrzik, és a végén kimondott szabály dönt a megállásról. A ma kiemelt rész az R1 és a stop-döntés között van.</p>
+    <figure class="abra" data-abra="hurok" data-stage="r1" data-cim="nincs">
+      <figcaption>Maker–reviewer hurok: cél és recept → v1 → gépi ellenőrzés → R1 független review (megfelel?) → v2 javítás → R2 újraellenőrzés (limit?) → stop-döntés: kész (nem küldési engedély) vagy döntési brief. Ma az R1-től a stop-döntésig jutunk.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 13 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">A fázis · Reviewer-recept és review-csomag <span class="when">13:25–13:45</span></div>
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Recept és csomag" data-rovid="Miért külön ellenőr, és milyen formában" data-ido="kb. 3 perc">
+        <header class="lepes-fej">
+          <div><h3>Miért külön ellenőr, és milyen formában</h3><span class="lepes-cimke"><span class="ido">kb. 3 perc</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Válaszd ki</b>, milyen formában írod meg a receptet: A: Skill (ha a munkatérben elérhető; ajánlott, mert újrahasználható) · B: reviewer-brief (szöveges recept) · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs. A két forma egymás mellett: a Skill szerkezete a Skill-mintán alapul, a brief a reviewer-brief sablon szerint készül.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a sablonok linkje megnyitható, és a választásod a következő lépés bemenete (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A készítő nem ellenőrizheti önmagát: ugyanazt a vakfoltot viszi tovább. A recept azért érték, mert nem a te fejedben van, hanem bármikor, bárki és bármelyik beszélgetés ugyanazt az ellenőrzést el tudja végezni.</div><div class="fallback"><strong>Ha a Skill létrehozása vagy mentése két percen belül nem megy:</strong> a reviewer-brief a recept. A kiesett funkció az újrahasználható Skill, a módszer azonos.</div>
+          <p class="why"><strong>Miért fontos:</strong> a recept teszi megismételhetővé a független ellenőrzést.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Recept és csomag" data-rovid="A reviewer-recept megírása" data-ido="kb. 8 perc">
+        <header class="lepes-fej">
+          <div><h3>A reviewer-recept megírása</h3><span class="lepes-cimke"><span class="ido">kb. 8 perc</span> · A fázis · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Írd meg</b> a recept tartalmát a saját szavaiddal, a <code>kriteriumok.md</code> K-azonosítói alapján; az AI csak a vázat adja (szerep, bemenet, kimenet).</li><li><b>Javítsd</b> a receptet az AI hét elemes ✅/⚠️ értékelése alapján.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>reviewer/SKILL.md</code> vagy <code>reviewer-brief.md</code>: szerep és határ, bemenet, menet, kimenet, súlyosság, PASS-szabály, R2, a függetlenség korlátja.</p></div>
+          </div>
+          <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>a recept tárgya: KAPU II, az FDD-egység ellenőrzése a fejlesztésre adás előtt</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>a recept tárgya: az ajánlati számok és vállalások ellenőrzése</li></ul></div></div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a recept minden kötelező eleme megvan, és kimondja: a reviewer nem javít, a bemenet a <code>review/</code> csomagra korlátozott.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A PASS csak teljes lefedettséggel, minden K teljesülésével és nyitott blocker vagy major nélkül adható; ami nem ellenőrizhető, az nem teljesített.</div><div class="callout figyelj"><span class="callout-cim">Figyelj</span>A megoldás vagy a hibák listája nem kerül a receptbe: a recept szűkre szabja, mit lát és mit tehet az ellenőr, ettől lesz független.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder"><li><b>Rávezető kérdés</b>Ha valaki, aki sosem látta a munkát, ellenőrzi: mit kell tudnia, mit nem szabad látnia, és mit adjon vissza, hogy te el tudd dönteni, igaz-e?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>„Írj reviewer-receptet a(z) … ellenőrzéséhez. Szerep: független reviewer, nem javít. Bemenet: a <code>review/</code> mappa; a maker beszélgetését, naplóját és önértékelését nem kapja. Kimenet: minden kritérium PASS / FAIL / NEM ELLENŐRIZHETŐ; a parancs és a tényleges eredmény; öt állítás forráshelye; rubrika 1–5; findings: ID, súlyosság, hely, bizonyíték, javasolt javítás. R2-ben a javított tételek újraellenőrzése. Mentés: <code>R&lt;n&gt;.md</code>, a vizsgált fájlok pontos verziójával.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
+          </details>
+          <p class="why"><strong>Miért fontos:</strong> a független ellenőrzés attól független, hogy a recept szűkre szabja, mit lát és mit tehet az ellenőr.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-3" data-csoport="1" data-csoport-nev="Recept és csomag" data-rovid="A review-csomag összeállítása" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>A review-csomag összeállítása</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd át</b> a csomagjegyzéket („bemegy / nem megy be” oszloppal) és a script eredményét.</li><li><b>Döntsd el</b>: A: jóváhagyom (ajánlott) · B: egy fájlt kivennék vagy hozzáadnék (írd le, melyiket és miért) · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>review/</code> mappa és a <code>csomag-jegyzek.md</code>, valamint a <code>csomag-ellenorzes.txt</code>. Bemegy a v1 kötelező kimenetei, a <code>kriteriumok.md</code>, a forráslista nyers forrásai és a rögzített DNS-modul; nem megy be a brief, a terv, a napló, a maker saját mérései és semmilyen megoldókulcs.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve van, és a kizárt fájlok nincsenek a csomagban (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az eredeti <code>Munka/04-Agent</code> fájlokat nem mozgatjuk és nem módosítjuk: másolat kerül a csomagba. Ha a készítő magyarázata bent van, az ellenőr a magyarázatot ellenőrzi, nem a munkát.</div><div class="fallback"><strong>Ha nem fut kód:</strong> a csomag-ellenőrzés kézi jegyzékkel történik, soronként „bent / nincs bent” jelöléssel. A kiesett funkció a kódos ellenőrzés.</div>
+          <p class="why"><strong>Miért fontos:</strong> a függetlenség a bemeneten múlik: amit a reviewer nem lát, azt nem tudja átvenni.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-4" data-csoport="1" data-csoport-nev="Recept és csomag" data-rovid="Függetlenségi próba friss beszélgetésben" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Függetlenségi próba friss beszélgetésben</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nyiss</b> új Work-beszélgetést (alapból külön review-projektben, GPT-6.1 Sol), és <b>kérdezd meg</b>: mit lát, és mit tud bármilyen korábbi beszélgetésből vagy projektmemóriából.</li><li><b>Döntsd el</b>: A: tiszta, a lista egyezik a csomagjegyzékkel · B: a reviewer többet lát, a korlátot felírjuk, és páros emberi review egészíti ki · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>csomag-jegyzek.md</code> „Függetlenség korlátja” sora.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a reviewer által felsorolt fájlok egyeznek a csomagjegyzékkel, és a függetlenség korlátja egy sorban rögzítve van (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A „friss beszélgetés” nem bűvszó: ugyanaz a fiók és a projektmemória korlát lehet. A korlátot akkor is felírjuk, ha a próba sikeres.</div><div class="fallback"><strong>Ha nem érhető el külön friss beszélgetés vagy review-projekt:</strong> a pár emberi review egészíti ki a gépit, és a korlát a jelentés fejlécébe kerül. A kiesett funkció az izolált gépi ellenőr.</div>
+          <p class="why"><strong>Miért fontos:</strong> kimondjuk, mit látott az ellenőr, mert csak így tudod, mekkora súlyt adhatsz a jelentésének.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">B fázis · R1: az első független ellenőrzés <span class="when">13:45–14:15</span></div>
+      <section class="lepes" id="lepes-5" data-csoport="2" data-csoport-nev="R1" data-rovid="Az R1 indítása" data-ido="kb. 2 perc">
+        <header class="lepes-fej">
+          <div><h3>Az R1 indítása</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · B fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Írd be</b>: „Folytassuk az 5. gyakorlatot.” (B fázis: R1).</li><li><b>Nyiss</b> új Work-beszélgetést a review-projektben, GPT-6.1 Sol modellel; az első mondat: „RONDO 05 reviewer R1.”</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>kulso-korok-naplo.md</code> R1 kezdősora.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a csomag-ellenőrzés újrafutott és sikeres, a recept és a kritériumok megvannak (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az indító mondat rövid, mert a munka a receptben és a csomagban van; a reviewer annyit tud, amennyit ott talál.</div>
+          <p class="why"><strong>Miért fontos:</strong> a függetlenség a rövid indítón és a szűk csomagon múlik.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-6" data-csoport="2" data-csoport-nev="R1" data-rovid="A reviewer dolgozik" data-ido="kb. 10 perc">
+        <header class="lepes-fej">
+          <div><h3>A reviewer dolgozik</h3><span class="lepes-cimke"><span class="ido">kb. 10 perc</span> · B fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Ne avatkozz be</b> a reviewer munkájába.</li><li><b>Jelöld ki</b>, hogy az idézett öt forráshely közül melyik kettőt fogod a következő lépésekben saját kezűleg megkeresni.</li><li><b>Hallgasd meg</b> a három réteg (determinisztikus ellenőrzés, forrás-visszakeresés, rubrika) rövid leírását.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>R1.md</code> a vizsgált fájlok pontos verziójával.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>az <code>R1.md</code> létrejött, és tartalmazza a vizsgált fájlok pontos verzióját (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A gépi eredmény támogatás, nem bizonyítja a tartalmi helyességet; a rubrika nem váltja ki a forrást. Az <code>R1.md</code> elkészültéig a megállapításokra nem reagálsz.</div><div class="fallback"><strong>Ha a reviewer futás két percen belül nem indul:</strong> a pár emberi review készít R1-et kézzel a recept és a csomag alapján. A kiesett funkció a gépi független ellenőr.</div>
+          <p class="why"><strong>Miért fontos:</strong> a reviewer jelentése is csak akkor érték, ha tudod, mit mér a gép, a forrás-visszakeresés és a rubrika.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-7" data-csoport="2" data-csoport-nev="R1" data-rovid="Az öt kijelölt állítás visszakeresése" data-ido="kb. 8 perc">
+        <header class="lepes-fej">
+          <div><h3>Az öt kijelölt állítás visszakeresése</h3><span class="lepes-cimke"><span class="ido">kb. 8 perc</span> · B fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd meg</b> egymás mellett az öt reviewer-állítást és a forrást; kettőt közülük <b>nyiss meg</b> magad a link alapján.</li><li><b>Döntsd el</b>: A: mind egyezik a forrással · B: eltérést látok (írd le, melyiknél) · C: egynél nem található a hely · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r1_visszakeres.md</code>: állítás, reviewer-idézet, forrás, egyezés.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>az öt hely mindegyike linkkel megnyitható (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az AI nem ítél helyetted, és ami nem található, azt kimondja. A reviewer jelentése is csak egy állítás, amelyet a forrás igazol vagy cáfol.</div>
+          <p class="why"><strong>Miért fontos:</strong> a forrás-visszakeresés miatt nem a reviewer szavában bízunk, hanem a bizonyítékban.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-8" data-csoport="2" data-csoport-nev="R1" data-rovid="Az R1 megállapításainak osztályozása" data-ido="kb. 6 perc">
+        <header class="lepes-fej">
+          <div><h3>Az R1 megállapításainak osztályozása</h3><span class="lepes-cimke"><span class="ido">kb. 6 perc</span> · B fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd át</b> a findings táblát súlyosság (blocker, major, minor) és K szerint, és hogy mely K teljesült, melyik nem, melyik nem ellenőrizhető.</li><li><b>Döntsd el</b>: A: elfogadom, javításra viszem a blockert és a majort (ajánlott) · B: egyet vitatok (írd le, melyiket) · C: több információ kell · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r1_dontes.md</code>: rövid döntési jegyzet az <code>R1.md</code> mellé.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a findings száma egyezik az <code>R1.md</code>-vel, és minden finding K-hoz kötött (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az AI nem mondja meg, melyik megállapítás a fontos, csak rendez és K-hoz kapcsol. A javítási kör kijelölését a 4. gyakorlat 16. lépése végzi.</div>
+          <p class="why"><strong>Miért fontos:</strong> a jó ellenőrzés után sem dől el automatikusan, mit javítunk: ez döntés, és a döntés a tiéd.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-9" data-csoport="2" data-csoport-nev="R1" data-rovid="Mit mért a gép, mit a rubrika" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Mit mért a gép, mit a rubrika</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · B fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd meg</b> a kétoszlopos összevetést, és <b>mondd meg</b>, melyik réteg mit bizonyít; hol mondott PASS-t a gép, miközben a rubrika alacsony volt, vagy fordítva.</li><li><b>Döntsd el</b>: szükséges-e másik vélemény a nem ellenőrizhető vagy vitatott tételekhez? A: nem, az R2 megoldja · B: igen, a párom ránéz egy tételre (páros emberi review) · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs; az összevetés soraihoz az <code>R1.md</code> helye tartozik.</p></div>
+          </div>
+          <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>gépi: szerkezeti ellenőrzés, értékkészlet-lefedettség</li><li>rubrikás: használhatóság, egyértelműség</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>gépi: az összegek és a kedvezmény</li><li>rubrikás: ügyfélbiztonság, döntéshozói használhatóság</li></ul></div></div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az összevetés soraihoz tartozik az <code>R1.md</code> hely (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Három réteg ellenőrzi egymást: a kód a szerkezetet, a forrás a tényeket, a rubrika a használhatóságot méri. A gépi ellenőrzés nem bizonyítja a szemantikai helyességet.</div>
+          <p class="why"><strong>Miért fontos:</strong> aki érti, mit bizonyít a gép és mit nem, az nem hagyatkozik egyetlen rétegre.</p>
+        </div>
+      </section>
+
+      <div class="lepes-szunet"><span class="ido">14:35–14:50</span><p>Előtte 14:15–14:35: a 4. gyakorlat D fázisa (javítás az R1 alapján). Szünet 14:35–14:50; az R2 14:50-kor indul.</p></div>
+
+      <div class="lepes-csoport-cim" data-csoport="3">C fázis · R2 és stop-döntés <span class="when">14:50–15:10</span></div>
+      <section class="lepes" id="lepes-10" data-csoport="3" data-csoport-nev="R2 és stop-döntés" data-rovid="Az R2 csomagjának frissítése" data-ido="kb. 3 perc">
+        <header class="lepes-fej">
+          <div><h3>Az R2 csomagjának frissítése</h3><span class="lepes-cimke"><span class="ido">kb. 3 perc</span> · C fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Írd be</b>: „Folytassuk az 5. gyakorlatot.” (C fázis: R2).</li><li><b>Nézd át</b> a frissített csomagjegyzéket, és <b>döntsd el</b>: A: jóváhagyom (ajánlott) · B: korrekció, írd le · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A frissített <code>review/</code> és <code>csomag-jegyzek.md</code>: a <code>v2/</code> kötelező kimenetei és az <code>R1.md</code> bent, a korábbi állapot a jegyzékben megőrizve.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve van, a <code>v2/</code> fájljai és az <code>R1.md</code> bent vannak, a kizártak nincsenek, és a v1–v2 összevetés megvan, vagy az újramérés parancsa és tényleges eredménye idézett (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A kizárt fájlok R2-ben is kizártak. Ha a javítás a szünetbe nyúlt, és a <code>v1_v2_osszevetes.txt</code> még nincs meg, az újramérés most fut, és itt születik a v2 továbbvitelének döntése (A: mehet az R2-re · B: tartalék v2, jelölve · más: írd le).</div><div class="fallback"><strong>Ha nincs <code>v2/</code> vagy nem fut kód:</strong> a tréneri tartalék v2 „B-terv” jelöléssel megy tovább; kód nélkül a csomagot kézi jegyzékkel ellenőrzöd. A kiesett funkció a kódos ellenőrzés.</div>
+          <p class="why"><strong>Miért fontos:</strong> az R2 csak akkor második vélemény, ha ugyanolyan szűk és tiszta a bemenete, mint az R1-é.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-11" data-csoport="3" data-csoport-nev="R2 és stop-döntés" data-rovid="Az R2 indítása és futása" data-ido="kb. 8 perc">
+        <header class="lepes-fej">
+          <div><h3>Az R2 indítása és futása</h3><span class="lepes-cimke"><span class="ido">kb. 8 perc</span> · C fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nyiss</b> új Work-beszélgetést a review-projektben, GPT-6.1 Sol modellel; az első mondat: „RONDO 05 reviewer R2.”</li><li><b>Nézd meg</b> az <code>R2.md</code> fejlécét és verdiktjét a futás végén.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>R2.md</code> az R-jelentés sablon szerint, külön szakasszal az R1 tételeinek újraellenőrzéséről.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>az <code>R2.md</code> létrejött, és a vizsgált verziók fel vannak sorolva (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A reviewer nem javít, és ami nem ellenőrizhető, az nem teljesített. A második kör azt mutatja meg, hogy a javítás tényleg javított-e, és nem rontott-e el mást.</div><div class="fallback"><strong>Ha a reviewer futás két percen belül nem indul:</strong> a pár emberi review készíti az R2-t a recept és a csomag alapján; a tréneri tartalék R2 „B-terv” jelöléssel áll rendelkezésre.</div>
+          <p class="why"><strong>Miért fontos:</strong> a javítás csak akkor igazolt, ha a független ellenőr látja is; nem elég, hogy a készítő szerint megtörtént.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-12" data-csoport="3" data-csoport-nev="R2 és stop-döntés" data-rovid="Javított tételek és saját visszakeresés" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Javított tételek és saját visszakeresés</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · C fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd meg</b> a finding-táblát: R1 finding, javítva-e az R2 szerint, a <code>v2/</code> helye; a romlás és az új hiba is látszik.</li><li><b>Keress vissza</b> magad két állítást az öt kijelöltből; az AI csak a linkeket adja.</li><li><b>Döntsd el</b>: A: elfogadom az R2 eredményét · B: egy tételnél nem értek egyet (írd le, melyiknél) · C: egynél nem dönthető el a forrásból · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r2_visszakeres.md</code>: finding-tábla és a két saját visszakeresés eredménye.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>minden R1 finding sorában szerepel az R2 megállapítása és a hely (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A javítás ellenőrzése a legkockázatosabb pont: könnyű elhinni, hogy ami javított, az jó. A két saját visszakeresésnél az AI nem olvassa fel a választ.</div>
+          <p class="why"><strong>Miért fontos:</strong> a saját kezű visszakeresés miatt a végső döntés a tiéd, és nem a reviewer szavára támaszkodik.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-13" data-csoport="3" data-csoport-nev="R2 és stop-döntés" data-rovid="Stop-döntés" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Stop-döntés</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · C fázis · BA és Sales-Account</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Nézd át</b> a kitöltött stop-döntés sablont: a körök (alapmérés, R1, v2, R2), a K-teljesülés, a rubrika átlaga, a nyitott blocker és major száma, és hogy melyik stop-szabály teljesül.</li><li><b>Döntsd el</b>: A: lezárt (minden K teljesült, nincs nyitott blocker vagy major) · B: feltételes (a nyitott tételek tételesen, felelőssel) · C: blokkolt (döntés vagy jogosultság hiányzik) · más: írd le.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>stop-dontes.md</code>. BA-sávon lezárt vagy feltételes döntésnél a végleges FDD-egység másolata a <code>Munka/04-Agent/fdd/</code> mappába kerül, verziónévvel.</p></div>
+          </div>
+          
+          <p class="kesz-ha"><b>Kész, ha</b><span>a számok egyeznek a naplóval és a jelentésekkel, és a mentett döntés idézett (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Itt ér véget a „repeat until good”: a körkeret legfeljebb 2 belső kör és 2 review (R1, R2); harmadik review nem indul.</div><div class="callout figyelj"><span class="callout-cim">Figyelj</span>A „kész” nem küldési, publikálási vagy átadási engedély. Feltételes döntésnél a nyitott tételnek felelőse és határideje van, vagy „Nincs megadva”.</div><div class="fallback"><strong>Ha időhiány van:</strong> a harmadik review nem indul; a stop-döntés a meglévő két körre épül, a nyitott tételek feltételes döntésben szerepelnek.</div>
+          <p class="why"><strong>Miért fontos:</strong> a jó eredmény nem végtelen javítás, hanem kimondott, bizonyítékkal alátámasztott lezárás: ami nyitva maradt, az látszik.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Mitől jó és validált? Pipáld ki, mielőtt lezárod.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>A recept megvan (<code>reviewer/SKILL.md</code> vagy <code>reviewer-brief.md</code>), és kimondja: a reviewer nem javít, a bemenet a <code>review/</code> csomag.</div></li>
+      <li data-id="v2"><div>A csomagjegyzék megvan, a kizárt fájlok nincsenek benne, és a csomag-ellenőrzés parancsa meg eredménye rögzített.</div></li>
+      <li data-id="v3"><div>Az <code>R1.md</code> és az <code>R2.md</code> a sablon szerinti, a vizsgált fájlok pontos verziójával és a függetlenség korlátjával.</div></li>
+      <li data-id="v4"><div>Minden kritérium PASS / FAIL / NEM ELLENŐRIZHETŐ; a parancs és a tényleges eredmény idézett; az öt állítás forráshelye megvan; a rubrika 1–5.</div></li>
+      <li data-id="v5"><div>A stop-döntés megnevezi a teljesült stop-szabályt, a körkeret (2 belső, 2 külső) betartva, harmadik review nem indult.</div></li>
+      <li data-id="v6"><div>BA: lezárt vagy feltételes döntésnél a végleges FDD-egység másolata az <code>fdd/</code> mappában van.</div></li>
+      <li data-id="v7"><div>A fiktív jelölés megvan, a hiány „Nincs megadva”, a javaslat nem döntés, a lényeges állításoknál van forráshely.</div></li>
+      <li data-id="v8"><div>Ha tartalék vagy páros emberi review szerepelt, az „B-terv” jelöléssel áll, és nem gépi reviewerként.</div></li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>Az öt kijelölt állítás forráshelye megvan, és kettőt magad kerestél vissza.</div>
+      <div><b>Gépi ellenőrzés</b>A csomag-ellenőrzés és a determinisztikus mérés parancsa és tényleges eredménye idézett; a gép támogat, nem bizonyítja a tartalmi helyességet.</div>
+      <div><b>Független ellenőr</b>Friss beszélgetés, szűk csomag, a maker magyarázata nélkül; a függetlenség korlátja egy sorban rögzítve.</div>
+      <div><b>Ismétlés és megállás</b>Legfeljebb két belső kör és két review; a harmadik nem indul, a megállás oka kimondott.</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol>
+        <li>A Sol nem látszik a választóban: kérj helyettesítést a trénertől; ne válassz másikat magadtól.</li>
+        <li>Nincs Skill-lehetőség a munkatérben: a reviewer-brief a recept, a módszer azonos.</li>
+        <li>A reviewer többet lát a csomagnál (memória, korábbi beszélgetés): a korlát a jelentés fejlécébe kerül, és páros emberi review egészíti ki.</li>
+        <li>Nem fut kód: kézi vagy táblázatkezelős újraszámolás készül, és a jelentés kimondja, hogy a kódos cél nem teljesült. Sales-Account: a képlet-újraszámolás sikerét külön sorban rögzíted.</li>
+        <li>Az R1 nem készült el 14:15-ig, vagy hiányzik a <code>v2/</code>: a tréneri tartalék R1, illetve v2 jön „B-terv” jelöléssel.</li>
+        <li>A reviewer jelentése téves lehet: a forrásban visszakeresteted; a vitatott tétel a te döntésed.</li>
+        <li>Valós Oriana-adat vagy jelszó került a beszélgetésbe: állj meg, ne mentsd; a valós munka a saját fiókodban marad.</li>
+      </ol>
+      <p>Két perc után szólj <strong>Krisztiánnak</strong> vagy <strong>Csabának</strong>.</p>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Segítség bármikor</span><em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em> · Módot így váltasz: <em>„Váltsunk vezetett / közös módra.”</em></div>
+    <div class="fallback"><strong>Ha a munkatérben nem elérhető:</strong> ha nincs Skill vagy izolált friss beszélgetés, a reviewer-brief szövegként és a páros emberi review pótolja; ha nincs kódfuttatás, kézi vagy táblázatkezelős újraszámolás készül, és a kódos cél nem teljesültként jelölt. A módszer azonos.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3>
+        <ul>
+          <li><strong>BA (üzleti elemző):</strong> egy FDD-egység vagy más fejlesztés előtti dokumentum független ellenőrzése saját kritériumlistával és szűk csomaggal, két körben; a recept újrahasználható a következő egységhez.</li>
+          <li><strong>Sales-Account:</strong> egy ajánlat vagy megújítás számainak és vállalásainak független ellenőrzése: újraszámolás pénznemenként külön, vállalás és kérés elkülönítése, öt kijelölt tétel forráshelye.</li>
+          <li><strong>Közös:</strong> minden olyan munkánál, amelynél a készítő nem ellenőrizheti önmagát: friss beszélgetés, szűk csomag, három réteg (kód, forrás, rubrika) és kimondott stop-feltétel.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Mi kell hozzá</h3>
+        <ul>
+          <li>Egy kritériumlista (K-azonosítókkal), amelyre a recept épül.</li>
+          <li>Egy szűk csomag, amelyből a készítő magyarázata kimarad.</li>
+          <li>Egy kimondott stop-szabály és körkeret.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>Szünet 14:35, majd 6. gyakorlat: Ügykövető (Sites) · 15:10</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük a 6. gyakorlatot.”</em></p></div>
+      <a class="gomb" href="06-sites-notebook.html">Tovább a 6. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="04-rondo-agent-notebook.html" rel="prev">◀ 4. gyakorlat</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="06-sites-notebook.html" rel="next">6. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

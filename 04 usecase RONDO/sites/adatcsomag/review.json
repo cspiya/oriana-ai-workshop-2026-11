@@ -1,0 +1,34 @@
+{
+  "_jeloles": "KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA",
+  "_elhatarolas": "A RONDO Hullámkartongyártó Kft. valós cég; az itt leírt projekt, igények, személyek és számok kitaláltak, nem a cég valós működését írják le.",
+  "adat": [
+    {
+      "tetel_id": "T-01",
+      "kriterium": "K4 forráshely",
+      "eredmeny": "PASS",
+      "bizonyitek": "Az R-01 sora a jegyzetben megtalálható.",
+      "verzio": "elozetes-minta"
+    },
+    {
+      "tetel_id": "T-04",
+      "kriterium": "K1 ár és összeg",
+      "eredmeny": "PASS",
+      "bizonyitek": "100 × 118 000 = 11 800 000 HUF, az árlista HUF lapja szerint.",
+      "verzio": "elozetes-minta"
+    },
+    {
+      "tetel_id": "T-06",
+      "kriterium": "K2 kedvezményszabály",
+      "eredmeny": "PASS",
+      "bizonyitek": "A 18% a 15% feletti sávba esik: nem ajánlható.",
+      "verzio": "elozetes-minta"
+    },
+    {
+      "tetel_id": "T-08",
+      "kriterium": "K3 forráshelyes kockázat",
+      "eredmeny": "PASS",
+      "bizonyitek": "Az M-05 sor a műszaki mellékletben megtalálható.",
+      "verzio": "elozetes-minta"
+    }
+  ]
+}

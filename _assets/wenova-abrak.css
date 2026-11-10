@@ -1,0 +1,127 @@
+/* Wenova workshop – a dinamikus ábrák (.abra, wenova-abrak.js) stílusa. Design system v2 (2026-11-10). A wenova.css @import-tal tölti be;
+   a napi-attekintes.html közvetlenül, saját tokenjeit a figure.abra elemen leképezve. Külső erőforrás nincs.
+   Színezés: minden rész (.abra-part) csoportszínt kap a .szin-* osztályból (--pc teli, --pc-soft háttér, --pc-deep szöveg); a csoportok
+   így már a színből látszanak: közös alap, munkafolyamat, kapuk, ember dönt, BA, Sales–Account, proaktív segéd, visszacsatolás.
+   Állapot: hátralévő = halvány (soft kitöltés, szaggatott, áttetsző keret) · megépült = soft kitöltés, teli keret, színes felirat ·
+   aktuális = teli kitöltés, fehér felirat. A tokenek a wenova.css-ből jönnek; itt tartalék értékek állnak, ha az ábra önállóan töltődik. */
+.abra {
+  margin: var(--space-3, 1.5rem) 0; padding: 0; max-width: 100%; min-width: 0;
+  --pc: var(--accent, #4f46e5); --pc-soft: var(--accent-soft, #e8e7ff); --pc-deep: var(--accent-deep, #3730a3);
+}
+.abra .abra-svg { display: block; width: 100%; height: auto; max-height: 72vh; font-family: var(--font, sans-serif); overflow: visible; }
+.abra .abra-cim { fill: var(--text); font-weight: 700; letter-spacing: -.01em; }
+.abra .ln { fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.abra .ln.dash { stroke-dasharray: 6 5; }
+.abra .ah { fill: var(--text-muted); }
+.abra .box, .abra .fok { fill: var(--surface); stroke: var(--border); stroke-width: 1.6; }
+.abra .fok { stroke-width: 1.2; }
+.abra .lbl { fill: var(--text); } .abra .sub { fill: var(--text-secondary); } .abra .it { font-style: italic; }
+.abra .mark { fill: none; stroke: var(--text-secondary); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.abra .abra-part { cursor: pointer; }
+.abra .abra-part .box, .abra .abra-part .fok, .abra .abra-part .lbl, .abra .abra-part .sub, .abra .abra-part .ln, .abra .abra-part .mark { transition: fill .25s ease, stroke .25s ease; }
+/* Csoportszín-tokenek a részeken */
+.abra .abra-part.szin-dns { --pc: var(--sav-all, var(--accent)); --pc-soft: var(--sav-all-soft, var(--accent-soft)); --pc-deep: var(--sav-all-deep, var(--accent-deep)); }
+.abra .abra-part.szin-flow { --pc: var(--g2, #c2410c); --pc-soft: var(--g2-soft, #ffedd5); --pc-deep: var(--g2-deep, #9a3412); }
+.abra .abra-part.szin-ok { --pc: var(--kesz, var(--ok, #15803d)); --pc-soft: var(--kesz-soft, var(--ok-soft, #dcfce7)); --pc-deep: var(--kesz-deep, var(--ok-deep, #166534)); }
+.abra .abra-part.szin-warn { --pc: var(--jegyezd, var(--warn, #b45309)); --pc-soft: var(--jegyezd-soft, var(--highlight, #fef3c7)); --pc-deep: var(--jegyezd-deep, var(--warn-deep, #78350f)); }
+.abra .abra-part.szin-ba { --pc: var(--sav-ba, #0369a1); --pc-soft: var(--sav-ba-soft, #e0f2fe); --pc-deep: var(--sav-ba-deep, #075985); }
+.abra .abra-part.szin-sa { --pc: var(--sav-sa, #be185d); --pc-soft: var(--sav-sa-soft, #fce7f3); --pc-deep: var(--sav-sa-deep, #9d174d); }
+.abra .abra-part.szin-pro { --pc: var(--g6, #0e7490); --pc-soft: var(--g6-soft, #cffafe); --pc-deep: var(--g6-deep, #155e75); }
+.abra .abra-part.szin-tanulsag { --pc: var(--g3, #7c3aed); --pc-soft: var(--g3-soft, #ede9fe); --pc-deep: var(--g3-deep, #5b21b6); }
+.abra .abra-part.szin-fok1 { --pc: var(--g6, #0e7490); --pc-soft: var(--g6-soft, #cffafe); --pc-deep: var(--g6-deep, #155e75); }
+.abra .abra-part.szin-fok2 { --pc: var(--g1, #2563eb); --pc-soft: var(--g1-soft, #dbeafe); --pc-deep: var(--g1-deep, #1e40af); }
+.abra .abra-part.szin-fok3 { --pc: var(--g3, #7c3aed); --pc-soft: var(--g3-soft, #ede9fe); --pc-deep: var(--g3-deep, #5b21b6); }
+.abra .abra-part.szin-fok4 { --pc: var(--g4, #db2777); --pc-soft: var(--g4-soft, #fce7f3); --pc-deep: var(--g4-deep, #9d174d); }
+.abra .abra-part.szin-fok5 { --pc: var(--g2, #c2410c); --pc-soft: var(--g2-soft, #ffedd5); --pc-deep: var(--g2-deep, #9a3412); }
+.abra .abra-part.szin-g1 { --pc: var(--g1, #2563eb); --pc-soft: var(--g1-soft, #dbeafe); --pc-deep: var(--g1-deep, #1e40af); }
+.abra .abra-part.szin-g2 { --pc: var(--g2, #c2410c); --pc-soft: var(--g2-soft, #ffedd5); --pc-deep: var(--g2-deep, #9a3412); }
+.abra .abra-part.szin-g3 { --pc: var(--g3, #7c3aed); --pc-soft: var(--g3-soft, #ede9fe); --pc-deep: var(--g3-deep, #5b21b6); }
+.abra .abra-part.szin-g4 { --pc: var(--g4, #db2777); --pc-soft: var(--g4-soft, #fce7f3); --pc-deep: var(--g4-deep, #9d174d); }
+.abra .abra-part.szin-g5 { --pc: var(--g5, #4d7c0f); --pc-soft: var(--g5-soft, #ecfccb); --pc-deep: var(--g5-deep, #3f6212); }
+.abra .abra-part.szin-g6 { --pc: var(--g6, #0e7490); --pc-soft: var(--g6-soft, #cffafe); --pc-deep: var(--g6-deep, #155e75); }
+/* fejezet-ábrák: a szünet és a külső (másik gyakorlatban készülő) rész szaggatott */
+.abra[data-abra="agent-futas"] .abra-part.p-ebed .box, .abra[data-abra="agent-futas"] .abra-part.p-r1 .box, .abra[data-abra="portal-dryrun"] .abra-part.p-kezi .box { stroke-dasharray: 5 4; }
+/* Alapállapot (pl. a lépcső, ahol nincs megépült/hátralévő): a csoportszín halvány kitöltése és kerete */
+.abra .abra-part .box { fill: var(--pc-soft); stroke: var(--pc); }
+.abra .abra-part .lbl { fill: var(--pc-deep); }
+.abra .abra-part .ln { stroke: var(--pc); }
+.abra .abra-part .mark { stroke: var(--pc-deep); }
+/* Hátralévő rész: halvány, de olvasható; a csoportszín már látszik (szaggatott, áttetsző keret) */
+.abra .abra-part.is-todo .box { fill: var(--pc-soft); stroke: var(--pc); stroke-opacity: .5; stroke-dasharray: 5 4; }
+.abra .abra-part.is-todo .fok { fill: var(--surface); stroke: var(--pc); stroke-opacity: .5; }
+.abra .abra-part.is-todo .lbl { fill: var(--text-secondary); } .abra .abra-part.is-todo .sub { fill: var(--text-secondary); }
+.abra .abra-part.is-todo .ln { stroke: var(--pc); stroke-opacity: .55; stroke-width: 2.2; } .abra .abra-part.is-todo .mark { stroke: var(--pc); stroke-opacity: .7; }
+/* Megépült rész */
+.abra .abra-part.is-built .box { fill: var(--pc-soft); stroke: var(--pc); stroke-width: 2.2; }
+.abra .abra-part.is-built .fok { fill: var(--surface); stroke: var(--pc); }
+.abra .abra-part.is-built .lbl { fill: var(--pc-deep); } .abra .abra-part.is-built .ln { stroke: var(--pc); } .abra .abra-part.is-built .mark { stroke: var(--pc-deep); }
+/* Aktuális rész */
+.abra .abra-part.is-current .box { fill: var(--pc); stroke: var(--pc-deep); }
+.abra .abra-part.is-current .fok { fill: rgba(255,255,255,.2); stroke: rgba(255,255,255,.75); }
+.abra .abra-part.is-current .lbl, .abra .abra-part.is-current .sub { fill: var(--on-solid, #fff); } .abra .abra-part.is-current .mark { stroke: var(--on-solid, #fff); }
+.abra .abra-part.is-current .ln { stroke: var(--pc); }
+.abra .abra-part.is-open .box { stroke-width: 3.2; stroke-dasharray: none; stroke-opacity: 1; }
+.abra .abra-part:hover .box { stroke-width: 2.6; }
+/* Alakzaton kívüli feliratok (.cap): mindig a háttérhez igazodnak, nem a kitöltéshez */
+.abra .cap { fill: var(--pc-deep); }
+.abra .abra-part.is-todo .cap { fill: var(--text-secondary); }
+.abra .abra-part.is-current .cap { fill: var(--pc-deep); font-weight: 700; }
+/* A reviewer kör külön, friss kontextus: szaggatott keret a maker sávon belül */
+.abra .abra-part.p-reviewer .box { stroke-dasharray: 5 4; }
+/* A maker és a reviewer kör tároló sáv: aktuálisan is világos marad, vastag kerettel, hogy a benne lévő lépések olvashatók legyenek */
+.abra .abra-part.p-maker.is-current .box, .abra .abra-part.p-reviewer.is-current .box { fill: var(--pc-soft); stroke: var(--pc); stroke-width: 3.2; }
+.abra .abra-part.p-maker.is-current .lbl, .abra .abra-part.p-reviewer.is-current .lbl, .abra .abra-part.p-maker.is-current .sub, .abra .abra-part.p-reviewer.is-current .sub { fill: var(--pc-deep); font-weight: 700; }
+/* Á2 jelölők és jelölő-választó */
+.abra .abra-jelolo-valaszto { display: inline-flex; gap: .25rem; align-items: center; margin-right: .5rem; padding-right: .5rem; border-right: 1px solid var(--border); }
+.abra .abra-jelolo-valaszto > span { color: var(--text-muted); }
+.abra .abra-jelolo-valaszto .abra-chip[data-mode="nap"].is-open { background: var(--kesz-soft, var(--ok-soft)); color: var(--kesz-deep, var(--ok-deep)); border-color: var(--kesz, var(--ok)); }
+.abra .jelolo { opacity: 0; transition: opacity .2s; } .abra .abra-part.is-ma .jelolo, .abra .abra-part.is-nap .jelolo { opacity: 1; }
+.abra .ma-box, .abra .nap-box, .abra .ma-lbl, .abra .nap-lbl { visibility: hidden; }
+.abra .abra-part.is-ma .ma-box, .abra .abra-part.is-ma .ma-lbl { visibility: visible; } .abra .abra-part.is-nap .nap-box, .abra .abra-part.is-nap .nap-lbl { visibility: visible; }
+.abra .ma-box { fill: var(--jegyezd, var(--warn)); } .abra .ma-lbl { fill: var(--on-solid, #fff); font-weight: 700; } .abra .nap-box { fill: var(--kesz, var(--ok)); } .abra .nap-lbl { fill: var(--on-solid, #fff); font-weight: 700; }
+.abra .abra-part.is-ma .box { fill: var(--pc); stroke: var(--pc-deep); stroke-dasharray: none; stroke-opacity: 1; } .abra .abra-part.is-ma .lbl, .abra .abra-part.is-ma .sub { fill: var(--on-solid, #fff); }
+.abra .abra-part.is-nap .box { stroke: var(--kesz, var(--ok)); stroke-width: 3; stroke-dasharray: none; stroke-opacity: 1; }
+/* Lépésenkénti kirajzolódás: a részek a láthatóvá válásig rejtve, majd sorban; az aktuális egyszer pulzál */
+.abra.anim .abra-part { opacity: 0; }
+.abra.anim.is-live .abra-part { animation: abra-in .5s ease-out forwards; animation-delay: calc(var(--n, 0) * 150ms); }
+.abra.anim.is-live.pulse .abra-part.is-current > .body { transform-box: fill-box; transform-origin: center; animation: abra-pulse 1s ease-in-out 1 both; animation-delay: calc(var(--n, 0) * 150ms + .55s); }
+@keyframes abra-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes abra-pulse { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.045); } }
+@media (prefers-reduced-motion: reduce) {
+  .abra .abra-part, .abra .abra-part > .body, .abra .abra-part * { animation: none !important; transition: none !important; }
+  .abra.anim .abra-part { opacity: 1; }
+}
+/* Szöveges kísérők: állapotsor, részlet-csipszek, infó, figcaption */
+.abra .abra-most { font-size: .95rem; color: var(--text-secondary); margin: .5rem 0 0; font-weight: 600; }
+.abra .abra-chips { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; margin: .5rem 0 0; font-size: .82rem; color: var(--text-muted); }
+.abra .abra-chips-label { margin-right: .15rem; }
+.abra .abra-chip { font: inherit; font-size: .8rem; line-height: 1.2; padding: .2rem .65rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); cursor: pointer; }
+.abra .abra-chip:hover, .abra .abra-chip:focus-visible { border-color: var(--accent); color: var(--accent-deep); outline: none; }
+.abra .abra-chip.is-open { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent); }
+.abra .abra-info { margin-top: .5rem; border: 1px solid var(--border); border-left: 5px solid var(--accent); background: var(--surface); border-radius: var(--radius, 8px); padding: .7rem 1rem; font-size: .95rem; line-height: 1.5; }
+.abra .abra-info .hol { color: var(--text-muted); font-size: .85rem; margin-top: .3rem; }
+.abra .abra-lanc { display: flex; flex-wrap: wrap; gap: .25rem; align-items: center; margin: .45rem 0 0; }
+.abra .abra-lanc span { background: var(--surface-2); border-radius: 4px; padding: .1rem .45rem; font-size: .82rem; }
+.abra .abra-lanc i { color: var(--text-muted); font-style: normal; font-size: .82rem; }
+.abra figcaption { font-size: .88rem; color: var(--text-muted); margin-top: .5rem; line-height: 1.45; max-width: none; }
+.abra.abra-ismeretlen::before { content: "Ismeretlen ábra (data-abra). "; color: var(--jegyezd-deep, var(--warn-deep)); font-size: .8rem; }
+/* Dián: tömör elrendezés 1280×720-ra is (fejléc + ábra + állapotsor + figcaption + egy mondat elfér a lábléc fölött) */
+body.deck .abra { margin: .2rem 0; }
+body.deck .abra .abra-svg { max-height: 46vh; }
+body.deck .abra figcaption { font-size: clamp(.72rem, .95vw, .9rem); line-height: 1.35; margin-top: .3rem; }
+body.deck .abra .abra-most, body.deck .abra .abra-info { font-size: clamp(.8rem, 1vw, .95rem); margin-top: .25rem; }
+body.deck .abra .abra-chips { display: none; }
+@media (max-width: 640px) { .abra .abra-svg { max-height: none; } .abra .abra-chip { font-size: .74rem; } }
+@media print {
+  .abra .abra-part, .abra .abra-part > .body { animation: none !important; opacity: 1 !important; }
+  .abra .abra-chips { display: none; }
+  .abra .abra-svg { max-height: none; }
+}
+
+/* Vetítésre tömörített térkép, olvasható feliratokkal. */
+body.deck #nap-terkepe { padding-left: 4vw; padding-right: 4vw; }
+body.deck #nap-terkepe h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); margin-bottom: .4rem; }
+body.deck #nap-terkepe .abra .abra-svg { max-height: 56vh; min-height: 390px; }
+body.deck #nap-terkepe .abra .abra-most { display: none; }
+body.deck #nap-terkepe .abra figcaption { font-size: 14px; line-height: 1.35; margin-top: .3rem; }
+body.deck #nap-terkepe .takeaway { font-size: 1rem; margin-top: .5rem; }

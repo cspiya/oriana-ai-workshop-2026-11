@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NN. gyakorlat: Cím · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+<!-- A fenti sor a villanás ellen: a mentett (vagy ?tema=dark|light|system URL-paraméterrel kért) témát azonnal beállítja. -->
+
+</head>
+<!-- Notebook v2 (design system v2, 2026-11-10). Szerkezet felülről lefelé:
+     1. Felső napi navigáció (.topbar): a nap blokkjai menüként (a wenova.js DAY tömbjéből), az aktuális kiemelve sávszínnel, ◀ ▶ lépkedő, téma-váltó.
+     2. Session-fejléc (.session-fejlec): Cél egy mondatban · Mit gyakorolunk (csipszek csoportszínnel) · Honnan → hová · Miért fontos.
+     3. Így indítsd (.start-box): az indító mondat(ok).
+     4. Fejezet-ábra hely (.fejezet-abra): fejezetenként MÁS ábra. Az Á1 vezérelv-ábra csak a 00-s és a 07-es notebookban marad.
+     5. Lépésvezető (.gyakorlat): bal oldalt függőleges haladási vonal (.lepes-sin, a JS tölti) állomásokkal, „Hol tartok” és „Kész: n/N”,
+        előre/vissza; jobb oldalt a lépések (.lepes) színes fejléccel, csoportszínnel (data-csoport), „Mit csinálsz” / „Mit kapsz” / „Kész, ha…”,
+        Kész-pipa (localStorage). Alapállapotban minden lépés olvasható; az aktuálist a görgetés jelöli ki.
+     6. Mitől jó az eredmény (ellenőrzőlista), Ha elakadsz (elakadás-doboz + tipp-létra), Vidd haza, Következő.
+     Kiemelő dobozok: .callout.jegyezd (kulcsgondolat) · .callout.figyelj (csapda, hiba) · .callout.tipp · .callout.kesz · .callout.elakadas.
+     data-depth: hány szinttel a tananyag gyökere alatt van a fájl (Notebookok/ = 1). data-current: a gyakorlat azonosítója a nap térképén (00 … 06b, 07).
+     Csoportszínek (data-csoport): 1 kék · 2 narancs · 3 lila · 4 rózsa · 5 olajzöld · 6 cián; nevesítve: elokeszites, maker, reviewer, rogzites, dontes, seged.
+     Tiltott szavak a résztvevői anyagban: a tananyag AGENTS.md szerint. Fiktív oktatási minták. -->
+<body class="notebook v2" data-depth="1" data-current="NN">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="NN" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"><!-- a téma-váltó ide kerül (wenova.js) --></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>N. gyakorlat · HH:MM–HH:MM</span><span class="badge all">közös</span><span>vezeti: Piya Csaba</span></div>
+      <h1 id="cim">Cím</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Egy mondat: mit tudsz a végén, amit előtte nem.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">fogalom vagy mozdulat 1</li>
+          <li data-csoport="2">fogalom vagy mozdulat 2</li>
+          <li data-csoport="3">fogalom vagy mozdulat 3</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ NN perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/NN-Nev</span><span>mód: vezetett</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span><ul><li>kiinduló állapot 1</li><li>kiinduló állapot 2</li></ul></div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span><ul><li><code>kimenet-1.md</code>: mi van benne</li><li><code>kimenet-2.md</code>: mi van benne</li></ul></div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> egy-két mondat: mire épül a nap többi része, mi lesz tőle jobb a saját munkádban.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-box">
+      <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+      <div class="say">Kezdjük az N. gyakorlatot.</div>
+      <p>Az asszisztens egy sorban megmondja, hol tartasz, elmondja a menetet, maga futtat, és csak azt kérdezi, amit egyedül te tudsz.</p>
+    </div>
+    <!-- Több fázisnál: „Folytassuk az N. gyakorlatot.” 04/05: külön .start-box.alt „friss Work-beszélgetésben” felirattal -->
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Mit mutat ez az ábra, egy mondatban</h2>
+    <!-- Fejezetenként más ábra: data-abra="vezerelv" csak a 00 és a 07 notebookban; a többi saját ábrát kap (második kör). -->
+    <figure class="abra" data-abra="NEV" data-stage="NN" data-cim="nincs">
+      <figcaption>Az ábra szöveges megfelelője: mit mutat, mi az aktuális rész, mi következik.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat lépései</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">A fázis · Előkészítés <span class="when">HH:MM–HH:MM</span></div>
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Előkészítés" data-rovid="Rövid név" data-ido="HH:MM–HH:MM">
+        <header class="lepes-fej">
+          <div><h3>A lépés címe</h3><span class="lepes-cimke"><span class="ido">HH:MM–HH:MM</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Ige</b> + mit, mivel.</li><li><b>Ige</b> + mit, mivel.</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az asszisztens kimenete, fájl vagy táblázat.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az elfogadási kritérium résztvevői nyelven.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A kulcsgondolat egy mondatban.</div>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">A fázis · Kulcslépések <span class="when">HH:MM–HH:MM</span></div>
+      <!-- Szünet a lépések között (nem lépés, a sínben nem szerepel), pl. amíg az agent fut:
+           <div class="lepes-szunet"><span class="ido">12:30–13:15</span><p>Ebéd: az agent a háttérben fut, neked nincs feladatod.</p></div>
+           Párhuzamos sáv egy lépésen belül: <div class="lanes"><div class="lane ba"><h3>BA</h3>…</div><div class="lane sa"><h3>Sales-Account</h3>…</div></div> -->
+      <section class="lepes" id="lepes-2" data-csoport="2" data-csoport-nev="Kulcslépések" data-rovid="Rövid név" data-ido="HH:MM–HH:MM">
+        <header class="lepes-fej">
+          <div><h3>A lépés címe</h3><span class="lepes-cimke"><span class="ido">HH:MM–HH:MM</span> · A fázis · közös <span class="kulcs">kulcslépés: te írod</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Mondd el</b> a saját szavaiddal …</li></ul></div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>…</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>…</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A tipikus csapda.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder"><li><b>Rávezető kérdés</b>…</li><li><b>Üres váz</b>a prompt hét eleme</li><li><b>Félkész prompt</b>…</li><li><b>Teljes minta</b>…</li></ol>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Pipáld ki, mielőtt továbblépsz.</p>
+    <ul class="checklist">
+      <li data-id="v1">Elfogadási kritérium résztvevői nyelven</li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>…</div><div><b>Gépi ellenőrzés</b>…</div><div><b>Független ellenőr</b>…</div><div><b>Ismétlés és megállás</b>…</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol><li>Írd be: <em>„Elakadtam, ezt kaptam: …”</em></li><li>…</li></ol>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Tipp</span>Segítség bármikor: <em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em></div>
+    <div class="fallback"><strong>Ha a munkatérben nem elérhető:</strong> a B-terv egy mondatban.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3><p>1–3 saját feladat, ahol ugyanez a menet működik.</p></div>
+      <div class="card"><h3>Mi kell hozzá</h3><p>A kiinduló fájl, a mérce, a forrás.</p></div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>N+1. gyakorlat: Cím · HH:MM</h3><p>Indító mondat: <em>„Kezdjük az N+1. gyakorlatot.”</em></p></div>
+      <a class="gomb" href="../index.html">Tovább a következőre ▶</a><!-- a következő notebook fájlneve, pl. 01-dns-notebook.html -->
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="#" rel="prev">◀ Előző</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="#" rel="next">Következő ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

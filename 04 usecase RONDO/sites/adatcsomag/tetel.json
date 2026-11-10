@@ -1,0 +1,86 @@
+{
+  "_jeloles": "KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA",
+  "_elhatarolas": "A RONDO Hullámkartongyártó Kft. valós cég; az itt leírt projekt, igények, személyek és számok kitaláltak, nem a cég valós működését írják le.",
+  "adat": [
+    {
+      "id": "T-01",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "igeny",
+      "leiras": "Harmadik jóváhagyó bevezetése a jóváhagyási láncban (R-01).",
+      "forras": "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-01",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "review-n_atment",
+      "owner_email": "ba.minta@pelda.example"
+    },
+    {
+      "id": "T-02",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "igeny",
+      "leiras": "Helyettesítési szabály: a helyettes neve Nincs megadva (R-02).",
+      "forras": "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-02",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "nyitott_kerdes",
+      "owner_email": "ba.minta@pelda.example"
+    },
+    {
+      "id": "T-03",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "igeny",
+      "leiras": "Jóváhagyási küszöb: 15 M vagy 20 M Ft, döntés nincs; az 500 ezer Ft alatti automatikus jóváhagyás javaslat, nem döntés.",
+      "forras": "2026-11-07_RONDO_level_kuszob.md",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "nyitott_kerdes",
+      "owner_email": "ba.minta@pelda.example"
+    },
+    {
+      "id": "T-04",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "ajanlati_tetel",
+      "leiras": "LIC-STD, 100 felhasználó, 118 000 HUF egységár, nettó összeg 11 800 000 HUF.",
+      "forras": "Arlista_2027_licenc_support.xlsx, HUF lap; Levelezes_RONDO_megujitas_2026-10.md, Levél 1",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "review-n_atment",
+      "owner_email": "sales.minta@pelda.example"
+    },
+    {
+      "id": "T-05",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "ajanlati_tetel",
+      "leiras": "SSO (SAML 2.0): az ár Nincs megadva, az árlistán nincs SSO-tétel.",
+      "forras": "Levelezes_RONDO_megujitas_2026-10.md, Levél 3; Arlista_2027_licenc_support.xlsx",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "nyitott_kerdes",
+      "owner_email": "sales.minta@pelda.example"
+    },
+    {
+      "id": "T-06",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "ajanlati_tetel",
+      "leiras": "Kedvezmény: a kért 18% nem ajánlható; 10%-ig saját hatáskör, 10% felett legfeljebb 15%-ig jóváhagyással.",
+      "forras": "Levelezes_RONDO_megujitas_2026-10.md, Levél 1 és 4",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "review-n_atment",
+      "owner_email": "sales.minta@pelda.example"
+    },
+    {
+      "id": "T-07",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "kockazat",
+      "leiras": "A kért 99,9% rendelkezésre állás és 4 órás reakcióidő nem vállalás.",
+      "forras": "2025_RONDO_ajanlat_licenc_support.md, 2.1, 2.2, 2.4; Muszaki_melleklet_2025_es_kert_valtozasok.md, M-01, M-02",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "nyitott_kerdes",
+      "owner_email": "account.minta@pelda.example"
+    },
+    {
+      "id": "T-08",
+      "ugy_id": "U-RONDO-2027",
+      "tipus": "kockazat",
+      "leiras": "Az adatexport-kötelezettség (M-05) kimaradt a kért tervezetből: jogi kockázat.",
+      "forras": "Muszaki_melleklet_2025_es_kert_valtozasok.md, M-05",
+      "dns_verzio": "Nincs megadva",
+      "statusz": "review-n_atment",
+      "owner_email": "account.minta@pelda.example"
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA - RONDO ügyfeldosszié gyakorlóportál</title>
+<style>
+:root{--ink:#1d2433;--mut:#566074;--line:#c9d0dc;--bg:#f4f6fa;--card:#fff;--acc:#1f5fbf;--warn:#a4161a;--ok:#146c2e;--hi:#8a5a00}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+#fiktiv-jel{background:var(--warn);color:#fff;text-align:center;font-weight:700;letter-spacing:.06em;padding:8px 12px}
+#fiktiv-jel small{display:block;font-weight:400;letter-spacing:0;opacity:.92}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:10px 16px}
+header.top h1{margin:0;font-size:18px}
+header.top .sub{color:var(--mut);font-size:13px}
+nav.menu{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+nav.menu a{padding:5px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--acc);text-decoration:none}
+nav.menu a[aria-current="page"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+main{max-width:1000px;margin:16px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;margin-bottom:16px}
+h2{margin:0 0 10px;font-size:18px}
+table{border-collapse:collapse;width:100%;background:#fff}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#eef2f8}
+label{display:block;font-weight:600;margin:10px 0 3px}
+input,select,textarea,button{font:inherit}
+input[type=text],input[type=password],input[type=search],select,textarea{width:100%;max-width:420px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff}
+td select{max-width:200px}
+textarea{max-width:100%;font-family:ui-monospace,Consolas,monospace;font-size:13px}
+button,.btn{display:inline-block;padding:6px 14px;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:6px;cursor:pointer;text-decoration:none}
+button.sec,.btn.sec{background:#fff;color:var(--acc)}
+button.danger{background:var(--warn);border-color:var(--warn)}
+button[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.msg{margin:10px 0;padding:8px 12px;border-radius:6px;background:#eaf2ff;border:1px solid #b9d0f5}
+.msg.err{background:#fdecec;border-color:#f0b4b4;color:var(--warn)}
+.msg.ok{background:#e8f5ec;border-color:#a8d5b5;color:var(--ok)}
+.test{background:#fff8e6;border:1px dashed var(--hi);border-radius:6px;padding:10px 14px;margin:12px 0}
+.test dt{font-weight:600}.test dd{margin:0 0 6px;font-family:ui-monospace,Consolas,monospace}
+dl.fields{display:grid;grid-template-columns:170px 1fr;gap:6px 14px;margin:0}
+dl.fields dt{font-weight:600;color:var(--mut)}dl.fields dd{margin:0}
+blockquote{margin:12px 0 0;padding:10px 14px;border-left:4px solid var(--line);background:#f8f9fc}
+.st{display:inline-block;padding:1px 8px;border-radius:10px;font-size:13px;border:1px solid var(--line)}
+.st-ellenorizve{background:#e8f5ec;border-color:#a8d5b5;color:var(--ok)}
+.st-hianyos{background:#fdecec;border-color:#f0b4b4;color:var(--warn)}
+.pager{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
+.pager a,.pager span{padding:4px 10px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--acc);background:#fff}
+.pager a[aria-current="page"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.pager span.off{color:var(--mut)}
+footer{max-width:1000px;margin:0 auto 30px;padding:0 16px;color:var(--mut);font-size:13px}
+footer .fj{font-weight:700;color:var(--warn)}
+.mut{color:var(--mut)}
+.pass{color:var(--ok);font-weight:700}.fail{color:var(--warn);font-weight:700}
+@media(max-width:640px){dl.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="fiktiv-jel" role="note">KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA<small>A RONDO Hullámkartongyártó Kft. valós cég; az itt leírt projekt, igények, személyek és számok kitaláltak, nem a cég valós működését írják le. Oktatási gyakorlóportál: nincs hálózati kapcsolat, nincs valódi rendszer mögötte.</small></div>
+<header class="top">
+  <h1>RONDO ügyfeldosszié (gyakorlóportál)</h1>
+  <div class="sub">RONDO Hullámkartongyártó Kft. (valós cég, kitalált projekt) · beszerzési jóváhagyási kérelmek és ajánlati tételek</div>
+  <nav class="menu" id="menu" aria-label="Fő menü"></nav>
+</header>
+<main id="main" tabindex="-1"></main>
+<footer id="foot"></footer>
+
+<script>
+"use strict";
+/* ===== MAG: tiszta logika, DOM nélkül (ez a blokk Node-ban is futtatható az ellenőrző scriptből) ===== */
+/*CORE-BEGIN*/
+var Core = (function () {
+  var STATUS = { uj: "új", ellenorizve: "ellenőrizve", hianyos: "hiányos" };
+  var FIELD_LABEL = { igeny: "igény", ar: "ár", penznem: "pénznem", jovahagyo: "jóváhagyó", forras: "forrás" };
+  var REQUIRED = ["igeny", "ar", "penznem", "jovahagyo", "forras"];
+  var CSV_HEADER = ["idobelyeg", "ugy_id", "mezo", "elotte", "utana", "eredmeny", "megjegyzes"];
+  var NINCS = "Nincs megadva";
+
+  /* A hat rekord determinisztikus, beágyazott adata. A null érték hiányt jelent (megjelenítve: "Nincs megadva"). */
+  var SEED = [
+    { ugy_id: "RONDO-R-01", tipus: "Követelmény (R-01)", beerkezett: "2026-11-05",
+      igeny: "Harmadik jóváhagyó bevezetése a beszerzési jóváhagyási láncban",
+      ar: 1450000, penznem: "HUF", jovahagyo: "pénzügyi kontroller (RONDO), FIN_APPROVER (fiktív)",
+      forras: "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-01",
+      forrasszoveg: "A jóváhagyási láncban harmadik jóváhagyó szerepel. Példa kérelem összege: 1 450 000 HUF (gyakorlóérték, nem árlistatétel)." },
+    { ugy_id: "RONDO-R-02", tipus: "Követelmény (R-02)", beerkezett: "2026-11-05",
+      igeny: "Helyettesítési szabály a jóváhagyóra",
+      ar: 640000, penznem: "HUF", jovahagyo: null,
+      forras: "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-02",
+      forrasszoveg: "A helyettesítési szabály leírása hivatkozott anyag. A helyettes neve: Nincs megadva. Példa kérelem összege: 640 000 HUF (gyakorlóérték)." },
+    { ugy_id: "RONDO-R-03", tipus: "Követelmény (R-03)", beerkezett: "2026-11-05",
+      igeny: "Devizás összeg átszámítása a jóváhagyási küszöbhöz",
+      ar: 2400, penznem: "EUR", jovahagyo: "pénzügyi kontroller (RONDO), FIN_APPROVER (fiktív)",
+      forras: "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-03",
+      forrasszoveg: "Devizás kérelemnél a küszöbvizsgálathoz az összeget forintra kell átszámítani. Példa kérelem összege: 2 400 EUR (gyakorlóérték)." },
+    { ugy_id: "RONDO-R-04", tipus: "Követelmény (R-04)", beerkezett: "2026-11-05",
+      igeny: "Eszkaláció három munkanap után",
+      ar: 780000, penznem: "HUF", jovahagyo: "pénzügyi kontroller (RONDO), FIN_APPROVER (fiktív)",
+      forras: "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-04",
+      forrasszoveg: "Három munkanapon belül meg nem érkező jóváhagyás esetén az ügy eszkalálódik. Példa kérelem összege: 780 000 HUF (gyakorlóérték)." },
+    { ugy_id: "RONDO-M-03", tipus: "Ajánlati tétel (M-03)", beerkezett: "2026-10-06",
+      igeny: "Licencelt felhasználók száma 60-ról 100-ra (Standard licenc, LIC-STD)",
+      ar: 11800000, penznem: "HUF", jovahagyo: "Szentes Ilona, kereskedelmi igazgató (Oriana, fiktív)",
+      forras: "Levelezes_RONDO_megujitas_2026-10.md, Levél 1; Arlista_2027_licenc_support.xlsx, HUF lap",
+      forrasszoveg: "Megújítás 100 megnevezett felhasználóra. Tétel: LIC-STD, 100 × 118 000 HUF, nettó, éves." },
+    { ugy_id: "RONDO-M-04", tipus: "Ajánlati tétel (M-04)", beerkezett: "2026-10-14",
+      igeny: "Egyszeri bejelentkezés (SSO, SAML 2.0)",
+      ar: null, penznem: null, jovahagyo: "Szentes Ilona, kereskedelmi igazgató (Oriana, fiktív)",
+      forras: "Levelezes_RONDO_megujitas_2026-10.md, Levél 3; Arlista_2027_licenc_support.xlsx (SSO-tétel nincs)",
+      forrasszoveg: "Az ügyfél külön soron kéri az SSO árát. Az árlistán SSO-tétel nem szerepel: az ár Nincs megadva." }
+  ];
+
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function isMissing(v) {
+    if (v === null || v === undefined) return true;
+    var s = String(v).replace(/^\s+|\s+$/g, "");
+    return s === "" || s === NINCS;
+  }
+  function newState() {
+    var s = { v: 1, records: {}, order: [], plan: {}, dry: null, log: [] };
+    SEED.forEach(function (r) { var c = clone(r); c.statusz = "uj"; s.records[r.ugy_id] = c; s.order.push(r.ugy_id); });
+    return s;
+  }
+  function missingFields(rec) { return REQUIRED.filter(function (k) { return isMissing(rec[k]); }); }
+  function expected(rec) {
+    var m = missingFields(rec);
+    return { status: m.length ? "hianyos" : "ellenorizve", missing: m };
+  }
+  function labels(list) { return list.map(function (k) { return FIELD_LABEL[k]; }).join(", "); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function stamp(d) {
+    d = d || new Date();
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+  }
+  function push(state, now, id, elotte, utana, eredmeny, megj) {
+    state.log.push({ idobelyeg: now(), ugy_id: id, mezo: "státusz", elotte: elotte, utana: utana, eredmeny: eredmeny, megjegyzes: megj });
+  }
+  /* Egy státuszváltás kiértékelése mellékhatás nélkül. */
+  function evaluate(rec, target) {
+    var cur = rec.statusz, exp = expected(rec);
+    if (target !== "ellenorizve" && target !== "hianyos") return { kind: "elutasítva", note: "érvénytelen célstátusz" };
+    if (target !== exp.status) {
+      return { kind: "elutasítva", note: target === "ellenorizve"
+        ? "kért: ellenőrizve; hiányzó mező: " + labels(exp.missing)
+        : "kért: hiányos; nincs hiányzó mező" };
+    }
+    if (cur === target) return { kind: "nincs változás", note: "a státusz már " + STATUS[target] };
+    return { kind: "módosítás", note: "" };
+  }
+  function applyStatus(state, id, target, now) {
+    var rec = state.records[id];
+    if (!rec) { push(state, now, id, "", "", "elutasítva", "ismeretlen azonosító"); return { eredmeny: "elutasítva" }; }
+    var ev = evaluate(rec, target), before = STATUS[rec.statusz];
+    if (ev.kind === "elutasítva") { push(state, now, id, before, before, "elutasítva", ev.note); return { eredmeny: "elutasítva", megjegyzes: ev.note }; }
+    if (ev.kind === "nincs változás") { push(state, now, id, before, before, "nincs változás", ev.note); return { eredmeny: "nincs változás" }; }
+    rec.statusz = target;
+    push(state, now, id, before, STATUS[target], "sikeres", "");
+    return { eredmeny: "sikeres" };
+  }
+  function resetState(state) {
+    var f = newState();
+    state.v = f.v; state.records = f.records; state.order = f.order; state.plan = f.plan; state.dry = f.dry; state.log = f.log;
+    return state;
+  }
+  function planKey(plan) {
+    return Object.keys(plan).sort().map(function (k) { return k + "=" + plan[k]; }).join("|");
+  }
+  function setPlan(state, id, val) {
+    var old = state.plan[id] || "";
+    if (old === (val || "")) return false;
+    if (val) state.plan[id] = val; else delete state.plan[id];
+    state.dry = null;
+    return true;
+  }
+  function dryRun(state, now) {
+    var rows = [], counts = { "módosítana": 0, "nincs változás": 0, "elutasítaná": 0, "nincs terv": 0 };
+    state.order.forEach(function (id) {
+      var rec = state.records[id], planned = state.plan[id];
+      if (!planned) { rows.push({ ugy_id: id, aktualis: STATUS[rec.statusz], terv: "", akcio: "nincs terv", megjegyzes: "" }); counts["nincs terv"]++; return; }
+      var ev = evaluate(rec, planned), before = STATUS[rec.statusz], after = before, akcio;
+      if (ev.kind === "módosítás") { after = STATUS[planned]; akcio = "módosítana"; }
+      else if (ev.kind === "nincs változás") { akcio = "nincs változás"; }
+      else { akcio = "elutasítaná"; }
+      counts[akcio]++;
+      rows.push({ ugy_id: id, aktualis: before, terv: STATUS[planned] || planned, akcio: akcio, megjegyzes: ev.note });
+      push(state, now, id, before, after, "dry-run", akcio + (ev.note ? ": " + ev.note : ""));
+    });
+    state.dry = { planKey: planKey(state.plan), at: now(), rows: rows, counts: counts };
+    return state.dry;
+  }
+  function canApply(state) {
+    return Object.keys(state.plan).length > 0 && !!state.dry && state.dry.planKey === planKey(state.plan);
+  }
+  function applyPlan(state, now) {
+    if (!canApply(state)) return { ok: false, message: "Alkalmazás előtt a jelenlegi tervhez dry run szükséges." };
+    var n = { "sikeres": 0, "nincs változás": 0, "elutasítva": 0 };
+    state.order.forEach(function (id) {
+      if (!state.plan[id]) return;
+      n[applyStatus(state, id, state.plan[id], now).eredmeny]++;
+    });
+    return { ok: true, counts: n };
+  }
+  function csvField(v) {
+    v = String(v === null || v === undefined ? "" : v);
+    return /[;"\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  }
+  function csv(state) {
+    var lines = [CSV_HEADER.join(";")];
+    state.log.forEach(function (r) { lines.push(CSV_HEADER.map(function (k) { return csvField(r[k]); }).join(";")); });
+    return lines.join("\n");
+  }
+  function parseCsv(text) {
+    var rows = [], row = [], f = "", q = false, i, c;
+    for (i = 0; i < text.length; i++) {
+      c = text.charAt(i);
+      if (q) { if (c === '"') { if (text.charAt(i + 1) === '"') { f += '"'; i++; } else q = false; } else f += c; }
+      else if (c === '"') q = true;
+      else if (c === ";") { row.push(f); f = ""; }
+      else if (c === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
+      else f += c;
+    }
+    row.push(f); rows.push(row);
+    return rows;
+  }
+  function filterIds(state, q, st) {
+    q = (q || "").toLowerCase();
+    return state.order.filter(function (id) {
+      var r = state.records[id];
+      if (st && r.statusz !== st) return false;
+      if (!q) return true;
+      return (id + " " + r.tipus + " " + r.igeny).toLowerCase().indexOf(q) !== -1;
+    });
+  }
+  var PAGE_SIZE = 3;
+  function pageCount(n) { return Math.max(1, Math.ceil(n / PAGE_SIZE)); }
+  function pageSlice(ids, page) {
+    page = Math.min(Math.max(1, page | 0), pageCount(ids.length));
+    return { page: page, pages: pageCount(ids.length), ids: ids.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE) };
+  }
+  function valid(s) {
+    if (!s || s.v !== 1 || !s.records || !s.order || !s.log || !s.plan) return false;
+    if (s.order.length !== SEED.length) return false;
+    return SEED.every(function (r) { var x = s.records[r.ugy_id]; return x && STATUS[x.statusz] && x.igeny === r.igeny && x.ar === r.ar; });
+  }
+
+  /* Önteszt: nyolc elfogadási feltételből hét a magban fut (a nyolcadik, a jelölés, a felületen). */
+  function selfTest() {
+    var res = [], t = 0;
+    function now() { t++; return "2026-11-12T10:00:" + pad(t % 60); }
+    function add(id, nev, ok, reszlet) { res.push({ id: id, nev: nev, ok: !!ok, reszlet: reszlet }); }
+    var s = newState(), seedIds = SEED.map(function (r) { return r.ugy_id; });
+
+    var seen = [], p = 1, sl;
+    do { sl = pageSlice(filterIds(s, "", ""), p); seen = seen.concat(sl.ids); p++; } while (p <= sl.pages);
+    var uniq = seen.filter(function (x, i) { return seen.indexOf(x) === i; });
+    add("E1", "6/6 azonosító pontosan egyszer szerepel a lapozott listán",
+      seen.length === 6 && uniq.length === 6 && seedIds.every(function (x) { return seen.indexOf(x) !== -1; }), seen.length + " megjelenés, " + uniq.length + " egyedi azonosító");
+
+    state_plan(s);
+    var before = JSON.stringify(s.records);
+    dryRun(s, now);
+    var dryTouched = JSON.stringify(s.records) !== before;
+    var blockedBeforeDry = (function () { var c = newState(); state_plan(c); return applyPlan(c, now).ok === false; })();
+    var ap = applyPlan(s, now);
+    var okSt = seedIds.filter(function (id) { return s.records[id].statusz === "ellenorizve"; }).length;
+    var hiSt = seedIds.filter(function (id) { return s.records[id].statusz === "hianyos"; }).length;
+    var bad = ["RONDO-R-02", "RONDO-M-04"];
+    bad.forEach(function (id) { applyStatus(s, id, "ellenorizve", now); });
+    var badOk = bad.every(function (id) { return s.records[id].statusz !== "ellenorizve"; });
+    add("E2", "4 teljes sor menthető, a 2 hiányos sor nem kaphat \"ellenőrizve\" státuszt (a kód tiltja)",
+      ap.ok && okSt === 4 && hiSt === 2 && badOk && !dryTouched && blockedBeforeDry, okSt + " ellenőrizve, " + hiSt + " hiányos; dry run nem módosít: " + !dryTouched + "; dry run nélkül nincs alkalmazás: " + blockedBeforeDry);
+
+    var okRows = s.log.filter(function (r) { return r.eredmeny === "sikeres"; });
+    var perId = {}; okRows.forEach(function (r) { perId[r.ugy_id] = (perId[r.ugy_id] || 0) + 1; });
+    add("E3", "Nincs duplikált művelet: azonosítónként legfeljebb egy sikeres módosítás",
+      Object.keys(perId).every(function (k) { return perId[k] === 1; }) && okRows.length === 6, okRows.length + " sikeres sor");
+
+    add("E4", "Minden sikeres változásnak van előtte és utána értéke, és a kettő eltér",
+      okRows.every(function (r) { return r.elotte !== "" && r.utana !== "" && r.elotte !== r.utana; }), okRows.length + " sor ellenőrizve");
+
+    var text = csv(s), parsed = parseCsv(text), screen = s.log.map(function (r) { return CSV_HEADER.map(function (k) { return String(r[k]); }); });
+    var same = parsed.length === screen.length + 1 && parsed[0].join(";") === CSV_HEADER.join(";") &&
+      screen.every(function (cells, i) { return cells.join("\u0001") === parsed[i + 1].join("\u0001"); });
+    add("E5", "A CSV-export sorról sorra megegyezik a képernyőn látható naplóval, fejléc: " + CSV_HEADER.join(";"), same, parsed.length - 1 + " adatsor");
+
+    var logLen = s.log.length, snapshot = JSON.stringify(s.records);
+    dryRun(s, now); var again = applyPlan(s, now);
+    var addedOk = s.log.slice(logLen).filter(function (r) { return r.eredmeny === "sikeres"; }).length;
+    add("E6", "Ismételt futás nem kettőz: 6 rekord marad, új sikeres módosítás nincs, a rekordok változatlanok",
+      again.ok && addedOk === 0 && Object.keys(s.records).length === 6 && JSON.stringify(s.records) === snapshot, "új sikeres sor: " + addedOk);
+
+    resetState(s);
+    var r0 = s;
+    add("E7", "Reset után az induló hat sor ('új' státusszal) visszaáll, a napló és a terv üres",
+      JSON.stringify(r0.records) === JSON.stringify(newState().records) && r0.dry === null && r0.log.length === 0 && Object.keys(r0.plan).length === 0 && r0.order.every(function (id) { return r0.records[id].statusz === "uj"; }) && r0.order.length === 6, "6 rekord, üres napló");
+    return res;
+  }
+  /* Az önteszt terve: a teljes sorok ellenőrizve, a hiányosak hiányos. */
+  function state_plan(s) {
+    s.order.forEach(function (id) { setPlan(s, id, expected(s.records[id]).status); });
+  }
+  return { STATUS: STATUS, FIELD_LABEL: FIELD_LABEL, SEED: SEED, NINCS: NINCS, CSV_HEADER: CSV_HEADER, PAGE_SIZE: PAGE_SIZE,
+    newState: newState, resetState: resetState, isMissing: isMissing, missingFields: missingFields, expected: expected, applyStatus: applyStatus,
+    setPlan: setPlan, planKey: planKey, dryRun: dryRun, canApply: canApply, applyPlan: applyPlan, csv: csv, parseCsv: parseCsv,
+    filterIds: filterIds, pageSlice: pageSlice, valid: valid, selfTest: selfTest, stamp: stamp, clone: clone };
+})();
+/*CORE-END*/
+
+/* ===== FELÜLET ===== */
+(function () {
+  var STORE_KEY = "rondo_gyakorloportal_v1", SESSION_KEY = "rondo_gyakorloportal_belepes";
+  var TEST_USER = "gyakorlo", TEST_PASS = "Minta-2026";
+  var memSession = false, state = null, flash = null, confirmReset = false;
+  var main = document.getElementById("main"), menu = document.getElementById("menu"), foot = document.getElementById("foot");
+
+  function esc(s) { return String(s === null || s === undefined ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function now() { return Core.stamp(new Date()); }
+  function load() {
+    try { var raw = window.localStorage.getItem(STORE_KEY); if (raw) { var s = JSON.parse(raw); if (Core.valid(s)) return s; } } catch (e) { /* nincs tár: memóriaállapot */ }
+    return Core.newState();
+  }
+  function save() { try { window.localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* a tartósságot nem feltételezzük */ } }
+  function loggedIn() {
+    try { if (window.sessionStorage.getItem(SESSION_KEY) === "1") return true; } catch (e) { /* ignore */ }
+    return memSession;
+  }
+  function setLogin(v) { memSession = v; try { if (v) window.sessionStorage.setItem(SESSION_KEY, "1"); else window.sessionStorage.removeItem(SESSION_KEY); } catch (e) { /* ignore */ } }
+  function fmtPrice(r) { return r.ar === null ? Core.NINCS : String(r.ar).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function val(v) { return Core.isMissing(v) ? Core.NINCS : v; }
+  function stBadge(code) { return '<span class="st st-' + code + '" data-status="' + code + '">' + esc(Core.STATUS[code]) + "</span>"; }
+  function route() {
+    var h = (location.hash || "").replace(/^#/, "") || "/belepes", q = {}, i = h.indexOf("?");
+    var path = i >= 0 ? h.slice(0, i) : h;
+    if (i >= 0) h.slice(i + 1).split("&").forEach(function (kv) { var p = kv.split("="); if (p[0]) q[decodeURIComponent(p[0])] = decodeURIComponent((p[1] || "").replace(/\+/g, " ")); });
+    return { path: path, q: q };
+  }
+  function go(h) { if (location.hash === h) render(); else location.hash = h; }
+  function msg() { var m = flash; flash = null; return m ? '<div class="msg ' + (m.cls || "") + '" role="status" id="uzenet">' + esc(m.text) + "</div>" : ""; }
+
+  function renderMenu(path) {
+    if (!loggedIn()) { menu.innerHTML = ""; return; }
+    var items = [["/lista", "Ügylista"], ["/munkalap", "Ellenőrzési munkalap"], ["/dryrun", "Dry run összesítő"], ["/naplo", "Műveleti napló"]];
+    menu.innerHTML = items.map(function (it) {
+      var cur = path === it[0] || (it[0] === "/lista" && path.indexOf("/ugy/") === 0);
+      return '<a href="#' + it[0] + '"' + (cur ? ' aria-current="page"' : "") + ">" + it[1] + "</a>";
+    }).join("") + '<a href="#/kilepes">Kilépés</a>';
+  }
+  function renderFoot() {
+    var links = loggedIn() ? '<a href="#/onteszt">Önteszt</a> · ' : "";
+    var reset = !loggedIn() ? "" : confirmReset
+      ? ' <span class="msg err" id="reset-megerosites">A gyakorlóállapot (státuszok, terv, napló) visszaáll. <button class="danger" id="reset-igen" type="button">Reset megerősítése</button> <button class="sec" id="reset-nem" type="button">Mégse</button></span>'
+      : ' <button class="sec" id="reset-gomb" type="button">Reset</button>';
+    foot.innerHTML = '<p><span class="fj">KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA</span> · ' + links + "gyakorlóportál, egyetlen offline fájl, hálózat nélkül." + reset + "</p>";
+    var b = document.getElementById("reset-gomb"); if (b) b.onclick = function () { confirmReset = true; renderFoot(); };
+    b = document.getElementById("reset-nem"); if (b) b.onclick = function () { confirmReset = false; renderFoot(); };
+    b = document.getElementById("reset-igen"); if (b) b.onclick = function () {
+      Core.resetState(state); save(); confirmReset = false; flash = { text: "Reset kész: az induló hat sor visszaállt, a napló üres.", cls: "ok" }; go("#/lista");
+    };
+  }
+
+  function vLogin() {
+    return '<section class="card"><h2>Bejelentkezés</h2><p class="mut">Gyakorló belépés. A hitelesítés nem valódi: a böngészőben futó összehasonlítás.</p>' + msg() +
+      '<div class="test" id="teszt-belepes"><strong>Teszt belépési adat (nyilvános gyakorlóérték, fiktív)</strong><dl><dt>Felhasználónév</dt><dd id="teszt-user">' + TEST_USER +
+      '</dd><dt>Jelszó</dt><dd id="teszt-pass">' + TEST_PASS + "</dd></dl></div>" +
+      '<form id="belepes-urlap" autocomplete="off"><label for="felhasznalo">Felhasználónév</label><input type="text" id="felhasznalo" name="felhasznalo">' +
+      '<label for="jelszo">Jelszó</label><input type="password" id="jelszo" name="jelszo"><p><button type="submit" id="belepes-gomb">Bejelentkezés</button></p></form></section>';
+  }
+  function bindLogin() {
+    document.getElementById("belepes-urlap").onsubmit = function (e) {
+      e.preventDefault();
+      var u = document.getElementById("felhasznalo").value, p = document.getElementById("jelszo").value;
+      if (u === TEST_USER && p === TEST_PASS) { setLogin(true); flash = { text: "Sikeres belépés (gyakorló).", cls: "ok" }; go("#/lista"); }
+      else { flash = { text: "Hibás belépési adat.", cls: "err" }; render(); }
+    };
+  }
+
+  function vList(q) {
+    var term = q.q || "", st = q.statusz || "", ids = Core.filterIds(state, term, st), sl = Core.pageSlice(ids, parseInt(q.oldal, 10) || 1);
+    function href(p) { return "#/lista?oldal=" + p + "&amp;q=" + encodeURIComponent(term) + "&amp;statusz=" + encodeURIComponent(st); }
+    var rows = sl.ids.map(function (id) {
+      var r = state.records[id];
+      return '<tr data-ugy-id="' + esc(id) + '"><td>' + esc(id) + "</td><td>" + esc(r.tipus) + "</td><td>" + esc(r.igeny) + "</td><td>" + esc(r.beerkezett) + "</td><td>" + stBadge(r.statusz) +
+        '</td><td><a href="#/ugy/' + encodeURIComponent(id) + "?oldal=" + sl.page + '">Részletek</a></td></tr>';
+    }).join("") || '<tr><td colspan="6">Nincs találat.</td></tr>';
+    var pager = '<nav class="pager" aria-label="Lapozás">' +
+      (sl.page > 1 ? '<a href="' + href(sl.page - 1) + '" rel="prev">Előző oldal</a>' : '<span class="off">Előző oldal</span>');
+    for (var p = 1; p <= sl.pages; p++) pager += '<a href="' + href(p) + '"' + (p === sl.page ? ' aria-current="page"' : "") + ">" + p + "</a>";
+    pager += (sl.page < sl.pages ? '<a href="' + href(sl.page + 1) + '" rel="next">Következő oldal</a>' : '<span class="off">Következő oldal</span>') + "</nav>";
+    var opts = [["", "Mind"], ["uj", "új"], ["ellenorizve", "ellenőrizve"], ["hianyos", "hiányos"]].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === st ? " selected" : "") + ">" + o[1] + "</option>"; }).join("");
+    return '<section class="card"><h2>Ügylista</h2>' + msg() +
+      '<form id="szuro-urlap" class="row"><div><label for="kereso">Keresés (azonosító vagy igény)</label><input type="search" id="kereso" name="q" value="' + esc(term) + '"></div>' +
+      '<div><label for="statusz-szuro">Státusz</label><select id="statusz-szuro" name="statusz">' + opts + '</select></div><div><button type="submit" id="szures-gomb">Szűrés</button></div></form>' +
+      '<p id="talalat-info" class="mut">Találatok: ' + ids.length + " · oldal " + sl.page + "/" + sl.pages + " · oldalanként " + Core.PAGE_SIZE + " sor</p>" +
+      '<table id="ugy-tabla"><thead><tr><th>Azonosító</th><th>Típus</th><th>Igény</th><th>Beérkezett</th><th>Státusz</th><th>Ügyadatlap</th></tr></thead><tbody>' + rows + "</tbody></table>" + pager + "</section>";
+  }
+  function bindList() {
+    document.getElementById("szuro-urlap").onsubmit = function (e) {
+      e.preventDefault();
+      go("#/lista?oldal=1&q=" + encodeURIComponent(document.getElementById("kereso").value) + "&statusz=" + encodeURIComponent(document.getElementById("statusz-szuro").value));
+    };
+  }
+
+  function vDetail(id, q) {
+    var r = state.records[id];
+    if (!r) return '<section class="card"><h2>Ismeretlen ügy</h2><p>Az azonosító nem található: ' + esc(id) + '.</p><p><a href="#/lista">Vissza az ügylistához</a></p></section>';
+    var idx = state.order.indexOf(id), prev = state.order[idx - 1], next = state.order[idx + 1], page = parseInt(q.oldal, 10) || 1;
+    var f = function (k, v, extra) { return '<dt>' + k + '</dt><dd data-field="' + extra + '">' + esc(v) + "</dd>"; };
+    return '<section class="card" data-ugy-id="' + esc(id) + '"><h2>Ügyadatlap: ' + esc(id) + "</h2>" + msg() +
+      '<dl class="fields" id="adatlap">' + f("Azonosító", id, "ugy_id") + f("Típus", r.tipus, "tipus") + f("Igény", r.igeny, "igeny") +
+      f("Ár (nettó)", fmtPrice(r), "ar") + f("Pénznem", val(r.penznem), "penznem") + f("Jóváhagyó", val(r.jovahagyo), "jovahagyo") + f("Forrás", r.forras, "forras") +
+      f("Beérkezett", r.beerkezett, "beerkezett") + '<dt>Státusz</dt><dd data-field="statusz" data-status="' + r.statusz + '">' + esc(Core.STATUS[r.statusz]) + "</dd></dl>" +
+      '<blockquote id="forrasszoveg" data-field="forrasszoveg"><strong>Forrásszöveg (adat)</strong><br>' + esc(r.forrasszoveg) + "</blockquote>" +
+      '<form id="statusz-urlap" class="row"><div><label for="statusz-valaszto">Státusz beállítása</label><select id="statusz-valaszto"><option value="ellenorizve">ellenőrizve</option><option value="hianyos">hiányos</option></select></div>' +
+      '<div><button type="submit" id="statusz-mentes">Státusz mentése</button></div></form>' +
+      '<p class="pager"><a href="#/lista?oldal=' + page + '">Vissza az ügylistához</a>' +
+      (prev ? '<a href="#/ugy/' + encodeURIComponent(prev) + "?oldal=" + page + '" rel="prev">Előző ügy: ' + esc(prev) + "</a>" : "") +
+      (next ? '<a href="#/ugy/' + encodeURIComponent(next) + "?oldal=" + page + '" rel="next">Következő ügy: ' + esc(next) + "</a>" : "") + "</p></section>";
+  }
+  function bindDetail(id) {
+    var f = document.getElementById("statusz-urlap"); if (!f) return;
+    f.onsubmit = function (e) {
+      e.preventDefault();
+      var res = Core.applyStatus(state, id, document.getElementById("statusz-valaszto").value, now); save();
+      flash = { text: res.eredmeny === "sikeres" ? "Mentve: a státusz módosult." : res.eredmeny === "nincs változás" ? "Nincs változás: a státusz már ilyen." : "Elutasítva: " + res.megjegyzes + ".", cls: res.eredmeny === "elutasítva" ? "err" : "ok" };
+      render();
+    };
+  }
+
+  function vSheet() {
+    var rows = state.order.map(function (id) {
+      var r = state.records[id], cur = state.plan[id] || "";
+      var o = [["", "nincs terv"], ["ellenorizve", "ellenőrizve"], ["hianyos", "hiányos"]].map(function (x) { return '<option value="' + x[0] + '"' + (x[0] === cur ? " selected" : "") + ">" + x[1] + "</option>"; }).join("");
+      return '<tr data-ugy-id="' + esc(id) + '"><td>' + esc(id) + "</td><td>" + esc(r.igeny) + "</td><td>" + stBadge(r.statusz) + '</td><td><select id="terv-' + esc(id) + '" data-terv-id="' + esc(id) + '" aria-label="Tervezett státusz: ' + esc(id) + '">' + o + "</select></td></tr>";
+    }).join("");
+    return '<section class="card"><h2>Ellenőrzési munkalap</h2>' + msg() +
+      '<p class="mut">A tervezett státusz rögzítése csak tervet ír; a rekordok a dry run és az alkalmazás után változnak.</p>' +
+      '<table id="munkalap-tabla"><thead><tr><th>Azonosító</th><th>Igény</th><th>Aktuális státusz</th><th>Tervezett státusz</th></tr></thead><tbody>' + rows + "</tbody></table>" +
+      '<p><button type="button" id="terv-rogzites">Terv rögzítése</button> <button type="button" class="sec" id="terv-torles">Terv törlése</button> <a class="btn sec" href="#/dryrun">Dry run összesítő</a></p></section>';
+  }
+  function bindSheet() {
+    function readAll() {
+      var ch = false;
+      Array.prototype.forEach.call(document.querySelectorAll("select[data-terv-id]"), function (s) { if (Core.setPlan(state, s.getAttribute("data-terv-id"), s.value)) ch = true; });
+      save(); return ch;
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("select[data-terv-id]"), function (s) { s.onchange = function () { Core.setPlan(state, s.getAttribute("data-terv-id"), s.value); save(); }; });
+    document.getElementById("terv-rogzites").onclick = function () { readAll(); flash = { text: "Terv rögzítve: " + Object.keys(state.plan).length + " sor. A dry run érvényessége újraszámolva.", cls: "ok" }; render(); };
+    document.getElementById("terv-torles").onclick = function () { state.order.forEach(function (id) { Core.setPlan(state, id, ""); }); save(); flash = { text: "Terv törölve.", cls: "ok" }; render(); };
+  }
+
+  function vDry() {
+    var d = state.dry, can = Core.canApply(state), planN = Object.keys(state.plan).length;
+    var table = "";
+    if (d) {
+      table = '<table id="dryrun-tabla"><thead><tr><th>Azonosító</th><th>Aktuális</th><th>Terv</th><th>Teendő</th><th>Megjegyzés</th></tr></thead><tbody>' +
+        d.rows.map(function (r) { return '<tr data-ugy-id="' + esc(r.ugy_id) + '"><td>' + esc(r.ugy_id) + "</td><td>" + esc(r.aktualis) + "</td><td>" + esc(r.terv) + '</td><td data-akcio="' + esc(r.akcio) + '">' + esc(r.akcio) + "</td><td>" + esc(r.megjegyzes) + "</td></tr>"; }).join("") + "</tbody></table>" +
+        '<p id="dryrun-osszesito">Összesítő (' + esc(d.at) + "): módosítana " + d.counts["módosítana"] + " · nincs változás " + d.counts["nincs változás"] + " · elutasítaná " + d.counts["elutasítaná"] + " · nincs terv " + d.counts["nincs terv"] + ".</p>" +
+        (can ? "" : '<p class="mut" id="dryrun-elavult">A terv megváltozott a dry run óta: új dry run szükséges.</p>');
+    } else table = '<p class="mut" id="dryrun-nincs">Még nincs dry run a jelenlegi tervhez. Tervezett sorok: ' + planN + ".</p>";
+    return '<section class="card"><h2>Dry run összesítő</h2>' + msg() +
+      '<p class="mut">A dry run nem módosít rekordot; a naplóba "dry-run" eredménnyel kerül.</p><p><button type="button" id="dryrun-futtat"' + (planN ? "" : " disabled") + '>Dry run futtatása</button> <button type="button" id="terv-alkalmaz"' + (can ? "" : " disabled") + ">Terv alkalmazása</button></p>" + table + "</section>";
+  }
+  function bindDry() {
+    document.getElementById("dryrun-futtat").onclick = function () { Core.dryRun(state, now); save(); flash = { text: "Dry run kész, rekord nem változott.", cls: "ok" }; render(); };
+    document.getElementById("terv-alkalmaz").onclick = function () {
+      var r = Core.applyPlan(state, now); save();
+      flash = r.ok ? { text: "Alkalmazva: sikeres " + r.counts["sikeres"] + ", nincs változás " + r.counts["nincs változás"] + ", elutasítva " + r.counts["elutasítva"] + ".", cls: "ok" } : { text: r.message, cls: "err" };
+      render();
+    };
+  }
+
+  function vLog() {
+    var rows = state.log.map(function (r, i) {
+      return "<tr><td>" + (i + 1) + "</td>" + Core.CSV_HEADER.map(function (k) { return "<td>" + esc(r[k]) + "</td>"; }).join("") + "</tr>";
+    }).join("") || '<tr><td colspan="8">A napló üres.</td></tr>';
+    return '<section class="card"><h2>Műveleti napló</h2>' + msg() + '<p id="naplo-info" class="mut">Sorok: ' + state.log.length + "</p>" +
+      '<table id="naplo-tabla"><thead><tr><th>#</th>' + Core.CSV_HEADER.map(function (k) { return "<th>" + k + "</th>"; }).join("") + "</tr></thead><tbody>" + rows + "</tbody></table>" +
+      '<h2 style="margin-top:16px">CSV-export</h2><p class="mut">Pontosvesszős elválasztás, a fejléc: <code>' + Core.CSV_HEADER.join(";") + '</code>.</p>' +
+      '<textarea id="csv-szoveg" rows="8" readonly aria-label="CSV tartalom">' + esc(Core.csv(state)) + "</textarea>" +
+      '<p><button type="button" id="csv-letoltes">CSV letöltése</button> <button type="button" class="sec" id="allapot-letoltes">Állapot letöltése (JSON)</button></p></section>';
+  }
+  function download(name, mime, text) {
+    try {
+      var blob = new Blob([text], { type: mime }), a = document.createElement("a");
+      a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      flash = { text: "Letöltés indítva: " + name, cls: "ok" };
+    } catch (e) { flash = { text: "A letöltés nem működik ebben a böngészőben: a CSV a szövegmezőből másolható.", cls: "err" }; }
+    render();
+  }
+  function bindLog() {
+    function ts() { return now().replace(/[-:]/g, "").replace("T", "_"); }
+    document.getElementById("csv-letoltes").onclick = function () { download("export_" + ts() + ".csv", "text/csv;charset=utf-8", "﻿" + Core.csv(state)); };
+    document.getElementById("allapot-letoltes").onclick = function () { download("allapot_" + ts() + ".json", "application/json", JSON.stringify(state, null, 2)); };
+  }
+
+  function vSelfTest() {
+    var res = Core.selfTest();
+    res.push(markerTest());
+    var okAll = res.every(function (r) { return r.ok; });
+    return '<section class="card"><h2>Önteszt (elfogadási feltételek)</h2><p class="mut">Külön, memóriabeli állapoton fut; a gyakorlóállapotot nem érinti.</p>' +
+      '<table id="onteszt-tabla"><thead><tr><th>Azonosító</th><th>Feltétel</th><th>Eredmény</th><th>Részlet</th></tr></thead><tbody>' +
+      res.map(function (r) { return "<tr><td>" + r.id + "</td><td>" + esc(r.nev) + '</td><td class="' + (r.ok ? "pass" : "fail") + '">' + (r.ok ? "PASS" : "FAIL") + "</td><td>" + esc(r.reszlet) + "</td></tr>"; }).join("") +
+      '</tbody></table><p id="onteszt-osszesito" class="' + (okAll ? "pass" : "fail") + '">' + res.filter(function (r) { return r.ok; }).length + "/" + res.length + " feltétel teljesül.</p></section>";
+  }
+  function markerTest() {
+    var el = document.getElementById("fiktiv-jel"), ok = !!el && el.offsetParent !== null && /KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA/.test(el.textContent);
+    return { id: "E8", nev: "A \"KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA\" jelölés látható a képernyőn (a fejléc minden nézetben megjelenik)", ok: ok, reszlet: ok ? "jelölés látható" : "jelölés hiányzik" };
+  }
+
+  function render() {
+    var r = route(), p = r.path, html = "";
+    if (p === "/kilepes") { setLogin(false); go("#/belepes"); return; }
+    if (!loggedIn() && p !== "/belepes") { go("#/belepes"); return; }
+    if (loggedIn() && p === "/belepes") { go("#/lista"); return; }
+    state = state || load();
+    renderMenu(p); renderFoot();
+    var title = "Gyakorlóportál";
+    if (p === "/belepes") { html = vLogin(); title = "Bejelentkezés"; }
+    else if (p === "/lista") { html = vList(r.q); title = "Ügylista"; }
+    else if (p.indexOf("/ugy/") === 0) { html = vDetail(decodeURIComponent(p.slice(5)), r.q); title = "Ügyadatlap"; }
+    else if (p === "/munkalap") { html = vSheet(); title = "Ellenőrzési munkalap"; }
+    else if (p === "/dryrun") { html = vDry(); title = "Dry run összesítő"; }
+    else if (p === "/naplo") { html = vLog(); title = "Műveleti napló"; }
+    else if (p === "/onteszt") { html = vSelfTest(); title = "Önteszt"; }
+    else { go("#/lista"); return; }
+    main.innerHTML = html;
+    document.title = "KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA - " + title;
+    if (p === "/belepes") bindLogin(); else if (p === "/lista") bindList(); else if (p.indexOf("/ugy/") === 0) bindDetail(decodeURIComponent(p.slice(5)));
+    else if (p === "/munkalap") bindSheet(); else if (p === "/dryrun") bindDry(); else if (p === "/naplo") bindLog();
+  }
+  window.addEventListener("hashchange", function () { confirmReset = false; render(); });
+  state = load();
+  render();
+})();
+</script>
+</body>
+</html>

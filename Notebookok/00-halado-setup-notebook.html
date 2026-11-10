@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0. gyakorlat: Saját feladat és munkamenet · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Notebook v2 (pilot) a 0. gyakorlathoz. Tartalom: Feladatok/00-halado-setup.md (2026-11-10 állapot, a működési minta bővítésével: miért most, hat prompt-szabály, írasd a promptot, döntési szabály, orchestrator). Rövid vonalvezető: a forgatókönyvet nem ismétli. -->
+<body class="notebook v2" data-depth="1" data-current="00">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="00" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>0. gyakorlat · 09:00–09:40</span><span class="badge all">közös</span><span>vezeti: Piya Csaba · körbejár: Kemény Krisztián</span></div>
+      <h1 id="cim">Saját feladat és munkamenet: mire használom holnaptól</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Kiválasztod a saját, visszatérő feladatodat, amelyen a mai módszert 2026. november 13-tól használni fogod, és megtervezed hozzá az ellenőrizhető munkamenetet.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">a hat lépés: Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés</li>
+          <li data-csoport="1">miért most · a négy AI-típus · az öt fok (érettségi szint)</li>
+          <li data-csoport="2">a hat prompt-szabály, a prompt hét eleme és az „írasd a promptot” minta</li>
+          <li data-csoport="2">generált szöveg ≠ ellenőrzött állítás</li>
+          <li data-csoport="3">ellenőrizhető cél (kimenet + korlát + ellenőrzés) és munkamód (Work Local vagy Work Cloud)</li>
+          <li data-csoport="3">maker–reviewer döntési szabály és az orchestrator szerepe</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ 40 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/00-Alapozas</span><span>mód: vezetett</span><span>Vezeti: Piya Csaba</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>egyéni, eseti használat: mindenki a saját promptjaival</li>
+          <li>a cégről és a szabályokról minden beszélgetésben újra kell mesélni</li>
+          <li>a kimenetet a készítője ellenőrzi, ha ellenőrzi</li>
+          <li>a holnapi feladatodnak még nincs ellenőrizhető célja</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz: három mentett fájl</span>
+        <ul>
+          <li><code>profil.md</code>: sáv, önállósági szint, tanulási mód, a ma látott szint (<code>szint_ma</code>)</li>
+          <li><code>celkartya.md</code>: a saját feladatod és az ellenőrizhető cél (kimenet, korlát, ellenőrzés)</li>
+          <li><code>munkamenet-jegyzet.md</code>: a mód indoklása, a működési minta döntése (egy menet vagy maker–reviewer), a jóváhagyott hét elemes prompt, a felületbejárás eredménye</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> erre a három fájlra épít a nap minden további gyakorlata és a 7. gyakorlat. A nap kerete is itt dől el: hogyan lesz az Oriana AI-ready, majd AI-natív szervezet; a csoport közösen jelöli, hol tart ma. Itt ismered meg a nap működési mintáját is, amelyet a közös DNS (vállalati tudás) rögzít az 1. gyakorlatban.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-racs">
+      <div class="start-box">
+        <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+        <div class="say">Kezdjük a 0. gyakorlatot.</div>
+        <p>Az asszisztens kérdés nélkül elmondja a menetet, beolvassa a profilodat, és az első döntésnél kérdez: melyik sávban dolgozol délután.</p>
+      </div>
+      <div class="start-box alt">
+        <div class="label">A B fázisnál (09:20) vagy ha megszakadtál</div>
+        <div class="say">Folytassuk a 0. gyakorlatot.</div>
+        <p>A <code>Munka/00-Alapozas</code> fájljaiból megállapítja, hol tartasz, és egy sorban megmondja.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A nap térképe</span>Így működik egy AI-natív szervezet: öt rész, egy nap</h2>
+    <p>Nem újabb eszköz kell, hanem közös vállalati tudás, két szerep (BA és Sales-Account), ellenőrző kapuk és egy proaktív segéd; a különbséget a tudás, a kapuk és a gazdák adják, nem a modell. Az AI-natív nem státusz, hanem működés és irány. A színek mutatják, mi tartozik egybe; ma ezt a térképet járjuk végig részenként.</p>
+    <figure class="abra" data-abra="vezerelv" data-stage="00" data-cim="nincs">
+      <figcaption>Az AI-natív működés térképe: közös DNS (vállalati tudás), két szerep (BA és Sales-Account), agentikus munkafolyamat, ellenőrző kapuk és proaktív segéd; a tanulság visszakerül a DNS-be. Most a nyitás: az egész térkép halványan látszik, ma ezt járjuk végig.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat hét lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">A fázis · Előkészítés <span class="when">09:00–09:11</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Előkészítés" data-rovid="Környezet, profil és sáv" data-ido="kb. 2 perc">
+        <header class="lepes-fej">
+          <div><h3>Környezet, profil és sáv</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Válaszd ki</b> a délutáni sávod: A: BA (üzleti elemző) · B: Sales-Account (értékesítési és ügyfélkapcsolati sáv) · más: írd le, és a trénerrel egyeztetjük.</li>
+                <li><b>Nézd meg</b> az asszisztens egysoros ✅/⚠️ összegzését: megvan-e a <code>Tananyag</code>, a <code>Munka</code> és a kilenc munkamappa.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Egysoros ✅/⚠️ összegzés három linkkel, köztük a napi térképpel. Új fájl még nincs; a sáv a 7. lépésben kerül a profilba.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a három gyökérelem és a kilenc munkamappa megvan, és a sáv rögzítésre kész.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Tipp</span>Amit az asszisztens maga ellenőrizhet (mappák, fájlok), azt nem kérdezi meg: elvégzi és közli. Tőled csak azt kéri, amit más nem tudhat: melyik sávban dolgozol.</div>
+          <p class="why"><strong>Miért fontos:</strong> ha a mappák és a sáv rendben vannak, az összes további gyakorlat ugyanarról az alapról indul, és a példák a te sávodból jönnek.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Előkészítés" data-rovid="AI-alapok és a nap térképe" data-ido="kb. 9 perc">
+        <header class="lepes-fej">
+          <div><h3>AI-alapok és a nap térképe</h3><span class="lepes-cimke"><span class="ido">kb. 9 perc</span> · A fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Kövesd</b> a négy részt: honnan hová tartunk (benne a miért most); a négy típus (szabályalapú rendszer, adatokból tanuló rendszer, nyelvi modell, eszközhasználó agent); az öt fok; a nap térképe. Minden rész végén <b>válaszolj</b> a saját szavaddal a visszakérdezésre.</li>
+                <li><b>Hozz egy példát</b> a saját munkádból: szabály, modell vagy agent kell-e hozzá.</li>
+                <li><b>Jelöljétek közösen</b> két percben, melyik fokon áll ma az Oriana; a kimondott fokra kattints a lépcsőn.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Nincs fájl. A példáid a célkártyába (3. lépés), a csoport által kimondott fok neve a profil <code>szint_ma</code> mezőjébe kerül (7. lépés), vagy „Nincs megadva”.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a négy típust a saját szavaddal megkülönbözteted, van legalább egy saját példád, és a csoport kimondott egy fokot, vagy a „Nincs megadva” marad.</span></p>
+          <h4>Az öt fok: hol tartunk ma?</h4>
+          <ul>
+            <li><strong>Eseti használat:</strong> mindenki a saját promptjaival, alkalmanként.</li>
+            <li><strong>Fluens egyének:</strong> sokan magabiztosan használják, de külön-külön.</li>
+            <li><strong>Megosztott tudás:</strong> közös, verziózott alap, amelyből a csapat dolgozik.</li>
+            <li><strong>Beágyazott workflow:</strong> az AI a folyamat része, kapuval és gazdával.</li>
+            <li><strong>AI-natív működés:</strong> a tudás, a szerepek, a kapuk és a segéd együtt a mindennapi működés, mérve és rendszeresen felülvizsgálva.</li>
+          </ul>
+          <figure class="abra" data-abra="lepcso" data-stage="00">
+            <figcaption>Az érettségi lépcső öt foka, szám nélkül: eseti, fluens egyének, megosztott tudás, beágyazott workflow, AI-natív működés. A csoport által kimondott fokra kattintva kerül oda a „ma” jelölő; a jelölés csoportjavaslat, és csak ebben a böngészőben marad meg (a 7. gyakorlatban ugyanitt látszik).</figcaption>
+          </figure>
+          <div class="callout tipp"><span class="callout-cim">Miért most</span>Az AI ma már nemcsak válaszol, hanem fájlokkal és eszközökkel, több lépésben dolgozik; ettől a munka minősége a céltól, a forrástól és az ellenőrzéstől függ, nem a gépelés sebességétől. A közös szokások pedig most alakulnak ki, ezért érdemes a működési mintát már az elején közösen lefektetni.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A nyelvi modell valószínű szöveget állít elő: az, hogy egy mondat jól hangzik, nem bizonyíték arra, hogy igaz. Az AI nem élő vállalati adatbázis; a hozzáférést és az ellenőrzést külön kell megadni.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A fokot a csoport jelöli, nem a tréner és nem az asszisztens. A fokokhoz szám, százalék vagy piaci állítás nem tartozik; a felső fokok feltételei (közös tudás, kapu, gazda, mérés) nem termékfunkciók, hanem a szervezet döntései.</div>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">A fázis · Célkártya és forrás <span class="when">09:11–09:20</span></div>
+
+      <section class="lepes" id="lepes-3" data-csoport="2" data-csoport-nev="Célkártya és forrás" data-rovid="Célkártya: a holnapi feladat" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Célkártya: a holnapi feladat</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · A fázis · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Mondd el</b> a saját szavaiddal a visszatérő feladatot, amelyen 2026. november 13-tól dolgozol: feladat, nehézség, kívánt eredmény, heti idő.</li>
+                <li><b>Válassz</b>: feladat (a sávod A–C listájából vagy más) és kívánt eredmény (A: Excel · B: Word/Markdown-összefoglaló · C: táblázat és rövid szöveg · más).</li>
+                <li><b>Erősítsd meg vagy javítsd</b> a kitöltött táblázatot és az ellenőrizhető cél három mondatát.</li>
+                <li><b>Figyeld</b> a tréner kivetítésén a hat prompt-szabályt és a prompt hét elemét, és ismerd meg az „írasd a promptot” mintát: te mondod a célt és a kritériumokat, az AI megírja és megmutatja a promptot, te jóváhagyod vagy javítod. A mintát az 5. lépésben a saját feladatodon gyakorlod.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A célkártya-sablon kitöltött táblázata és három mondat: <b>kimenet</b> (mit készüljön), <b>korlát</b> (mit nem tehet, hol a határ), <b>ellenőrzés</b> (mi bizonyítja, hogy kész és jó). Mentés a 4. lépés után: <code>celkartya.md</code>.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a feladat konkrét és visszatérő; a kimenet, a korlát és az ellenőrzés mind megvan; legalább egy ellenőrzés visszakereshető forrásra vagy mérhető számra mutat.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">A hat prompt-szabály</span>
+            <ol>
+              <li>Előbb a kész állapotot mondd ki: kimenet, korlát, ellenőrzés.</li>
+              <li>Egy prompt, egy feladat: ami nem fér egy mondatba, azt bontsd lépésekre.</li>
+              <li>Add meg a forrást és a határt; ami nincs a forrásban: „Nincs megadva”.</li>
+              <li>Írd elő a kimenet formáját, hogy ellenőrizni lehessen.</li>
+              <li>Kérj forráshelyet minden lényeges állításhoz; a javaslat nem döntés.</li>
+              <li>Kérdeztesd vissza a hiányzót ahelyett, hogy az AI találgatna.</li>
+            </ol>
+            A hét elem: Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés. A teljes szöveg a fiktív DNS-mintában van; az nem Oriana-tény.
+          </div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Valós ügyfél- vagy személyes adat nem kerül a kártyára: csak a feladat jellege. Ami hiányzik, az „Nincs megadva”; az asszisztens nem talál ki időt vagy nehézséget helyetted.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Melyik visszatérő feladatod viszi el a legtöbb időt, és mikor mondanád róla, hogy kész és jó?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„A(z) &lt;feladat&gt; feladatom eredményét &lt;kimenet&gt; formában várom a(z) &lt;forrásnév&gt; alapján; nem lehet &lt;korlát&gt;; akkor tekintem késznek, ha &lt;ellenőrzés&gt;; ha valami hiányzik, írd: Nincs megadva.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <p class="why"><strong>Miért fontos:</strong> az ellenőrizhető cél teszi lehetővé, hogy egy hosszabb munkát kiadj és később számonkérj: a kimenet mondja meg, mit várunk, a korlát, hol a határ, az ellenőrzés, mikor mondhatjuk, hogy jó.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-4" data-csoport="2" data-csoport-nev="Célkártya és forrás" data-rovid="Generált szöveg és forrásellenőrzés" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Generált szöveg és forrásellenőrzés</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · A fázis · közös <span class="kulcs">kulcslépés: te sorolsz be</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Olvasd el</b> a hat számozott mondatot, amelyet az asszisztens a célkártyádból ír arról, hogyan segíthet az AI a feladatodban.</li>
+                <li><b>Sorold be</b> mondatonként: <b>forrásból</b> (a célkártya vagy a profil sorából) · <b>általános</b> (nem a forrásból, de ellenőrizhető) · <b>nem ellenőrizhető</b>.</li>
+                <li><b>Dönts</b> a visszakeresés után: A: egyetértek · B: van, amit másképp látok · C: nézzünk meg még két állítást.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Táblázat: mondat | a te besorolásod | tényleges forráshely sorszámos linkkel, vagy „nincs forrás” | egyezik-e (✅/⚠️). Egy sora a munkamenet-jegyzetbe kerül a 7. lépésben.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>minden mondatot besoroltál; minden „forrásból” mondathoz van sorszámos forráshely; legalább egy mondat „nincs forrás” vagy „általános” besorolást kapott. Ezzel az A fázis lezárul.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A jól hangzó mondat még nem igaz mondat. Az ellenőrzés mindig a forráshoz mér, és a műveletet vissza tudod keresni: a forrás nélküli konkrét állítást az asszisztens generáltnak mondja, és törlést vagy forrást javasol.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>„Mi a helyes besorolás?” kérésre az asszisztens csak rávezető kérdést ad, megoldást nem: a besorolás a tiéd, a végső döntés is.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Melyik mondatot tudnád a célkártya melyik sorára mutatva igazolni, és melyiknél nem tudnál sorra mutatni?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Sorold be a hat mondatot a célkártya.md és a profil.md alapján: forrásból, általános vagy nem ellenőrizhető; a forrásból besorolt mondathoz add meg a sor számát; ahol nincs forrás, írd: nincs forrás.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="3">B fázis · Munkamenet <span class="when">09:20–09:33</span></div>
+
+      <section class="lepes" id="lepes-5" data-csoport="3" data-csoport-nev="Munkamenet" data-rovid="Munkamód és ellenőrizhető cél" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Munkamód és ellenőrizhető cél</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · B fázis · közös <span class="kulcs">kulcslépés: te döntesz</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Dönts</b> a holnapi feladatodhoz: A: Work Local · B: Work Cloud · C: még nem tudom, nyitott kérdésként marad · más: írd le. <b>Indokold</b> egy mondatban: hol vannak a források, kell-e a géped, mennyi ideig fut, mi történik, ha a gép elalszik.</li>
+                <li><b>Mondd el</b> egy mondatban az ellenőrizhető célt (kimenet, korlát, ellenőrzés), benne azzal, hogy a döntési szabály szerint elég-e egy menet, vagy maker–reviewer kell.</li>
+                <li><b>Hagyd jóvá vagy javítsd</b> a hét elemes promptot, amelyet az AI a mondott célodból és kritériumaidból megír és futtatás előtt megmutat (A: jó így · B: javítom).</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A választott mód és az indok, az ellenőrizhető cél három része, a döntésed (egy menet vagy maker–reviewer) egy mondat indokkal, és a feladat hét elemes promptja. A munkamenet-jegyzetbe kerül a 7. lépésben.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a mód mellett indok áll (forrás helye, futási idő, kell-e a gép); az ellenőrizhető cél három része mind jelen van, és az ellenőrzés mérhető; a döntés (egy menet vagy maker–reviewer) indokkal rögzített; a hét elemes prompt a te jóváhagyásoddal kész.</span></p>
+          <div class="lanes">
+            <div class="lane"><h3>Work Local</h3><ul><li>a géped fájljait vagy alkalmazásait használó feladathoz</li><li>futás közben a gép online marad, az alkalmazás fut</li><li>egy már futó menet nem vált át felhőbe</li></ul></div>
+            <div class="lane"><h3>Work Cloud</h3><ul><li>a géped nélkül is elvégezhető feladathoz</li><li>a futás a gép kikapcsolása után is folytatódhat</li><li>a helyi fájlok hozzáférését nem örökli: a bemeneteket külön elérhetővé kell tenni</li></ul></div>
+          </div>
+          <div class="callout jegyezd"><span class="callout-cim">Egy menet vagy maker–reviewer?</span><b>Egy menet elég</b>, ha a tét kicsi, a hiba olcsón visszafordítható, és a kimenetet magad forráshoz tudod mérni. <b>Maker–reviewer kell</b>, ha a kimenet kifelé megy, pénzt, vállalást, döntést vagy ügyfelet érint, vagy nehéz visszavonni: külön beszélgetésben készít a maker, és független ellenőriz a reviewer. Az AI egyszer visszakérdez a saját feladatodra, de nem dönt helyetted.</div>
+          <div class="callout tipp"><span class="callout-cim">Az orchestrator szerepe</span>Hosszú, több független részből álló munkánál ő bontja a munkát, a független részeket párhuzamosan külön makerekre bízza, kapukat tart, naplót vezet és összegez; maga nem készít és nem ellenőriz. Ma ezt a szerepet te töltöd be. Szerep és munkamód, nem menüpont.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Hol vannak a feladatod forrásai, és mi történik, ha a futás közben becsuknád a laptopot?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„A(z) &lt;feladat&gt; feladatot &lt;Work Local / Work Cloud&gt; módban futtatnám, mert &lt;forrás helye, futási idő&gt;; a kimenet &lt;fájl&gt;, a korlát &lt;mit nem tehet&gt;, az ellenőrzés &lt;mi bizonyítja a kész állapotot&gt;; a tét &lt;kicsi / kifelé megy&gt;, ezért &lt;egy menet / maker–reviewer&gt;.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="callout tipp"><span class="callout-cim">Tipp</span>Hosszú helyi futásnál a gép ne aludjon el a futás alatt, és a laptop maradjon töltőn. A két módot a munkatérben a Work kapcsolóján választod, ha elérhető.</div>
+          <div class="fallback"><strong>Ha a kapcsoló nem látszik a munkatérben:</strong> két perc után a tréner kivetített diája és a mentett jegyzet a tartalék; a mód indoklását és az ellenőrizhető célt ugyanúgy leírod, a jegyzetben „nem látszik a munkatérben” jelöléssel.</div>
+          <p class="why"><strong>Miért fontos:</strong> aki előre kimondja, mi a kész állapot, azt a hosszabb munka végén nem egy érzés, hanem egy ellenőrizhető tény mutatja meg.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-6" data-csoport="3" data-csoport-nev="Munkamenet" data-rovid="Felületbejárás és újdonságok" data-ido="kb. 8 perc">
+        <header class="lepes-fej">
+          <div><h3>Felületbejárás és újdonságok</h3><span class="lepes-cimke"><span class="ido">kb. 8 perc</span> · B fázis · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Kövesd</b> a tréner kivetítésével az öt pontot: (1) Chat és Work · (2) Local és Cloud · (3) modellválasztó: GPT-6 Luna a vezetett és közös munkához, GPT-6.1 Terra a makerhez, GPT-6.1 Sol a reviewerhez · (4) projekt és projektutasítás: a három sor a SETUP szerint, állandó kontextus · (5) használati keret.</li>
+                <li><b>Jelöld</b> pontonként a saját felületeden: látod-e (igen/nem).</li>
+                <li><b>Ellenőrizd</b> az Agents menüpontot: a desktop alkalmazásban nem mindig látszik, weben nézd meg.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Öt sor: mire való · látszik-e nálad; az Agents egy mondatban. Ez lesz a munkamenet-jegyzet „Felület” táblája a 7. lépésben.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>mind az öt pontnál van igen/nem bejegyzés, és az „igen” sorokat a saját képernyődön láttad.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak azt jelöld igennek, amit láttál; ami nem látszik, az „nem látszik a munkatérben” bejegyzést kap. A többi felületi elem (Pet, dots, Space, Team Tasks, Sites, pluginek, skillek) nem része a bejárásnak, kérésre pótolható.</div>
+          <div class="fallback"><strong>Ha egy elem nem látszik, vagy két perc után nem működik:</strong> a tréner diája pótolja; a jegyzetben a kiesett elem neve és a „nem látszik a munkatérben” jelölés áll, a módszer így is elkészül.</div>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="4">B fázis · Rögzítés <span class="when">09:33–09:40</span></div>
+
+      <section class="lepes" id="lepes-7" data-csoport="4" data-csoport-nev="Rögzítés" data-rovid="Jegyzet, profil és mentés" data-ido="kb. 7 perc">
+        <header class="lepes-fej">
+          <div><h3>Munkamenet-jegyzet, profil és mentés</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · B fázis · közös · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nézd át</b> a profil és a jegyzet összegző táblázatát, benne a <code>szint_ma</code> sorával.</li>
+                <li><b>Erősítsd meg</b> egyszer: A: igen, mentsd (Approve for me, fokozatos tanulási mód) · B: más önállósági szintet kérek, egy mondat indokkal · C: javítok valamit.</li>
+                <li><b>Nyisd meg</b> mentés után a két fájl linkjét.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><ul><li><code>profil.md</code>: <code>sav</code>, <code>onallosagi_szint</code>, <code>tanulasi_mod</code>, <code>dns_verzio</code> (az 1. gyakorlat végéig „Nincs megadva”), <code>szint_ma</code></li><li><code>munkamenet-jegyzet.md</code>: a mód indokkal, az ellenőrizhető cél, a működési minta döntése, a jóváhagyott hét elemes prompt, a felületi tábla</li></ul></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>minden mező kitöltött vagy „Nincs megadva”; a <code>sav</code> az 1. lépés válasza; a <code>szint_ma</code> a 2. lépésben kimondott fok vagy „Nincs megadva”; a két fájl nem üres; a jegyzetben ott a működési minta döntése és a jóváhagyott prompt.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Két külön beállítás: az <b>önállósági szint</b> (Ask for Approval / Approve for me / Full access) azt dönti el, mennyit csinálhat a Work kérdezés nélkül; a <b>tanulási mód</b> azt, ki írja a kulcslépés promptját. Ajánlott: Approve for me és fokozatos (reggel vezetett, délelőtt közös, délután önálló).</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A Full access ma nem ajánlott. Meglévő fájlnál új <code>_v2</code> nevet kapsz. A profil valós ügyfél- vagy személyes adatot nem tartalmazhat.</div>
+          <p class="why"><strong>Miért fontos:</strong> a profil megőrzi a választásaidat és azt, hol tartunk ma; a 7. gyakorlatban erre épül a 30 napos lépés, a jegyzet pedig megmutatja, mi látszik és mi nem a munkatérben, így holnap nem a nulláról indulsz.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Mitől jó és validált? Pipáld ki, mielőtt továbblépsz.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>Mindhárom fájl megvan és megnyílik.</div></li>
+      <li data-id="v2"><div>A profilban ott van a sáv, az önállósági szint, a tanulási mód és a <code>szint_ma</code> (a csoport által kimondott fok vagy „Nincs megadva”).</div></li>
+      <li data-id="v3"><div>A célkártyán a kimenet, a korlát és az ellenőrzés is kitöltött; az ellenőrzés mérhető, vagy forrásra mutat.</div></li>
+      <li data-id="v4"><div>A szöveg minden mondatához van forráshely, vagy „nincs forrás” jelölés.</div></li>
+      <li data-id="v7"><div>A hét elemes promptot az AI írta a te mondott célod és kritériumaid alapján, megmutatta, te jóváhagytad vagy javítottad; a jegyzetben indokkal ott a döntés: egy menet vagy maker–reviewer.</div></li>
+      <li data-id="v8"><div>A fokot a csoport jelölte, nem az AI; a nap térképe elhangzott.</div></li>
+      <li data-id="v5"><div>A felületi táblában csak az „igen”, amit a saját képernyődön láttál.</div></li>
+      <li data-id="v6"><div>A hiány „Nincs megadva”, a javaslat nem döntés.</div></li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>Minden mező a saját válaszodból jön; az asszisztens megmutatja, melyik mondatból.</div>
+      <div><b>Gépi ellenőrzés</b>A mappák meglétét a mappalistából olvassa, nem emlékezetből.</div>
+      <div><b>Független ellenőr</b>Ebben a blokkban nincs; a döntési szabály megmondja, mikor kell, és a független ellenőr a 4. és 5. gyakorlatban jön.</div>
+      <div><b>Ismétlés és megállás</b>Egy javítókör; ha az ellenőrzés csak „jó legyen” jellegű, pontosítod, aztán mentesz.</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol>
+        <li>Írd be: <em>„Elakadtam, ezt kaptam: …”</em>. Az asszisztens a következő legkisebb lépést adja.</li>
+        <li>A Work nem látja a <code>Wenova-AI-workshop</code> mappát: a <a href="../START.html">START</a> 2. lépése szerint engedélyezd megbízhatóként.</li>
+        <li>Valós ügyfél- vagy személyes adat kerülne a célkártyára: ne írd le, csak a feladat jellegét add meg.</li>
+        <li>Jelszó vagy kód került a beszélgetésbe: állj meg, ne mentsd; fiktív adattal folytatjuk.</li>
+        <li>Maga írnád a promptot: az AI nem veszi el tőled; felajánlja, hogy megírja és megmutatja, vagy te írod, ő a hét elem szerint átnézi (elemenként egy sor, legfeljebb egy javítási javaslat).</li>
+        <li>Fogy az idő: a négy típus két mondatra rövidül, a 6. lépésből csak a projektutasítás és a modellválasztó marad. A kétperces önbesorolás a fokokon, a nap térképe, a célkártya és a profil mentése, a hat prompt-szabály, az „írasd a promptot” minta és a döntési szabály nem maradhat el.</li>
+      </ol>
+      <p>Két perc után szólj <strong>Csabának</strong> vagy <strong>Krisztiánnak</strong>.</p>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Segítség bármikor</span><em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em> · <em>Jó-e a kimenetem?</em> · Módot így váltasz: <em>„Váltsunk vezetett / közös / önálló módra.”</em></div>
+    <div class="fallback"><strong>Ha a munkatérben nem elérhető:</strong> ha a Local/Cloud kapcsoló, a Pet vagy az Agents nem látszik, két perc után a tréner diája pótolja (az Agents a desktop appban nem mindig látszik; weben ellenőrizd). A jegyzetben „nem látszik a munkatérben” jelölés áll, a módszer ugyanúgy elkészül.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3>
+        <ul>
+          <li><strong>BA (üzleti elemző):</strong> a heti követelmény-összefoglaló, forráshellyel minden követelménynél.</li>
+          <li><strong>Sales-Account:</strong> ajánlati tétel és műszaki melléklet összevetése, az árlista sorával.</li>
+          <li><strong>Közös:</strong> minden visszatérő feladat elé írd le: kimenet, korlát, ellenőrzés.</li>
+          <li><strong>Működési minta:</strong> a következő hosszabb feladatnál mondd el a célt és a kritériumokat, és írasd meg a promptot az AI-val; a kockázat szerint döntsd el, elég-e egy menet, vagy maker–reviewer kell.</li>
+          <li><strong>Közös pont:</strong> hol tartunk, és mi a következő fok? Mondd ki egy mondatban, mi kellene hozzá: közös tudás, kapu, gazda, mérés.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Mi kell hozzá</h3>
+        <ul>
+          <li>Egy konkrét, visszatérő feladat.</li>
+          <li>Három mondat: mit adsz ki, mi a határ, mivel dönted el, hogy kész.</li>
+          <li>Döntés: a gépedhez kötött (Work Local) vagy felhős (Work Cloud) munka lesz.</li>
+          <li>Egy mérce: ha kifelé megy, pénzt, vállalást, döntést vagy ügyfelet érint, vagy nehéz visszavonni, maker–reviewer kell.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>1. gyakorlat: Oriana DNS · 09:40</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük az 1. gyakorlatot.”</em></p></div>
+      <a class="gomb" href="01-dns-notebook.html">Tovább az 1. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="../START.html" rel="prev">◀ Beállítás (START)</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="01-dns-notebook.html" rel="next">1. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

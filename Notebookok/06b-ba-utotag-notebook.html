@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6b. gyakorlat: BA-utótag: keresztreferencia-skill, képernyőterv, dokumentáció kódból · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Notebook v2 a(z) 6b. gyakorlathoz. Tartalom: Feladatok/06b-ba-utotag.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. -->
+<body class="notebook v2" data-depth="1" data-current="06b">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="06b" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>6b. gyakorlat · 15:35–16:05</span><span class="badge ba">BA</span><span>vezeti: Piya Csaba · körbejár: Kemény Krisztián</span></div>
+      <h1 id="cim">BA-utótag: keresztreferencia-skill, képernyőterv, dokumentáció kódból</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Az FDD-egység (funkcionális tervdokumentum) után három rövid BA-feladatot (BA: üzleti elemző) végzel el recepttel: önállóan szállíthatóvá teszel egy dokumentumot, drótvázat készítesz egy FDD-fejezethez, és kódból felhasználói leírást írsz, illetve frissítesz.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">keresztreferencia és önállóan szállítható dokumentum</li>
+          <li data-csoport="1">Skill: újrahasználható recept</li>
+          <li data-csoport="2">determinisztikus ellenőrzés: előtte/utána számláló</li>
+          <li data-csoport="2">drótváz egy FDD-fejezethez, offline HTML-ben</li>
+          <li data-csoport="3">a prompt hét eleme a drótváz kérésében</li>
+          <li data-csoport="3">dokumentáció kódból, kódhely-visszakereséssel</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ 30 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/06b-BA-utotag</span><span>mód: közös (az A fázis bekezdésjavítása önálló)</span><span>Vezeti: Piya Csaba</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>kész FDD-egységed van (a saját, vagy a mellékletek tartalék anyaga)</li>
+          <li>a dokumentum olvasásához más dokumentumokra kell lapozni</li>
+          <li>a képernyőleírás első próbája és a kódból írt leírás még hiányzik</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>ellenorzes.md</code>: hivatkozásszám előtte és utána, a változtatások forrással</li>
+          <li><code>drotvaz</code> mappa: a képernyőterv-drótváz offline HTML-fájlja</li>
+          <li><code>dokumentacio</code> mappa: a kódból írt leírás kódhelyekkel</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> a hat lépés Ellenőrzés és Rögzítés szakasza gyors feladatokon: egy ismétlődő BA-feladat receptből számlálóval ellenőrizhető, és a jelentés és a forrás között visszakereshető marad a kapcsolat. A drótváz és a dokumentáció közös kipróbálás, nem önálló tervezési vagy fejlesztési munka.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-racs">
+      <div class="start-box">
+        <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+        <div class="say">Kezdjük a 6b gyakorlatot.</div>
+        <p>Az asszisztens a <code>Munka/06b-BA-utotag</code> fájljaiból megállapítja, hol tartasz, és egy sorban közli. Ha nincs saját FDD-egységed, a mellékletek tartalék anyagát használja, és ezt szintén egy sorban mondja meg.</p>
+      </div>
+      <div class="start-box alt">
+        <div class="label">A következő fázisoknál (15:43, 15:55) vagy ha megszakadtál</div>
+        <div class="say">Folytassuk a 6b gyakorlatot.</div>
+        <p>Az asszisztens a mentett fájlokból látja, hol tartasz: nincs <code>ellenorzes.md</code> → A fázis; van, de a <code>drotvaz</code> mappa üres → B fázis; van drótváz, de a <code>dokumentacio</code> üres → C fázis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Három rövid BA-feladat, egy módszer</h2>
+    <p>Mindhárom feladatnál ugyanaz a módszer: recept, mérhető ellenőrzés és forrás-visszakeresés. Az ábra a három feladat sorrendjét mutatja; a gyakorlat lépései ezen mennek végig.</p>
+    <figure class="abra" data-abra="ba-utotag" data-stage="06b" data-cim="nincs">
+      <figcaption>A BA-utótag három rövid feladata: keresztreferencia-mentes, önállóan szállítható dokumentum (számlálóval ellenőrizve) → képernyőterv-drótváz egy FDD-fejezethez (offline HTML) → dokumentáció kódból (frissítés elavult leírásból); mindhárom receptből (Skill), a jelentés és a forrás között visszakereshető kapcsolattal.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat kilenc lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">A fázis · Önállóan szállítható dokumentum <span class="when">15:35–15:43</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Önállóan szállítható dokumentum" data-rovid="Demó: önállóan szállítható" data-ido="kb. 3 perc">
+        <header class="lepes-fej">
+          <div><h3>Demó: önállóan szállítható dokumentum</h3><span class="lepes-cimke"><span class="ido">kb. 3 perc</span> · A fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Figyeld</b> a tréner demóját egy rövid bekezdésen: a számláló előbb méri a feloldatlan keresztreferenciákat, a szükséges szöveg beépül, a forrás lábjegyzetbe kerül, és a számláló újra mér.</li>
+                <li><b>Olvasd el</b> a recept (<code>06b-onallo-dokumentum-SKILL.md</code>) három sorát: mit mér, mit tesz, mit nem tehet.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A recept három sora és a demó számai előtte és utána. Külön fájl nincs: a demó nem a te fájlod.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a számláló kimenete (előtte/utána) látszik, és a parancs vagy a kézi módszer megnevezett.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Skill újrahasználható recept: a recept adja a szabályt, a számláló a mérést, a kettő együtt ellenőrizhető átalakítás. A „kevesebb hivatkozás” mérhető, és a számláló azt is megmutatja, mit nem ismer fel.</div>
+          <div class="fallback"><strong>Ha a Skill betöltése nem megy:</strong> a recept szövege a kérés része, a számlálás kézi; a kiesett funkció a Skill-betöltés, a módszer azonos.</div>
+          <p class="why"><strong>Miért fontos:</strong> a szabály és a mérés szétválik: a recept megmondja, mit tegyen az átalakítás, a számláló pedig azt, hogy sikerült-e.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Önállóan szállítható dokumentum" data-rovid="Közös validáció friss beszélgetésben" data-ido="kb. 2 perc">
+        <header class="lepes-fej">
+          <div><h3>Közös validáció friss beszélgetésben</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · A fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nyiss</b> egy új beszélgetést, add oda csak az átírt szöveget, és kérdezd: „Érthető-e ez a szöveg más dokumentum nélkül? Mit hiányolsz?” Hozd vissza a választ.</li>
+                <li><b>Dönts</b>: A: a jelentés megmaradt, a hivatkozások száma csökkent (ajánlott, ha a friss beszélgetés nem hiányolt semmit) · B: elveszett egy feltétel vagy kivétel: írd le · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A friss beszélgetés válasza a számláló eredménye mellett.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a beépített szöveg és a forrás két helyen visszakeresve egyezik, és a számláló eredménye idézett (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az önállóság próbája, hogy aki nem ismeri a forrásdokumentumot, megérti-e. A számláló ezt nem mondja meg.</div>
+          <div class="fallback"><strong>Ha nincs friss beszélgetés:</strong> a pár olvassa el a szöveget a forrásdokumentum nélkül (páros emberi próba); a kiesett funkció a gépi értelmezési próba.</div>
+          <p class="why"><strong>Miért fontos:</strong> a hivatkozások száma csak az egyik mérce; a másik, hogy a szöveg egyedül is érthető.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-3" data-csoport="1" data-csoport-nev="Önállóan szállítható dokumentum" data-rovid="Önálló bekezdésjavítás" data-ido="kb. 3 perc">
+        <header class="lepes-fej">
+          <div><h3>Önálló bekezdésjavítás</h3><span class="lepes-cimke"><span class="ido">kb. 3 perc</span> · A fázis · BA <span class="kulcs">kulcslépés: a te kérésed</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Válassz</b> egy rövid bekezdést: A: a saját FDD-egységed (FDD: funkcionális tervdokumentum) egy bekezdése (ajánlott) · B: a tartalék bekezdés a <code>06b-ellenorzes-sablon.md</code> mellékletből · más: írd le.</li>
+                <li><b>Fogalmazd meg</b> a saját szavaiddal a kérést (ez a gyakorlat 3 perces, önálló része).</li>
+                <li><b>Keress vissza</b> a forrásban két beépített helyet.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az átírt bekezdés lábjegyzettel, a hivatkozásszám előtte és utána, mentve az <code>ellenorzes.md</code> fájlba.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az előtte/utána szám megvan, és két beépített hely a forrásban visszakeresett (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A recept nem bővítheti a tartalmat. Hiányzó forrásnál „Nincs megadva” áll, az asszisztens nem találja ki a beépítendő szöveget. Elhúzódó futásnál az előkészített részleten dolgozol.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>Mely kifejezések jelzik a bekezdésedben, hogy másik helyre mutat, és mit kell onnan átvenned, hogy a bekezdés magában is megálljon?</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Futtasd a <code>06b-onallo-dokumentum-SKILL.md</code> receptjét erre a bekezdésre: &lt;hely&gt;. A hivatkozott helyek szövegét építsd be, a forrást lábjegyzetben add meg. Előtte és utána számold a feloldatlan hivatkozásokat. A tartalmat ne bővítsd. Ellenőrizd két beépített szakasz forrását. Mentsd az <code>ellenorzes.md</code> fájlba az <code>ellenorzes-sablon</code> szerint.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a számláló nem fut:</strong> kézzel számolsz, és az <code>ellenorzes.md</code> kimondja; a kódos cél nem teljesültként jelölt.</div>
+          <p class="why"><strong>Miért fontos:</strong> az eredmény azért jó, mert mérhető (a számláló), forrással alátámasztott (a lábjegyzet), és te ellenőrizted; nem az AI szava dönt.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">B fázis · Képernyőterv <span class="when">15:43–15:55</span></div>
+
+      <section class="lepes" id="lepes-4" data-csoport="2" data-csoport-nev="Képernyőterv" data-rovid="Demó: képernyőterv-drótváz" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Demó: képernyőterv-drótváz</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · B fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Figyeld</b>, hogyan lesz a képernyőleírásból offline HTML-fájl: a bemenet az FDD 11. fejezete (vagy a melléklet fiktív mintafejezete), a módszer egy skill a képernyőelem-szabályokhoz és egy prompt a konkrét fejezethez, a kimenet egy HTML-fájl a <code>drotvaz</code> mappában.</li>
+                <li><b>Nyisd meg</b> a feladat mellékletét (<code>06b-kepernyoterv-feladat.md</code>) és az előkészített drótvázat.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az előkészített fejezet és a kész, általános drótváz. Külön fájl nincs: a demó szövege a tréneré.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a drótváz megnyílik böngészőben, és a FIKTÍV jelölés látszik (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A drótváz (nem működő képernyővázlat) a leírás első próbája: ha a mező nem fér a képernyőre, vagy hiányzik az értékkészlet, a leírás hiányos.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A drótváz általános, fiktív képernyőelemekkel készül, nem valós termék elemeivel, és konkrét termék képességeiről nem állít semmit. A választólisták értékkészlete a fejezetből jön.</div>
+          <div class="fallback"><strong>Ha a Work nem tud fájlt készíteni:</strong> az előkészített általános drótváz megnyitása és a leírás kézi javítása a tartalék; a kiesett funkció a fájlkészítés.</div>
+          <p class="why"><strong>Miért fontos:</strong> a drótváz azért érték, mert a leírásból ellenőrizhetően következik, nem azért, mert szép.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-5" data-csoport="2" data-csoport-nev="Képernyőterv" data-rovid="Egy mező közös javítása" data-ido="kb. 6 perc">
+        <header class="lepes-fej">
+          <div><h3>Egy mező közös javítása</h3><span class="lepes-cimke"><span class="ido">kb. 6 perc</span> · B fázis · BA <span class="kulcs">kulcslépés: a te javítási kérésed</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Azonosíts</b> egy eltérést a drótváz és az FDD-fejezet táblázata között (típus, kötelező jelölés, értékkészlet).</li>
+                <li><b>Válaszd ki</b>, melyik mezőt javítjuk: A: amelyiknél a legnagyobb az eltérés (ajánlott) · B: a kötelező jelölést · C: egyedi: írd le.</li>
+                <li><b>Fogalmazz</b> fókuszált javítási kérést, majd vesd össze újra a fejezettel.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A javított HTML új verzióként (<code>_v2</code> utótaggal) és a választólista elemeinek összevetése az értékkészlettel, előtte és utána. Mentés a 6. lépésben.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a javított mező a fejezet sorával egyezik, és az összevetés kimenete idézett (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Egy mező, egy javítás, újramérés. Más mező nem módosulhat, külső erőforrás nincs.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>Melyik mezőnél tér el a drótváz a fejezet táblázatától (típus, kötelező jelölés, értékkészlet), és mit kell pontosan kérned?</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„A drótváz &lt;mező&gt; mezője eltér az FDD 11. fejezetétől: &lt;mi&gt;. Javítsd ezt a mezőt a fejezet szerint, mást ne módosíts. Ellenőrzésként add meg a választólista elemeit az értékkészlettel összevetve. Az új verzió ‚_v2’ utótagot kapjon.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a fájl nem módosítható a munkatérben:</strong> a javítás leírását szövegben rögzíted, és kézzel javítod; a kiesett funkció a fájlkészítés.</div>
+          <p class="why"><strong>Miért fontos:</strong> a javítási kör azért ér valamit, mert ugyanazzal a mérőszámmal ellenőrizzük: nem azt, hogy jobban néz ki, hanem hogy egyezik a leírással.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-6" data-csoport="2" data-csoport-nev="Képernyőterv" data-rovid="Drótváz mentése" data-ido="kb. 2 perc">
+        <header class="lepes-fej">
+          <div><h3>Drótváz mentése</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · B fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nézd meg</b> a mentett fájl linkjét, és nyisd meg böngészőben.</li>
+                <li><b>Ellenőrizd</b>, hogy a fejlécben ott áll a „FIKTÍV OKTATÁSI MINTA” és a „drótváz, nem működő alkalmazás”.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>drotvaz</code> mappában egy <code>ÉÉÉÉ-HH-NN_kepernyo_drotvaz.html</code> fájl (a forrás dátumával, ütközésnél <code>_v2</code>); az eredmény az <code>ellenorzes.md</code> 6. szakaszába is bekerül.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a fájl megnyitható, külső erőforrás (külső szkript, webbetűtípus, kép-hivatkozás) nincs benne, és a jelölés megvan (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A kimenet közös kipróbálás, nem kész tervezés: a drótváz célja a leírás ellenőrzése, nem a képernyő végleges megtervezése.</div>
+          <p class="why"><strong>Miért fontos:</strong> az offline fájl bárhol megnyitható, ezért a teszt ugyanazt mutatja mindenkinek.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="3">C fázis · Dokumentáció kódból <span class="when">15:55–16:05</span></div>
+
+      <section class="lepes" id="lepes-7" data-csoport="3" data-csoport-nev="Dokumentáció kódból" data-rovid="Demó: dokumentáció kódból" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Demó: dokumentáció kódból</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · C fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Figyeld</b> a tréner két példáját a <code>kod-repo/rondo-jovahagyas</code> mappából: az egyik nulláról indul (a <code>szabalyok.py</code> olvasásával), a másik egy elavult leírást frissít (a <code>felhasznaloi_kezikonyv.md</code> alapján).</li>
+                <li><b>Nézd meg</b>, hogy minden szabályhoz kódhely tartozik (fájl és sor).</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Két minta egy-egy bekezdése kódhellyel; a kimenet felhasználói szintű leírás, nem függvénylista. Külön fájl nincs.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a megadott kódhely tényleg létezik (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A kód nem módosul. A mappát helyi fájlként olvassa az asszisztens (Work Local) vagy feltöltött fájlként; repó- vagy MCP-elérést (MCP: Model Context Protocol, külső rendszereket kapcsoló szabvány) csak „ha a munkatérben elérhető” feltételezünk.</div>
+          <div class="fallback"><strong>Ha a helyi mappa vagy a repó-hozzáférés nem megy:</strong> feltöltöd a három fájlt, vagy a tréner adta ZIP-ből bontod ki; ha az sem, a tréneri felvételt nézed. A kiesett funkció a közvetlen mappaolvasás, a módszer azonos.</div>
+          <p class="why"><strong>Miért fontos:</strong> a kódból írt dokumentáció akkor megbízható, ha minden szabálya visszakereshető a kódban.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-8" data-csoport="3" data-csoport-nev="Dokumentáció kódból" data-rovid="Egy kódszabály visszakeresése" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Egy kódszabály közös visszakeresése</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · C fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Válasszatok</b> közösen egy szabályt a leírásból (olyat, amelyiknél van számadat vagy feltétel), és keressétek meg a kódban.</li>
+                <li><b>Vesd össze</b> a kódhelyet a kézikönyv megfelelő mondatával, és dönts: A: egyezik · B: eltér: írd le, hol · C: nem dönthető el ebből a két fájlból · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Két idézet egymás mellett (kódhely és kézikönyv-mondat), egyezés vagy megnevezett eltérés.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>mindkét hely megnyitható, és az eltérés (ha van) megnevezett (✅/⚠️).</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem dönti el, melyik a „helyes”: a forrás a kód, a döntés a szerzőé.</div>
+          <p class="why"><strong>Miért fontos:</strong> a leírás elavulása csak a forrásban való visszakereséssel látszik; ezért a kód-dokumentáció módszere a visszakeresés.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-9" data-csoport="3" data-csoport-nev="Dokumentáció kódból" data-rovid="Közös eredmény mentése" data-ido="kb. 2 perc">
+        <header class="lepes-fej">
+          <div><h3>Közös eredmény mentése</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · C fázis · BA</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nézd meg</b> a mentett fájlok linkjét.</li>
+                <li><b>Ellenőrizd</b>, hogy a fejlécben ott áll a „FIKTÍV OKTATÁSI MINTA” és a „közös kipróbálás”.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>dokumentacio</code> mappában a <code>ÉÉÉÉ-HH-NN_dokumentacio_kodbol.md</code> (ütközésnél <code>_v2</code>), kódhelyekkel; az <code>ellenorzes.md</code> 6. szakasza kitöltve a visszakeresés adataival.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a fájl megnyitható, a kódhelyek léteznek, és a jelölés megvan (✅/⚠️).</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A mai közös kipróbálás nem kész dokumentáció, hanem egy módszer: kódból leírás, kódhelyes visszakereséssel.</div>
+          <p class="why"><strong>Miért fontos:</strong> a mentett, visszakereshető leírás másnap is használható.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Pipáld ki, mielőtt továbblépsz.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>Az <code>ellenorzes.md</code> megvan: tartalmazza a hivatkozásszámot előtte és utána, a változtatásokat forrással és a jelentésmegőrzés ellenőrzését.</div></li>
+      <li data-id="v2"><div>A drótváz megnyitható, külső erőforrás nélküli, és a választólisták egyeznek az értékkészlettel.</div></li>
+      <li data-id="v3"><div>A dokumentáció minden szabálynál kódhelyet ad, és közös kipróbálásként jelölt.</div></li>
+      <li data-id="v4"><div>A fiktív jelölés megvan; a hiány „Nincs megadva”; a javaslat nem döntés.</div></li>
+      <li data-id="v5"><div>Minden lényeges állításnál van forráshely; a <code>Tananyag</code> érintetlen.</div></li>
+      <li data-id="v6"><div>Nincs állítás valós termék képességéről: a drótváz és a dokumentáció általános, fiktív.</div></li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>A beépített szöveget és a kódszabályt a forrásban, fájl és sor szerint keresed vissza.</div>
+      <div><b>Gépi ellenőrzés</b>A hivatkozásszám előtte/utána és a választólista–értékkészlet összevetés számlálóval, nem szemre.</div>
+      <div><b>Független ellenőr</b>A friss beszélgetés, amely csak az átírt szöveget kapja, és a páros emberi próba.</div>
+      <div><b>Ismétlés és megállás</b>Egy mező, egy javítás, újramérés; az eltérésről a döntés a szerzőé.</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol>
+        <li><b>A Skill nem tölthető be:</b> a recept fájlját kérésként követi az asszisztens; a módszer azonos.</li>
+        <li><b>Nem fut kód:</b> a számlálás és az értékkészlet-összevetés kézzel történik, és az <code>ellenorzes.md</code> kimondja, hogy a kódos cél nem teljesült.</li>
+        <li><b>Nincs saját FDD-egységed:</b> a mellékletek tartalék anyagát használjátok.</li>
+        <li><b>A helyi mappa vagy a repó-hozzáférés nem működik:</b> három fájl feltöltése vagy ZIP; végső tartalék a tréneri felvétel.</li>
+        <li><b>A leírás és a kód eltér:</b> megnevezzük az eltérést, a döntés a szerzőé.</li>
+        <li><b>Valós Oriana-kód vagy -dokumentum került elő:</b> ne mentsd és ne használd; a valós anyag a saját fiókban marad.</li>
+      </ol>
+      <p>Két perc után szólj <strong>Csabának</strong> vagy <strong>Krisztiánnak</strong>.</p>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Segítség bármikor</span><em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em> · Módot így váltasz: <em>„Váltsunk vezetett / önálló módra.”</em></div>
+    <div class="fallback"><strong>Ha a munkatérben nem elérhető:</strong> nincs Skill-betöltés: a Skill-fájl szövegét a Work kérésként követi, a számlálás kézi. Nincs kódfuttatás: kézi számlálás, a kódos cél nem teljesültként jelölve. Nincs helyi mappa- vagy repó-hozzáférés: ZIP vagy feltöltött három fájl, utolsó tartalék a tréneri felvétel.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3>
+        <ul>
+          <li><strong>BA:</strong> egy meglévő, hivatkozásokkal teli dokumentum önállóan szállíthatóvá tétele recepttel és számlálóval.</li>
+          <li><strong>BA:</strong> egy FDD-fejezet képernyőtervezésének első drótváza.</li>
+          <li><strong>BA:</strong> egy elavult felhasználói leírás frissítése a kód alapján, kódhelyekkel.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Mi kell hozzá</h3>
+        <ul>
+          <li>A forrásdokumentum.</li>
+          <li>A recept (Skill vagy szöveg).</li>
+          <li>Egy mérés: számláló vagy értékkészlet-összevetés.</li>
+          <li>A forrás-visszakeresés szokása.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>7. gyakorlat: Saját folyamat átvitele · 16:05</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük a 7. gyakorlatot.”</em></p></div>
+      <a class="gomb" href="07-sajat-atvitel-notebook.html">Tovább a 7. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="06-sites-notebook.html" rel="prev">◀ 6. gyakorlat</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="07-sajat-atvitel-notebook.html" rel="next">7. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Notebookok (órai vonalvezetők)
+
+Blokkonként egy rövid, offline HTML-itiner a 2026.11.12-i workshophoz. A notebook végigvezet a gyakorlaton: megmutatja, hol tartasz a napban és a gyakorlaton belül, mi a cél, honnan hová jutsz, lépésenként mit csinálsz, mit kapsz és mitől kész, végül mit vihetsz haza. A lépésenkénti vezetést a `Feladatok` mappa forgatókönyvei adják; a notebook azokat nem ismétli, csak a résztvevői tennivalót mutatja.
+
+| Gyakorlat | Idő | Fájl | Fejezet-ábra |
+|---|---|---|---|
+| 0 | 09:00 | `00-halado-setup-notebook.html` | a nap térképe (Á1) és az érettségi lépcső (Á2) |
+| 1 | 09:40 | `01-dns-notebook.html` | a DNS felépítése: öt réteg, egy alap, két szerep |
+| 2 | 10:15 | `02-portal-notebook.html` | portál API nélkül: kézi út vagy böngésző-agent, dry run → alkalmazás → visszaolvasás |
+| 3 | 11:00 | `03-kozos-munka-notebook.html` | megosztási jogok mátrixa, app-kapcsolat, csapatfeladat, hozzáférési szabály |
+| 4 | 11:25 | `04-rondo-agent-notebook.html` | az agentfutás íve: brief → ebéd alatti futás → átvétel → javítás; BA és Sales-Account sáv |
+| 5 | 13:25 | `05-rondo-reviewer-notebook.html` | maker–reviewer hurok: R1, R2, stop-döntés (Á4) |
+| 6 | 15:10 | `06-sites-notebook.html` | ügykövető: adat → app → jogosultság → megosztás |
+| 6b | 15:35 | `06b-ba-utotag-notebook.html` | három BA-recept: dokumentum, drótváz, dokumentáció kódból |
+| 7 | 16:05 | `07-sajat-atvitel-notebook.html` | a nap térképe a végén (Á1) és a lépcső 30 napra (Á2) |
+
+## Szerkezet (design system v2)
+
+Minden notebook ugyanazt a vázat követi, felülről lefelé:
+
+1. **Felső napi navigáció:** a nap blokkjai menüként, az aktuális kiemelve a sáv színével (közös: indigó, BA: égkék, Sales-Account: bíbor, párhuzamos: kétszínű), ◀ ▶ lépkedő a szomszédos blokkra, téma-váltó (világos az alap; sötét; rendszer szerint).
+2. **Session-fejléc:** Cél egy mondatban · Mit gyakorolunk (csipszek a lépéscsoportok színével) · Honnan → hová (kiinduló állapot és a mentett kimenetek) · Miért fontos.
+3. **Így indítsd:** az indító mondat(ok) a Work-beszélgetésbe; maker/reviewer módban a fix indítók („RONDO 04 maker”, „RONDO 05 reviewer R1” stb.).
+4. **A fejezet ábrája:** fejezetenként más, a fejezet fogalmára; a részei kattinthatók (meghatározás, hol készül).
+5. **A gyakorlat lépései:** bal oldalt függőleges haladási vonal (állomások, „Hol tartok: n/N lépés”, Kész: n/N, Vissza/Előre), a görgetéssel szinkronban; jobb oldalt a lépések színes fejlécű szakaszai a fázis csoportszínével: **Mit csinálsz** (igékkel, 1–3 pont) · **Mit kapsz** · **Kész, ha …** · kiemelő dobozok (Jegyezd meg · Figyelj · Tipp · tipp-létra) · Ha nem elérhető · Miért fontos; minden lépés pipálható (a pipa csak ebben a böngészőben marad meg). Szünet (pl. ebéd, amíg az agent fut) külön kártya, nem lépés.
+6. **Mitől jó az eredmény:** ellenőrzőlista és a négy szempont (forrás-visszakeresés, gépi ellenőrzés, független ellenőr, ismétlés és megállás).
+7. **Ha elakadsz:** elakadás-doboz, segítség bármikor, B-terv.
+8. **Vidd haza** és a **Következő** blokk kártyája.
+
+Megnyitás: dupla kattintás a fájlra, böngészőben, internet nélkül. A közös stílus, a napi térkép és a lépésvezető a `../_assets/wenova.css` és `wenova.js`, az ábrák a `wenova-abrak.js` fájlban vannak; a sablon új notebookhoz: `../_assets/notebook-template.html`. Vetítéshez URL-kapcsolók: `?tema=dark` (sötét) és `?anim=nincs` (az ábrák azonnal végállapotban).

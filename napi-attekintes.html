@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oriana agent-nap</title>
+<link rel="stylesheet" href="_assets/wenova-abrak.css">
+<style>
+/* Layout: outcome-first page. Hero sentence, six result cards, before/after rows,
+   two role columns with a highlight toggle, one compact arc of the day, four prep items.
+   Lane colors: teal = common, blue = BA, ochre = Sales-Account. */
+:root {
+  --paper: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf2;
+  --line: #d2d9e1;
+  --ink: #16202b;
+  --ink-2: #4a5763;
+  --ink-3: #74828f;
+  --common: #0f7c78;
+  --common-soft: #dcefed;
+  --ba: #2e5fb5;
+  --ba-soft: #e0e8f8;
+  --sales: #b5621a;
+  --sales-soft: #f6e7d5;
+  --muted: #8c98a4;
+  --muted-soft: #eceff3;
+  --focus: #2e5fb5;
+  --font-display: "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: Consolas, monospace;
+}
+/* A vezérelv-ábra (wenova-abrak.js) tokenjei ennek az oldalnak a színeiből */
+figure.abra { --border: var(--line); --text: var(--ink); --text-secondary: var(--ink-2); --text-muted: var(--ink-3); --accent: var(--common); --accent-soft: var(--common-soft); --accent-deep: var(--common); --ok: var(--ba); --ok-soft: var(--ba-soft); --ok-deep: var(--ba); --warn: var(--sales); --warn-deep: var(--sales); --highlight: var(--sales-soft); --font: var(--font-body); --radius: 8px; --space-1: .5rem; --space-3: 1.5rem; margin: 1.6rem 0 0; }
+figure.abra figcaption { color: var(--ink-3); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f161d; --surface: #171f28; --surface-2: #202a35; --line: #303c49;
+    --ink: #e8eef4; --ink-2: #b6c1cc; --ink-3: #8896a3;
+    --common: #40c6bc; --common-soft: #11332f;
+    --ba: #8ab1f1; --ba-soft: #1b2c49;
+    --sales: #e8a05a; --sales-soft: #3c2816;
+    --muted: #6b7885; --muted-soft: #1d2730;
+    --focus: #8ab1f1;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f161d; --surface: #171f28; --surface-2: #202a35; --line: #303c49;
+  --ink: #e8eef4; --ink-2: #b6c1cc; --ink-3: #8896a3;
+  --common: #40c6bc; --common-soft: #11332f;
+  --ba: #8ab1f1; --ba-soft: #1b2c49;
+  --sales: #e8a05a; --sales-soft: #3c2816;
+  --muted: #6b7885; --muted-soft: #1d2730;
+  --focus: #8ab1f1;
+  color-scheme: dark;
+}
+
+.tema-valto { position: fixed; top: .7rem; right: .8rem; z-index: 40; display: flex; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); box-shadow: 0 2px 12px #0002; }
+.tema-valto button { font: inherit; font-size: .78rem; display: inline-flex; align-items: center; gap: .3rem; padding: .45rem .6rem; border: 0; border-radius: 999px; color: var(--ink-2); background: transparent; cursor: pointer; }
+.tema-valto button[aria-pressed="true"] { color: var(--ink); background: var(--surface); font-weight: 700; }
+.tema-valto button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 600px) { .tema-valto button .szo { display: none; } }
+
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.45; margin: 0; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p { margin: 0; }
+section { padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+.eyebrow { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.8rem; }
+.head { margin-bottom: clamp(1.4rem, 3vw, 2.4rem); display: grid; gap: 0.6rem; }
+.head p.sub { color: var(--ink-2); font-size: 1.05rem; max-width: 60ch; }
+.icon { width: 1em; height: 1em; display: inline-block; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico-wrap { display: inline-grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 50%; background: var(--common-soft); color: var(--common); font-size: 1.6rem; flex: none; }
+.ico-wrap.ba { background: var(--ba-soft); color: var(--ba); }
+.ico-wrap.sales { background: var(--sales-soft); color: var(--sales); }
+.ico-wrap.muted { background: var(--muted-soft); color: var(--ink-2); }
+
+/* Hero */
+.hero { background: var(--surface); border-bottom: 1px solid var(--line); padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.4rem, 6vw, 4rem); }
+.hero h1 { font-size: clamp(1.9rem, 4.6vw, 3.3rem); font-weight: 800; letter-spacing: -0.02em; max-width: 24ch; line-height: 1.12; }
+.hero h1 em { font-style: normal; color: var(--common); }
+.hero .meta { margin-top: 1.6rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0.4rem 0; font-variant-numeric: tabular-nums; }
+.hero .meta span + span::before { content: "·"; margin: 0 0.7rem; color: var(--ink-3); }
+
+/* Outcome cards */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem 1.3rem 1.3rem; display: grid; gap: 0.9rem; align-content: start; min-width: 0; }
+.card h3 { font-size: 1.25rem; line-height: 1.15; }
+.card p { color: var(--ink-2); font-size: 0.98rem; }
+.card .fine { font-size: 0.84rem; color: var(--ink-3); line-height: 1.4; margin-top: -0.45rem; }
+.card .ico-wrap { width: 3.6rem; height: 3.6rem; font-size: 1.85rem; }
+
+/* Before / after */
+.ba-section { background: var(--surface); border-block: 1px solid var(--line); }
+.compare { display: grid; gap: 0.9rem; }
+.compare-head, .row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr) 2.2rem minmax(0, 1.6fr); gap: 0.8rem; align-items: center; }
+.compare-head { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.compare-head .after { color: var(--common); }
+.row { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 0.9rem 1rem; }
+.proc { display: flex; align-items: center; gap: 0.8rem; min-width: 0; }
+.proc strong { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; line-height: 1.15; }
+.proc .ico-wrap { width: 2.8rem; height: 2.8rem; font-size: 1.4rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; min-width: 0; }
+.tag { font-size: 0.88rem; padding: 0.28rem 0.65rem; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); white-space: normal; }
+.tags.before .tag { border-style: dashed; color: var(--ink-3); }
+.tags.after .tag { border-color: var(--common); color: var(--common); background: var(--common-soft); font-weight: 600; }
+.arrow { color: var(--ink-3); font-size: 1.4rem; display: grid; place-items: center; }
+
+/* Roles */
+.role-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; }
+.toggle { display: inline-flex; gap: 0.4rem; padding: 0.3rem; background: var(--surface-2); border-radius: 999px; }
+.role-btn {
+  font: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: 0; border-radius: 999px;
+  padding: 0.5rem 1.1rem; background: transparent; color: var(--ink-2); display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.role-btn .dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--d); }
+.role-btn[data-view="ba"] { --d: var(--ba); }
+.role-btn[data-view="sales"] { --d: var(--sales); }
+.role-btn[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+.role-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.role { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--c); border-radius: 10px; padding: 1.3rem 1.3rem 1.4rem; min-width: 0; transition: opacity 160ms ease, transform 160ms ease; }
+.role.ba { --c: var(--ba); --cs: var(--ba-soft); }
+.role.sales { --c: var(--sales); --cs: var(--sales-soft); }
+.role h3 { font-size: 1.35rem; color: var(--c); margin-bottom: 0.25rem; }
+.role .who { color: var(--ink-3); font-size: 0.92rem; margin-bottom: 1.1rem; }
+.role ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.role li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 0.8rem; align-items: start; }
+.role li .ico-wrap { width: 2.4rem; height: 2.4rem; font-size: 1.25rem; background: var(--cs); color: var(--c); }
+.role li strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.role li span { color: var(--ink-2); font-size: 0.92rem; }
+.roles[data-view="ba"] .role.sales, .roles[data-view="sales"] .role.ba { opacity: 0.38; }
+.roles[data-view="ba"] .role.ba, .roles[data-view="sales"] .role.sales { transform: translateY(-3px); box-shadow: 0 10px 28px -18px var(--c); }
+
+/* Arc of the day */
+.arc-section { background: var(--surface); border-block: 1px solid var(--line); }
+.arc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.6rem; position: relative; }
+.arc::before { content: ""; position: absolute; left: 10%; right: 10%; top: 1.6rem; height: 3px; background: linear-gradient(90deg, var(--common) 0 48%, var(--ba) 52% 76%, var(--sales) 76%); border-radius: 2px; }
+.arc li { display: grid; justify-items: center; text-align: center; gap: 0.5rem; position: relative; min-width: 0; }
+.arc li .ico-wrap { width: 3.2rem; height: 3.2rem; font-size: 1.55rem; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.arc li strong { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.15; text-wrap: balance; }
+.arc li small { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.arc-note { margin-top: 1.4rem; color: var(--ink-2); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; }
+.arc-note span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.sw { width: 0.9rem; height: 0.9rem; border-radius: 3px; display: inline-block; }
+.sw.common { background: var(--common); } .sw.ba { background: var(--ba); } .sw.sales { background: var(--sales); }
+
+/* Prep */
+.prep { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.prep li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; display: grid; gap: 0.7rem; align-content: start; min-width: 0; }
+.prep strong { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+.prep span { color: var(--ink-2); font-size: 0.93rem; }
+
+footer { border-top: 1px solid var(--line); padding-block: 1.6rem 2.6rem; color: var(--ink-3); font-size: 0.88rem; }
+footer p { max-width: 72ch; }
+footer p + p { margin-top: 0.4rem; }
+
+@media (prefers-reduced-motion: reduce) { .role { transition: none; } }
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .prep { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compare-head { display: none; }
+  .row { grid-template-columns: 1fr; gap: 0.7rem; }
+  .arrow { transform: rotate(90deg); justify-self: start; margin-left: 0.7rem; font-size: 1.2rem; }
+  .tags::before { content: attr(data-label); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); width: 100%; }
+  .tags.after::before { color: var(--common); }
+}
+@media (max-width: 680px) {
+  body { font-size: 16px; }
+  .cards, .roles, .prep { grid-template-columns: 1fr; }
+  .arc { grid-template-columns: 1fr; gap: 1.1rem; }
+  .arc::before { left: 1.6rem; right: auto; top: 10%; bottom: 10%; width: 3px; height: auto; background: linear-gradient(180deg, var(--common) 0 48%, var(--ba) 52% 76%, var(--sales) 76%); }
+  .arc li { grid-template-columns: 3.2rem minmax(0, 1fr); justify-items: start; text-align: left; column-gap: 1rem; row-gap: 0.15rem; }
+  .arc li .ico-wrap { grid-row: 1 / 3; }
+  .roles[data-view="ba"] .role.ba, .roles[data-view="sales"] .role.sales { transform: none; }
+}
+</style>
+</head>
+<body data-root="">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-brief" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 11.5h4"/><path d="M11 14.5v5l4.5-2.5z"/></symbol>
+    <symbol id="i-gate" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2.5 2.5L15.5 10"/></symbol>
+    <symbol id="i-dns" viewBox="0 0 24 24"><path d="M12 4l8 4-8 4-8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M6 6.3h.01M8.6 6.3h.01"/><path d="M10.5 11.5l6.5 2.7-3 1.3-1.3 3z"/></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18"/><path d="M6.5 11.5h6M6.5 14.5h4"/><path d="M14.5 15.5l4-4M18.5 11.5h-3M18.5 11.5v3"/><path d="M9 21h6"/></symbol>
+    <symbol id="i-guide" viewBox="0 0 24 24"><path d="M5 4h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7l-4 4v-4H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8.5 10h7M13 7.5l2.5 2.5-2.5 2.5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M7.5 13.5h6M7.5 16h4"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v5"/><path d="M14 3v4h4"/><path d="M6 3v18h6"/><path d="M14.5 20.5l6-6-2-2-6 6v2z"/></symbol>
+    <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12c0 1.4 3 2.6 7 2.6s7-1.2 7-2.6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.8-5"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><path d="M6.5 7.5h5M6.5 10.5h3M14 7.5h3.5v5H14z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 6h6v3H9z"/><path d="M9 13h.01M12 13h.01M15 13h.01M9 17h.01M12 17h.01M15 17h.01"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M3 19h5v-5h5V9h5"/><path d="M15.5 6l3 3-3 3"/></symbol>
+    <symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 4l9 15H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-5.5 7-5.5s7 1.5 7 5.5"/></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M3 8h18"/><path d="M8 21h8M12 17v4"/><path d="M6 6.1h.01"/></symbol>
+    <symbol id="i-idea" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9L9 16h6l.5-2.1A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h13l-3 4 3 4H5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M9 4h6"/><path d="M9.5 13h.01M14.5 13h.01M9.5 16h5"/></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M4 12a8 8 0 1 1 2.3 5.7"/><path d="M4 21v-4h4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12h.01"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Haladó ChatGPT-workshop · Wenova</p>
+    <h1>Hogyan lesz az Oriana <em>AI-ready, majd AI-natív szervezet</em>: közös vállalati tudás, két szerep, ellenőrző kapuk. 16:30-ra kész a saját agent-briefed és a holnap reggeli első lépésed egy valódi Oriana-folyamatodra, ellenőrző kapuval, hogy az eredmény átadható legyen.</h1>
+    <p class="meta"><span>2026. november 12., csütörtök</span><span>Oriana iroda</span><span>09:00-16:30 · 450 perc, szünetekkel</span></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Amivel hazamész</p>
+      <h2>Hat kézzelfogható eredmény</h2>
+    </div>
+    <ul class="cards">
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-brief"/></svg></span>
+        <h3>Saját agent-brief egy valódi folyamatodra</h3>
+        <p>Hosszú munkát végez helyetted, például ebéd alatt.</p>
+      </li>
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-gate"/></svg></span>
+        <h3>Ellenőrző kapu, amely megfogja a hibát</h3>
+        <p>Független reviewer jelzi a hiányt és az ellentmondást, mielőtt továbbadnád.</p>
+      </li>
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-dns"/></svg></span>
+        <h3>Az Oriana DNS első verziója</h3>
+        <p class="fine">A cég közös alapja: kik vagyunk, mit adunk az ügyfélnek, és milyen szabályok szerint dolgozunk; egy helyen, a ChatGPT számára is olvasható formában.</p>
+        <p>Együtt készítjük el, hogy ne kelljen minden alkalommal nulláról elmagyarázni.</p>
+      </li>
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-browser"/></svg></span>
+        <h3>Adatgyűjtés API nélküli rendszerből</h3>
+        <p>Ismétlődő kigyűjtés böngésző-automatizálással, műveleti naplóval, ha a munkatérben elérhető.</p>
+      </li>
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-app"/></svg></span>
+        <h3>Megosztható mini-alkalmazás az ügy állapotáról</h3>
+        <p>Sites-oldal rekordokkal és hozzáférési jogokkal, ha a munkatérben elérhető.</p>
+      </li>
+      <li class="card">
+        <span class="ico-wrap"><svg class="icon"><use href="#i-guide"/></svg></span>
+        <h3>A nap térképe: DNS, szerepek, kapuk, proaktív segéd</h3>
+        <p>Közös tudásból indulunk, két szerepben dolgozunk, és minden kimenetet kapu ellenőriz. Közben a ChatGPT kérdez, követi a feladatleírást és segít ellenőrizni.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="ba-section">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Előtte / utána</p>
+      <h2>Három munkafolyamat, másképp</h2>
+      <p class="sub">Az agent készít, a kapu ellenőriz, az ember dönt.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-head" aria-hidden="true"><span>Folyamat</span><span>Előtte</span><span></span><span class="after">Utána</span></div>
+
+      <div class="row">
+        <div class="proc"><span class="ico-wrap muted"><svg class="icon"><use href="#i-folder"/></svg></span><strong>Felmérési csomag átnézése</strong></div>
+        <div class="tags before" data-label="Előtte"><span class="tag">kézi összevetés</span><span class="tag">sok forrás, egy szem</span><span class="tag">a hiány átcsúszik</span></div>
+        <div class="arrow"><svg class="icon"><use href="#i-arrow"/></svg></div>
+        <div class="tags after" data-label="Utána"><span class="tag">agent leltároz</span><span class="tag">kapu jelzi a hiányt</span><span class="tag">te döntesz</span></div>
+      </div>
+
+      <div class="row">
+        <div class="proc"><span class="ico-wrap muted"><svg class="icon"><use href="#i-doc"/></svg></span><strong>FDD- vagy ajánlatkészítés</strong></div>
+        <div class="tags before" data-label="Előtte"><span class="tag">nulláról írás</span><span class="tag">időigényes</span><span class="tag">számok forrás nélkül</span></div>
+        <div class="arrow"><svg class="icon"><use href="#i-arrow"/></svg></div>
+        <div class="tags after" data-label="Utána"><span class="tag">brief és kritériumok</span><span class="tag">agent készít, kapu ellenőriz</span><span class="tag">te adod tovább</span></div>
+      </div>
+
+      <div class="row">
+        <div class="proc"><span class="ico-wrap muted"><svg class="icon"><use href="#i-data"/></svg></span><strong>Adatgyűjtés több rendszerből</strong></div>
+        <div class="tags before" data-label="Előtte"><span class="tag">kattintás és másolás</span><span class="tag">minden alkalommal újra</span><span class="tag">a hibás sor észrevétlen</span></div>
+        <div class="arrow"><svg class="icon"><use href="#i-arrow"/></svg></div>
+        <div class="tags after" data-label="Utána"><span class="tag">böngésző-automatizálás</span><span class="tag">műveleti napló</span><span class="tag">a hibás sornál megáll</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="role-head">
+      <div class="head" style="margin-bottom:0">
+        <p class="eyebrow">Két szerepkör</p>
+        <h2>Mit visz haza a két sáv</h2>
+        <p class="sub">BA: üzleti elemző. FDD: funkcionális tervdokumentum. Délután a két sáv párhuzamosan halad, ugyanazon az ügyféleseten.</p>
+      </div>
+      <div class="toggle" role="group" aria-label="Szerepkör kiemelése">
+        <button type="button" class="role-btn" id="btn-ba" data-view="ba" aria-pressed="false"><span class="dot"></span>BA</button>
+        <button type="button" class="role-btn" id="btn-sales" data-view="sales" aria-pressed="false"><span class="dot"></span>Sales-Account</button>
+      </div>
+    </div>
+    <div class="roles" id="roles" data-view="both">
+      <div class="role ba">
+        <h3>BA</h3>
+        <p class="who">Üzleti elemzők</p>
+        <ul>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-folder"/></svg></span><div><strong>Ellenőrzött felmérési csomag</strong><span>KAPU I: megvan-e minden anyag, hol van ellentmondás.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Kész FDD-egység</strong><span>Agent készíti, a KAPU II fejlesztés előtt ellenőrzi.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-screen"/></svg></span><div><strong>Képernyőterv</strong><span>Általános drótváz egy FDD-fejezethez, közösen javítva.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-code"/></svg></span><div><strong>Dokumentáció kódból</strong><span>Felhasználói leírás a programkódból, forrásellenőrzéssel.</span></div></li>
+        </ul>
+      </div>
+      <div class="role sales">
+        <h3>Sales-Account</h3>
+        <p class="who">Értékesítés és ügyfélkapcsolat</p>
+        <ul>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-calc"/></svg></span><div><strong>Előkészített ajánlat</strong><span>Kalkuláció a megújításhoz, forrással alátámasztva.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-gate"/></svg></span><div><strong>Ellenőrzött számok és vállalások</strong><span>Külön ellenőrző kör, javított változat.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-risk"/></svg></span><div><strong>Kockázatlista</strong><span>A kockázatos változások jegyzéke, nyitott pontokkal.</span></div></li>
+          <li><span class="ico-wrap"><svg class="icon"><use href="#i-steps"/></svg></span><div><strong>Következő lépések</strong><span>Rögzítve a megosztható ügykövetőben.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="arc-section">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">A nap íve</p>
+      <h2>Öt szakasz</h2>
+      <p>Négy pillanat a napban: honnan indulunk, egy alap és két szerep, ebéd alatt és a kapu, holnap reggel.</p>
+    </div>
+    <ol class="arc">
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-flag"/></svg></span><strong>Alapok és Oriana DNS</strong><small>09:00 · 0-1. gyakorlat</small></li>
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-share"/></svg></span><strong>Automatizálás és megosztás</strong><small>10:15 · 2-3. gyakorlat</small></li>
+      <li><span class="ico-wrap ba"><svg class="icon"><use href="#i-agent"/></svg></span><strong>Agent indul, ebéd alatt dolgozik</strong><small>11:25 · 4. gyakorlat, A-B</small></li>
+      <li><span class="ico-wrap ba"><svg class="icon"><use href="#i-loop"/></svg></span><strong>Ellenőrzés és javítás</strong><small>13:15 · 4-5. gyakorlat</small></li>
+      <li><span class="ico-wrap sales"><svg class="icon"><use href="#i-target"/></svg></span><strong>Ügykövető és saját folyamat</strong><small>15:10 · 6-7. gyakorlat</small></li>
+    </ol>
+    <figure class="abra" data-abra="vezerelv" data-stage="07" data-cim="nincs">
+      <figcaption>Az AI-natív működés térképe a nap végén, minden rész megépülve: közös DNS (vállalati tudás) középen, két szerep (BA és Sales-Account) fogaskerékként, agentikus munkafolyamat hat lépéssel maker és reviewer körben, ellenőrző kapuk és ember dönt pont, proaktív segéd hat feltétellel; a kapuktól és a szerepektől a tanulság visszakerül a DNS-be. A notebookokban ugyanez az ábra mutatja gyakorlatonként, hol tartunk.</figcaption>
+    </figure>
+    <p class="arc-note"><span><span class="sw common"></span>közös</span><span><span class="sw ba"></span><span class="sw sales"></span>BA és Sales-Account párhuzamosan</span><span>Szünetek: 10:45-11:00, 12:30-13:15 (ebéd), 14:35-14:50</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Készülj fel</p>
+      <h2>Öt dolog a naphoz</h2>
+    </div>
+    <ul class="prep">
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-guide"/></svg></span><strong>A teljes tananyag egy helyen</strong><span><a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a>. Indulás: START.html, egy rövid üzenet a ZIP-linkkel (https://is.gd/oriana1112).</span></li>
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-laptop"/></svg></span><strong>Saját laptop</strong><span>Töltővel; a hosszú futás alatt online marad.</span></li>
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-user"/></svg></span><strong>Saját Oriana ChatGPT-fiók</strong><span>Működő céges belépés.</span></li>
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-desktop"/></svg></span><strong>ChatGPT asztali alkalmazás</strong><span>Telepítve és bejelentkezve.</span></li>
+      <li><span class="ico-wrap"><svg class="icon"><use href="#i-idea"/></svg></span><strong>Egy saját ismétlődő feladat és a délutáni sáv</strong><span>Erre írod meg a saját agent-briefedet. Döntsd el, melyik sávban dolgozol délután: BA vagy Sales-Account.</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Trénerek: Piya Csaba és Kemény Krisztián (Wenova). A 04 és az 05 gyakorlatot, valamint a 06 B Sales-Account sávot Kemény Krisztián vezeti, a 06b BA-sávot és a közös részeket (00-03, 06/A, 07) Piya Csaba; a másik tréner körbejár. A 15:35-16:05 sávot a résztvevő választja. A gyakorló ügyféleset mintaügyfele, a RONDO Hullámkartongyártó Kft. valós cég; az itt feldolgozott projekt kitalált: KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA.</p>
+    <p>Az Oriana DNS első változata saját vállalati hozzáféréssel készül. A munkatérfüggő funkciók elérését a képzés előtt ellenőrizzük; ha egy funkció nem érhető el, a feladat azonos módszerrel, más eszközzel készül.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var roles = document.getElementById('roles');
+  var btns = document.querySelectorAll('.role-btn');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var next = roles.dataset.view === b.dataset.view ? 'both' : b.dataset.view;
+      roles.dataset.view = next;
+      btns.forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.view === next)); });
+    });
+  });
+})();
+</script>
+<script src="_assets/wenova.js"></script>
+<script src="_assets/wenova-abrak.js"></script>
+</body>
+</html>

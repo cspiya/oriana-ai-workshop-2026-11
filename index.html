@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Napi térkép · Oriana × Wenova haladó ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="_assets/wenova.css">
+<style>
+  .blocks { list-style: none; padding: 0; margin: 0; }
+  .blocks li { display: grid; grid-template-columns: 6.4rem 1fr auto; gap: var(--space-2); align-items: start; padding: var(--space-2) var(--space-3); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: var(--space-1); }
+  .blocks li.break { background: var(--surface-2); border-style: dashed; color: var(--text-muted); grid-template-columns: 6.4rem 1fr; }
+  .blocks .t { font-family: var(--mono); font-size: .85rem; color: var(--text-muted); padding-top: .2rem; }
+  .blocks .t small { display: block; font-size: .72rem; line-height: 1.5; }
+  .blocks h3 { margin: 0 0 .2rem; font-size: 1.05rem; }
+  .blocks p { margin: 0; font-size: .92rem; color: var(--text-secondary); }
+  .blocks .links { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; white-space: nowrap; }
+  .blocks .links a { padding: .3rem .6rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
+  .blocks .links a:hover { border-color: var(--accent); }
+  .blocks .who { font-size: .78rem; color: var(--text-muted); }
+  .blocks .say { font-family: var(--mono); font-size: .8rem; background: var(--accent-soft); color: var(--accent-deep); padding: .1rem .45rem; border-radius: 4px; }
+  .blocks .lane { display: inline-block; font-size: .72rem; font-weight: 600; padding: .05rem .5rem; border-radius: 999px; border: 1px solid var(--border); margin-left: .35rem; vertical-align: middle; color: var(--text-secondary); }
+  @media (max-width: 640px) { .blocks li { grid-template-columns: 1fr; } .blocks .links { flex-direction: row; flex-wrap: wrap; } }
+</style>
+</head>
+<body class="notebook" data-depth="0">
+<button class="sidebar-toggle" type="button" aria-label="Menü">☰ Menü</button>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-eyebrow">2026. november 12. · 09:00-16:30</div>
+    <div class="sidebar-title">Napi térkép</div>
+    <div class="sidebar-meta">Oriana × Wenova haladó ChatGPT-workshop<br>Trénerek: Piya Csaba, Kemény Krisztián<br>Modell: GPT-6 Luna · GPT-6.1 Terra a makerhez · GPT-6.1 Sol a reviewerhez</div>
+    <nav aria-label="Tartalom">
+      <span class="toc-label">Ezen az oldalon</span>
+      <ol>
+        <li><a href="#indulas">Három lépésben</a></li>
+        <li><a href="#blokkok">A nap blokkjai</a></li>
+        <li><a href="#segedanyagok">Segédanyagok</a></li>
+        <li><a href="#elakadas">Ha elakadsz</a></li>
+      </ol>
+      <span class="toc-label">A nap blokkjai</span>
+      <ul class="plain">
+        <li><a href="Notebookok/00-halado-setup-notebook.html">09:00-09:40 · 0. Saját feladat, AI-alapok</a></li>
+        <li><a href="Notebookok/01-dns-notebook.html">09:40-10:15 · 1. Oriana DNS</a></li>
+        <li><a href="Notebookok/02-portal-notebook.html">10:15-10:45 · 2. RONDO-portál</a></li>
+        <li><a href="Notebookok/03-kozos-munka-notebook.html">11:00-11:25 · 3. Közös munka</a></li>
+        <li><a href="Notebookok/04-rondo-agent-notebook.html">11:25-12:30, 13:15-13:25, 14:15-14:35 · 4. RONDO agent</a></li>
+        <li><a href="Notebookok/05-rondo-reviewer-notebook.html">13:25-13:45, 13:45-14:15, 14:50-15:10 · 5. Reviewer</a></li>
+        <li><a href="Notebookok/06-sites-notebook.html">15:10-15:35 · 6. Ügykövető (Sites)</a></li>
+        <li><a href="Notebookok/06b-ba-utotag-notebook.html">15:35-16:05 · 6b. BA-utótag</a></li>
+        <li><a href="Notebookok/07-sajat-atvitel-notebook.html">16:05-16:30 · 7. Saját folyamat</a></li>
+      </ul>
+      <span class="toc-label">Gyors linkek</span>
+      <ul class="plain">
+        <li><a href="START.html">Beállítás (START)</a></li>
+        <li><a href="Segedanyagok/glosszarium.html">Glosszárium</a></li>
+        <li><a href="napi-attekintes.html">Napi áttekintés</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">Oriana × Wenova · 2026.11.12<br>A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</div>
+  </aside>
+
+  <main class="main">
+    <header class="hero">
+      <div class="hero-eyebrow">Oriana × Wenova · haladó ChatGPT-workshop · 2026. november 12.</div>
+      <h1>Napi térkép</h1>
+      <p class="hero-sub">Egy nap, egy ügy, két sáv. Az asszisztens vezeti a gyakorlatokat; te döntesz és ellenőrzöl. A nap végén saját folyamatodra indítasz agentet, és független ellenőrzéssel biztosítod, hogy az eredménye átadható legyen.</p>
+      <div class="meta">
+        <span>📍 Oriana iroda</span>
+        <span>⏱️ 09:00-16:30</span>
+        <span>🎤 Piya Csaba · Kemény Krisztián (Wenova)</span>
+        <span>🤖 ChatGPT Business · GPT-6 Luna / GPT-6.1 Terra / GPT-6.1 Sol</span>
+      </div>
+      <p><strong>A teljes tananyag egy helyen:</strong> <a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a> (böngészhető oldal; ZIP rövid linken: <a href="https://is.gd/oriana1112">https://is.gd/oriana1112</a>).</p>
+      <p>Fix tananyagforrás: <a href=""https://github.com/cspiya/oriana-ai-workshop-2026-11">GitHub-repó - nyilvános, olvasható</a>. Teljes tananyag ZIP-ként: <a href="https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip">közvetlen letöltés</a>; kicsomagolás közvetlenül a <code>Tananyag</code> mappába, a külső <code>oriana-ai-workshop-2026-11-main</code> mappa nélkül.</p>
+    </header>
+
+    <div class="callout">
+      <strong>A módszer, amire minden épül:</strong> Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés. Az egyik beszélgetés készít (maker), egy másik, független ellenőriz (reviewer); a döntés az embernél marad. Rövidítések: <a href="Segedanyagok/glosszarium.md">glosszárium</a>.
+    </div>
+
+    <section id="indulas">
+      <h2>Három lépésben</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Indulás előtt</h3><p>Indulás 3 lépésben, 5 perc: egy üres <code>Wenova-AI-workshop</code> mappa, egy lokális projektben adod meg, egy üzenet a GitHub-linkkel; a többit az AI állítja be. <a href="START.html">START</a></p></div>
+        <div class="card"><h3>A nap alatt</h3><p>Minden gyakorlatnak rövid notebookja van: mit kapsz a végén, mérföldkövek. A Work-beszélgetésedben csak ennyit írsz: <span class="say">Kezdjük az N. gyakorlatot.</span> Több fázisú gyakorlatban: <span class="say">Folytassuk az N. gyakorlatot.</span></p></div>
+        <div class="card"><h3>A workshop után</h3><p>A <code>Wenova-AI-workshop</code> mappa a tananyaggal és a munkáiddal megmarad. A saját folyamataidon ugyanígy indítasz; a nap áttekintője: <a href="napi-attekintes.html">napi áttekintés</a>.</p></div>
+      </div>
+    </section>
+
+    <section id="blokkok">
+      <h2>A nap blokkjai</h2>
+      <p class="small">A két sáv (<strong>BA</strong>: üzleti elemző, <strong>Sales-Account</strong>) a 4., 5., 6/B és 6b gyakorlatban párhuzamosan halad; a sávot a <code>profil.md</code> rögzíti. A 4-7. gyakorlat a RONDO kitalált projektjének forrásaiból dolgozik, a 7. gyakorlat a saját folyamatodból.</p>
+      <ul class="blocks">
+        <li><span class="t">09:00-09:40</span><div><h3>0. Saját feladat és munkamenet: „mire használom holnaptól”<span class="lane">közös</span></h3><p>AI-alapok és célkártya (09:00-09:20), majd munkamenet, felület és újdonságok (09:20-09:40). Indítás: <span class="say">Kezdjük a 0. gyakorlatot.</span></p><span class="who">Csaba · 40 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/00-halado-setup-notebook.html">Notebook</a></div></li>
+        <li><span class="t">09:40-10:15</span><div><h3>1. Oriana DNS v0.1 és fiktív DNS-demó<span class="lane">közös</span></h3><p>A cég közös alapja: verziózott, gazdával ellátott tudáscsomag, amelyet a ChatGPT is olvas. Csoportmunka, forrásellenőrzéssel. A valós DNS a saját gépeden és Oriana-fiókodban marad.</p><span class="who">Csaba (demó), csoportmunka · 35 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/01-dns-notebook.html">Notebook</a></div></li>
+        <li><span class="t">10:15-10:45</span><div><h3>2. Ismétlődő adatgyűjtés API nélküli RONDO-portálról<span class="lane">közös</span></h3><p>Hat rekord a böngészőből, dry run, soronkénti műveleti napló; hiba esetén egy újrapróbálás, utána emberi döntés. Ha a munkatérben nem elérhető a böngészővezérlés, kézi portál azonos naplóval.</p><span class="who">Csaba · 30 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/02-portal-notebook.html">Notebook</a></div></li>
+        <li class="break"><span class="t">10:45-11:00</span><div>Szünet · 15 perc</div></li>
+        <li><span class="t">11:00-11:25</span><div><h3>3. Közös munka és megosztás: ki fér hozzá<span class="lane">közös</span></h3><p>Jogmatrix és megosztási próba; heti ügyállapot-összesítő feladatszövege. A megosztási funkciók elérése a munkatértől függ; tartalék: megosztott projekt vagy fájlátadás.</p><span class="who">Csaba · 25 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/03-kozos-munka-notebook.html">Notebook</a></div></li>
+        <li><span class="t">11:25-11:45<small>11:45-12:30<br>13:15-13:25<br>14:15-14:35</small></span><div><h3>4. RONDO agent: felmérés vagy ajánlat előállítása és javítása<span class="lane">BA | Sales-Account</span></h3><p>A fázis (11:25): BA: KAPU I, forráscsapdák; Sales-Account: ajánlati források. B fázis (11:45): brief, kritériumok, maker-indítás 12:25-ig; a maker az ebéd alatt fut. C fázis (13:15): átvétel. D fázis (14:15): javítás a reviewer jelentése alapján. Eredmény: BA: kis FDD-egység; Sales-Account: kalkuláció és változásjegyzék.</p><span class="who">Kemény Krisztián, körbejár: Piya Csaba · A fázis GPT-6 Luna, maker GPT-6.1 Terra</span></div><div class="links"><a href="Notebookok/04-rondo-agent-notebook.html">Notebook</a></div></li>
+        <li class="break"><span class="t">12:30-13:15</span><div>Ebédszünet · 45 perc (a 12:25-kor indított maker fut)</div></li>
+        <li><span class="t">13:25-13:45<small>13:45-14:15<br>14:50-15:10</small></span><div><h3>5. Független ellenőrzés: reviewer-recept, R1, R2 és stop-döntés<span class="lane">BA | Sales-Account</span></h3><p>A fázis (13:25): reviewer-recept. B fázis (13:45): R1 friss beszélgetésben, szűk bemeneti csomaggal. C fázis (14:50): R2 és stop-döntés. BA: KAPU II; Sales-Account: számok és vállalások ellenőrzése. Közben szünet: 14:35-14:50.</p><span class="who">Kemény Krisztián, körbejár: Piya Csaba · GPT-6.1 Sol</span></div><div class="links"><a href="Notebookok/05-rondo-reviewer-notebook.html">Notebook</a></div></li>
+        <li class="break"><span class="t">14:35-14:50</span><div>Szünet · 15 perc</div></li>
+        <li><span class="t">15:10-15:35</span><div><h3>6. Ügyállapot-követés és beszámoló: RONDO ügykövető (Sites)<span class="lane">közös; B fázis: Sales-Account</span></h3><p>A fázis: közös mag (15:10-15:35), rekordok, hozzáférés. B fázis (15:35-16:05, csak Sales-Account): a Sites folytatása. Ha a munkatérben nem elérhető, a helyi prototípus ugyanazzal az adatmodellel.</p><span class="who">Piya Csaba (A), Kemény Krisztián (B) · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/06-sites-notebook.html">Notebook</a></div></li>
+        <li><span class="t">15:35-16:05</span><div><h3>6b. BA-utótag: keresztreferencia-skill, képernyőterv, dokumentáció kódból<span class="lane">BA</span></h3><p>Önálló dokumentum (A), képernyőterv (B), dokumentáció kódból (C). Közös kipróbálás, egy rövid önálló kimenettel.</p><span class="who">Kemény Krisztián, körbejár: Piya Csaba · 30 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/06b-ba-utotag-notebook.html">Notebook</a></div></li>
+        <li><span class="t">16:05-16:30</span><div><h3>7. Saját folyamat átvitele és továbbvitele<span class="lane">közös</span></h3><p>Saját brief (16:05), majd rögzítés és beszámoló (16:20): mit viszel át holnaptól, mi a következő lépés, mire vállalkozol.</p><span class="who">Csaba (közös), mindkét tréner · 25 perc · GPT-6 Luna</span></div><div class="links"><a href="Notebookok/07-sajat-atvitel-notebook.html">Notebook</a></div></li>
+      </ul>
+    </section>
+
+    <section id="segedanyagok">
+      <h2>Segédanyagok</h2>
+      <ul class="links-list">
+        <li><span class="topic">Beállítás</span><a href="START.html">START: indulás 3 lépésben</a> <span class="desc">Egy mappa, Work, egy üzenet a GitHub-linkkel; az AI a <code>SETUP.md</code> szerint tölti le a tananyagot és hozza létre a munkamappákat. Ellenőrzőpont minden lépéshez.</span></li>
+        <li><span class="topic">Áttekintés</span><a href="napi-attekintes.html">Napi áttekintés</a> <span class="desc">Mit viszel haza, két sáv, a nap íve, felkészülés: egy oldalon.</span></li>
+        <li><span class="topic">Glosszárium</span><a href="Segedanyagok/glosszarium.html">Rövid glosszárium</a> · <a href="Segedanyagok/glosszarium.md">.md</a> <span class="desc">A rövidítések és szakkifejezések feloldása (BA, KAPU I, FDD, RONDO, Work Cloud, maker-reviewer…). Böngészőben nyitható; Markdown-változat is van.</span></li>
+        <li><span class="topic">Asszisztens</span><a href="AI-asszisztens/Projekt_utasitas.md">Projektutasítás</a> · <a href="Feladatok/README.md">Feladatok áttekintése</a> <span class="desc">A háromsoros projektutasítás és a forgatókönyvek áttekintése. Markdown-fájlok: letöltés után szövegszerkesztőben olvashatók.</span></li>
+      </ul>
+    </section>
+
+    <section id="elakadas">
+      <h2>Ha elakadsz</h2>
+      <div class="stuck"><strong>Három lépés.</strong> 1) Írd be a projektedben: <em>„Elakadtam, ezt kaptam: …”</em> - az asszisztens kérdez, és a következő legkisebb lépést adja. 2) Nézd meg a notebook aktuális mérföldkövének ellenőrzőpontját. 3) Ha két perc alatt nem mozdul, szólj a trénernek. Technikai gondnál (mappa nem látszik, modell nem választható, fájl nem nyílik) azonnal.</div>
+    </section>
+
+    <footer>Oriana × Wenova · haladó ChatGPT-workshop · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</footer>
+  </main>
+</div>
+<script src="_assets/wenova.js"></script>
+</body>
+</html>

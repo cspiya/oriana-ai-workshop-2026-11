@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>START: indulás 3 lépésben · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="_assets/wenova.css">
+<style>
+  .step { grid-template-columns: 3rem 1fr; padding: var(--space-3) var(--space-4); }
+  .step .num { width: 2.8rem; height: 2.8rem; font-size: 1.25rem; }
+  .step h3 { font-size: 1.35rem; margin-top: .1rem; }
+  .step p, .step li { font-size: 1.05rem; }
+  .step .prompt-box { font-size: 1rem; margin: var(--space-2) 0; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; }
+  .step code, .step a, .step li, .step p { overflow-wrap: anywhere; }
+  .check { display: block; margin-top: var(--space-1); padding: .5rem .8rem; background: var(--ok-soft); border-left: 4px solid var(--ok); border-radius: 6px; color: var(--ok-deep); font-size: 1rem; }
+  .check strong { color: var(--ok-deep); }
+  .main { max-width: 980px; }
+</style>
+</head>
+<body class="notebook" data-depth="0">
+<button class="sidebar-toggle" type="button" aria-label="Menü">☰ Menü</button>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-eyebrow">Indulás előtt · 5 perc</div>
+    <div class="sidebar-title">Indulás 3 lépésben, 5 perc</div>
+    <div class="sidebar-meta">Mappa: <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code><br>Felület: ChatGPT asztali alkalmazás, lokális projekt + Work<br>Modell: GPT-6 Luna</div>
+    <nav aria-label="Tartalom">
+      <span class="toc-label">Ezen az oldalon</span>
+      <ol>
+        <li><a href="#lepes-1">Hozz létre egy üres mappát</a></li>
+        <li><a href="#lepes-2">Lokális projekt a mappával</a></li>
+        <li><a href="#lepes-3">Work-beszélgetés és az egy üzenet</a></li>
+        <li><a href="#mi-tortenik">Mi történik ezután</a></li>
+        <li><a href="#elso-gyakorlat">Az első gyakorlat</a></li>
+        <li><a href="#ha-nem-megy">Ha nem megy</a></li>
+        <li><a href="#trenereknek">Trénereknek: mit ellenőrizz körbejárva</a></li>
+      </ol>
+      <span class="toc-label">A nap</span>
+      <ul class="plain">
+        <li><a href="index.html">Napi térkép</a></li>
+        <li><a href="Segedanyagok/glosszarium.md">Glosszárium</a></li>
+        <li><a href="napi-attekintes.html">Napi áttekintés</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">Oriana × Wenova · 2026.11.12<br>A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</div>
+  </aside>
+
+  <main class="main">
+    <header class="hero">
+      <div class="hero-eyebrow">Oriana × Wenova · 2026. november 12. · érkezéskor, 09:00 előtt</div>
+      <h1>Indulás 3 lépésben, 5 perc</h1>
+      <p class="hero-sub">Egy üres mappát hozol létre, egy lokális ChatGPT-projektet állítasz rá, és a projektben egy üzenettel az AI kialakítja a munkaterületet. Markdown-változat: <a href="START.md">START.md</a>.</p>
+    </header>
+    <section id="egy-helyen"><h2>A teljes tananyag egy helyen</h2><p><a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a> (böngészhető oldal; a workshop előtti feltöltés után érhető el).</p></section>
+
+    <section class="step" id="lepes-1">
+      <div class="num">1</div>
+      <div>
+        <h3>Hozz létre egy üres mappát</h3>
+        <p>Közvetlenül a felhasználói profilod alatt hozz létre egy <code>Wenova-AI-workshop</code> nevű mappát: <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code> (a <code>&lt;felhasználónév&gt;</code> a saját Windows-bejelentkezésed). Ne a Dokumentumok vagy az Asztal alá tedd: azokat a OneDrive szinkronizálja, és a Work ott nem működik megbízhatóan.</p>
+        <span class="check"><strong>Így ellenőrzöd:</strong> A Fájlkezelő címsorában <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code> áll, és a mappa üres.</span>
+      </div>
+    </section>
+
+    <section class="step" id="lepes-2">
+      <div class="num">2</div>
+      <div>
+        <h3>Hozz létre egy lokális projektet, és add hozzá a mappát</h3>
+        <p>A ChatGPT asztali alkalmazásban hozz létre egy új projektet <code>Oriana AI-workshop</code> néven. A projekt beállításaiban add hozzá a <code>Wenova-AI-workshop</code> mappát (a menü neve a ChatGPT verziójától függhet; ha nem találod, szólj a trénernek). Modellnek válaszd a GPT-6 Lunát.</p>
+        <p>Amikor hozzáadod a mappát, a ChatGPT megkérdezi, megbízol-e a mappában (<em>Trust folder</em>, a pontos szöveg a ChatGPT verziójától függhet): engedélyezd, különben a Work nem tud benne olvasni és írni.</p>
+        <p>A projekt beállításaiban az utasításmezőbe (projektutasítás) illeszd be ezt a három sort (ajánlott; a főpróbán derül ki, elhagyható-e). Ez minden beszélgetésben érvényes a projekten belül, így az AI biztosan a workshop szabályai szerint dolgozik:</p>
+        <pre class="prompt-box">Olvasd el a mappa gyökerében lévő AGENTS.md fájlt (ha még nincs ott, a Tananyag/AGENTS.md fájlt), és annak megfelelően dolgozz.
+Ha azt mondom, »Kezdjük az N. gyakorlatot« vagy »Folytassuk az N. gyakorlatot«, olvasd be a Munka/00-Alapozas/profil.md fájlt (ha létezik), és a Tananyag/Feladatok/NN-….md forgatókönyvet kövesd; ha »RONDO 04 maker« vagy »RONDO 05 reviewer« indítót mondok, az AGENTS.md maker- vagy reviewer-módját kövesd.
+Magyarul, röviden, egyszerre egy lépés.</pre>
+        <span class="check"><strong>Így ellenőrzöd:</strong> A projekt megnyitva, a mappája a <code>Wenova-AI-workshop</code>, a mappa megbízhatóként engedélyezve, a projektutasítás mentve, és a projektben új beszélgetést tudsz indítani.</span>
+      </div>
+    </section>
+
+    <section class="step" id="lepes-3">
+      <div class="num">3</div>
+      <div>
+        <h3>Indíts Work-beszélgetést a projektben, és küldd el ezt az egy üzenetet</h3>
+        <p>A projekten belül nyiss új beszélgetést Work módban, és küldd el:</p>
+        <pre class="prompt-box">Töltsd le a workshop tananyagát innen: https://is.gd/oriana1112 (egy ZIP). Bontsd ki a Wenova-AI-workshop mappa Tananyag almappájába úgy, hogy a külső mappát kihagyod, majd kövesd a Tananyag/SETUP.md lépéseit.</pre>
+        <p>A rövid link (<a href="https://is.gd/oriana1112">https://is.gd/oriana1112</a>) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: <a href="https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip">https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</a>; tartalékként a repó oldalán (<a href="https://github.com/cspiya/oriana-ai-workshop-2026-11">https://github.com/cspiya/oriana-ai-workshop-2026-11</a>) a Code → Download ZIP. Az AI azonosítja a most letöltött fájlt, a külső <code>oriana-ai-workshop-2026-11-main</code> mappát kihagyja, a belső almappákat megőrzi.</p>
+        <p>Ha az AI kérdez, például egy meglévő Tananyag frissítéséről, a saját szavaiddal válaszolj.</p>
+        <span class="check"><strong>Így ellenőrzöd:</strong> Az AI elkezdi kialakítani a munkaterületet, majd felsorolja az elkészült mappákat és a következő lépést.</span>
+      </div>
+    </section>
+
+    <section id="mi-tortenik">
+      <h2>Mi történik ezután</h2>
+      <ul>
+        <li>Az AI a tananyagot a rövid linkről (ZIP) tölti le, majd a tartalmát a <code>Tananyag</code> almappába bontja ki, fölösleges külső mappaszint nélkül.</li>
+        <li>Létrehozza a <code>Munka</code> mappát és a kilenc gyakorlat-almappát (<code>00-Alapozas</code>, <code>01-DNS</code>, <code>02-Portal</code>, <code>03-Kozos</code>, <code>04-Agent</code>, <code>05-Reviewer</code>, <code>06-Sites</code>, <code>06b-BA-utotag</code>, <code>07-Sajat</code>).</li>
+        <li>A <code>Tananyag\AGENTS.md</code> fájlt bemásolja a <code>Wenova-AI-workshop</code> mappa gyökerébe.</li>
+        <li>Ellenőrzi és felsorolja, mi készült el.</li>
+        <li>Megnyitja a böngészőben a <code>Tananyag\index.html</code> napi térképet; ha nem tudja, kattintható linket ír a chatbe, amivel te nyitod meg.</li>
+        <li>Megmondja, hogy az első gyakorlatot egy új Work-beszélgetésben indítsd, és melyik üzenettel.</li>
+      </ul>
+      <span class="check"><strong>Így ellenőrzöd:</strong> A <code>Wenova-AI-workshop</code> mappában ott van a <code>Tananyag</code> és a <code>Munka</code> mappa, a <code>Tananyag\index.html</code> pedig megnyílik a böngészőben.</span>
+    </section>
+
+    <section id="elso-gyakorlat">
+      <h2>Az első gyakorlat</h2>
+      <p>Ugyanebben a projektben nyiss egy <strong>új</strong> Work-beszélgetést, és abban írd be: „Kezdjük a 0. gyakorlatot.” Az új beszélgetés az elején automatikusan beolvassa a mappa gyökerébe került <code>AGENTS.md</code> szabályait; a beállító beszélgetés indulásakor ez a fájl még nem létezett. A nap többi gyakorlatát is itt indítod: „Kezdjük az N. gyakorlatot” (N = 0…7, illetve „Kezdjük a 6b gyakorlatot”), több fázisú gyakorlatnál „Folytassuk az N. gyakorlatot”.</p>
+      <span class="check"><strong>Így ellenőrzöd:</strong> Az AI a 0. gyakorlat céljával kezd, majd egy kérdést tesz fel.</span>
+    </section>
+
+    <section id="ha-nem-megy">
+      <h2>Ha nem megy</h2>
+      <div class="stuck">
+        <ul>
+          <li>A Work nem ír a mappába → A mappa hozzáadásakor a mappa megbízhatóságát kérő kérdésre igent kell mondani; ha kimaradt, vedd ki és add hozzá újra a mappát.</li>
+          <li>A projektben nem tudod hozzáadni a mappát, vagy a Work nem látja → A ChatGPT asztali alkalmazást használd, ne a webes felületet; ellenőrizd, hogy a projekt lokális (helyi mappás), nem megosztott.</li>
+          <li>A rövid link nem működik (a ChatGPT nem követi az átirányítást) → Írd az üzenetbe a hosszú ZIP-linket (<code>https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</code>), vagy a repó oldalán a Code → Download ZIP útját.</li>
+          <li>Nincs hálózat vagy a GitHub nem érhető el → A trénertől kapott ZIP-et tedd a <code>Wenova-AI-workshop</code> mappába, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet.”</li>
+          <li>Az AI elakad egy parancsnál → Kérd meg, hogy nevezze meg, melyik lépésnél akadt el, és szólj a trénernek.</li>
+          <li>Új beszélgetést nyitottál, és az AI nem követi a szabályokat → Írd be: „Olvasd el az AGENTS.md fájlt, és aszerint dolgozz.”</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="trenereknek">
+      <h2>Trénereknek: mit ellenőrizz körbejárva</h2>
+      <div class="callout callout-warning">
+        <ul>
+          <li>Van <code>Oriana AI-workshop</code> projekt, benne a <code>Wenova-AI-workshop</code> mappa megbízhatóként engedélyezve, és a beszélgetés Work módban fut.</li>
+          <li>A <code>Tananyag</code> és a <code>Munka</code> mappa (kilenc almappával) megvan, a gyökérben pedig ott az <code>AGENTS.md</code>.</li>
+          <li>A <code>Tananyag\index.html</code> megnyílik a böngészőben.</li>
+          <li>Az első válasz a 0. gyakorlat céljával kezdődik, és kérdést tesz fel.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="pager">
+        <a href="index.html">Napi térkép</a>
+        <a href="Notebookok/00-halado-setup-notebook.html">0. gyakorlat ▶</a>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="_assets/wenova.js"></script>
+</body>
+</html>

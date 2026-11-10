@@ -1,0 +1,16 @@
+{
+  "_jeloles": "KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA",
+  "_elhatarolas": "A RONDO Hullámkartongyártó Kft. valós cég; az itt leírt projekt, igények, személyek és számok kitaláltak, nem a cég valós működését írják le.",
+  "_megjegyzes": "Az ugy rekord ceg_nev, cegjegyzekszam és szekhely mezője valós, nyilvános cégadat (forras mező); az id, a cim és a tetel.json minden tétele kitalált.",
+  "adat": [
+    {
+      "id": "U-RONDO-2027",
+      "cim": "RONDO 2027-es licenc/support megújítás és jóváhagyási workflow bővítés (kitalált projekt)",
+      "ceg_nev": "RONDO Hullámkartongyártó Kft.",
+      "cegjegyzekszam": "01-09-268292",
+      "szekhely": "1239 Budapest, Ócsai út 5.",
+      "ceg_adat_jelleg": "VALÓS, NYILVÁNOS CÉGADAT",
+      "forras": "cegadat/RONDO_cegadatlap.md, 2. szakasz"
+    }
+  ]
+}

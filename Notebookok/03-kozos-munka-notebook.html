@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. gyakorlat: Közös munka és megosztás · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Notebook v2 a 3. gyakorlathoz. Tartalom: Feladatok/03-kozos-munka.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. Egyfázisú gyakorlat: a négy lépés négy csoport (a csoportidők a lépések percei alapján számoltak). -->
+<body class="notebook v2" data-depth="1" data-current="03">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="03" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>3. gyakorlat · 11:00–11:25</span><span class="badge all">közös</span><span>vezeti: Piya Csaba · körbejár: Kemény Krisztián</span></div>
+      <h1 id="cim">Közös munka és megosztás: ki fér hozzá az ügy anyagaihoz?</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Egy társaddal ténylegesen kipróbálod, ki mit lát és mit írhat a megosztott anyagokban, és elkészíted a jogmátrixot meg a hozzáférési szabályt; teljes integrációt nem építünk.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">a kapcsolat a kapcsolt fiók jogával dolgozik</li>
+          <li data-csoport="2">a megosztás három szintje: beszélgetés, projekt, Space-oldal</li>
+          <li data-csoport="2">olvasás, komment, szerkesztés és appengedély: külön jog</li>
+          <li data-csoport="3">csapatfeladat: írási határ és emberi döntési pont</li>
+          <li data-csoport="4">jogmátrix és a „nem próbáltuk” jelölés</li>
+          <li data-csoport="4">hozzáférési szabály: ki dönt az új hozzáférésről</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ 25 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/03-Kozos</span><span>mód: közös</span><span>Vezeti: Piya Csaba</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>az ügy anyagai (a kitalált RONDO-eset) megvannak, de nem tudható, ki fér hozzájuk</li>
+          <li>nem tudod, melyik kapcsolat vagy csapatfeladat milyen jogosultsággal dolgozik</li>
+          <li>a megosztás hatása még feltételezés, nem kipróbált tény</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>jogmatrix.md</code>: a jogmátrix, az alkalmazás- és kapcsolatjogok, a hozzáférési szabály és a csapatfeladat-váz</li>
+          <li><code>megosztasi-proba.md</code>: a páros próba jegyzőkönyve, várt és tapasztalt eredménnyel</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> az ügy anyagai csak akkor szolgálják a csapatot, ha az is tudható, ki fér hozzájuk. A jogmátrix megmutatja, hogy a csapat tudja, ki mit láthat és ír; a kipróbálatlan sor azt, hol van még bizonyítatlan feltételezés. A RONDO Hullámkartongyártó Kft. valós cég, a gyakorlóeset projektje kitalált.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-racs">
+      <div class="start-box">
+        <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+        <div class="say">Kezdjük a 3. gyakorlatot.</div>
+        <p>Az asszisztens kérdés nélkül elmondja a célt: a társaddal kipróbáljátok, ki mit lát és mit ír a megosztott anyagokban, és közösen felírjátok a hozzáférési szabályt a jogmátrixba. A próbához csak fiktív anyagot osztotok meg; a kimeneteken: FIKTÍV OKTATÁSI MINTA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Ki mit láthat és ír: a megosztási jogok mátrixa</h2>
+    <p>A megosztás három módja (beszélgetés linkkel, közös projekt, Space-oldal) más-más jogot ad: ki olvashat, ki kommentelhet, ki szerkeszthet. A mátrix soraiba csak az kerül, amit a páros próba igazolt; az app-kapcsolat azt látja, amit a felhasználó, a csapatfeladat a saját jogával dolgozik.</p>
+    <figure class="abra" data-abra="jogmatrix" data-stage="03" data-cim="nincs">
+      <figcaption>Megosztási jogok mátrixa: beszélgetés linkkel (olvasás a munkatér tagjainak), közös projekt (Chat vagy Edit), Space-oldal (View, Comment, Edit), soronként a páros próba eredményével; mellette az app-kapcsolat (azt látja, amit a felhasználó), a csapatfeladat (Agents / Team Task, a kimenő lépésnél ember dönt) és a hozzáférési szabály: kik olvashatják, kik szerkeszthetik, ki dönt az új hozzáférésről.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 4 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">Kapcsolat <span class="when">11:00–11:05</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Kapcsolat" data-rovid="Kapcsolatok: ki mit lát" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Plugin- és appkapcsolat: ki mit lát</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Válaszolj</b>, mi látszik nálad a kapcsolt appok között: A: dokumentumtár vagy fájlmegosztó · B: levelezés vagy naptár · C: csapatüzenet-felület · D: nem látszik kapcsolat · más: írd le (több is lehet).</li>
+                <li><b>Erősítsd meg</b> a saját képernyődön a „látszik” sorokat.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Kapcsolat-táblát: kapcsolat | kinek a jogán dolgozik | látszik-e nálam. Külön fájl nincs; a sorok a <code>jogmatrix.md</code> 2. szakaszába kerülnek.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>minden megnevezett kapcsolat mellett áll, hogy kinek a jogán dolgozik, és hogy látszik-e nálad.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A plugin (telepíthető bővítménycsomag, amely skilleket és külső rendszerekhez kapcsolódó eszközöket foghat össze) és az app kapcsolata azzal a jogosultsággal dolgozik, amelyet a kapcsolt fiók ad; ez túlmehet a te személyes hozzáférésed határán. A munkatéri kapcsolatot a munkatér adminisztrátora hozza létre és engedélyezi; a csapatfeladat (Team Tasks) ezt használja. A hozzáférés tehát nem „enyém vagy a csapaté”, hanem a kapcsolt fiók joga.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens a ChatGPT beállításait nem látja, ezért nem állít semmit, amit te nem láttál; menüt nem talál ki, jelszót vagy hozzáférési kulcsot nem kér.</div>
+          <div class="fallback"><strong>Ha a munkatérben nem látszik kapcsolat:</strong> a sor „nem látszik a munkatérben” jelölést kap, a tréner képsort mutat a kapcsolatnézetről, és a jogmátrix 2. szakasza a képsor alapján, „képsor alapján” jelöléssel készül.</div>
+          <p class="why"><strong>Miért fontos:</strong> a kapcsolt rendszerbe írás vagy olvasás mindig valakinek a jogán történik; ha ezt nem tudod, nem tudod megmondani, ki mit láthat.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">Próba <span class="when">11:05–11:13</span></div>
+
+      <section class="lepes" id="lepes-2" data-csoport="2" data-csoport-nev="Próba" data-rovid="Páros hozzáféréspróba" data-ido="kb. 8 perc">
+        <header class="lepes-fej">
+          <div><h3>Páros hozzáféréspróba</h3><span class="lepes-cimke"><span class="ido">kb. 8 perc</span> · közös <span class="kulcs">kulcslépés: kipróbálod, nem feltételezed</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Párosodj</b> egy társsal. Az egyikőtök megosztja a fiktív, két mondatos RONDO-összefoglalót (a RONDO README alapján készül), a másik megpróbál olvasni, kommentelni és szerkeszteni, és mindhárom eredményt elmondja.</li>
+                <li><b>Válaszd ki</b> a két megosztási szintet: A: beszélgetés-link és közös projekt · B: beszélgetés-link és Space-oldal · C: csak a beszélgetés-link, mert más nem látszik · más: írd le; és azt, milyen jogot adsz a társadnak (olvasás, kommentelés vagy szerkesztés, ahol a mód engedi).</li>
+                <li><b>Erősítsd meg</b> szóban vagy írásban a párod tapasztalatát: azt az asszisztens a jegyzőkönyvbe írja.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>megosztasi-proba.md</code> jegyzőkönyvet: dátum, pár, elem és mód, beállított jog, várt eredmény, tapasztalt eredmény, eltérés, látszik-e az utólagos üzenet, és a nem kipróbált elemek.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>legalább két megosztási szintre van kipróbált sor, mindegyiknél a várt és a tapasztalt eredmény különválasztva, az eltérés (ha volt) megnevezve; az olvasás, a komment és a szerkesztés külön sor vagy oszlop.</span></p>
+          <div class="callout tipp"><span class="callout-cim">A három szint</span>(1) <b>Beszélgetés</b> megosztása linkkel: munkatéri link, amely a munkatér tagjainak nyílik meg; hogy a megosztás után írt új üzenet látszik-e a társadnak, a próba dönti el. (2) <b>Közös projekt</b>, ha a munkatérben elérhető: Chat vagy Edit jog; az Edit utasítást és fájlt módosíthat. (3) <b>Space-oldal</b>, ha a munkatérben elérhető (a Space közös ChatGPT-munkafelület dokumentumok, diák, táblázatok, Sites és fájlok rendezésére és közös használatára): View, Comment, Edit jog, a hozzáférés öröklődik az oldalakra.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak fiktív anyagot oszthattok meg, valós ügyfélanyagot soha. Az asszisztens nem látja a társad képernyőjét: az eredményt a társad megerősítése adja. Közös bejelentkezést ne használjatok, mindenki a saját fiókjával dolgozik. A kommentben megidézett asszisztens a címzett ellenőrzése nélkül nem küld semmit.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Mit vársz, ki mit tehet a megosztott anyaggal, és mi lehetne a próba, amely ezt igazolja vagy cáfolja?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Készíts jegyzőkönyvet a páros próbáról a 03-jogmatrix-sablon.md 3. szakasza szerint: elem és mód &lt;beszélgetés / projekt / Space-oldal&gt;, beállított jog &lt;…&gt;, várt eredmény &lt;…&gt;, a társam tapasztalata (olvas / komment / szerkeszt / nem fér hozzá), eltérés a várttól; ami nem volt kipróbálva, írd: nem próbáltuk.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a Space vagy a közös projekt nem látszik, vagy a pár nem tud belépni:</strong> két perc után közös projekttel vagy az Oriana szabályai szerint engedélyezett fájlátadással próbáltok, a kiesett elem a jegyzőkönyvben „nem látszik a munkatérben” jelölést kap; a tréner képsort mutat a Space-ről. A módszer (várt és tapasztalt eredmény, a pár megerősítése) ugyanaz.</div>
+          <p class="why"><strong>Miért fontos:</strong> a megosztás beállítása és a tényleges hozzáférés két külön dolog; csak a próba mutatja meg, hogy a másik fél valóban azt látja és csak azt írhatja, amit szántál neki.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="3">Csapatfeladat <span class="when">11:13–11:20</span></div>
+
+      <section class="lepes" id="lepes-3" data-csoport="3" data-csoport-nev="Csapatfeladat" data-rovid="Csapatfeladat-váz" data-ido="kb. 7 perc">
+        <header class="lepes-fej">
+          <div><h3>Csapatfeladat folyamatváza és az Agents előnézete</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Mondd el</b> a saját szavaiddal a heti ügyállapot-összesítő szövegének két adatát: ki látja (a kör neve), és hová írhat a feladat (az írási határ).</li>
+                <li><b>Dönts</b>, mi történjen, ha a feladat a kijelölt helyen kívül írni vagy küldeni akarna: A: megáll és jóváhagyást kér · B: nem küldhet semmit, csak a kijelölt oldalra írhat · más: írd le.</li>
+                <li><b>Nézd meg</b>, ha a munkatérben elérhető, az Agents webes előnézetét. Élő ütemezést indítani nem kötelező.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A heti összesítő csapatfeladat-szövegét, a melléklet hét elemével kitöltve (Cél, Címzett, Forrás és határ, Kimeneti séma, Szabályok, Írási határ, Ellenőrzés, Mentés). Külön fájl nincs; a szöveg a <code>jogmatrix.md</code> 5. szakaszába kerül.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a szöveg mind a hét eleme jelen van; az írási határ és az emberi döntési pont megnevezett; a szöveg önmagában értelmezhető, mert nem hivatkozik az előzményekre; semmi sem állítja, hogy az ütemezés él, hacsak nem láttad az ütemezett listában.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Team Tasks (ütemezésre vagy eseményre induló közös csapatfeladatok) a csapat szolgáltatásfiókjával, felhőben fut, ezért <b>nem örökli</b> a létrehozó memóriáját, utasításait és előzményeit: mindent, amire szüksége van, a szövegnek kell tartalmaznia. Feladatonként külön jog nem állítható, és az új csapattag látja a korábbi futásokat és fájlokat.</div>
+          <div class="callout tipp"><span class="callout-cim">Az Agents</span>Az Agents (a munkatérben meghatározott feladatra beállítható asszisztens, amely utasításokat, tudást, skilleket és kapcsolt appokat használ) az oldalsávban a desktop alkalmazásban nem mindig látszik: ilyenkor weben ellenőrizd. Ha elérhető, weben a Preview a megosztás előtti próba; a jogok Owner, Can edit és Can chat, az Update új publikált verziót hoz létre. A konkrét jóváhagyási beállítás a munkatér szabályától függ.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Mit kell a feladat szövegének tartalmaznia, ha a feladat nem ismeri sem a memóriádat, sem a korábbi beszélgetéseidet?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Töltsd ki a 03-heti-osszesito-feladatszoveg.md melléklet &lt;címzett&gt;, &lt;írási határ&gt; és &lt;mi történjen, ha írni akar&gt; részét a következő válaszaim alapján: &lt;válaszok&gt;; a szöveg legyen önállóan értelmezhető; hiány: Nincs megadva.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a Team Tasks vagy az Agents nem látszik a munkatérben:</strong> a szöveg mentett szövegként marad (ütemezés nélkül), a tréner képsort mutat az Agents oldalról, és a jogmátrix 5. szakasza „nem látszik a munkatérben” jelölést kap.</div>
+          <p class="why"><strong>Miért fontos:</strong> a felügyelet nélkül futó feladat attól biztonságos, hogy az írási határa és az emberi döntési pontja előre le van írva.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="4">Jogmátrix <span class="when">11:20–11:25</span></div>
+
+      <section class="lepes" id="lepes-4" data-csoport="4" data-csoport-nev="Jogmátrix" data-rovid="Jogmátrix és szabály" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Jogmátrix és hozzáférési szabály</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös <span class="kulcs">kulcslépés: ti mondjátok ki a szabályt</span> · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nézd át</b> az összefoglalt jogmátrixot: soronként elem, megosztás módja, kinek, olvashat, kommentelhet, szerkeszthet, kell-e appengedély, a próba eredménye.</li>
+                <li><b>Fogalmazzátok meg</b> a párral a RONDO-ügy anyagainak hozzáférési szabályát: kik olvashatják, kik szerkeszthetik, ki dönt az új hozzáférésről. Jó így? A: igen, rögzítsd · B: javítok (írd le, melyik sorban) · más: írd le.</li>
+                <li><b>Dönts</b> a mentésről: A: igen · B: még nézzünk meg egy sort · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>jogmatrix.md</code> fájlt a sablon szakaszaival: jogmátrix, alkalmazás- és kapcsolatjogok, hozzáférési szabály, csapatfeladat-váz. A fájl tetején: FIKTÍV OKTATÁSI MINTA.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a mátrix legalább két megosztási szinten kipróbált sort tartalmaz, az olvasás, a komment és a szerkesztés külön jelölt; a kipróbálatlan elem „nem próbáltuk”; a szabály megnevezi, ki dönt az új hozzáférésről; minden sor visszavezethető a jegyzőkönyvre.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A mátrixba csak a tényleges próbából származó vagy a te megerősítésedet kapott adat kerülhet: ami nem volt kipróbálva, az „nem próbáltuk”, ami nem látszik, az „nem látszik a munkatérben”. Az asszisztens csak javaslatot ad a sor tartalmára, a szabályt ti mondjátok ki.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Melyik megosztási módnál tudtál a párod tapasztalatára hivatkozni, és melyiknél csak feltételezel?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Foglald össze a megosztasi-proba.md és az 1. lépés kapcsolat-táblája alapján a jogmátrixot a 03-jogmatrix-sablon.md szerint; minden sorhoz írd a próba sorát; ahol nem volt próba, írd: nem próbáltuk; a hozzáférési szabályt a páros válaszai alapján, javaslatként add meg.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <p class="why"><strong>Miért fontos:</strong> a jogmátrix tanúsítja, hogy a csapat tudja, ki mit láthat és ír; a kipróbálatlan sor megmutatja, hol van még bizonyítatlan feltételezés.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Mitől jó és validált? Pipáld ki, mielőtt továbblépsz.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>A <code>megosztasi-proba.md</code> legalább két megosztási szintre tartalmaz kipróbált sort várt és tapasztalt eredménnyel, a pár megerősítésével.</div></li>
+      <li data-id="v2"><div>A <code>jogmatrix.md</code> minden sora a jegyzőkönyvre vagy a kapcsolat-táblára vezethető vissza; a kipróbálatlan elem „nem próbáltuk”, a nem látszó elem „nem látszik a munkatérben”.</div></li>
+      <li data-id="v3"><div>A hozzáférési szabály megnevezi, ki olvashat, ki szerkeszthet, és ki dönt az új hozzáférésről, vagy a hiányt „Nincs megadva” jelöli.</div></li>
+      <li data-id="v4"><div>A csapatfeladat szövege önállóan értelmezhető, tartalmaz írási határt és emberi döntési pontot; az ütemezés csak akkor kész tény, ha láttad az ütemezett listában.</div></li>
+      <li data-id="v5"><div>Csak fiktív anyagot osztottatok meg; a kimeneteken ott a FIKTÍV OKTATÁSI MINTA jelölés.</div></li>
+      <li data-id="v6"><div>A hiány „Nincs megadva”, a javaslat nem döntés, minden lényeges állításhoz van forráshely (próbasor vagy megerősítés).</div></li>
+      <li data-id="v7"><div>Jelszó vagy hozzáférési adat nem került a beszélgetésbe vagy a fájlokba.</div></li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>A mátrix minden sorához az asszisztens kikeresi a <code>megosztasi-proba.md</code> megfelelő sorát; a pár és te egy sort személyesen is megerősítesz.</div>
+      <div><b>Gépi ellenőrzés</b>Az asszisztens ✅/⚠️ jelöli soronként, melyikhez van pár általi megerősítés; a társad képernyőjét nem látja.</div>
+      <div><b>Független ellenőr</b>A páros próbában a társad tapasztalata a forrás: ő mondja meg, mit látott és mit írhatott.</div>
+      <div><b>Ismétlés és megállás</b>Időhiánynál a 3. lépés a három kérdésre rövidül, és az Agents bemutatót a tréner képsora váltja; a páros próba és a jogmátrix nem maradhat el.</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol>
+        <li>A Space, az Agents vagy a Team Tasks nem látszik: az asszisztens nem találgat; két perc után a közös projektre vagy az Oriana szabályai szerint engedélyezett fájlátadásra, a mentett feladatszövegre és a tréner képsorára lépünk. Az Agents a desktop alkalmazásban nem mindig látszik: weben ellenőrizd.</li>
+        <li>A párod nem lát semmit, vagy nem tud belépni: ez lehet a megosztás tényleges eredménye; előbb a címzettet és a jogot ellenőrizzétek, utána kérj segítséget a trénertől.</li>
+        <li>Nincs pár (páratlan létszám): a tréner hármas csoportot alakít, vagy ő tölti be a pár szerepét; a próbát nem hagyjuk ki.</li>
+        <li>Valós ügyfélanyag került a megosztásba: az asszisztens megáll, nem menti; csak fiktív anyagot osszatok meg. Ha már megtörtént, a visszavonást a trénerrel egyezteted.</li>
+        <li>Valaki közös bejelentkezést javasol: ez nem megoldás; mindenki a saját fiókjával dolgozik, a jogot a megosztás adja.</li>
+        <li>Az ütemezés létrehozása nem sikerült: az asszisztens nem ismétli; a szöveg mentett szövegként marad, és a jogmátrix 5. szakaszába „ütemezés nélkül” jelölés kerül.</li>
+      </ol>
+      <p>Két perc után szólj <strong>Csabának</strong> vagy <strong>Krisztiánnak</strong>.</p>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Segítség bármikor</span><em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em> · Módot így váltasz: <em>„Váltsunk vezetett / önálló módra.”</em></div>
+    <div class="fallback"><strong>Ha a Space, az Agents vagy a Team Tasks nem látszik a munkatérben:</strong> a páros próba közös projekttel vagy az Oriana szabályai szerint engedélyezett fájlátadással történik; a csapatfeladat szövege mentett szövegként készül el (ütemezés nélkül), a tréner képsort mutat a nem látszó felületről; a jogmátrixban a kiesett elem neve és a „nem látszik a munkatérben” jelölés áll.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3>
+        <ul>
+          <li><strong>BA (üzleti elemző):</strong> a követelményjegyzék és a specifikációk megosztási szabálya: ki szerkeszthet, ki csak olvashat, és ki hagyja jóvá a változtatást; a szabály a projekt utasításában és a jogmátrixban.</li>
+          <li><strong>Sales-Account (értékesítési és ügyfélkapcsolati sáv):</strong> az ajánlati anyagok megosztása: az ügyfél felé menő tételeket csak az olvashatja, akinek joga van; a heti ügyállapot-összesítő szövege az ügy csapatának.</li>
+          <li><strong>Közös:</strong> minden közösen használt dokumentum, projekt vagy csapatfeladat elé tedd ki a jogmátrixot: ki olvas, ki ír, kinek a jogán fut, és ki dönt az új hozzáférésről.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Mi kell hozzá</h3>
+        <ul>
+          <li>Az anyag, amelyet megosztanál, és egy társ, aki kipróbálja.</li>
+          <li>Egy tényleges próba megosztás előtt: ki olvas, ki szerkeszt.</li>
+          <li>Felügyelet nélküli feladatnál az írási határ leírása.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>4. gyakorlat: RONDO agent: KAPU I, maker · 11:25</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük a 4. gyakorlatot.”</em> A sávodnak megfelelően.</p></div>
+      <a class="gomb" href="04-rondo-agent-notebook.html">Tovább a 4. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="02-portal-notebook.html" rel="prev">◀ 2. gyakorlat</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="04-rondo-agent-notebook.html" rel="next">4. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA
+id;ugy_id;tipus;leiras;forras;dns_verzio;statusz;owner_email
+T-01;U-RONDO-2027;igeny;Harmadik jóváhagyó bevezetése a jóváhagyási láncban (R-01).;2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-01;Nincs megadva;review-n_atment;ba.minta@pelda.example
+T-02;U-RONDO-2027;igeny;Helyettesítési szabály: a helyettes neve Nincs megadva (R-02).;2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-02;Nincs megadva;nyitott_kerdes;ba.minta@pelda.example
+T-03;U-RONDO-2027;igeny;"Jóváhagyási küszöb: 15 M vagy 20 M Ft, döntés nincs; az 500 ezer Ft alatti automatikus jóváhagyás javaslat, nem döntés.";2026-11-07_RONDO_level_kuszob.md;Nincs megadva;nyitott_kerdes;ba.minta@pelda.example
+T-04;U-RONDO-2027;ajanlati_tetel;LIC-STD, 100 felhasználó, 118 000 HUF egységár, nettó összeg 11 800 000 HUF.;"Arlista_2027_licenc_support.xlsx, HUF lap; Levelezes_RONDO_megujitas_2026-10.md, Levél 1";Nincs megadva;review-n_atment;sales.minta@pelda.example
+T-05;U-RONDO-2027;ajanlati_tetel;SSO (SAML 2.0): az ár Nincs megadva, az árlistán nincs SSO-tétel.;"Levelezes_RONDO_megujitas_2026-10.md, Levél 3; Arlista_2027_licenc_support.xlsx";Nincs megadva;nyitott_kerdes;sales.minta@pelda.example
+T-06;U-RONDO-2027;ajanlati_tetel;"Kedvezmény: a kért 18% nem ajánlható; 10%-ig saját hatáskör, 10% felett legfeljebb 15%-ig jóváhagyással.";Levelezes_RONDO_megujitas_2026-10.md, Levél 1 és 4;Nincs megadva;review-n_atment;sales.minta@pelda.example
+T-07;U-RONDO-2027;kockazat;A kért 99,9% rendelkezésre állás és 4 órás reakcióidő nem vállalás.;"2025_RONDO_ajanlat_licenc_support.md, 2.1, 2.2, 2.4; Muszaki_melleklet_2025_es_kert_valtozasok.md, M-01, M-02";Nincs megadva;nyitott_kerdes;account.minta@pelda.example
+T-08;U-RONDO-2027;kockazat;Az adatexport-kötelezettség (M-05) kimaradt a kért tervezetből: jogi kockázat.;Muszaki_melleklet_2025_es_kert_valtozasok.md, M-05;Nincs megadva;review-n_atment;account.minta@pelda.example

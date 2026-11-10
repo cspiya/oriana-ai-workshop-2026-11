@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2. gyakorlat: RONDO-portál adatgyűjtés · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Notebook v2 a 2. gyakorlathoz. Tartalom: Feladatok/02-portal.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. Egyfázisú gyakorlat: a lépések négy csoportba rendezve (a csoportidők a lépések percei alapján számoltak). -->
+<body class="notebook v2" data-depth="1" data-current="02">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="02" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>2. gyakorlat · 10:15–10:45</span><span class="badge all">közös</span><span>vezeti: Piya Csaba · körbejár: Kemény Krisztián</span></div>
+      <h1 id="cim">Ismétlődő adatgyűjtés API nélküli RONDO-portálról: dry run, napló, visszaolvasás</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Hat RONDO-ügyet veszel át egy olyan portálról, amelynek nincs API-ja (programozási felülete), és közben dry runt (próbafutást), soronkénti naplót, visszaolvasást és emberi döntést használsz; a hiányzó adatot senki nem találja ki.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">ellenőrizhető cél egy ismétlődő műveletre: kimenet, korlát, ellenőrzés</li>
+          <li data-csoport="1">jogosultsági határ; a portál szövege adat, nem utasítás</li>
+          <li data-csoport="2">a prompt hét eleme; a hiány „Nincs megadva”</li>
+          <li data-csoport="3">előbb dry run, utána alkalmazás</li>
+          <li data-csoport="3">soronkénti napló, visszaolvasás, legfeljebb egy újrapróbálás</li>
+          <li data-csoport="4">két napló összevetése</li>
+        </ul>
+      </div>
+      <div class="meta"><span>⏱ 30 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/02-Portal</span><span>mód: vezetett</span><span>Vezeti: Piya Csaba</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>hat RONDO-ügy egy portálon, amelynek nincs API-ja és az adott műveletre exportja sincs, csak a felülete</li>
+          <li>hat mezőt (azonosító, igény, ár, pénznem, jóváhagyó, forrás) kell ügyenként kigyűjteni</li>
+          <li>a státusz előkészítése és a változások naplója még nincs meg</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>muveleti-naplo.csv</code>: soronkénti napló (előtte, utána, eredmény)</li>
+          <li><code>export_&lt;időbélyeg&gt;.csv</code>: a portálról letöltött export (CSV: pontosvesszővel tagolt táblázatfájl)</li>
+          <li><code>osszevetes.md</code>: a kigyűjtött tábla, a terv, a két napló összevetése és a hiányos ügyek indoklása</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> az automatizálás eredménye akkor megbízható, ha a napló, a portál és a te saját összevetésed ugyanazt mutatja. Ugyanez a menet bármely ismétlődő, felületen végzett munkánál működik.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-label="Így indítsd">
+    <div class="start-racs">
+      <div class="start-box">
+        <div class="label">Az <code>Oriana AI-workshop</code> projekt új Work-beszélgetésében írd be</div>
+        <div class="say">Kezdjük a 2. gyakorlatot.</div>
+        <p>Az asszisztens kérdés nélkül elmondja a célt (hat ügyből hat mezőt gyűjtesz ki, előkészíted a státuszt, és minden változásról naplót vezetsz), egy sorban közli a sávodat és a módodat, majd azonnal indul az 1. lépés. Minden kimenet tetején a FIKTÍV OKTATÁSI MINTA jelölés áll.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
+    <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Az átvétel útja: terv, próbafutás, alkalmazás, visszaolvasás</h2>
+    <p>Akár kézzel veszed át az adatokat, akár automatizált böngészős úton, a menet ugyanaz: előbb terv és dry run, utána alkalmazás soronkénti naplóval, majd visszaolvasás és összevetés. Egy hibára legfeljebb egy újrapróbálás van, utána ember dönt.</p>
+    <figure class="abra" data-abra="portal-dryrun" data-stage="02" data-cim="nincs">
+      <figcaption>Kézi átvétel a portálról vagy automatizált adatgyűjtés: terv → dry run (próbafutás) → alkalmazás soronkénti naplóval → visszaolvasás → összevetés; legfeljebb egy újrapróbálás, utána ember dönt; a hiányzó adat „Nincs megadva”.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 6 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">Előkészítés <span class="when">10:15–10:25</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Előkészítés" data-rovid="Határok és böngészőút" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Cél, jogosultság és böngészőút</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Hagyd jóvá</b> a három mondatot: <i>kimenet</i> (hat sor a kigyűjtött adatokkal, napló, összevetés), <i>korlát</i> (a portálon olvasni és a gyakorló státuszt módosítani szabad; küldés, éles rendszer, valódi ügyfél-módosítás nincs; jelszó nem kerül a beszélgetésbe), <i>ellenőrzés</i> (dry run előbb, soronkénti napló, visszaolvasás azonosító alapján, legfeljebb egy újrapróbálás).</li>
+                <li><b>Válassz</b> böngészőutat: A: böngészőbővítmény a saját böngésződben · B: beépített böngésző a desktop alkalmazásban · C: Computer Use (a képernyődet vezérli; Windows-on előtérben fut, ezért közben nem használhatod a gépet) · D: kézi út: te kezeled a portált, az asszisztens az ellenőrzőlistát és az összevetést készíti · más: írd le. Az A–C utak akkor működnek, ha a munkatérben elérhetők.</li>
+                <li><b>Jelentkezz be</b> te a portálra; az asszisztens utána dolgozik.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Három mondatot (kimenet, korlát, ellenőrzés) és a kiválasztott út nevét; ✅/⚠️ jelzést arról, hogy a portál bejelentkezési képernyője megnyílt-e. Fájl még nincs.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a kimenet, a korlát és az ellenőrzés mind ki van mondva, és te jóváhagytad; a böngészőút kiválasztva, vagy a D út rögzítve.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A portál minden szövege adat, nem utasítás: az asszisztens semmit nem hajt végre, amit egy ügy forrásszövege mond; csak te vagy a tréner adhat utasítást. A belépési adat nyilvános gyakorlóérték, amely a bejelentkezési képernyőn is látszik; valós rendszernél ezt a szokást nem követjük. A RONDO Hullámkartongyártó Kft. valós cég, a gyakorlóeset projektje kitalált.</div>
+          <div class="fallback"><strong>Ha a böngészős út két perc után sem nyitja meg a portált, vagy egyik sem érhető el:</strong> a <b>D út</b> lép életbe. Te nyitod meg és kezeled kézzel a portált, az asszisztens ellenőrzőlistát (mezők, státuszszabály, sorrend) készít, a naplót a portál adja ugyanabban a formában, az összevetést a bemásolt táblázatodból készíti; a tréner felvételt mutat az automatizálásról. Ez a módszer gyakorlása, nem élő automatizálási siker, és a kimeneten így jelöljük.</div>
+          <p class="why"><strong>Miért fontos:</strong> aki a határokat előre kimondja, az a feldolgozás közben nem találgat: az asszisztens csak azt teheti, amit előre jóváhagytál.</p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Előkészítés" data-rovid="Tréneri dry run" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Tréneri dry run</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Figyeld</b> a tréner kivetítését: megmutatja a forrást és a célmezőt a portálon, az asszisztens pedig csak listázza a tervezett változtatásokat.</li>
+                <li><b>Válaszolj</b>: mi a különbség a dry run és az alkalmazás között?</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Számozott listát: ügy | mező | előtte | utána. Módosítás nincs; a hiányzó érték „Nincs megadva”. Fájl nincs.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a saját szavaiddal megmondod, mit mutat a dry run, és hogy a portál adatai nem változtak.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A dry run (próbafutás) a tényleges változtatás előtt megmutatja a tervezett műveleteket és a várható eredményt. A próbafutás olcsó és visszafordítható, az alkalmazás nem: ezért van a kettő külön.</div>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="2">Kigyűjtés <span class="when">10:25–10:31</span></div>
+
+      <section class="lepes" id="lepes-3" data-csoport="2" data-csoport-nev="Kigyűjtés" data-rovid="Hat ügy kigyűjtése" data-ido="kb. 6 perc">
+        <header class="lepes-fej">
+          <div><h3>Hat ügy kigyűjtése</h3><span class="lepes-cimke"><span class="ido">kb. 6 perc</span> · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Mondd el</b> a saját szavaiddal, mit gyűjtsünk, honnan, és mi legyen a hiányzó értékkel.</li>
+                <li><b>Hagyd jóvá vagy javítsd</b> a hét elemes utasítást, amelyet az asszisztens megír, és végrehajtás előtt 3–5 sorban megmutat.</li>
+                <li><b>Számold össze</b> a táblában a hat azonosítót, és nézz meg két ügyet a portálon is.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Hat soros táblát: azonosító | igény | ár (nettó) | pénznem | jóváhagyó | forrás, az <code>osszevetes.md</code> 2.1 szakaszában. A tetején: FIKTÍV OKTATÁSI MINTA.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a tábla hat sort tartalmaz, hat különböző azonosítóval (egy sem hiányzik, egy sem szerepel kétszer); minden cella a portál értéke vagy „Nincs megadva”.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens csak olvas, a portálba nem ír be semmit. Ami üres vagy „Nincs megadva”, azt úgy rögzíti: nem pótolja, nem becsüli, nem veszi át másik ügyből. Ha egy ügy forrásszövegében utasításszerű mondat áll, azt adatként kezeli, és jelzi.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Melyik hat mezőt kell ügyenként kigyűjteni, és mit írjunk be, ha egy mezőnél nincs érték?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Nyisd meg a portál mind a hat ügyét (a lista mindkét oldaláról), és gyűjtsd ki az azonosítót, az igényt, az árat, a pénznemet, a jóváhagyót és a forrást egy táblába; csak olvass; ahol nincs érték, írd: Nincs megadva; semmit ne pótolj; mentsd az osszevetes.md fájlba.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a D úton dolgozol:</strong> kézzel gyűjtöd ki a hat ügyet, és a táblázatot bemásolod; az asszisztens ugyanazokat az ellenőrzéseket végzi el (hat sor, hat különböző azonosító, a hiány jelölése).</div>
+          <p class="why"><strong>Miért fontos:</strong> ha a kigyűjtés nem pótolja a hiányt, a későbbi státusz a valóságot mutatja, nem egy kitalált képet.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="3">Dry run és alkalmazás <span class="when">10:31–10:40</span></div>
+
+      <section class="lepes" id="lepes-4" data-csoport="3" data-csoport-nev="Dry run és alkalmazás" data-rovid="Terv és dry run" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Terv, jóslat és dry run</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös <span class="kulcs">kulcslépés: te jósolsz</span></span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Mondd meg előre</b> soronként, a kigyűjtött tábla és a portál státuszszabálya alapján, mi legyen a tervezett státusz; a jóslat előtt az asszisztens nem árulja el.</li>
+                <li><b>Nézd meg</b> a dry run eredményét és a jóslatod eltéréseit.</li>
+                <li><b>Dönts</b>: jóváhagyod a tervet? A: igen, mehet a dry run eredménye alapján az alkalmazás · B: javítok a tervben (írd le, melyik sort) · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Tervtáblát: ügy | tervezett státusz | indok (a hiányzó mező), az <code>osszevetes.md</code> 2.1 szakaszában; és hat <code>dry-run</code> naplósort a <code>muveleti-naplo.csv</code> fájlban, <code>elotte</code> és <code>utana</code> értékkel. A napló fejléce: <code>idobelyeg;ugy_id;mezo;elotte;utana;eredmeny;megjegyzes</code>.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>minden ügynek van tervezett státusza és indoka; a jóslat és a dry run összevetve, az eltérés megnevezve; a naplóban hat <code>dry-run</code> sor van, mindegyikben van <code>elotte</code> és <code>utana</code> érték.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A státusz a szabályból következik, nem a megérzésből. Ha a terv és a dry run egyezik, de a szabályt nem értettük jól, az egyezés sem bizonyít semmit, ezért a hiányzó mezőt is megnevezzük. A naplósorok számát az asszisztens, ha a környezet engedi, kóddal számolja (determinisztikus ellenőrzés: kóddal végzett, a megadott kritériumok szerinti ellenőrzés).</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ha a dry run egy sort elutasítana, a portált nem kerüljük meg: a tervet kell javítani, veled együtt. A hiányt nem pótoljuk, és ebben a lépésben még semmit nem alkalmazunk.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Mely mezőknek kell kitöltve lenniük egy ügynél ahhoz, hogy »ellenőrizve« legyen, és mi lesz az, ahol ezek közül valamelyik »Nincs megadva«?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„A kigyűjtött táblából a portal-feladat.md státuszszabálya szerint add meg minden ügy tervezett státuszát, és indokold a hiányzó mezővel; rögzítsd a tervet a munkalapon, futtass dry runt, és naplózz soronként dry-run eredménnyel; semmit ne alkalmazz, és semmit ne pótolj.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a D úton dolgozol:</strong> kézzel rögzíted a tervet a munkalapon és futtatod a dry runt; a naplót a portál adja, az asszisztens az eredményből ellenőrzi a jóslatodat.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-5" data-csoport="3" data-csoport-nev="Dry run és alkalmazás" data-rovid="Alkalmazás és visszaolvasás" data-ido="kb. 4 perc">
+        <header class="lepes-fej">
+          <div><h3>Alkalmazás és visszaolvasás</h3><span class="lepes-cimke"><span class="ido">kb. 4 perc</span> · közös</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Indítsd</b> az alkalmazást a dry run után: mehet? A: igen · B: még nem, nézzük meg újra a tervet · más: írd le.</li>
+                <li><b>Nézd meg</b> a naplósorokat és a visszaolvasási listát.</li>
+                <li>Hiba esetén <b>dönts</b> a hibás sorról: A: hagyjuk így, megjegyezzük · B: javítsd kézzel (írd le, mit) · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Naplósorokat (<code>sikeres</code>, <code>nincs változás</code>, <code>elutasítva</code>) a <code>muveleti-naplo.csv</code> fájlban, visszaolvasási listát (ügy | várt | olvasott | egyezik), és egy második dry runt, amely megmutatja, hogy az ismételt futás nem kettőz.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a hat ügy státusza a portálon megegyezik a tervvel; a napló minden módosításnál tartalmazza az <code>elotte</code> és az <code>utana</code> értéket; ügyenként legfeljebb egy <code>sikeres</code> módosítás van; a második dry run új módosítást nem hoz; a rekordok száma hat marad.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Alkalmazni csak a jelenlegi tervhez futtatott dry run után lehet. Bizonytalan mentésnél az asszisztens előbb azonosító alapján visszaolvas; egy hibára legfeljebb egy újrapróbálás van, utána megáll, és te döntesz. Az elutasítás a szabály működése, nem kerülendő akadály. A portál Reset gombját csak a te kérésedre használja.</div>
+          <div class="fallback"><strong>Ha a D úton dolgozol:</strong> kézzel mented a státuszokat az ügyadatlapon (a „Státusz mentése” is naplóz); az asszisztens a naplóból ellenőrzi az eredményt. Ha a kézi út nem használt dry runt, jelöljük: a módszertanilag kért dry run kimaradt.</div>
+          <p class="why"><strong>Miért fontos:</strong> az ismételhetőség azon múlik, hogy a második futás nem hoz új változást; a napló pedig lehetővé teszi, hogy bármikor megmondjuk, mi történt és miért.</p>
+        </div>
+      </section>
+
+      <div class="lepes-csoport-cim" data-csoport="4">Rögzítés <span class="when">10:40–10:45</span></div>
+
+      <section class="lepes" id="lepes-6" data-csoport="4" data-csoport-nev="Rögzítés" data-rovid="Összevetés és mentés" data-ido="kb. 5 perc">
+        <header class="lepes-fej">
+          <div><h3>Összevetés és mentés</h3><span class="lepes-cimke"><span class="ido">kb. 5 perc</span> · közös <span class="kulcs">kulcslépés: te döntesz</span> · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Töltsd le</b> a portál Műveleti napló képernyőjéről a CSV-exportot (vagy mentsd a szövegmezőből), és tedd a <code>Munka/02-Portal</code> mappába <code>export_&lt;időbélyeg&gt;.csv</code> néven.</li>
+                <li><b>Indokold</b> a saját szavaiddal a hiányos ügyeket.</li>
+                <li><b>Dönts</b>: egyetértesz az összevetéssel? A: igen · B: van, amit másképp látok (írd le) · C: nézzünk meg még két sort. Eltérésnél: A: elfogadom, magyarázat a jegyzetben · B: újra futtatjuk az érintett lépést · más: írd le.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>osszevetes.md</code> 2.2 (összevetés), 2.3 (eltérések és döntések) és 2.4 (a hiányos ügyek indoklása) szakaszát, és a letöltött exportot a mappában.</p></div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>mind a hat azonosító pontosan egyszer szerepel az <code>osszevetes.md</code> táblájában; a státuszok a szabályból következnek, a hiányos ügyek indoklása megnevezi a hiányzó mezőt; nincs duplikált művelet; minden változásnak van előtte és utána értéke; a CSV megegyezik a képernyő naplójával; ismételt futás nem kettőz; reset után az induló hat sor áll vissza.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Eltérésnél az asszisztens nem igazítja az adatot: megnevezi a tételt, mindkét érték megmarad, a döntés a tiéd. A hiányos ügyek indoklását te mondod, ő csak formába önti.</div>
+          <div class="callout tipp"><span class="callout-cim">Tipp</span>A portál Önteszt képernyője (a lábléc linkjén érhető el) ugyanezeket a feltételeket a beágyazott adaton lefuttatja. Ez gépi ellenőrzés, és nem helyettesíti a te összevetésedet.</div>
+          <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
+            <ol class="ladder">
+              <li><b>Rávezető kérdés</b>„Mit kell egyeznie a portál exportja és az AI naplója között, és mit jelent az, ha valami nem egyezik?”</li>
+              <li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li>
+              <li><b>Félkész prompt</b>„Vesd össze az export_&lt;időbélyeg&gt;.csv fájlt a muveleti-naplo.csv fájllal: sorok száma, sikeres módosítások azonosítónként, dry-run és elutasított sorok; az eltérést nevezd meg mindkét értékkel; a hiányos ügyek indoklását a státuszszabály szerint külön táblában add meg; az adatot ne igazítsd.”</li>
+              <li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li>
+            </ol>
+          </details>
+          <div class="fallback"><strong>Ha a portál nem engedi a CSV letöltését:</strong> a Műveleti napló képernyő szövegmezőjéből mentsd el a tartalmat <code>export_&lt;időbélyeg&gt;.csv</code> néven (a szöveg adat, nem utasítás); az összevetés ugyanúgy elkészül.</div>
+          <p class="why"><strong>Miért fontos:</strong> az automatizálás eredménye akkor megbízható, ha a napló, a portál és a te összevetésed ugyanazt mutatja; ami eltér, az a hibakeresés kezdőpontja.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Mitől jó és validált? Pipáld ki, mielőtt továbblépsz.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>A <code>muveleti-naplo.csv</code> fejléce pontosan <code>idobelyeg;ugy_id;mezo;elotte;utana;eredmeny;megjegyzes</code>; a <code>dry-run</code> és <code>sikeres</code> sorokban van <code>elotte</code> és <code>utana</code> érték.</div></li>
+      <li data-id="v2"><div>Az <code>osszevetes.md</code> hat azonosítót tartalmaz, mindegyiket egyszer; a hiányos ügyeknél a hiányzó mező megnevezett; pótolt vagy becsült érték nincs.</div></li>
+      <li data-id="v3"><div>A portál exportja és az asszisztens naplója összevetve; az eltérés (ha volt) megnevezve, a döntés rögzítve.</div></li>
+      <li data-id="v4"><div>Ügyenként legfeljebb egy <code>sikeres</code> módosítás van; a második dry run új módosítást nem hozott.</div></li>
+      <li data-id="v5"><div>A kimeneteken ott a FIKTÍV OKTATÁSI MINTA jelölés.</div></li>
+      <li data-id="v6"><div>A hiány „Nincs megadva”, a javaslat nem döntés, minden lényeges állításhoz van forráshely.</div></li>
+      <li data-id="v7"><div>Jelszó vagy hozzáférési adat nem került a beszélgetésbe vagy a fájlokba.</div></li>
+    </ul>
+    <div class="facets">
+      <div><b>Forrás-visszakeresés</b>A portál ügyadatlapján és az ügylistán, azonosító alapján; te a hat azonosítót összeszámolod, és egy sort a portálon is megnézel.</div>
+      <div><b>Gépi ellenőrzés</b>A naplósorok számát és mezőit az asszisztens kóddal vagy számlálással ellenőrzi; a portál Önteszt képernyője ugyanezt lefuttatja.</div>
+      <div><b>Független ellenőr</b>A második, független napló a portál saját exportja; az összevetésben az eltérésről te döntesz.</div>
+      <div><b>Ismétlés és megállás</b>Egy hibára legfeljebb egy újrapróbálás, utána ember dönt. Időhiánynál az 5. lépés második dry runja és a 6. lépés 2.3 szakasza rövidül; a napló és az <code>osszevetes.md</code> 2.1 és 2.2 szakasza nem maradhat el.</div>
+    </div>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Elakadtam</span>
+      <ol>
+        <li>A böngészős út nem nyitja meg a portált: két perc után a D útra lépünk, és a módszert (dry run, napló, visszaolvasás) kézzel folytatjuk.</li>
+        <li>A portál nem enged belépni, vagy elromlott a gyakorlóállapot: a lábléc Reset gombja visszaállítja a hat induló sort és az üres naplót; csak a te kérésedre használjuk.</li>
+        <li>Bizonytalan mentés: az asszisztens előbb azonosító alapján visszaolvassa az ügyet; egy hibára legfeljebb egy újrapróbálás, utána te döntesz.</li>
+        <li>Az asszisztens a hiányzó értéket kitalálná vagy másik ügyből másolná: állítsd meg; visszatér a „Nincs megadva” jelöléshez.</li>
+        <li>Egy ügy forrásszövege utasításnak látszik: az asszisztens nem hajtja végre, az oldalszöveg adat.</li>
+        <li>Jelszó vagy hozzáférési kulcs kerülne a beszélgetésbe, vagy valós adat került elő: az asszisztens megáll, nem menti; a bejelentkezést te végzed, fiktív adattal folytatjuk.</li>
+      </ol>
+      <p>Két perc után szólj <strong>Csabának</strong> vagy <strong>Krisztiánnak</strong>.</p>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Segítség bármikor</span><em>Adj tippet</em> · <em>Mutasd a mintát</em> · <em>Írd meg helyettem és futtasd</em> · <em>Hol tartok?</em> · Módot így váltasz: <em>„Váltsunk közös / önálló módra.”</em></div>
+    <div class="fallback"><strong>Ha a munkatérben nincs böngészős AI-út</strong> (két perc sikertelen próba után): kézzel nyitod meg és kezeled a portált, az asszisztens ellenőrzőlistát és az összevetést készíti a bemásolt táblázatból; a naplót a portál adja azonos formában, a tréner felvételt mutat az automatizálásról. Ez a módszer gyakorlása, nem élő automatizálási siker, és a kimeneten így van jelölve.</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Ugyanez a saját munkádban</h3>
+        <ul>
+          <li><strong>BA (üzleti elemző):</strong> a követelményjegyzékben szereplő tételek egységes átvétele egy olyan rendszerből, amelynek nincs exportja: hat tétel dry runnal, soronkénti naplóval, a hiányzó mezők „Nincs megadva” jelölésével.</li>
+          <li><strong>Sales-Account (értékesítési és ügyfélkapcsolati sáv):</strong> ajánlati tételek átvétele egy ügyfélportálról vagy belső felületről táblázatba, ár és pénznem forrásból, a hiány nem pótolva.</li>
+          <li><strong>Közös:</strong> bármely ismétlődő, felületen végzett munka előtt írd le a határt: mit szabad olvasni és írni, mit nem, és hol dönt az ember.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Mi kell hozzá</h3>
+        <ul>
+          <li>Egy ismétlődő, felületen végzett feladat (adatátvétel, státuszfrissítés).</li>
+          <li>A határ három mondatban: kimenet, korlát, ellenőrzés.</li>
+          <li>A pont, ahol az ember dönt: hiba után, egy újrapróbálás után.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Következő</span><h3>Szünet 10:45, majd 3. gyakorlat: Közös munka és megosztás · 11:00</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük a 3. gyakorlatot.”</em></p></div>
+      <a class="gomb" href="03-kozos-munka-notebook.html">Tovább a 3. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A RONDO Hullámkartongyártó Kft. cégadatai valósak és nyilvánosak; a projekt, az igények, a személyek és a többi adat kitalált oktatási minta.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="01-dns-notebook.html" rel="prev">◀ 1. gyakorlat</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="03-kozos-munka-notebook.html" rel="next">3. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-abrak.js"></script>
+</body>
+</html>

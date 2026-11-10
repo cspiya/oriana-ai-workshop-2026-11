@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Rövid glosszárium</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">:root {--bg: #fafafa; --surface: #ffffff; --surface-2: #f4f4f5; --border: #e4e4e7;--text: #18181b; --text-secondary: #52525b; --text-muted: #71717a;--accent: #4f46e5; --accent-soft: #eef2ff; --accent-deep: #3730a3;--highlight: #fef3c7; --warn: #f59e0b; --warn-deep: #92400e;--ok: #059669; --ok-soft: #ecfdf5; --ok-deep: #065f46;--code-bg: #1e1e2e; --code-text: #cdd6f4;--space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem; --space-6: 3rem;--radius: 8px; --radius-lg: 12px;--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #101014; --surface: #18181d; --surface-2: #232329; --border: #34343c;--text: #ececf0; --text-secondary: #b4b4be; --text-muted: #8e8e9a;--accent: #8b87ff; --accent-soft: #23234a; --accent-deep: #c4c2ff;--highlight: #3a2f0b; --warn: #f59e0b; --warn-deep: #fbbf24;--ok: #34d399; --ok-soft: #0f2a21; --ok-deep: #6ee7b7;}}* { box-sizing: border-box; }html { scroll-behavior: smooth; }body { font-family: var(--font); line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 0; }a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }a:hover { border-bottom-color: var(--accent); }p { margin: 0 0 var(--space-2); }ul, ol { margin: 0 0 var(--space-2); padding-left: 1.4rem; }li { margin-bottom: .4rem; }strong { font-weight: 650; }code { font-family: var(--mono); font-size: .9em; background: var(--surface-2); padding: .1rem .35rem; border-radius: 4px; }kbd { font-family: var(--mono); font-size: .8em; background: var(--surface-2); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: .05rem .4rem; }td, th { overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 640px) { table { font-size: .85rem; } td, th { padding: .35rem .4rem; } }
+table { width: 100%; border-collapse: collapse; margin: var(--space-2) 0; font-size: .95rem; }th, td { text-align: left; padding: var(--space-1) var(--space-2); border-bottom: 1px solid var(--border); vertical-align: top; }th { font-weight: 600; color: var(--text-secondary); background: var(--surface-2); }hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-4) 0; }:root { --sidebar-width: 272px; }.layout { display: grid; grid-template-columns: var(--sidebar-width) 1fr; max-width: 1320px; margin: 0 auto; align-items: start; }.sidebar { position: sticky; top: 0; align-self: start; height: 100vh; overflow: hidden; padding: var(--space-3) var(--space-2) var(--space-2) var(--space-3); border-right: 1px solid var(--border); background: var(--surface); }.sidebar-eyebrow { color: var(--accent); font-weight: 700; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: var(--space-1); }.sidebar-title { font-size: 1.05rem; font-weight: 700; margin: 0 0 var(--space-2); line-height: 1.3; }.sidebar-meta { font-size: .78rem; color: var(--text-muted); line-height: 1.5; margin-bottom: var(--space-2); }.sidebar nav { border-top: 1px solid var(--border); padding-top: var(--space-2); }.sidebar nav .toc-label { font-size: .68rem; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin: .9rem 0 .2rem; display: block; font-weight: 700; }.sidebar nav ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }.sidebar nav li { margin: 0; counter-increment: toc; }.sidebar nav a { display: block; padding: .3rem .6rem; font-size: .84rem; color: var(--text-secondary); border-radius: 6px; text-decoration: none; border: 0; transition: background .12s, color .12s; line-height: 1.3; }.sidebar nav a::before { content: counter(toc) ". "; color: var(--text-muted); margin-right: .2rem; }.sidebar nav a:hover { background: var(--surface-2); color: var(--text); }.sidebar nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }.sidebar nav a.active::before { color: var(--accent); }.sidebar nav ul.plain { list-style: none; padding: 0; margin: 0; }.sidebar nav ul.plain a::before { content: none; }.sidebar-footer { margin-top: var(--space-2); padding-top: var(--space-2); border-top: 1px solid var(--border); font-size: .76rem; color: var(--text-muted); line-height: 1.5; }.sidebar-toggle { display: none; position: fixed; top: .8rem; right: .8rem; z-index: 30; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .7rem; font-size: .85rem; cursor: pointer; }.main { padding: var(--space-4) var(--space-4) var(--space-6); max-width: 900px; min-width: 0; }@media (max-height: 820px) {.sidebar { padding-top: var(--space-2); }.sidebar-meta { font-size: .72rem; line-height: 1.4; margin-bottom: .5rem; }.sidebar-title { font-size: .98rem; margin-bottom: .5rem; }.sidebar nav a { padding: .2rem .6rem; font-size: .8rem; }.sidebar nav .toc-label { margin: .5rem 0 .1rem; }}@media (max-height: 700px) { .sidebar-footer { display: none; } }@media (max-width: 900px) {.layout { grid-template-columns: 1fr; }.sidebar { position: fixed; left: 0; top: 0; width: min(85vw, 320px); transform: translateX(-100%); transition: transform .2s; z-index: 25; box-shadow: 0 0 24px rgba(0,0,0,.15); }body.sidebar-open .sidebar { transform: none; }.sidebar-toggle { display: block; }.main { padding: var(--space-3) var(--space-2) var(--space-6); }}.container { max-width: 880px; margin: 0 auto; padding: var(--space-4) var(--space-3); }header.hero { border-bottom: 1px solid var(--border); padding-bottom: var(--space-3); margin-bottom: var(--space-3); }.hero-eyebrow { color: var(--accent); font-weight: 600; font-size: .875rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: var(--space-1); }h1 { font-size: 2.1rem; margin: 0 0 var(--space-2); line-height: 1.2; letter-spacing: -.02em; }.hero-sub { color: var(--text-secondary); font-size: 1.1rem; margin: 0; }.meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); color: var(--text-muted); font-size: .88rem; }.meta span { display: inline-flex; align-items: center; gap: .4rem; }h2 { font-size: 1.45rem; margin: var(--space-4) 0 var(--space-2); letter-spacing: -.01em; padding-bottom: var(--space-1); border-bottom: 1px solid var(--border); scroll-margin-top: 1rem; }section { scroll-margin-top: 1rem; }h3 { font-size: 1.12rem; margin: var(--space-3) 0 var(--space-1); }h4 { font-size: 1rem; margin: var(--space-2) 0 var(--space-1); color: var(--text-secondary); }.start-box { background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%); color: #fff; border-radius: var(--radius-lg); padding: var(--space-3); margin: var(--space-3) 0; }.start-box .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; opacity: .85; margin-bottom: .4rem; }.start-box .say { font-family: var(--mono); font-size: 1.05rem; background: rgba(255,255,255,.14); border-radius: 6px; padding: .6rem .9rem; display: inline-block; margin: .2rem 0 .6rem; }.start-box p { margin: 0; opacity: .95; }.milestones { list-style: none; padding: 0; margin: var(--space-2) 0; }.milestones li { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-2); padding: .5rem 0; border-bottom: 1px solid var(--border); }.milestones .t { font-family: var(--mono); font-size: .8rem; color: var(--text-muted); padding-top: .15rem; }.milestones .chk { display: block; font-size: .85rem; color: var(--ok-deep); margin-top: .15rem; }.badge { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .12rem .55rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-deep); }.badge.ba { background: #e0f2fe; color: #075985; } .badge.sa { background: #fce7f3; color: #9d174d; } .badge.all { background: var(--ok-soft); color: var(--ok-deep); }@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .badge.ba { background: #0c2d44; color: #7dd3fc; } :root:not([data-theme="light"]) .badge.sa { background: #43132b; color: #f9a8d4; } }.lead { font-size: 1.12rem; color: var(--text-secondary); margin: 0 0 var(--space-2); }.daymap-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 700; margin: var(--space-3) 0 .4rem; }.daymap-label + .daymap { margin-top: 0; }.phase { display: flex; align-items: baseline; gap: .6rem; margin: var(--space-3) 0 .2rem; font-weight: 700; color: var(--accent-deep); font-size: .95rem; }.phase .when { font-family: var(--mono); font-size: .8rem; color: var(--text-muted); font-weight: 400; }.phase.pause { color: var(--text-muted); font-weight: 600; }.milestones li.key { background: var(--accent-soft); border-radius: 6px; padding-left: .5rem; padding-right: .5rem; }.milestones li.pause { color: var(--text-muted); border-bottom-style: dashed; }.milestones .key-mark { color: var(--accent); font-weight: 700; margin-right: .25rem; }.milestones .ref { display: block; font-family: var(--mono); font-size: .68rem; color: var(--text-muted); }.milestones .badge { margin-right: .35rem; }.ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin: var(--space-2) 0; padding: 0; list-style: none; counter-reset: lad; }.ladder li { margin: 0; padding: .6rem .7rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-size: .86rem; line-height: 1.35; counter-increment: lad; }.ladder li::before { content: counter(lad); display: block; font-weight: 800; color: var(--accent); font-size: 1.1rem; }.ladder li b { display: block; }@media (max-width: 640px) { .ladder { grid-template-columns: 1fr 1fr; } }.lanes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin: var(--space-2) 0; }.lanes .lane { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-2) var(--space-3); background: var(--surface); }.lanes .lane h3 { margin-top: 0; font-size: 1rem; }.lanes .lane ul { margin-bottom: 0; }@media (max-width: 640px) { .lanes { grid-template-columns: 1fr; } }.facets { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; margin: var(--space-2) 0; }.facets div { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: .55rem .8rem; font-size: .88rem; line-height: 1.4; }.facets b { display: block; color: var(--accent-deep); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .1rem; }@media (max-width: 640px) { .facets { grid-template-columns: 1fr; } }.start-box code { background: rgba(255,255,255,.18); color: #fff; }.start-box + .start-box { margin-top: var(--space-2); }.start-box.alt { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); }.fallback { border: 1px dashed var(--warn); background: var(--highlight); border-radius: var(--radius); padding: .6rem .9rem; font-size: .92rem; margin: var(--space-2) 0; }.fallback strong { color: var(--warn-deep); }.daymap { display: flex; gap: 4px; margin: var(--space-3) 0 var(--space-4); padding: 0; list-style: none; flex-wrap: wrap; }.daymap li { flex: 1 1 90px; min-width: 90px; }.daymap a, .daymap span.item { display: block; padding: .45rem .5rem; border-radius: 6px; background: var(--surface); border: 1px solid var(--border); font-size: .74rem; line-height: 1.25; color: var(--text-secondary); height: 100%; }.daymap a:hover { border-color: var(--accent); }.daymap .t { display: block; font-family: var(--mono); font-size: .68rem; color: var(--text-muted); }.daymap li.done a { opacity: .6; }.daymap li.current a, .daymap li.current span.item { background: var(--accent); border-color: var(--accent); color: #fff; }.daymap li.current .t { color: rgba(255,255,255,.85); }.daymap li.break a, .daymap li.break span.item { background: var(--surface-2); color: var(--text-muted); border-style: dashed; }.nav { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-2); margin-bottom: var(--space-4); font-size: .9rem; }.nav strong { display: block; margin-bottom: var(--space-1); color: var(--text-secondary); font-weight: 600; }.nav ol { margin: 0; padding-left: 1.2rem; } .nav li { margin-bottom: .25rem; }.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3); margin: var(--space-3) 0; }.card h3 { margin-top: 0; }.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin: var(--space-2) 0; }.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin: var(--space-2) 0; }@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }.grid-2 .card, .grid-3 .card { margin: 0; }.grid-2 .card h3, .grid-3 .card h3 { font-size: 1rem; }.grid-2 .card p, .grid-3 .card p { font-size: .9rem; margin-bottom: 0; color: var(--text-secondary); }.grid-2 .card ul, .grid-3 .card ul { font-size: .9rem; margin-bottom: 0; color: var(--text-secondary); padding-left: 1.1rem; }.callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: var(--space-2) var(--space-3); margin: var(--space-3) 0; }.callout strong { color: var(--accent); }.callout-warning { background: var(--highlight); border-left-color: var(--warn); }.callout-warning strong { color: var(--warn-deep); }.callout-check { background: var(--ok-soft); border-left-color: var(--ok); }.callout-check strong { color: var(--ok-deep); }.callout-why { background: var(--surface); border-left-color: var(--text-muted); }.callout-why strong { color: var(--text-secondary); }.presentation-card, .deck-card { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: #fff; border: none; }.presentation-card a, .deck-card a { color: #fff; border-bottom: 2px solid rgba(255,255,255,.5); font-weight: 600; }.presentation-card .label, .deck-card .label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; opacity: .8; margin-bottom: var(--space-1); }.presentation-card h3, .deck-card h3 { color: #fff; margin-top: 0; font-size: 1.25rem; } .presentation-card p, .deck-card p { margin-bottom: 0; opacity: .95; }.step { display: grid; grid-template-columns: 2.6rem 1fr; gap: var(--space-2); margin: var(--space-3) 0; padding: var(--space-3); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }.step .num { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }.step h3 { margin: .15rem 0 var(--space-1); font-size: 1.1rem; }.step .time { font-family: var(--mono); font-size: .78rem; color: var(--text-muted); margin-left: .5rem; font-weight: 400; }.step p:last-child { margin-bottom: 0; }.why { font-size: .92rem; color: var(--text-secondary); border-left: 3px solid var(--border); padding-left: var(--space-2); margin: var(--space-1) 0 var(--space-2); }.why strong { color: var(--text-secondary); }.prompt-label { font-size: .8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; margin: var(--space-2) 0 var(--space-1); }.prompt-box { background: var(--code-bg); color: var(--code-text); padding: var(--space-3); padding-top: 2.4rem; border-radius: var(--radius); font-family: var(--mono); font-size: .92rem; line-height: 1.5; overflow: hidden; position: relative; white-space: pre-wrap; word-wrap: break-word; margin: 0 0 var(--space-1); }.prompt-box .copy-hint, .prompt-box .copy-btn { position: absolute; top: .7rem; right: .75rem; background: rgba(255,255,255,.1); color: var(--code-text); border: 1px solid rgba(255,255,255,.2); border-radius: 4px; padding: .2rem .55rem; font-size: .75rem; font-family: var(--font); cursor: pointer; }.prompt-box .copy-btn:hover { background: rgba(255,255,255,.2); }.prompt-box .copy-btn.done { background: var(--ok); border-color: var(--ok); color: #fff; }.prompt-box .var { color: #f9e2af; font-style: italic; }.own-words { font-size: .85rem; color: var(--text-muted); margin: 0 0 var(--space-2); }.own-words::before { content: "🎙 "; }.checklist { list-style: none; padding-left: 0; margin: var(--space-2) 0; }.checklist li { display: flex; gap: .6rem; align-items: flex-start; padding: .45rem .6rem; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); margin-bottom: .4rem; }.checklist input[type=checkbox] { margin-top: .3rem; accent-color: var(--accent); }.checklist li.checked { opacity: .55; text-decoration: line-through; }.stuck { background: var(--surface); border: 1px dashed var(--accent); border-radius: var(--radius-lg); padding: var(--space-2) var(--space-3); margin: var(--space-3) 0; font-size: .95rem; }.stuck strong { color: var(--accent); }.timeline { list-style: none; padding-left: 0; margin: var(--space-2) 0; border-left: 2px solid var(--border); }.timeline li { position: relative; padding-left: var(--space-3); margin-bottom: var(--space-3); }.timeline li::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; border: 2px solid var(--bg); }.timeline .year { font-weight: 700; color: var(--accent); font-size: .95rem; display: block; margin-bottom: .2rem; }.links-list { list-style: none; padding-left: 0; margin: 0; }.links-list li { padding: var(--space-1) 0; border-bottom: 1px solid var(--border); }.links-list li:last-child { border-bottom: none; }.links-list .topic, .tag { display: inline-block; background: var(--surface-2); color: var(--text-secondary); font-size: .75rem; padding: .15rem .55rem; border-radius: 4px; margin-right: var(--space-1); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }.links-list .desc { display: block; color: var(--text-muted); font-size: .85rem; margin-top: .2rem; }footer { margin-top: var(--space-6); padding-top: var(--space-3); border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; }.pager { display: flex; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-2); }.pager a { display: inline-block; padding: .55rem .9rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); }.pager a:hover { border-color: var(--accent); color: var(--accent); }body.deck { background: #0f0f14; color: #e4e4e7; overflow: hidden; height: 100vh; }body.deck .slides { position: relative; height: 100vh; }body.deck section.slide { position: absolute; inset: 0; display: none; padding: 4vh 7vw 9vh; overflow: hidden; background: var(--bg); color: var(--text); }body.deck section.slide.active { display: flex; flex-direction: column; justify-content: center; }body.deck section.slide.title { background: linear-gradient(135deg, #312e81 0%, #4f46e5 55%, #7c3aed 100%); color: #fff; }body.deck section.slide.title h1, body.deck section.slide.title p, body.deck section.slide.title .hero-eyebrow { color: #fff; }body.deck section.slide.title .hero-eyebrow { color: rgba(255,255,255,.8); }body.deck section.slide.dark { background: #18181b; color: #e4e4e7; }body.deck section.slide.dark h1, body.deck section.slide.dark h2, body.deck section.slide.dark h3 { color: #fff; }body.deck section.slide.dark .slide-eyebrow { color: #a5b4fc; }body.deck section.slide.dark th { background: #27272a; color: #d4d4d8; } body.deck section.slide.dark td { border-color: #3f3f46; }body.deck h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: var(--space-3); }body.deck h2 { font-size: clamp(1.6rem, 3.4vw, 2.5rem); margin: 0 0 var(--space-3); border: 0; padding: 0; }body.deck h3 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }body.deck p, body.deck li, body.deck td, body.deck th { font-size: clamp(1rem, 1.55vw, 1.35rem); }body.deck .small, body.deck .small li, body.deck .small td, body.deck .small p { font-size: clamp(.85rem, 1.2vw, 1.05rem); }body.deck .prompt-box { font-size: clamp(.85rem, 1.25vw, 1.1rem); }body.deck .grid-2 .card p, body.deck .grid-3 .card p { font-size: clamp(.9rem, 1.3vw, 1.15rem); }body.deck .notes { display: none; }body.deck.show-notes .notes { display: block; position: fixed; left: 0; right: 0; bottom: 3.2rem; max-height: 30vh; overflow: hidden; background: #fffbeb; color: #78350f; border-top: 2px solid var(--warn); padding: var(--space-2) var(--space-4); font-size: .95rem; z-index: 20; }body.deck .deck-bar { position: fixed; left: 0; right: 0; bottom: 0; height: 3.2rem; background: #0f0f14; color: #a1a1aa; display: flex; align-items: center; gap: var(--space-3); padding: 0 var(--space-3); font-size: .85rem; z-index: 30; }body.deck .deck-bar .title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }body.deck .deck-bar button { background: #27272a; color: #e4e4e7; border: 1px solid #3f3f46; border-radius: 6px; padding: .3rem .7rem; cursor: pointer; font-size: .85rem; }body.deck .deck-bar button:hover { background: #3f3f46; }body.deck .deck-bar .counter { font-family: var(--mono); }body.deck .progress { position: fixed; left: 0; bottom: 3.2rem; height: 4px; background: var(--accent); width: 0; transition: width .2s; z-index: 31; }body.deck .daymap { margin: 0 0 var(--space-3); }body.deck .daymap a, body.deck .daymap span.item { font-size: clamp(.68rem, .95vw, .85rem); }body.deck .slide-eyebrow { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; margin-bottom: var(--space-1); }body.deck section.slide.title .slide-eyebrow { color: rgba(255,255,255,.85); }body.deck .slide-footer { position: absolute; left: 8vw; right: 8vw; bottom: 4.2rem; font-size: .75rem; color: var(--text-muted); display: flex; justify-content: space-between; }body.deck section.slide.title .slide-footer, body.deck section.slide.dark .slide-footer { color: rgba(255,255,255,.6); }body.deck .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); margin: var(--space-2) 0; }body.deck .cols .card { margin: 0; }body.deck .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-2); margin: var(--space-2) 0; }body.deck .icon-grid .item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-2); text-align: center; }body.deck .icon-grid .item svg { width: 48px; height: 48px; display: block; margin: 0 auto .5rem; }body.deck .icon-grid .item b { display: block; font-size: 1.05rem; }body.deck .icon-grid .item span { display: block; font-size: .95rem; color: var(--text-secondary); }body.deck .big-number { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; color: var(--accent); line-height: 1; margin: var(--space-2) 0; }body.deck .figure { display: flex; align-items: center; justify-content: center; margin: var(--space-2) 0; }body.deck .figure svg { max-width: 100%; height: auto; }body.deck .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-4); align-items: center; }@media (max-width: 800px) { body.deck .split { grid-template-columns: 1fr; } }body.deck .kicker { display: inline-block; background: var(--accent-soft); color: var(--accent-deep); border-radius: 999px; padding: .2rem .8rem; font-size: .85rem; font-weight: 600; margin-bottom: var(--space-2); }body.deck .takeaway { border-left: 5px solid var(--accent); background: var(--surface); padding: var(--space-2) var(--space-3); border-radius: 0 var(--radius) var(--radius) 0; font-size: clamp(1.05rem, 1.7vw, 1.4rem); }body.deck .news { display: grid; grid-template-columns: 11rem 1fr; gap: .5rem var(--space-3); align-items: baseline; margin: var(--space-1) 0; }body.deck .news .when { font-family: var(--mono); font-size: clamp(.8rem, 1.1vw, 1rem); color: var(--accent-deep); font-weight: 700; }body.deck .news .what { font-size: clamp(1rem, 1.5vw, 1.3rem); }body.deck .band { border: 2px dashed var(--warn); background: var(--highlight); border-radius: var(--radius-lg); padding: var(--space-2) var(--space-3); margin-top: var(--space-2); }body.deck .band h3 { margin: 0 0 .3rem; color: var(--warn-deep); }body.deck .band p, body.deck .band li { font-size: clamp(.9rem, 1.25vw, 1.1rem); margin-bottom: .2rem; }body.deck .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin: var(--space-2) 0; }body.deck .tiles .tile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .55rem .7rem; }body.deck .tiles .tile b { display: block; font-size: clamp(.95rem, 1.35vw, 1.2rem); }body.deck .tiles .tile span { display: block; font-size: clamp(.78rem, 1.05vw, .95rem); color: var(--text-secondary); line-height: 1.3; }body.deck .steps6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; margin: var(--space-2) 0; counter-reset: s6; padding: 0; list-style: none; }body.deck .steps6 li { counter-increment: s6; background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius); padding: .6rem .5rem; text-align: center; font-weight: 700; font-size: clamp(.9rem, 1.4vw, 1.2rem); margin: 0; }body.deck .steps6 li::before { content: counter(s6); display: block; color: var(--accent); font-size: 1.4em; }body.deck .seven { display: flex; flex-wrap: wrap; gap: .4rem; margin: var(--space-1) 0; }body.deck .seven span { background: var(--accent-soft); color: var(--accent-deep); border-radius: 999px; padding: .2rem .8rem; font-weight: 600; font-size: clamp(.85rem, 1.25vw, 1.05rem); }body.deck .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin: var(--space-2) 0; }body.deck .cmp > div { border-radius: var(--radius-lg); padding: var(--space-3); border: 2px solid var(--border); background: var(--surface); }body.deck .cmp > div.good { border-color: var(--ok); } body.deck .cmp > div.bad { border-color: var(--warn); }body.deck .cmp h3 { margin-top: 0; }@media (max-width: 900px) { body.deck .tiles { grid-template-columns: repeat(2, 1fr); } body.deck .news { grid-template-columns: 1fr; } body.deck .cmp, body.deck .steps6 { grid-template-columns: 1fr; } }body.deck.overview .slides { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 16px; overflow: auto; height: calc(100vh - 3.2rem); }body.deck.overview section.slide { position: static; display: block !important; transform: none; height: 180px; overflow: hidden; border: 2px solid transparent; border-radius: 8px; padding: 12px; cursor: pointer; zoom: .45; height: 400px; }body.deck.overview section.slide.active { border-color: var(--accent); }body.deck.overview .slide-footer { display: none; }@media print {body.deck { background: #fff; overflow: visible; height: auto; }body.deck section.slide { position: static; display: block !important; page-break-after: always; min-height: 90vh; }body.deck .deck-bar, body.deck .progress { display: none; }body.deck .notes { display: block; border-top: 1px dashed #999; margin-top: 1rem; font-size: .85rem; }.copy-btn, .copy-hint { display: none; }}</style>
+</head>
+<body><main class="container">
+<h1 id="rövid-glosszárium">Rövid glosszárium</h1>
+<p>A 2026-11-12-i Oriana-képzéshez. A glosszárium a tananyag
+szóhasználatát magyarázza BA- és Sales-Account-kollégáknak:
+rövidítéseket, szakkifejezéseket és a gyakorlatok saját fogalmait. Ha
+egy kifejezés nem szerepel benne, az AI nem találja ki a jelentését:
+„Nincs megadva” választ ad, és rákérdez.</p>
+<p><strong>Eredet.</strong> Az „Eredet” oszlop megmutatja, honnan
+származik a fogalom: Oriana-anyag (az Oriana saját szóhasználata),
+Wenova-fiktív (a kitalált gyakorlóesetből, jelölése FIKTÍV OKTATÁSI
+MINTA), valós cég, kitalált projekt (a RONDO Hullámkartongyártó Kft. és
+a cégadatlap adatai valósak és nyilvánosak, a rájuk épített projekt
+kitalált; jelölése KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI
+MINTA), OpenAI-termék (a ChatGPT funkciója vagy modellneve) vagy
+általános szakmai szóhasználat.</p>
+<p><strong>ChatGPT-funkciók.</strong> Az OpenAI-termékek leírása a
+fogalom jelentését adja, nem azt, hogy a te munkateredben elérhető. Ahol
+egy funkció nem látszik, a gyakorlat „Ha nem elérhető” sora szerinti
+B-terv érvényes.</p>
+<p><strong>Modellek.</strong> A képzésben a vezetett és közös munkához
+GPT-6 Luna, a makerhez GPT-6.1 Terra, a reviewerhez GPT-6.1 Sol szolgál.
+Az Astra nem része a képzésnek.</p>
+<p><strong>Hol találkozol vele.</strong> A gyakorlat száma: 0 Saját
+feladat és AI-alapok, 1 Oriana DNS, 2 Adatgyűjtés a portálról, 3 Közös
+munka, 4 RONDO agent, 5 RONDO reviewer, 6 Ügykövető (Sites), 6b
+BA-utótag, 7 Saját folyamat. Az oszlop a forgatókönyvek
+<code>glosszarium:</code> listáiból készül: azokat a gyakorlatokat
+mutatja, amelyek a kifejezést elsőként használják. A „–” azt jelenti,
+hogy egyik gyakorlat listájában sem szerepel (háttér-, irányelv- vagy
+segédfogalom).</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Kifejezés</th>
+<th>Feloldás vagy rövid magyar jelentés</th>
+<th>Eredet</th>
+<th>Hol találkozol vele (gyakorlat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 napos gyakorló terv</td>
+<td>A 7. gyakorlatban megírt, öt munkanapos indítási terv
+(<code>ot-napos-terv.md</code>): naponként cél, fájl, ellenőrzés és
+kivel. Az első nap a saját brief első futtatása ellenőrzéssel, az utolsó
+a tanulság DNS-be vitele. Javaslat, nem vállalás; valós ügyféladat nem
+kerül bele.</td>
+<td>általános szakmai</td>
+<td>07</td>
+</tr>
+<tr>
+<td>agent-brief</td>
+<td>A makernek szóló írásos feladatleírás (<code>agent-brief.md</code>):
+cél, bemenetek, kimenetek, korlátok és ellenőrzés. A hosszú háttérfutás
+előtt a résztvevő hagyja jóvá.</td>
+<td>általános szakmai</td>
+<td>04, 07</td>
+</tr>
+<tr>
+<td>Agents</td>
+<td>Workspace Agents: meghatározott feladatra beállítható, utasításokat,
+tudást, skilleket és kapcsolt appokat használó munkatéri asszisztensek.
+Nem azonos az AGENTS.md fájllal.</td>
+<td>OpenAI-termék</td>
+<td>00, 03</td>
+</tr>
+<tr>
+<td>AGENTS.md</td>
+<td>Az AI viselkedését rögzítő utasításfájl a Tananyag mappában; a
+Work-ben megnyitott munkaterületen az AI ezt követi.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Mesterséges intelligencia (Artificial Intelligence); a tananyagban a
+ChatGPT-ben dolgozó asszisztens.</td>
+<td>általános szakmai</td>
+<td>00</td>
+</tr>
+<tr>
+<td>AI-natív szervezet</td>
+<td>Az a működés, amelyben a cég tudása közös, verziózott alapra épül
+(DNS), két szerep (BA, Sales-Account) ugyanabból dolgozik, az AI
+munkáját agentikus munkafolyamat és ellenőrző kapuk fogják közre, és a
+proaktív segéd előre leírt recepttel, ellenőrizhető céllal fut. A
+vezérelv-ábra öt része: DNS, két szerep, munkafolyamat, kapuk, proaktív
+segéd. A különbséget a közös tudás, a kapuk és a gazdák adják, nem az
+eszköz. AI-ready az, akinek a tudása és szabályai már úgy rendezettek,
+hogy az AI forrásig vissza tudja keresni őket. Irány, nem státusz.</td>
+<td>általános szakmai</td>
+<td>00, 07</td>
+</tr>
+<tr>
+<td>AJ, BI, DEV, IP, LIC, PB, PT, SMS, STD, SUP
+(iratazonosító-előtagok)</td>
+<td>A fiktív iratok betűelőtagjai: AJ ajánlat, BI beszerzési igény, DEV
+fejlesztési jegy, SMS support-hibajegy, LIC és SUP licenc- és
+support-tétel (STD = standard), PB és PT a Projekt-B jegyzet pontjai és
+tételei, IP a KB-minta pontja. FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Programozási felület, amelyen keresztül egy program adatot kér vagy
+küld egy másik rendszernek. A 2. gyakorlatban a portálhoz nincs API: az
+adatot a felületről gyűjtjük.</td>
+<td>általános szakmai</td>
+<td>02</td>
+</tr>
+<tr>
+<td>Astra</td>
+<td>GPT-modellnév. Az Oriana irányelvében a különösen összetett
+feladatokhoz tartozó kategória; a novemberi képzésben nem
+használjuk.</td>
+<td>OpenAI-termék</td>
+<td>–</td>
+</tr>
+<tr>
+<td>B-terv</td>
+<td>Tartalékút: ha egy funkció a munkatérben nem érhető el (két perc
+sikertelen próba után), a forgatókönyv „Ha nem elérhető” sora szerint
+ugyanazt a módszert gyakoroljuk másik eszközzel.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>BA</td>
+<td>Üzleti elemző (Business Analyst): a felmérés, az igények és a
+funkcionális leírások (például az FDD) szakembere. A BA-sáv a 4., 5. és
+6b gyakorlat egyik ága.</td>
+<td>általános szakmai</td>
+<td>00, 01, 02, 03, 04</td>
+</tr>
+<tr>
+<td>blocker, major, minor (súlyosság)</td>
+<td>A hiba súlyossága a hibajegyzékben: blocker = a munka nem adható
+tovább, major = lényeges hiba, amelyet javítani kell, minor = kisebb, a
+használhatóságot nem akadályozó hiba. PASS csak nyitott blocker és major
+nélkül adható.</td>
+<td>általános szakmai</td>
+<td>05</td>
+</tr>
+<tr>
+<td>BPMN</td>
+<td>Business Process Model and Notation: az OMG szabványos
+jelölésrendszere üzleti folyamatok modellezésére (jelenlegi változat:
+BPMN 2.0). A képzésben a folyamat lépéseit és elágazásait rögzítő
+elemtáblához kapcsolódik.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>cégadatlap</td>
+<td>A RONDO nyilvános cégadataiból készült lap
+(<code>RONDO_cegadatlap.md</code>): a tárolt cégkivonatból és két
+közzétett éves beszámolóból, forrással és oldalszámmal. Valós, nyilvános
+adat; a Sales-Account sáv ügyfélkutatásának egyetlen valós forrása a
+három hozzá tartozó PDF-fel együtt.</td>
+<td>valós cég, kitalált projekt</td>
+<td>04</td>
+</tr>
+<tr>
+<td>célkártya</td>
+<td>A 0. gyakorlatban rögzített saját, visszatérő feladat leírása
+(<code>celkartya.md</code>): cél, forrás, kívánt eredmény. A 7.
+gyakorlat is ebből indul ki.</td>
+<td>általános szakmai</td>
+<td>00</td>
+</tr>
+<tr>
+<td>champion-kör</td>
+<td>A szervezetben a kipróbálást és a továbbadást vállaló kis kör:
+néhány kolléga, aki előbb kipróbálja az új módszert, és megmutatja a
+többieknek. Az első 30 nap javaslatának eleme.</td>
+<td>általános szakmai</td>
+<td>07</td>
+</tr>
+<tr>
+<td>CK, EB23, EB25</td>
+<td>A cégadatlap forrásjelei: CK = a tárolt cégkivonat (2026. október
+18-i hatállyal), EB23 és EB25 = a 2023. és a 2025. üzleti év éves
+beszámolója. A lap tényei mellett ezek az oldalszámos hivatkozások
+állnak.</td>
+<td>valós cég, kitalált projekt</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Company knowledge</td>
+<td>Céges tudás keresése és felhasználása kapcsolt forrásokból, a
+felhasználó forrásrendszerbeli hozzáférésével.</td>
+<td>OpenAI-termék</td>
+<td>01</td>
+</tr>
+<tr>
+<td>Computer Use</td>
+<td>A ChatGPT eszközhasználó módja: az AI a böngészőt vagy a számítógép
+felületét kezeli, mint egy felhasználó. Ha a munkatérben elérhető; az
+oldalszöveg ilyenkor is adat, nem utasítás.</td>
+<td>OpenAI-termék</td>
+<td>–</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>Változtatási igény: a meglévő működés módosítására irányuló kérés. A
+gyakorlatban a hibajavítástól elkülönítendő besorolás.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>CRM</td>
+<td>Ügyfélkapcsolat-kezelő rendszer (Customer Relationship Management):
+az ügyfelek, ügyletek és kapcsolattartások nyilvántartása. A
+prompt-útmutató egy példájában szerepel.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>Vesszővel vagy pontosvesszővel tagolt szöveges táblázatfájl;
+Excelben megnyitható. A portál naplója és a Sites adatcsomagja is
+ilyen.</td>
+<td>általános szakmai</td>
+<td>02</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>A Sites példájában strukturált adatok, például rekordok és
+űrlapválaszok tartós adatbázisa.</td>
+<td>OpenAI-termék</td>
+<td>06</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>Közzététel: a Sitesban a mentett verzió élesítése, külön lépés a
+mentéstől és a szerkesztéstől. A gyakorlatban a deploy előtt
+ellenőrizzük a tartalmat.</td>
+<td>általános szakmai</td>
+<td>06</td>
+</tr>
+<tr>
+<td>determinisztikus ellenőrzés</td>
+<td>Kóddal végzett ellenőrzés a megadott kritériumok szerint; a
+futtatott parancsot és a tényleges eredményt rögzíteni kell.</td>
+<td>általános szakmai</td>
+<td>02, 04, 06b</td>
+</tr>
+<tr>
+<td>DNS (vállalati tudás)</td>
+<td>A képzésben a vállalat bemutatását, terméktudását, döntési
+szabályait és ezek forrásait összefogó, verziózott tudáscsomag neve. Az
+Oriana saját DNS v0.1 változata a résztvevő saját fiókjában marad; a
+gyakorláshoz a fiktív minta szolgál. Nem a hálózati DNS.</td>
+<td>általános szakmai</td>
+<td>00, 01, 04, 07</td>
+</tr>
+<tr>
+<td>DNS-minta, DNS-sablon</td>
+<td>A <code>dns-minta</code> egy kitöltött, kitalált DNS-kiadás
+gyakorláshoz (nem Oriana-tény); a <code>dns-sablon</code> ugyanez
+üresen, a saját kitöltéshez. FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>01</td>
+</tr>
+<tr>
+<td>dots</td>
+<td>A kutatásban folyamatosan dolgozó, saját felhős gépet és böngészőt
+használó asszisztens neve. Döntési pontnál a felhasználó közreműködését
+kéri.</td>
+<td>OpenAI-termék</td>
+<td>00</td>
+</tr>
+<tr>
+<td>drótváz</td>
+<td>Egyszerű, díszítés nélküli képernyővázlat, amely az elrendezést és
+az elemeket mutatja; a készítő és az ellenőr ehhez viszonyítja a
+képernyőtervet.</td>
+<td>általános szakmai</td>
+<td>06b</td>
+</tr>
+<tr>
+<td>dry run</td>
+<td>Próbafutás: a tervezett műveletek és várható eredmények előzetes
+ellenőrzése a tényleges változtatás előtt. A portálban a módosítás csak
+friss dry run után alkalmazható.</td>
+<td>általános szakmai</td>
+<td>02</td>
+</tr>
+<tr>
+<td>Effector</td>
+<td>Az Oriana alkalmazási környezetének termékneve. A novemberi
+igénylista a 8.1-es verzióhoz kér képernyőterveket.</td>
+<td>Oriana-anyag</td>
+<td>–</td>
+</tr>
+<tr>
+<td>EL, HJ (azonosítók)</td>
+<td>A KAPU I jelentés sorainak jele: EL-01, EL-02, … az ellentmondás,
+HJ-01, HJ-02, … a hibajegyzék (<code>hibajegyzek.md</code>) tétele
+súlyossággal és státusszal. FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>elfogadási kritérium</td>
+<td>Előre megadott, ellenőrizhető feltétel, amelynek teljesülése esetén
+a kimenet elfogadható; a maker és a reviewer is ehhez méri a munkát
+(<code>kriteriumok.md</code>).</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>ellenőrizhető cél</td>
+<td>Hosszabb munka célja három részben: a kimenet (mi készül), a korlát
+(mit nem tehet) és az ellenőrzés (ebből látszik, hogy teljesült).</td>
+<td>általános szakmai</td>
+<td>07</td>
+</tr>
+<tr>
+<td>érettségi szint</td>
+<td>Az AI-használat öt foka, számok nélkül: eseti használat, fluens
+egyének, megosztott tudás, beágyazott workflow, AI-natív működés. A
+fokot a csoport jelöli ki magáról (ma és 30 nap múlva); nem mérés és nem
+Oriana-tény. A profilban a <code>szint_ma</code> mező rögzíti.</td>
+<td>általános szakmai</td>
+<td>00, 07</td>
+</tr>
+<tr>
+<td>EUID</td>
+<td>Európai egyedi cégazonosító (European Unique Identifier): az uniós
+cégnyilvántartások közös azonosítója; a cégadatlapon a cégjegyzékszámból
+képzett érték.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>FDD</td>
+<td>Funkcionális tervdokumentum: a felmért üzleti igényből levezetett
+folyamatok, funkciók, adatok és képernyők leírása a fejlesztés
+előkészítéséhez.</td>
+<td>Oriana-anyag</td>
+<td>04, 06b</td>
+</tr>
+<tr>
+<td>FDD-azonosítók (FDD-ID, FN, FG, NK, AD, SC)</td>
+<td>Az FDD-séma betűelőtagjai: FDD-ID az egység, FN a funkció, FG a
+fit-gap sor, NK a nyitott kérdés, AD az adatmező, SC a képernyő; mind
+sorszámmal (például FN-01). FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>FDD-egység</td>
+<td>Az FDD egy önállóan érthető funkcióblokkja, legfeljebb 3-5
+funkcióval, a fiktív séma szerint kitöltve. Minden állításához
+forráshely tartozik. FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>FIKTÍV OKTATÁSI MINTA</td>
+<td>A kitalált gyakorlóanyagok jelölése: a nevek, cégek, összegek és
+ügyek nem valósak. A fiktív anyagból készült kimenetre is rákerül.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>fit-gap</td>
+<td>Illeszkedés- és eltéréselemzés: az igény összevetése az
+alapképességgel, a hiányok és szükséges döntések megjelölésével.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>forrás-visszakeresés</td>
+<td>Annak ellenőrzése, hogy egy állítás tényleg szerepel-e az eredeti
+forrásban: fájl, pont vagy sor szerint megkeressük, és ✅/⚠️ jelöléssel
+rögzítjük.</td>
+<td>általános szakmai</td>
+<td>01</td>
+</tr>
+<tr>
+<td>gazda</td>
+<td>Az a személy vagy szerepkör, aki egy szabályért, tudásmodulért vagy
+folyamatért felel, és dönt a módosításáról. Ha nincs kijelölve: „Nincs
+megadva”.</td>
+<td>általános szakmai</td>
+<td>01, 07</td>
+</tr>
+<tr>
+<td>Given/When/Then</td>
+<td>Elfogadási feltétel háromrészes szerkezete: Given = kiinduló
+helyzet, When = esemény vagy művelet, Then = elvárt eredmény. Példa:
+Given a megrendelés a küszöb fölött van, When beküldik, Then a következő
+szintre kerül.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>GPT</td>
+<td>A ChatGPT mögötti modellcsalád neve (Generative Pre-trained
+Transformer). A képzés modelljei: GPT-6 Luna, GPT-6.1 Terra, GPT-6.1
+Sol.</td>
+<td>OpenAI-termék</td>
+<td>–</td>
+</tr>
+<tr>
+<td>hat lépés</td>
+<td>A módszer: Cél → Forrás → Utasítás → Ellenőrzés → Javítás →
+Rögzítés. Az utasítás hét eleme: Cél, Címzett, Forrás és határ, Kimeneti
+séma, Szabályok, Ellenőrzés, Mentés.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>HUF, EUR, nettó, bruttó, ÁFA</td>
+<td>HUF = magyar forint, EUR = euró; nettó = ÁFA nélküli, bruttó =
+ÁFÁ-val növelt összeg (ÁFA = általános forgalmi adó). A gyakorlatokban
+az összegeknél a pénznem és a nettó/bruttó jelölés számít.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>hullámkarton</td>
+<td>Hullámpapírból (sima és hullámosított papírrétegek egymásra
+ragasztott szerkezetéből) készült kartonanyag, amelyből
+csomagolóeszközöket, például dobozokat gyártanak. A RONDO fő
+tevékenysége a hullámkarton-alapú csomagolóeszköz gyártása.</td>
+<td>általános szakmai</td>
+<td>04</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Azonosító (identifier): egy tétel egyedi jele, például FDD-ID,
+ügy-ID.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>indirekt beszerzés (MRO)</td>
+<td>Az a beszerzés, amely nem közvetlenül a termékbe épülő anyagra
+irányul, hanem az üzemeltetést szolgálja: karbantartási, javítási és
+üzemeltetési (angolul MRO: Maintenance, Repair, Operations) anyagok és
+szolgáltatások, például alkatrész vagy szerviz. A RONDO-példa
+jóváhagyási workflow-ja erre és a beruházási beszerzésre épül.</td>
+<td>általános szakmai</td>
+<td>04</td>
+</tr>
+<tr>
+<td>írasd a promptot</td>
+<td>Működési minta a prompt megírására: te mondod el a célt és a
+kritériumokat a saját szavaiddal, az AI megírja a promptot a hét elem
+szerint és futtatás előtt megmutatja, te jóváhagyod vagy javítod. A cél
+és a mérce a tiéd; az AI nem találja ki a hiányzó kritériumot, hanem
+rákérdez.</td>
+<td>általános szakmai</td>
+<td>00, 01</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>Egyszerű, szöveges adatformátum rekordok tárolására és átadására; a
+portál és a Sites-anyag állapotexportja ilyen.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>KAPU</td>
+<td>Az Oriana dokumentum-ellenőrzési lépéseinek gyűjtőneve: minden kapu
+egy dokumentumcsomag ellenőrzése, mielőtt a munka továbbmegy. Lásd: KAPU
+I, KAPU II.</td>
+<td>Oriana-anyag</td>
+<td>–</td>
+</tr>
+<tr>
+<td>KAPU I</td>
+<td>A felmérési dokumentumcsomag teljességének és összhangjának
+ellenőrzése: megvan-e minden említett anyag, és vannak-e
+ellentmondások.</td>
+<td>Oriana-anyag</td>
+<td>04</td>
+</tr>
+<tr>
+<td>KAPU II</td>
+<td>Az FDD-dokumentumcsomag ellenőrzése a fejlesztésre adás előtt:
+értékkészletek megléte, összhang és a teljes folyamat
+értelmezhetősége.</td>
+<td>Oriana-anyag</td>
+<td>05</td>
+</tr>
+<tr>
+<td>KB</td>
+<td>Tudásbázis: leírások, beállítási útmutatók és ismert problémák
+gyűjteménye; a mintában egy ilyen cikk azonosítójának előtagja.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>keresztreferencia</td>
+<td>Dokumentumon belüli vagy külső „lásd …” hivatkozás, amely nélkül a
+szöveg nem értelmezhető önállóan. A 6b gyakorlat célja az ilyen
+hivatkozások megszüntetése: a szükséges tartalom bekerül a
+dokumentumba.</td>
+<td>általános szakmai</td>
+<td>06b</td>
+</tr>
+<tr>
+<td>kitalált projektforgatókönyv</td>
+<td>Olyan gyakorlóeset, amelyben a cég valós, a projekt, az igények, a
+személyek és a számok viszont kitaláltak (itt: a RONDO beszerzési
+jóváhagyási workflow-ja). Minden kitalált fájl jelölése: KITALÁLT
+PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA. Ami a cégadatlapon van,
+valós; minden más kitalált; a kettőt nem keverjük.</td>
+<td>valós cég, kitalált projekt</td>
+<td>04</td>
+</tr>
+<tr>
+<td>kriteriumok.md</td>
+<td>A maker és a reviewer közös mércéje: az elfogadási kritériumok és a
+nyitott tételek listája. A gyakorlat alatt egy forrás frissítheti; a
+korábbi állapotot a napló őrzi.</td>
+<td>általános szakmai</td>
+<td>04</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>Nagy nyelvi modell (Large Language Model): a ChatGPT mögötti,
+szövegből szöveget előállító modelltípus. Állításait ezért forrásban
+kell ellenőrizni.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Luna</td>
+<td>GPT-modellnév. A novemberi képzés alapmodellje a vezetett és közös
+munkához: GPT-6 Luna.</td>
+<td>OpenAI-termék</td>
+<td>00, 04</td>
+</tr>
+<tr>
+<td>maker-reviewer</td>
+<td>Készítő és külön ellenőr szereppárja. A maker előállítja és javítja
+a munkát, a reviewer a nyers források és a kritériumok alapján
+ellenőrzi, és hibákat jelez. Döntési szabály: egy menet elég, ha a tét
+kicsi és a hiba olcsón visszafordítható; ha a kimenet kifelé megy,
+pénzt, vállalást, döntést vagy ügyfelet érint, vagy nehéz visszavonni,
+maker-reviewer kell.</td>
+<td>általános szakmai</td>
+<td>00, 04</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Model Context Protocol: nyílt szabvány, amellyel az AI-alkalmazás
+külső rendszerekhez, adatforrásokhoz és eszközökhöz kapcsolódik. A
+tananyag MCP-szervereket tartalmazó plugineket is említ.</td>
+<td>általános szakmai</td>
+<td>06b</td>
+</tr>
+<tr>
+<td>működési minta</td>
+<td>A DNS közös szabálymodulja
+(<code>szabalyok/mukodesi-minta.md</code>): a prompt-szerkezet, az
+„írasd a promptot” minta, a maker-reviewer döntési szabály, az
+orchestrator szerepe és a stop-szabályok. A DNS-mintában FIKTÍV OKTATÁSI
+MINTA, a sablonban üres.</td>
+<td>Wenova-fiktív</td>
+<td>01</td>
+</tr>
+<tr>
+<td>a nap térképe (vezérelv-ábra)</td>
+<td>Az AI-natív szervezet öt részének ábrája (DNS, két szerep,
+munkafolyamat, kapuk, proaktív segéd). Gyakorlatonként több része
+gyullad ki; a 7. gyakorlatban mind. Ha az ábra nem töltődik be, a
+szöveges felirata ugyanazt mondja.</td>
+<td>általános szakmai</td>
+<td>00, 07</td>
+</tr>
+<tr>
+<td>napló, naplósor</td>
+<td>A maker munkamenet-naplója (<code>naplo.md</code>): körönként egy
+sor: kör, idő, hiba-ID, változtatás, eredmények és a stop vagy folytatás
+oka.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>NY (nyitott tétel)</td>
+<td>A <code>kriteriumok.md</code> nyitott tételeinek azonosítója (NY-01,
+NY-02, …): ide kerül, amit a maker nem dönthet el, például egy hiányzó
+üzleti döntés vagy adat.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>orchestrator</td>
+<td>A hosszú munkát koordináló szerep (ember vagy főbeszélgetés): bontja
+a munkát, a független részeket párhuzamosan külön makerekre bízza,
+kapukat tart, naplót vezet és összegez; maga nem készít és nem
+ellenőriz. Kis feladatnál felesleges; nem külön termékfunkció.</td>
+<td>általános szakmai</td>
+<td>00, 01</td>
+</tr>
+<tr>
+<td>önállósági szint</td>
+<td>Mennyit tehet a Work kérdezés nélkül: Ask for Approval, Approve for
+me vagy Full access; az alapértelmezés a feladatszintű jóváhagyás
+(Approve for me). A felület elnevezése a verziótól függhet.</td>
+<td>OpenAI-termék</td>
+<td>00</td>
+</tr>
+<tr>
+<td>owner, editor, visitor</td>
+<td>A Sites jogosultsági szintjei: owner = tulajdonos, editor =
+szerkesztő, visitor = csak megtekintő. Ha a munkatérben elérhető; a
+kétfiókos teszt ezt próbálja ki.</td>
+<td>OpenAI-termék</td>
+<td>06</td>
+</tr>
+<tr>
+<td>PASS, FAIL, NEM ELLENŐRIZHETŐ</td>
+<td>A reviewer ítélete egy kritériumra: PASS = teljesül, FAIL = nem
+teljesül; a harmadik érték a NEM ELLENŐRIZHETŐ, amely nem számít
+teljesítettnek.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Pet</td>
+<td>Lebegő, animált figura és vezérlőfelület, amely megjelenítheti a
+munka állapotát és gyors chatindítást kínál. Nem azonos a dots
+asszisztenssel.</td>
+<td>OpenAI-termék</td>
+<td>00</td>
+</tr>
+<tr>
+<td>plugin</td>
+<td>Telepíthető bővítménycsomag, amely skilleket és/vagy külső
+rendszerekhez kapcsolódó eszközöket foghat össze.</td>
+<td>OpenAI-termék</td>
+<td>01, 03</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>Projektmenedzser (project manager).</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>portál</td>
+<td>A RONDO gyakorlóportál: egyetlen offline HTML-fájl hat gyakorló
+üggyel, belépéssel, dry runnal és műveleti naplóval; a 2. gyakorlat
+adatforrása. A belépés nem valódi hitelesítés. FIKTÍV OKTATÁSI
+MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>02</td>
+</tr>
+<tr>
+<td>Projekt és projektutasítás</td>
+<td>ChatGPT-projekt: összetartozó beszélgetések és fájlok közös tere; a
+projektutasítás minden benne indított beszélgetésre érvényes alapszabály
+(például a forrásellenőrzés és a „Nincs megadva” jelölés).</td>
+<td>OpenAI-termék</td>
+<td>00, 01, 03</td>
+</tr>
+<tr>
+<td>Projekt-A, Projekt-B</td>
+<td>A BA forráscsomagjának két független projektje: Projekt-A a RONDO
+jóváhagyási bővítése, Projekt-B egy másik cég saját küszöbökkel és
+szabályokkal. Értékeik eltérhetnek, ez önmagában nem hiba. FIKTÍV
+OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>prompt-szerkezet</td>
+<td>A prompt hét eleme, ebben a sorrendben: Cél, Címzett, Forrás és
+határ, Kimeneti séma, Szabályok, Ellenőrzés, Mentés. A DNS működési
+mintája rögzíti, minden szerep ugyanezt használja.</td>
+<td>általános szakmai</td>
+<td>00, 01</td>
+</tr>
+<tr>
+<td>QAF</td>
+<td>Quotation Analysis Form: a fiktív esetben a tervezett változás
+üzleti, technikai és ráfordítási hatásait összegző elemzőlap. FIKTÍV
+OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>R-azonosító</td>
+<td>A forrás szerinti igény sorszáma (R-01, R-02, …) a RONDO felmérési
+anyagában; az FDD-egység minden funkciója egy R-azonosítóhoz kötődik.
+FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>A képzés első független ellenőrzési köre és annak jelentése. A maker
+első változatát vizsgálja a kritériumok és források alapján.</td>
+<td>általános szakmai</td>
+<td>04</td>
+</tr>
+<tr>
+<td>R2 (ellenőrzési kör)</td>
+<td>A javítás utáni második független ellenőrzési kör és jelentés: a
+javított változatot és az R1 megállapításait is vizsgálja.</td>
+<td>általános szakmai</td>
+<td>05, 06</td>
+</tr>
+<tr>
+<td>R2 (fájltár)</td>
+<td>A Sites példájában fájltartalmak tárolására szolgáló tárhely neve.
+Külön fogalom az R2 ellenőrzési körtől.</td>
+<td>OpenAI-termék</td>
+<td>05</td>
+</tr>
+<tr>
+<td>rekordjog</td>
+<td>Az a szabály, hogy ki olvashat és ki írhat egy rekordot. A RONDO
+ügykövetőben a tételek mindenkinek olvashatók, írni csak a saját tételt
+lehet. FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>06</td>
+</tr>
+<tr>
+<td>repeat until good</td>
+<td>Ellenőrzés, célzott javítás és újraellenőrzés ismétlése a
+teljesítési vagy megállási feltételig. A képzésben korlátozott
+körszámmal fut.</td>
+<td>általános szakmai</td>
+<td>04</td>
+</tr>
+<tr>
+<td>review-csomag</td>
+<td>A reviewernek átadott mappa: a vizsgálandó kimenetek, a
+<code>kriteriumok.md</code>, a felsorolt nyers források és a rögzített
+DNS-verzió. A maker beszélgetése és önértékelése nem tartozik bele.</td>
+<td>általános szakmai</td>
+<td>05</td>
+</tr>
+<tr>
+<td>reviewer</td>
+<td>A független ellenőr szerepe: nem javít, hanem a forrás és a
+kritériumok alapján ítél (PASS, FAIL, NEM ELLENŐRIZHETŐ) és hibákat
+jelez. Lásd még: maker-reviewer.</td>
+<td>általános szakmai</td>
+<td>05</td>
+</tr>
+<tr>
+<td>reviewer-brief</td>
+<td>A reviewernek szóló írásos feladatleírás: mit vizsgáljon, mely
+forrásokat kapja, milyen formában jelentsen. A maker beszélgetését és
+önértékelését nem tartalmazza.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>RONDO</td>
+<td>RONDO Hullámkartongyártó Kft., a gyakorlóeset mintaügyfele. A cég és
+a cégadatlap számai valósak és nyilvánosak; a projekt (igények,
+felmérés, ajánlat) kitalált. KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV
+OKTATÁSI MINTA.</td>
+<td>valós cég, kitalált projekt</td>
+<td>02, 03, 04</td>
+</tr>
+<tr>
+<td>RONDO-csomag</td>
+<td>A RONDO kitalált projektforgatókönyvének forrás-, minta- és
+sablonfájljai (<code>04 usecase RONDO</code>): forrásmappák sávonként,
+DNS-minta, portál, Sites-anyagok, a cégadatlap. KITALÁLT
+PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>RONDO-ügykövető</td>
+<td>A 6. gyakorlat mini-alkalmazása: a RONDO-ügyek, tételek és
+ellenőrzések állapotának követése Sitesban; offline B-terve a
+<code>prototipus.html</code>. KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV
+OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>rubrika</td>
+<td>Tartalmi értékelés szempontrendszere, 1-5-ös pontozással és
+teljesítési küszöbbel; például a pontosságot és a használhatóságot
+értékeli.</td>
+<td>általános szakmai</td>
+<td>05</td>
+</tr>
+<tr>
+<td>Sales-Account</td>
+<td>Az értékesítési és ügyfélkapcsolati sáv: a 4., 5. és 6/B
+gyakorlatban ajánlati források, kalkuláció, változásjegyzék és
+vállalások ellenőrzése.</td>
+<td>általános szakmai</td>
+<td>00, 01, 02, 03, 04</td>
+</tr>
+<tr>
+<td>SAML, SSO</td>
+<td>SSO = egyszeri bejelentkezés (single sign-on): egy belépéssel több
+rendszer érhető el. SAML = az egyik szabványos protokoll hozzá. A RONDO
+megújítási anyagában licenc- és support-feltételként szerepelnek. FIKTÍV
+OKTATÁSI MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Sites</td>
+<td>Weboldalak és kisebb webalkalmazások készítésére használt
+ChatGPT-funkció; a képzési példában rekordokat kezelő
+mini-alkalmazás.</td>
+<td>OpenAI-termék</td>
+<td>00, 06</td>
+</tr>
+<tr>
+<td>Skill (SKILL.md)</td>
+<td>Egy meghatározott feladathoz vagy munkafolyamathoz tartozó,
+újrahasználható utasítások és segédanyagok csomagja.</td>
+<td>OpenAI-termék</td>
+<td>00, 01, 05, 06b</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>Szolgáltatásiszint-megállapodás (Service Level Agreement): a
+szolgáltató vállalt válaszidői és elérhetősége. FIKTÍV OKTATÁSI
+MINTA.</td>
+<td>Wenova-fiktív</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Sol</td>
+<td>GPT-modellnév. A novemberi képzés a független reviewer szerephez
+GPT-6.1 Solt rendel.</td>
+<td>OpenAI-termék</td>
+<td>00, 04</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Közös ChatGPT-munkafelület dokumentumok, diák, táblázatok, Sites és
+fájlok rendezésére és közös használatára.</td>
+<td>OpenAI-termék</td>
+<td>00, 01, 03</td>
+</tr>
+<tr>
+<td>SPEC</td>
+<td>Specifikáció: a rendszer elvárt működésének leírása. A mintában a
+jóváhagyási szabályok értelmezésének egyik forrása.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>stancforma</td>
+<td>A hullámkarton kivágására és hornyolására (stancolására) használt
+szerszám. A gyártásban elhasználódó, de a termékbe nem beépülő tétel,
+ezért az indirekt beszerzés tipikus példája.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>stop-döntés</td>
+<td>A javítási ciklus lezárásának indokolt, rögzített döntése: minden
+kritérium teljesült, elfogyott a körkeret, két körben nincs javulás,
+vagy hiányzik egy döntés. A „kész” nem küldési engedély.</td>
+<td>általános szakmai</td>
+<td>05</td>
+</tr>
+<tr>
+<td>subagent</td>
+<td>Részfeladatra indított külön AI-ügynök, amely az eredményét
+visszaadja a munkát koordináló ügynöknek.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tananyag, Munka</td>
+<td>A munkaterület két mappája: a Tananyag csak olvasható forrás, a
+Munka az általad készített kimenetek helye (gyakorlatonként almappa,
+például <code>04-Agent</code>).</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Team Tasks</td>
+<td>Ütemezésre vagy eseményre induló közös csapatfeladatok, amelyek a
+csapat szolgáltatásfiókjával futnak.</td>
+<td>OpenAI-termék</td>
+<td>00, 03</td>
+</tr>
+<tr>
+<td>TEÁOR</td>
+<td>A gazdasági tevékenységek magyar osztályozási rendszere
+(Tevékenységek Egységes Ágazati Osztályozási Rendszere); a cégadatlapon
+a cég főtevékenységének kódja (1721, papír csomagolóeszköz
+gyártása).</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Terra</td>
+<td>GPT-modellnév. A novemberi képzés a maker szerephez GPT-6.1 Terrát
+rendel, közepes effort mellett.</td>
+<td>OpenAI-termék</td>
+<td>00, 04</td>
+</tr>
+<tr>
+<td>tipp-létra</td>
+<td>A segítség fokozatai, kérésenként eggyel feljebb: rávezető kérdés,
+üres váz, félkész prompt, teljes minta. Megoldókulcsot nem
+tartalmaz.</td>
+<td>általános szakmai</td>
+<td>–</td>
+</tr>
+<tr>
+<td>tracker</td>
+<td>Ügykövető: közös tábla vagy alkalmazás, amelyben a tételek állapota
+egy helyen látszik; a 6. gyakorlatban a RONDO ügykövető.</td>
+<td>általános szakmai</td>
+<td>06</td>
+</tr>
+<tr>
+<td>ütemezett feladat</td>
+<td>Előre megadott időpontban vagy rendszeresen önállóan induló feladat.
+A 7. gyakorlatban a leírását készítjük el; élesítése nem kötelező, és
+csak akkor érhető el, ha a munkatérben engedélyezett.</td>
+<td>OpenAI-termék</td>
+<td>07</td>
+</tr>
+<tr>
+<td>vállalás</td>
+<td>A résztvevő saját döntése arról, mit visz át a saját munkájába és
+mikorra (a 7. gyakorlat végén a profilba kerül). A javaslat és a szándék
+még nem vállalás.</td>
+<td>általános szakmai</td>
+<td>07</td>
+</tr>
+<tr>
+<td>vezetett, közös, önálló mód</td>
+<td>A tanulási mód: vezetett = az AI írja és futtatja a kulcsutasítást;
+közös = a résztvevő tölti ki a vázat, az AI futtat; önálló = a résztvevő
+írja az utasítást, tippet kérésre kap.</td>
+<td>általános szakmai</td>
+<td>00</td>
+</tr>
+<tr>
+<td>Work</td>
+<td>A ChatGPT-nek az a munkamódja, amelyben az AI a megnyitott
+munkamappában fájlokat olvas és ír, és több lépéses feladatot végez.
+Lásd: Work Cloud, Work Local.</td>
+<td>OpenAI-termék</td>
+<td>00</td>
+</tr>
+<tr>
+<td>Work Cloud</td>
+<td>A Work felhőben futó munkavégzése; a szükséges bemeneteket külön
+elérhetővé kell tenni, a helyi fájlok hozzáférését nem örökli.</td>
+<td>OpenAI-termék</td>
+<td>00, 04</td>
+</tr>
+<tr>
+<td>Work Local</td>
+<td>A Work helyi géphez és munkamappához kötött munkavégzése. Hosszú
+helyi futásnál a gépnek online kell maradnia és az alkalmazásnak futnia
+kell.</td>
+<td>OpenAI-termék</td>
+<td>00, 04, 06b</td>
+</tr>
+<tr>
+<td>Workspace Agent</td>
+<td>A munkatérben beállított, feladatra szabott asszisztens (lásd:
+Agents). A 7. gyakorlatban csak a leírását tervezzük meg; ha a
+munkatérben elérhető.</td>
+<td>OpenAI-termék</td>
+<td>07</td>
+</tr>
+</tbody>
+</table>
+</main></body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA - RONDO ügykövető, helyi prototípus</title>
+<style>
+:root{--ink:#1d2433;--mut:#566074;--line:#c9d0dc;--bg:#f4f6fa;--card:#fff;--acc:#1f5fbf;--warn:#a4161a;--ok:#146c2e;--hi:#8a5a00}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+#fiktiv-jel{background:var(--warn);color:#fff;text-align:center;font-weight:700;letter-spacing:.06em;padding:8px 12px}
+#fiktiv-jel small{display:block;font-weight:400;letter-spacing:0}
+.proto{background:#fff8e6;border-bottom:2px solid var(--hi);padding:10px 16px;color:#4d3500}
+.proto strong{display:block}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:10px 16px}
+header.top h1{margin:0;font-size:18px}
+main{max-width:1050px;margin:16px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;margin-bottom:16px}
+h2{margin:0 0 10px;font-size:17px}
+table{border-collapse:collapse;width:100%;background:#fff}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#eef2f8}
+label{display:block;font-weight:600;margin:8px 0 3px}
+input,select,textarea,button{font:inherit}
+input[type=text],select,textarea{width:100%;max-width:520px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff}
+button{padding:6px 14px;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:6px;cursor:pointer}
+button.sec{background:#fff;color:var(--acc)}button.danger{background:var(--warn);border-color:var(--warn)}
+button[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.msg{margin:10px 0;padding:8px 12px;border-radius:6px;background:#eaf2ff;border:1px solid #b9d0f5}
+.msg.err{background:#fdecec;border-color:#f0b4b4;color:var(--warn)}.msg.ok{background:#e8f5ec;border-color:#a8d5b5;color:var(--ok)}
+.mut{color:var(--mut)}.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:13px;border:1px solid var(--line)}
+ul.kiesett{margin:6px 0 0 18px;padding:0}
+footer{max-width:1050px;margin:0 auto 30px;padding:0 16px;color:var(--mut);font-size:13px}
+footer b{color:var(--warn)}
+html,body{max-width:100%}pre,code,td,th,.msg,.card{overflow-wrap:anywhere}.card{overflow-x:auto}table{max-width:100%}
+@media (max-width:640px){th,td{padding:4px 6px}input[type=text],select,textarea{max-width:100%}}
+</style>
+</head>
+<body>
+<div id="fiktiv-jel" role="note">KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA<small>A RONDO Hullámkartongyártó Kft. valós cég; az itt leírt projekt, igények, személyek és számok kitaláltak, nem a cég valós működését írják le. Az e-mail-címek a lefoglalt .example tartományban vannak.</small></div>
+<div class="proto" id="prototipus-jelzes" role="note">
+  <strong>Helyi prototípus, hitelesítés és tartós adatbázis nem része.</strong>
+  Ugyanazzal az adatmodellel (<code>ugy</code>, <code>tetel</code>, <code>review</code>) működik, mint a Sites mini-alkalmazás terve, de egyetlen offline fájl. Nem Site, nem D1-adatbázis.
+  <ul class="kiesett">
+    <li>Hitelesítés nincs: az alább kiválasztható „felhasználó” szimuláció, nem belépés és nem azonosítás.</li>
+    <li>Tartós, közös adatbázis nincs: az adat a böngésző helyi tárában (<code>localStorage</code>) van, a gép és a böngésző határán belül; JSON-exporttal és -importtal vihető át.</li>
+    <li>Szerveroldali rekordjog nincs: a „csak saját tétel írható” szabályt itt a böngészőben futó kód szimulálja. A valódi Site-ban ezt szerveroldali kódnak kell érvényesítenie.</li>
+    <li>Verziómentés és deploy, valamint több fiókos közös használat nincs.</li>
+  </ul>
+</div>
+<header class="top"><h1>RONDO ügykövető (helyi prototípus)</h1><div class="mut">Ügy: <span id="ugy-cim"></span></div><div class="mut" id="ugy-ceg"></div></header>
+<main>
+  <section class="card" id="szimulacio">
+    <h2>Szimulált felhasználó (nem hitelesítés)</h2>
+    <div class="row"><div><label for="felhasznalo">Felhasználó kiválasztása</label>
+      <select id="felhasznalo">
+        <option value="ba.minta@pelda.example">ba.minta@pelda.example (BA-szerep)</option>
+        <option value="sales.minta@pelda.example">sales.minta@pelda.example (Sales-szerep)</option>
+        <option value="account.minta@pelda.example">account.minta@pelda.example (Account-szerep)</option>
+        <option value="kivul.minta@pelda.example">kivul.minta@pelda.example (nem meghívott tag, szimuláció)</option>
+      </select></div></div>
+    <p class="mut" id="szabaly">A választott szabály: a tételek mindenki számára olvashatók, írni csak a saját tételt lehet. A „nem meghívott tag” a munkatérre korlátozott Site viselkedését szimulálja: nem éri el az adatot.</p>
+  </section>
+  <div id="uzenet-hely"></div>
+  <div id="tartalom"></div>
+</main>
+<footer><p><b>KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA</b> · helyi prototípus · hálózat nélkül. <button class="sec" id="reset-gomb" type="button">Reset</button> <span id="reset-hely"></span></p></footer>
+
+<script>
+"use strict";
+(function () {
+  var SEED = /*SEED-BEGIN*/{"ugy": [{"id": "U-RONDO-2027", "cim": "RONDO 2027-es licenc/support megújítás és jóváhagyási workflow bővítés (kitalált projekt)", "ceg_nev": "RONDO Hullámkartongyártó Kft.", "cegjegyzekszam": "01-09-268292", "szekhely": "1239 Budapest, Ócsai út 5.", "ceg_adat_jelleg": "VALÓS, NYILVÁNOS CÉGADAT", "forras": "cegadat/RONDO_cegadatlap.md, 2. szakasz"}], "tetel": [{"id": "T-01", "ugy_id": "U-RONDO-2027", "tipus": "igeny", "leiras": "Harmadik jóváhagyó bevezetése a jóváhagyási láncban (R-01).", "forras": "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-01", "dns_verzio": "Nincs megadva", "statusz": "review-n_atment", "owner_email": "ba.minta@pelda.example"}, {"id": "T-02", "ugy_id": "U-RONDO-2027", "tipus": "igeny", "leiras": "Helyettesítési szabály: a helyettes neve Nincs megadva (R-02).", "forras": "2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md, R-02", "dns_verzio": "Nincs megadva", "statusz": "nyitott_kerdes", "owner_email": "ba.minta@pelda.example"}, {"id": "T-03", "ugy_id": "U-RONDO-2027", "tipus": "igeny", "leiras": "Jóváhagyási küszöb: 15 M vagy 20 M Ft, döntés nincs; az 500 ezer Ft alatti automatikus jóváhagyás javaslat, nem döntés.", "forras": "2026-11-07_RONDO_level_kuszob.md", "dns_verzio": "Nincs megadva", "statusz": "nyitott_kerdes", "owner_email": "ba.minta@pelda.example"}, {"id": "T-04", "ugy_id": "U-RONDO-2027", "tipus": "ajanlati_tetel", "leiras": "LIC-STD, 100 felhasználó, 118 000 HUF egységár, nettó összeg 11 800 000 HUF.", "forras": "Arlista_2027_licenc_support.xlsx, HUF lap; Levelezes_RONDO_megujitas_2026-10.md, Levél 1", "dns_verzio": "Nincs megadva", "statusz": "review-n_atment", "owner_email": "sales.minta@pelda.example"}, {"id": "T-05", "ugy_id": "U-RONDO-2027", "tipus": "ajanlati_tetel", "leiras": "SSO (SAML 2.0): az ár Nincs megadva, az árlistán nincs SSO-tétel.", "forras": "Levelezes_RONDO_megujitas_2026-10.md, Levél 3; Arlista_2027_licenc_support.xlsx", "dns_verzio": "Nincs megadva", "statusz": "nyitott_kerdes", "owner_email": "sales.minta@pelda.example"}, {"id": "T-06", "ugy_id": "U-RONDO-2027", "tipus": "ajanlati_tetel", "leiras": "Kedvezmény: a kért 18% nem ajánlható; 10%-ig saját hatáskör, 10% felett legfeljebb 15%-ig jóváhagyással.", "forras": "Levelezes_RONDO_megujitas_2026-10.md, Levél 1 és 4", "dns_verzio": "Nincs megadva", "statusz": "review-n_atment", "owner_email": "sales.minta@pelda.example"}, {"id": "T-07", "ugy_id": "U-RONDO-2027", "tipus": "kockazat", "leiras": "A kért 99,9% rendelkezésre állás és 4 órás reakcióidő nem vállalás.", "forras": "2025_RONDO_ajanlat_licenc_support.md, 2.1, 2.2, 2.4; Muszaki_melleklet_2025_es_kert_valtozasok.md, M-01, M-02", "dns_verzio": "Nincs megadva", "statusz": "nyitott_kerdes", "owner_email": "account.minta@pelda.example"}, {"id": "T-08", "ugy_id": "U-RONDO-2027", "tipus": "kockazat", "leiras": "Az adatexport-kötelezettség (M-05) kimaradt a kért tervezetből: jogi kockázat.", "forras": "Muszaki_melleklet_2025_es_kert_valtozasok.md, M-05", "dns_verzio": "Nincs megadva", "statusz": "review-n_atment", "owner_email": "account.minta@pelda.example"}], "review": [{"tetel_id": "T-01", "kriterium": "K4 forráshely", "eredmeny": "PASS", "bizonyitek": "Az R-01 sora a jegyzetben megtalálható.", "verzio": "elozetes-minta"}, {"tetel_id": "T-04", "kriterium": "K1 ár és összeg", "eredmeny": "PASS", "bizonyitek": "100 × 118 000 = 11 800 000 HUF, az árlista HUF lapja szerint.", "verzio": "elozetes-minta"}, {"tetel_id": "T-06", "kriterium": "K2 kedvezményszabály", "eredmeny": "PASS", "bizonyitek": "A 18% a 15% feletti sávba esik: nem ajánlható.", "verzio": "elozetes-minta"}, {"tetel_id": "T-08", "kriterium": "K3 forráshelyes kockázat", "eredmeny": "PASS", "bizonyitek": "Az M-05 sor a műszaki mellékletben megtalálható.", "verzio": "elozetes-minta"}]}/*SEED-END*/;
+  var KEY = "rondo_ugykovet_proto_v1";
+  var TIPUS = { igeny: "igény", ajanlati_tetel: "ajánlati tétel", kockazat: "kockázat" };
+  var STATUSZ = { "review-n_atment": "review-n átment", nyitott_kerdes: "nyitott kérdés", tervezet: "tervezet" };
+  var MEMBERS = ["ba.minta@pelda.example", "sales.minta@pelda.example", "account.minta@pelda.example"];
+  var data = null, user = MEMBERS[0], filt = { tipus: "", statusz: "" }, editing = null, flash = null;
+
+  function esc(s) { return String(s === null || s === undefined ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function load() {
+    try { var raw = localStorage.getItem(KEY); if (raw) { var d = JSON.parse(raw); if (validate(d) === null) return d; } } catch (e) { /* nincs tár */ }
+    return clone(SEED);
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* a tartósságot nem feltételezzük */ } }
+
+  /* Séma-ellenőrzés import előtt. Hibaszöveg vagy null. */
+  function validate(d) {
+    if (!d || typeof d !== "object") return "Az import nem JSON-objektum.";
+    if (!Array.isArray(d.ugy) || !Array.isArray(d.tetel) || !Array.isArray(d.review)) return "Hiányzik az ugy, tetel vagy review lista.";
+    var ids = {}, i, t;
+    for (i = 0; i < d.ugy.length; i++) if (!d.ugy[i] || typeof d.ugy[i].id !== "string" || typeof d.ugy[i].cim !== "string") return "A(z) " + (i + 1) + ". ügy azonosítója vagy címe hiányzik.";
+    for (i = 0; i < d.tetel.length; i++) {
+      t = d.tetel[i];
+      if (!t || typeof t.id !== "string" || !t.id) return "A(z) " + (i + 1) + ". tételnek nincs azonosítója.";
+      if (ids[t.id]) return "Ismétlődő tételazonosító: " + t.id;
+      ids[t.id] = 1;
+      if (!TIPUS[t.tipus]) return "Érvénytelen típus a(z) " + t.id + " tételben.";
+      if (!STATUSZ[t.statusz]) return "Érvénytelen státusz a(z) " + t.id + " tételben.";
+      if (typeof t.owner_email !== "string" || t.owner_email.indexOf("@") < 1) return "Hiányzó tulajdonos a(z) " + t.id + " tételben.";
+      if (typeof t.leiras !== "string" || typeof t.forras !== "string") return "Hiányzó leírás vagy forrás a(z) " + t.id + " tételben.";
+    }
+    for (i = 0; i < d.review.length; i++) if (!ids[d.review[i].tetel_id]) return "A review hivatkozása ismeretlen tételre mutat: " + d.review[i].tetel_id;
+    return null;
+  }
+  /* Szimulált rekordjog: ebben a prototípusban a böngésző kódja dönt. A valódi Site-ban ez szerveroldali szabály. */
+  function canRead(u) { return MEMBERS.indexOf(u) !== -1; }
+  function canWrite(u, t) { return canRead(u) && t.owner_email === u; }
+  function writeTetel(u, id, patch) {
+    var t = data.tetel.filter(function (x) { return x.id === id; })[0];
+    if (!t) return { ok: false, text: "Ismeretlen tétel: " + id };
+    if (!canRead(u)) return { ok: false, text: "Elutasítva: a szimulált felhasználó nem tagja a munkatérnek." };
+    if (!canWrite(u, t)) return { ok: false, text: "Elutasítva: a(z) " + id + " tételt " + t.owner_email + " birtokolja; csak a saját tétel írható. (Itt a böngészőkód szimulálja; a valódi Site-ban a szerver utasítja el.)" };
+    Object.keys(patch).forEach(function (k) { t[k] = patch[k]; });
+    save();
+    return { ok: true, text: "Mentve: " + id };
+  }
+  function nextId() {
+    var max = 0; data.tetel.forEach(function (t) { var m = /^T-(\d+)$/.exec(t.id); if (m) max = Math.max(max, parseInt(m[1], 10)); });
+    return "T-" + (max < 9 ? "0" : "") + (max + 1);
+  }
+  function msg() { var m = flash; flash = null; return m ? '<div class="msg ' + (m.ok ? "ok" : "err") + '" role="status">' + esc(m.text) + "</div>" : ""; }
+
+  function render() {
+    document.getElementById("ugy-cim").textContent = data.ugy.length ? data.ugy[0].cim : "Nincs megadva";
+    var u0 = data.ugy.length ? data.ugy[0] : null;
+    document.getElementById("ugy-ceg").textContent = u0 && u0.ceg_nev ? "Cég: " + u0.ceg_nev + ", cégjegyzékszám " + u0.cegjegyzekszam + ", székhely " + u0.szekhely + " (" + String(u0.ceg_adat_jelleg).toLowerCase() + "; forrás: " + u0.forras + ")" : "";
+    var host = document.getElementById("tartalom"), mh = document.getElementById("uzenet-hely");
+    mh.innerHTML = msg();
+    if (!canRead(user)) {
+      host.innerHTML = '<section class="card" id="nincs-hozzaferes"><h2>Nincs hozzáférés (szimuláció)</h2><p>A valódi, munkatérre korlátozott Site-ot a meghívott munkatértagok érik el, a nem meghívott tesztelő nem. Itt ezt csak a kiválasztás mutatja; nincs valódi azonosítás.</p></section>';
+      return;
+    }
+    var rows = data.tetel.filter(function (t) { return (!filt.tipus || t.tipus === filt.tipus) && (!filt.statusz || t.statusz === filt.statusz); }).map(function (t) {
+      var own = canWrite(user, t), rv = data.review.filter(function (r) { return r.tetel_id === t.id; });
+      return '<tr data-id="' + esc(t.id) + '"><td>' + esc(t.id) + "</td><td>" + TIPUS[t.tipus] + "</td><td>" + esc(t.leiras) + '</td><td class="mut">' + esc(t.forras) + "</td><td>" + STATUSZ[t.statusz] + "</td><td>" + esc(t.owner_email) + "</td><td>" +
+        (rv.length ? rv.map(function (r) { return esc(r.kriterium) + ": " + esc(r.eredmeny); }).join("<br>") : '<span class="mut">nincs</span>') + "</td><td>" +
+        '<button type="button" class="sec" data-edit="' + esc(t.id) + '"' + (own ? "" : " disabled") + ">Szerkesztés</button> " +
+        '<button type="button" class="sec" data-probe="' + esc(t.id) + '"' + (own ? " hidden" : "") + ">Próba: írás</button></td></tr>";
+    }).join("") || '<tr><td colspan="8">Nincs találat.</td></tr>';
+    var opt = function (obj, cur, all) { return '<option value="">' + all + "</option>" + Object.keys(obj).map(function (k) { return '<option value="' + k + '"' + (k === cur ? " selected" : "") + ">" + obj[k] + "</option>"; }).join(""); };
+    var ed = editing ? data.tetel.filter(function (t) { return t.id === editing; })[0] : null;
+    host.innerHTML = '<section class="card"><h2>Tételek</h2>' +
+      '<div class="row"><div><label for="szuro-tipus">Típus</label><select id="szuro-tipus">' + opt(TIPUS, filt.tipus, "Mind") + '</select></div><div><label for="szuro-statusz">Státusz</label><select id="szuro-statusz">' + opt(STATUSZ, filt.statusz, "Mind") + "</select></div></div>" +
+      '<p class="mut">A „Próba: írás” gomb a más tulajdonos tételének módosítását kísérli meg, hogy az elutasítás látszódjon. Szimuláció.</p>' +
+      '<table id="tetel-tabla"><thead><tr><th>ID</th><th>Típus</th><th>Leírás</th><th>Forrás</th><th>Státusz</th><th>Tulajdonos</th><th>Review</th><th></th></tr></thead><tbody>' + rows + "</tbody></table></section>" +
+      '<section class="card" id="szerkeszto"><h2>' + (ed ? "Tétel szerkesztése: " + esc(ed.id) : "Új tétel (tulajdonos: a kiválasztott felhasználó)") + "</h2>" +
+      '<label for="f-tipus">Típus</label><select id="f-tipus">' + Object.keys(TIPUS).map(function (k) { return '<option value="' + k + '"' + (ed && ed.tipus === k ? " selected" : "") + ">" + TIPUS[k] + "</option>"; }).join("") + "</select>" +
+      '<label for="f-leiras">Leírás</label><textarea id="f-leiras" rows="3">' + esc(ed ? ed.leiras : "") + "</textarea>" +
+      '<label for="f-forras">Forrás (fájl és hely)</label><input type="text" id="f-forras" value="' + esc(ed ? ed.forras : "") + '">' +
+      '<label for="f-statusz">Státusz</label><select id="f-statusz">' + Object.keys(STATUSZ).map(function (k) { return '<option value="' + k + '"' + ((ed ? ed.statusz : "tervezet") === k ? " selected" : "") + ">" + STATUSZ[k] + "</option>"; }).join("") + "</select>" +
+      '<p><button type="button" id="mentes">' + (ed ? "Módosítás mentése" : "Tétel felvétele") + "</button> " + (ed ? '<button type="button" class="sec" id="megse">Mégse</button>' : "") + "</p>" +
+      '<p class="mut">A forrás kitöltése kötelező; a hiányzó értéket nem pótoljuk (írd: Nincs megadva, ha a forrás nem ismert).</p></section>' +
+      '<section class="card" id="adatkezeles"><h2>Adat átadása</h2><p><button type="button" id="export">Exportálás (JSON letöltése)</button></p>' +
+      '<label for="import">Importálás (JSON-fájl)</label><input type="file" id="import" accept="application/json,.json"><p class="mut">Az import ellenőrzi a sémát; hibás fájl esetén a jelenlegi adat változatlan marad.</p></section>';
+    bind();
+  }
+  function bind() {
+    document.getElementById("szuro-tipus").onchange = function () { filt.tipus = this.value; render(); };
+    document.getElementById("szuro-statusz").onchange = function () { filt.statusz = this.value; render(); };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-edit]"), function (b) { b.onclick = function () { editing = b.getAttribute("data-edit"); render(); }; });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-probe]"), function (b) {
+      b.onclick = function () { var r = writeTetel(user, b.getAttribute("data-probe"), { statusz: "tervezet" }); flash = r; render(); };
+    });
+    document.getElementById("mentes").onclick = function () {
+      var leiras = document.getElementById("f-leiras").value.replace(/^\s+|\s+$/g, ""), forras = document.getElementById("f-forras").value.replace(/^\s+|\s+$/g, "");
+      if (!leiras || !forras) { flash = { ok: false, text: "A leírás és a forrás kötelező." }; render(); return; }
+      var patch = { tipus: document.getElementById("f-tipus").value, leiras: leiras, forras: forras, statusz: document.getElementById("f-statusz").value };
+      if (editing) { flash = writeTetel(user, editing, patch); editing = null; }
+      else {
+        var t = { id: nextId(), ugy_id: data.ugy[0].id, tipus: patch.tipus, leiras: leiras, forras: forras, dns_verzio: "Nincs megadva", statusz: patch.statusz, owner_email: user };
+        data.tetel.push(t); save(); flash = { ok: true, text: "Felvéve: " + t.id + " (tulajdonos: " + user + ")" };
+      }
+      render();
+    };
+    var cancel = document.getElementById("megse"); if (cancel) cancel.onclick = function () { editing = null; render(); };
+    document.getElementById("export").onclick = function () {
+      try {
+        var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }), a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = "rondo_ugykovet_export.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        flash = { ok: true, text: "Export indítva: rondo_ugykovet_export.json" };
+      } catch (e) { flash = { ok: false, text: "A letöltés nem működik ebben a böngészőben." }; }
+      render();
+    };
+    document.getElementById("import").onchange = function () {
+      var f = this.files && this.files[0]; if (!f) return;
+      var rd = new FileReader();
+      rd.onload = function () {
+        var d, err;
+        try { d = JSON.parse(rd.result); err = validate(d); } catch (e) { err = "A fájl nem érvényes JSON."; }
+        if (err) flash = { ok: false, text: "Import elutasítva: " + err };
+        else { data = d; editing = null; save(); flash = { ok: true, text: "Import kész: " + d.tetel.length + " tétel." }; }
+        render();
+      };
+      rd.readAsText(f, "utf-8");
+    };
+  }
+  document.getElementById("felhasznalo").onchange = function () { user = this.value; editing = null; render(); };
+  document.getElementById("reset-gomb").onclick = function () {
+    document.getElementById("reset-hely").innerHTML = '<button class="danger" type="button" id="reset-igen">Reset megerősítése</button> <button class="sec" type="button" id="reset-nem">Mégse</button>';
+    document.getElementById("reset-igen").onclick = function () { data = clone(SEED); editing = null; save(); document.getElementById("reset-hely").innerHTML = ""; flash = { ok: true, text: "Reset kész: az induló mintaadat visszaállt." }; render(); };
+    document.getElementById("reset-nem").onclick = function () { document.getElementById("reset-hely").innerHTML = ""; };
+  };
+  data = load();
+  render();
+})();
+</script>
+</body>
+</html>
