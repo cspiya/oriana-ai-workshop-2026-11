@@ -15,6 +15,20 @@
   .check { display: block; margin-top: var(--space-1); padding: .5rem .8rem; background: var(--ok-soft); border-left: 4px solid var(--ok); border-radius: 6px; color: var(--ok-deep); font-size: 1rem; }
   .check strong { color: var(--ok-deep); }
   .main { max-width: 980px; }
+  /* Képernyőképek: kattintásra nagyíthatók (külső erőforrás nélkül) */
+  .kepernyo { margin: var(--space-2) 0; padding: 0; max-width: 100%; }
+  .kepernyo button { display: block; width: 100%; padding: 0; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; cursor: zoom-in; overflow: hidden; box-shadow: var(--shadow); }
+  .kepernyo button:hover { border-color: var(--accent); }
+  .kepernyo img { display: block; width: 100%; height: auto; }
+  .kepernyo figcaption { margin-top: .4rem; font-size: .95rem; color: var(--text-secondary); }
+  .kep-nagyito { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(12,10,9,.88); cursor: zoom-out; }
+  .kep-nagyito.nyitva { display: flex; }
+  .kep-nagyito img { max-width: 100%; max-height: 100%; border-radius: 6px; background: #fff; }
+  .kep-nagyito .bezar { position: absolute; top: .7rem; right: .8rem; padding: .45rem .8rem; border: 0; border-radius: 8px; background: #fff; color: #1c1917; font-size: 1rem; font-weight: 700; cursor: pointer; }
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 1fr; padding: var(--space-2); }
+    .step .num { width: 2.2rem; height: 2.2rem; font-size: 1.05rem; }
+  }
 </style>
 </head>
 <body class="notebook" data-depth="0">
@@ -30,7 +44,7 @@
       <ol>
         <li><a href="#lepes-1">Hozz létre egy üres mappát</a></li>
         <li><a href="#lepes-2">Lokális projekt a mappával</a></li>
-        <li><a href="#lepes-3">Work-beszélgetés és az egy üzenet</a></li>
+        <li><a href="#lepes-3">Új beszélgetés és az egy üzenet</a></li>
         <li><a href="#mi-tortenik">Mi történik ezután</a></li>
         <li><a href="#elso-gyakorlat">Az első gyakorlat</a></li>
         <li><a href="#ha-nem-megy">Ha nem megy</a></li>
@@ -54,11 +68,14 @@
     </header>
     <section id="egy-helyen"><h2>A teljes tananyag egy helyen</h2><p><a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a> (böngészhető oldal; a workshop előtti feltöltés után érhető el).</p></section>
 
+    <p>A képek a ChatGPT asztali alkalmazás magyar felületéről készültek (2026. november). A Windows saját ablakai (Fájlkezelő, mappaválasztó) a Windows nyelvén jelennek meg. Bármelyik képre kattintva nagyobb méretben is megnézheted.</p>
+
     <section class="step" id="lepes-1">
       <div class="num">1</div>
       <div>
         <h3>Hozz létre egy üres mappát</h3>
         <p>Közvetlenül a felhasználói profilod alatt hozz létre egy <code>Wenova-AI-workshop</code> nevű mappát: <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code> (a <code>&lt;felhasználónév&gt;</code> a saját Windows-bejelentkezésed). Ne a Dokumentumok vagy az Asztal alá tedd: azokat a OneDrive szinkronizálja, és a Work ott nem működik megbízhatóan.</p>
+        <figure class="kepernyo" style="max-width:1006px"><button type="button"><img src="_assets/start-kepek/01-mappa-letrehozasa.png" alt="A Fájlkezelő címsorában a Wenova-AI-workshop mappa útvonala, a mappa üres." width="1006" height="709" loading="lazy"></button></figure>
         <span class="check"><strong>Így ellenőrzöd:</strong> A Fájlkezelő címsorában <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code> áll, és a mappa üres.</span>
       </div>
     </section>
@@ -67,23 +84,37 @@
       <div class="num">2</div>
       <div>
         <h3>Hozz létre egy lokális projektet, és add hozzá a mappát</h3>
-        <p>A ChatGPT asztali alkalmazásban hozz létre egy új projektet <code>Oriana AI-workshop</code> néven. A projekt beállításaiban add hozzá a <code>Wenova-AI-workshop</code> mappát (a menü neve a ChatGPT verziójától függhet; ha nem találod, szólj a trénernek). Modellnek válaszd a GPT-6 Lunát.</p>
-        <p>Amikor hozzáadod a mappát, a ChatGPT megkérdezi, megbízol-e a mappában (<em>Trust folder</em>, a pontos szöveg a ChatGPT verziójától függhet): engedélyezd, különben a Work nem tud benne olvasni és írni.</p>
-        <p>A projekt beállításaiban az utasításmezőbe (projektutasítás) illeszd be ezt a három sort (ajánlott; a főpróbán derül ki, elhagyható-e). Ez minden beszélgetésben érvényes a projekten belül, így az AI biztosan a workshop szabályai szerint dolgozik:</p>
-        <pre class="prompt-box">Olvasd el a mappa gyökerében lévő AGENTS.md fájlt (ha még nincs ott, a Tananyag/AGENTS.md fájlt), és annak megfelelően dolgozz.
-Ha azt mondom, »Kezdjük az N. gyakorlatot« vagy »Folytassuk az N. gyakorlatot«, olvasd be a Munka/00-Alapozas/profil.md fájlt (ha létezik), és a Tananyag/Feladatok/NN-….md forgatókönyvet kövesd; ha »RONDO 04 maker« vagy »RONDO 05 reviewer« indítót mondok, az AGENTS.md maker- vagy reviewer-módját kövesd.
-Magyarul, röviden, egyszerre egy lépés.</pre>
-        <span class="check"><strong>Így ellenőrzöd:</strong> A projekt megnyitva, a mappája a <code>Wenova-AI-workshop</code>, a mappa megbízhatóként engedélyezve, a projektutasítás mentve, és a projektben új beszélgetést tudsz indítani.</span>
+        <p>Nyisd meg a ChatGPT asztali alkalmazást, és jelentkezz be.</p>
+        <figure class="kepernyo" style="max-width:1389px"><button type="button"><img src="_assets/start-kepek/02-chatgpt-app.png" alt="A bejelentkezett ChatGPT asztali alkalmazás: bal oldalt a Projektek lista, lent az üzenetmező." width="1389" height="956" loading="lazy"></button></figure>
+        <p>Vidd az egeret a bal oldali <strong>Projektek</strong> felirat fölé, és kattints a sor végén megjelenő <strong>+</strong> jelre. A <strong>Projekt létrehozása</strong> ablakban a <strong>Projektnév</strong> mezőbe írd be: <code>Oriana AI-workshop</code>.</p>
+        <figure class="kepernyo" style="max-width:620px"><button type="button"><img src="_assets/start-kepek/03a-uj-projekt-gomb.png" alt="A Projektek felirat melletti + jel." width="620" height="308" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:390px"><button type="button"><img src="_assets/start-kepek/03b-projekt-neve.png" alt="A Projekt létrehozása ablak, a Projektnév mezőben: Oriana AI-workshop." width="390" height="415" loading="lazy"></button></figure>
+        <p>Ugyanebben az ablakban, a <strong>Forrásmappák</strong> alatt kattints a <strong>Hozzáadás</strong> gombra, a mappaválasztóban lépj a profilmappádba, jelöld ki a <code>Wenova-AI-workshop</code> mappát, és kattints a <strong>Select Folder</strong> gombra (magyar Windowson a gomb felirata magyar). Ezután kattints a <strong>Projekt létrehozása</strong> gombra.</p>
+        <figure class="kepernyo" style="max-width:390px"><button type="button"><img src="_assets/start-kepek/04a-mappa-hozzaadasa.png" alt="A Hozzáadás gomb a Forrásmappák alatt." width="390" height="415" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:684px"><button type="button"><img src="_assets/start-kepek/04b-mappavalaszto.png" alt="A mappaválasztóban kijelölt Wenova-AI-workshop mappa és a Select Folder gomb." width="684" height="530" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:390px"><button type="button"><img src="_assets/start-kepek/04c-projekt-letrehozasa.png" alt="A Forrásmappák alatt a Wenova-AI-workshop, mellette a Projekt létrehozása gomb." width="390" height="357" loading="lazy"></button></figure>
+        <p>A ChatGPT megkérdezi: <strong>Megbízol ebben a mappában?</strong> Kattints a <strong>Mappa megbízhatónak jelölése</strong> gombra, különben a Work nem tud a mappában olvasni és írni.</p>
+        <figure class="kepernyo" style="max-width:355px"><button type="button"><img src="_assets/start-kepek/04d-mappa-megbizhato.png" alt="A Megbízol ebben a mappában? kérdés és a Mappa megbízhatónak jelölése gomb." width="355" height="400" loading="lazy"></button></figure>
+        <p>Modellnek válaszd a GPT-6 Lunát. A modellt nem a projekt beállításaiban, hanem az üzenetmező jobb alsó sarkában választod: kattints a modell nevére, a felugró ablakban még egyszer a modell nevére, majd a listában a <strong>GPT-6 Luna</strong> sorra. A választás az új beszélgetésekre is megmarad.</p>
+        <figure class="kepernyo" style="max-width:550px"><button type="button"><img src="_assets/start-kepek/05-modellvalasztas.png" alt="A modellválasztó az üzenetmező jobb alsó sarkában, a listában a GPT-6 Luna." width="550" height="367" loading="lazy"></button></figure>
+        <p>Projektutasítást ebben a ChatGPT-változatban nem kell (és nem is lehet) megadni: a helyi projekt <strong>Projekt szerkesztése</strong> ablakában (a projekt neve melletti ··· menüben) csak a név és a forrásmappák állíthatók. Az AI minden új beszélgetésben a mappa gyökerébe másolt <code>AGENTS.md</code> szabályai szerint dolgozik. A három soros projektutasítás a <code>Tananyag/AI-asszisztens/Projekt_utasitas.md</code> fájlban tartalékként megvan, ha egy későbbi változatban megjelenik a mező.</p>
+        <figure class="kepernyo" style="max-width:490px"><button type="button"><img src="_assets/start-kepek/06a-projekt-menu.png" alt="A projekt ··· menüje és a Projekt szerkesztése pont." width="490" height="232" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:390px"><button type="button"><img src="_assets/start-kepek/06b-projekt-szerkesztese.png" alt="A Projekt szerkesztése ablak: csak név és forrásmappák, projektutasítás-mező nincs." width="390" height="435" loading="lazy"></button></figure>
+        <span class="check"><strong>Így ellenőrzöd:</strong> A projekt megnyitva, középen „Min dolgozzunk a(z) Oriana AI-workshop projektben?” áll, a mappája a <code>Wenova-AI-workshop</code>, és a modell a GPT-6 Luna.</span>
       </div>
     </section>
 
     <section class="step" id="lepes-3">
       <div class="num">3</div>
       <div>
-        <h3>Indíts Work-beszélgetést a projektben, és küldd el ezt az egy üzenetet</h3>
-        <p>A projekten belül nyiss új beszélgetést Work módban, és küldd el:</p>
+        <h3>Indíts új beszélgetést a projektben, és küldd el ezt az egy üzenetet</h3>
+        <p>A projekt létrehozása után rögtön a projekt új beszélgetésében vagy; később a projekt sorának jobb szélén, a ceruza ikonnal nyitsz újat. A helyi projekt beszélgetései Work (ügynök) módban futnak, külön módválasztó nincs. Az üzenetmező fölött a projekt neve látszik. Illeszd be és küldd el:</p>
         <pre class="prompt-box">Töltsd le a workshop tananyagát innen: https://is.gd/oriana1112 (egy ZIP). Bontsd ki a Wenova-AI-workshop mappa Tananyag almappájába úgy, hogy a külső mappát kihagyod, majd kövesd a Tananyag/SETUP.md lépéseit.</pre>
+        <figure class="kepernyo" style="max-width:580px"><button type="button"><img src="_assets/start-kepek/07-indito-uzenet.png" alt="Az indító üzenet a projekt üzenetmezőjében, fölötte a projekt neve, jobbra a küldés gomb." width="580" height="240" loading="lazy"></button></figure>
         <p>A rövid link (<a href="https://is.gd/oriana1112">https://is.gd/oriana1112</a>) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: <a href="https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip">https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</a>; tartalékként a repó oldalán (<a href="https://github.com/cspiya/oriana-ai-workshop-2026-11">https://github.com/cspiya/oriana-ai-workshop-2026-11</a>) a Code → Download ZIP. Az AI azonosítja a most letöltött fájlt, a külső <code>oriana-ai-workshop-2026-11-main</code> mappát kihagyja, a belső almappákat megőrzi.</p>
+        <p>Munka közben a ChatGPT engedélyt kér (<strong>Engedélyezed…?</strong>): a végigfutáskor a letöltéshez és egy záró ellenőrző parancshoz kért. Nézd meg, hogy a <code>Wenova-AI-workshop</code> mappában dolgozik, és kattints az <strong>Egyszeri engedélyezés</strong> gombra. A <strong>Kibontás</strong> linkkel a teljes parancsot is megnézheted.</p>
+        <figure class="kepernyo" style="max-width:550px"><button type="button"><img src="_assets/start-kepek/08a-engedely-letoltes.png" alt="Engedélykérés a ZIP letöltéséhez, az Egyszeri engedélyezés gombbal." width="550" height="244" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:550px"><button type="button"><img src="_assets/start-kepek/08b-engedely-ellenorzes.png" alt="Engedélykérés az ellenőrző parancshoz, a Kibontás linkkel és az Egyszeri engedélyezés gombbal." width="550" height="303" loading="lazy"></button></figure>
         <p>Ha az AI kérdez, például egy meglévő Tananyag frissítéséről, a saját szavaiddal válaszolj.</p>
         <span class="check"><strong>Így ellenőrzöd:</strong> Az AI elkezdi kialakítani a munkaterületet, majd felsorolja az elkészült mappákat és a következő lépést.</span>
       </div>
@@ -92,19 +123,25 @@ Magyarul, röviden, egyszerre egy lépés.</pre>
     <section id="mi-tortenik">
       <h2>Mi történik ezután</h2>
       <ul>
-        <li>Az AI a tananyagot a rövid linkről (ZIP) tölti le, majd a tartalmát a <code>Tananyag</code> almappába bontja ki, fölösleges külső mappaszint nélkül.</li>
+        <li>Az AI a tananyagot a rövid linkről (ZIP) tölti le, majd a tartalmát a <code>Tananyag</code> almappába bontja ki, fölösleges külső mappaszint nélkül. A letöltött ZIP (<code>workshop-material.zip</code>) a mappa gyökerében maradhat.</li>
         <li>Létrehozza a <code>Munka</code> mappát és a kilenc gyakorlat-almappát (<code>00-Alapozas</code>, <code>01-DNS</code>, <code>02-Portal</code>, <code>03-Kozos</code>, <code>04-Agent</code>, <code>05-Reviewer</code>, <code>06-Sites</code>, <code>06b-BA-utotag</code>, <code>07-Sajat</code>).</li>
         <li>A <code>Tananyag\AGENTS.md</code> fájlt bemásolja a <code>Wenova-AI-workshop</code> mappa gyökerébe.</li>
-        <li>Ellenőrzi és felsorolja, mi készült el.</li>
-        <li>Megnyitja a böngészőben a <code>Tananyag\index.html</code> napi térképet; ha nem tudja, kattintható linket ír a chatbe, amivel te nyitod meg.</li>
-        <li>Megmondja, hogy az első gyakorlatot egy új Work-beszélgetésben indítsd, és melyik üzenettel.</li>
+        <li>Ellenőrzi, és kattintható linkekkel felsorolja, mi készült el (a végigfutáskor kb. 3 perc alatt).</li>
+        <li>Kattintható linket ír a <code>Tananyag\index.html</code> napi térképhez; erre kattintva a ChatGPT beépített böngészőpaneljében nyílik meg.</li>
+        <li>Megmondja, hogy az első gyakorlatot egy új beszélgetésben indítsd, és melyik üzenettel.</li>
       </ul>
-      <span class="check"><strong>Így ellenőrzöd:</strong> A <code>Wenova-AI-workshop</code> mappában ott van a <code>Tananyag</code> és a <code>Munka</code> mappa, a <code>Tananyag\index.html</code> pedig megnyílik a böngészőben.</span>
+        <figure class="kepernyo" style="max-width:595px"><button type="button"><img src="_assets/start-kepek/09a-ai-visszajelzes.png" alt="Az AI visszajelzése: AGENTS.md, Tananyag, Munka, a letöltött ZIP és a napi térkép linkje." width="595" height="466" loading="lazy"></button></figure>
+      <p>Ha a visszajelzés a projekt utasításmezőjébe illesztendő három sort is javasol, hagyd ki: ebben a ChatGPT-változatban nincs ilyen mező, és nem is kell.</p>
+        <figure class="kepernyo" style="max-width:1006px"><button type="button"><img src="_assets/start-kepek/09b-fajlkezelo-kesz.png" alt="A Fájlkezelőben a Wenova-AI-workshop mappában a Tananyag, a Munka és az AGENTS.md." width="1006" height="709" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:799px"><button type="button"><img src="_assets/start-kepek/09c-napi-terkep.png" alt="A napi térkép (Tananyag/index.html) a ChatGPT beépített böngészőpaneljében." width="799" height="880" loading="lazy"></button></figure>
+      <span class="check"><strong>Így ellenőrzöd:</strong> A <code>Wenova-AI-workshop</code> mappában ott van a <code>Tananyag</code> és a <code>Munka</code> mappa, valamint az <code>AGENTS.md</code>, a <code>Tananyag\index.html</code> pedig megnyílik.</span>
     </section>
 
     <section id="elso-gyakorlat">
       <h2>Az első gyakorlat</h2>
-      <p>Ugyanebben a projektben nyiss egy <strong>új</strong> Work-beszélgetést, és abban írd be: „Kezdjük a 0. gyakorlatot.” Az új beszélgetés az elején automatikusan beolvassa a mappa gyökerébe került <code>AGENTS.md</code> szabályait; a beállító beszélgetés indulásakor ez a fájl még nem létezett. A nap többi gyakorlatát is itt indítod: „Kezdjük az N. gyakorlatot” (N = 0…7, illetve „Kezdjük a 6b gyakorlatot”), több fázisú gyakorlatnál „Folytassuk az N. gyakorlatot”.</p>
+      <p>Ugyanebben a projektben nyiss egy <strong>új</strong> beszélgetést (a projekt sorának jobb szélén, a ceruza ikonnal), és abban írd be: „Kezdjük a 0. gyakorlatot.” Az új beszélgetés az elején automatikusan beolvassa a mappa gyökerébe került <code>AGENTS.md</code> szabályait; a beállító beszélgetés indulásakor ez a fájl még nem létezett. A nap többi gyakorlatát is itt indítod: „Kezdjük az N. gyakorlatot” (N = 0…7, illetve „Kezdjük a 6b gyakorlatot”), több fázisú gyakorlatnál „Folytassuk az N. gyakorlatot”.</p>
+        <figure class="kepernyo" style="max-width:620px"><button type="button"><img src="_assets/start-kepek/10a-uj-beszelgetes.png" alt="Új beszélgetés indítása a projektben a ceruza ikonnal." width="620" height="308" loading="lazy"></button></figure>
+        <figure class="kepernyo" style="max-width:595px"><button type="button"><img src="_assets/start-kepek/10b-elso-gyakorlat.png" alt="Az első válasz a 0. gyakorlat céljával kezdődik, és egy kérdéssel zárul." width="595" height="518" loading="lazy"></button></figure>
       <span class="check"><strong>Így ellenőrzöd:</strong> Az AI a 0. gyakorlat céljával kezd, majd egy kérdést tesz fel.</span>
     </section>
 
@@ -112,8 +149,9 @@ Magyarul, röviden, egyszerre egy lépés.</pre>
       <h2>Ha nem megy</h2>
       <div class="stuck">
         <ul>
-          <li>A Work nem ír a mappába → A mappa hozzáadásakor a mappa megbízhatóságát kérő kérdésre igent kell mondani; ha kimaradt, vedd ki és add hozzá újra a mappát.</li>
+          <li>A Work nem ír a mappába → A mappa hozzáadásakor a „Megbízol ebben a mappában?” kérdésre a Mappa megbízhatónak jelölése gombbal kell felelni; ha kimaradt, vedd ki és add hozzá újra a mappát (a projekt ··· menüjében, Projekt szerkesztése).</li>
           <li>A projektben nem tudod hozzáadni a mappát, vagy a Work nem látja → A ChatGPT asztali alkalmazást használd, ne a webes felületet; ellenőrizd, hogy a projekt lokális (helyi mappás), nem megosztott.</li>
+          <li>Elutasítottál egy engedélykérést → Írd be, hogy „Folytasd, most engedélyezem”, és a következő kérésnél kattints az Egyszeri engedélyezés gombra.</li>
           <li>A rövid link nem működik (a ChatGPT nem követi az átirányítást) → Írd az üzenetbe a hosszú ZIP-linket (<code>https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</code>), vagy a repó oldalán a Code → Download ZIP útját.</li>
           <li>Nincs hálózat vagy a GitHub nem érhető el → A trénertől kapott ZIP-et tedd a <code>Wenova-AI-workshop</code> mappába, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet.”</li>
           <li>Az AI elakad egy parancsnál → Kérd meg, hogy nevezze meg, melyik lépésnél akadt el, és szólj a trénernek.</li>
@@ -126,9 +164,9 @@ Magyarul, röviden, egyszerre egy lépés.</pre>
       <h2>Trénereknek: mit ellenőrizz körbejárva</h2>
       <div class="callout callout-warning">
         <ul>
-          <li>Van <code>Oriana AI-workshop</code> projekt, benne a <code>Wenova-AI-workshop</code> mappa megbízhatóként engedélyezve, és a beszélgetés Work módban fut.</li>
+          <li>Van <code>Oriana AI-workshop</code> projekt, benne a <code>Wenova-AI-workshop</code> mappa megbízhatóként engedélyezve, és a modell a GPT-6 Luna.</li>
           <li>A <code>Tananyag</code> és a <code>Munka</code> mappa (kilenc almappával) megvan, a gyökérben pedig ott az <code>AGENTS.md</code>.</li>
-          <li>A <code>Tananyag\index.html</code> megnyílik a böngészőben.</li>
+          <li>A <code>Tananyag\index.html</code> megnyílik.</li>
           <li>Az első válasz a 0. gyakorlat céljával kezdődik, és kérdést tesz fel.</li>
         </ul>
       </div>
@@ -142,6 +180,26 @@ Magyarul, röviden, egyszerre egy lépés.</pre>
     </footer>
   </main>
 </div>
+<div class="kep-nagyito" id="kep-nagyito" role="dialog" aria-modal="true" aria-label="Nagyított képernyőkép" hidden>
+  <button type="button" class="bezar" aria-label="Bezárás">Bezárás ✕</button>
+  <img alt="">
+</div>
 <script src="_assets/wenova.js"></script>
+<script>
+/* Képernyőképek nagyítása: <figure class="kepernyo"><button type="button"><img src="_assets/start-kepek/…png" alt="…"></button><figcaption>…</figcaption></figure> */
+(function () {
+  var n = document.getElementById('kep-nagyito'); if (!n) return;
+  var nagy = n.querySelector('img'), bezar = n.querySelector('.bezar'), elozo = null;
+  function nyit(img, gomb) { elozo = gomb; nagy.src = img.currentSrc || img.src; nagy.alt = img.alt; n.hidden = false; n.classList.add('nyitva'); bezar.focus(); }
+  function zar() { n.classList.remove('nyitva'); n.hidden = true; nagy.removeAttribute('src'); if (elozo) elozo.focus(); }
+  document.querySelectorAll('.kepernyo button').forEach(function (b) {
+    var img = b.querySelector('img'); if (!img) return;
+    b.setAttribute('aria-label', 'Kép nagyítása: ' + img.alt);
+    b.addEventListener('click', function () { nyit(img, b); });
+  });
+  n.addEventListener('click', zar);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !n.hidden) zar(); });
+})();
+</script>
 </body>
 </html>

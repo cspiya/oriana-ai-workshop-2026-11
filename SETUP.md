@@ -63,10 +63,9 @@ Legfeljebb nyolc sorban, kattintható linkekkel közöld, mi készült el: a [We
 
 Ha minden a helyén van, add meg a napi térkép kattintható linkjét: [Tananyag/index.html](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Tananyag/index.html). Ez a fő út. Opcionálisan, ha a környezet engedi, megnyithatod a résztvevő böngészőjében is a `Start-Process "<a mappa teljes útvonala>\Tananyag\index.html"` PowerShell-paranccsal; a linket ilyenkor is írd ki. Ha a helyi `file:///` navigáció blokkolt, az normális biztonsági korlátozás, nem hiba: ne próbálkozz újra, hanem kérd meg a résztvevőt, hogy a linket böngészőben kézzel nyissa meg.
 
-A `Munka/00-Alapozas/profil.md` még nem létezik, ezt a 0. gyakorlat készíti el; nem kell pótolni és nem kell rákérdezni. Zárásként írd le két rövid sorban:
+A `Munka/00-Alapozas/profil.md` még nem létezik, ezt a 0. gyakorlat készíti el; nem kell pótolni és nem kell rákérdezni. Projektutasítás beillesztését ne kérd: a ChatGPT asztali alkalmazás helyi projektjeiben nincs utasításmező, a gyökérbe másolt `AGENTS.md` ezt a szerepet tölti be. Zárásként írd le egy rövid sorban:
 
-1. „Ha még nem tetted meg, a projekt beállításaiban az utasításmezőbe illeszd be ezt a három sort:” - és írd ki kódblokkban a `Tananyag/AI-asszisztens/Projekt_utasitas.md` három sorát.
-2. „Nyiss ebben a projektben egy új Work-beszélgetést, és írd be: Kezdjük a 0. gyakorlatot.” Indoklás egy tagmondatban: az új beszélgetés az elején automatikusan beolvassa a gyökérbe másolt `AGENTS.md`-t.
+„Nyiss ebben a projektben egy új beszélgetést (a projekt sorának jobb szélén, a ceruza ikonnal), és írd be: Kezdjük a 0. gyakorlatot.” Indoklás egy tagmondatban: az új beszélgetés az elején automatikusan beolvassa a gyökérbe másolt `AGENTS.md`-t.
 
 Ha a résztvevő mégis ebben a beszélgetésben folytatja, olvasd be a gyökér `AGENTS.md`-t, és aszerint dolgozz, magyarul, egyszerre egy lépésben.
 

@@ -1,5 +1,7 @@
 # Projektutasítás az Oriana AI-workshop projekthez
 
+> **Megjegyzés (2026. november):** a ChatGPT asztali alkalmazás helyi (mappás) projektjeinek Projekt szerkesztése ablakában nincs utasításmező; ilyenkor ezt a lépést kihagyod, és az AI a mappa gyökerébe másolt `AGENTS.md` szerint dolgozik. Ez a fájl tartalék arra az esetre, ha a mező egy későbbi változatban megjelenik.
+
 A `START.md` 2. lépésében a résztvevő lokális projektet hoz létre a `Wenova-AI-workshop` mappával. A projekt utasításmezőjébe ezt a három sort illeszti be (a sorok a `START.md` 2. lépésében is szerepelnek, mert ekkor a Tananyag még nincs letöltve). Emellett a Work minden új beszélgetés elején automatikusan beolvassa a mappa gyökerébe másolt `AGENTS.md`-t; a projektutasítás ennek biztosítéka.
 
 ```text
