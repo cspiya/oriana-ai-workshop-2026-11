@@ -855,7 +855,8 @@ details.tipp-letra { border: 2px dashed var(--ink); background: var(--elakadas-s
 .gyakorlat.fokusz .lepes:not(.is-current) .lepes-fej h3 { font-size: 1.05rem; }
 .gyakorlat.fokusz .lepes:not(.is-current) .lepes-fej .lepes-szam { width: 2.1rem; height: 2.1rem; font-size: 1rem; border-radius: 50%; background: var(--surface); }
 .gyakorlat.fokusz .lepes.is-kesz:not(.is-current) .lepes-fej { background: var(--kesz-soft); }
-.gyakorlat.fokusz .lepes.is-kesz:not(.is-current) .lepes-fej .lepes-szam { background: var(--kesz); }
+.gyakorlat.fokusz .lepes:not(.is-current) .lepes-fej .lepes-szam { color: var(--text); }
+.gyakorlat.fokusz .lepes.is-kesz:not(.is-current) .lepes-fej .lepes-szam { background: var(--kesz); color: var(--ink-fix); }
 .gyakorlat.fokusz .lepes:not(.is-current) .lepes-cimke { display: none; }
 .gyakorlat.fokusz .lepes-csoport-cim { margin: var(--space-3) 0 .7rem; }
 @keyframes v3-pulzal { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
@@ -950,6 +951,22 @@ body.deck .cmp > div.good { background: var(--kesz-soft); border-color: var(--in
 body.deck .progress { background: var(--jegyezd); }
 body.deck .deck-bar { background: var(--ink-fix); }
 
+.villamkerdes .vk-visszajelzes.jo { color: var(--kesz-deep); } .villamkerdes .vk-visszajelzes.rossz { color: var(--figyelj-deep); }
+.jelveny-racs li b { font-size: .92rem; font-weight: 800; }
+.jelveny-racs li a { font-weight: 600; font-size: .8rem; }
+/* ugrólista a gyakorlatoldal tetején (wenova.js: ugroLista) */
+.ugro.auto { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 var(--space-4); }
+.ugro.auto a { display: inline-block; padding: .45rem 1rem; border: 2px solid var(--ink); border-radius: 999px; background: var(--surface); color: var(--text); font-weight: 800; font-size: .9rem; text-decoration: none; }
+.ugro.auto a:hover { background: var(--jegyezd); color: var(--ink-fix); }
+.ugro.auto a.fo { background: var(--kesz); color: var(--ink-fix); box-shadow: var(--kemeny-kis); }
+/* a korábbi (v2) dinamikus ábrák a v3 nyelvén: tinta-körvonal, vastagabb vonalak, félkövér feliratok */
+.abra .box, .abra .fok { stroke: var(--ink); stroke-width: 2.2; }
+.abra .ln { stroke: var(--ink); stroke-width: 2.4; } .abra .ah { fill: var(--ink); }
+.abra .mark { stroke: var(--ink); }
+.abra .lbl { font-weight: 800; }
+.abra .abra-cim { font-weight: 800; }
+.abra-chips button, .abra .abra-chips button { border: 2px solid var(--ink); font-weight: 700; }
+.abra-info { border: 2px solid var(--ink) !important; border-radius: var(--radius) !important; }
 @media print { .gyakorlat.fokusz .lepes .lepes-test { display: block !important; } .fokusz-kapcsolo, .jelveny-sav { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 @media (max-width: 640px) {

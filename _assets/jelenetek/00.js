@@ -24,7 +24,7 @@
       { tol: 'ai', ig: 'prompt', csomag: 'megírja', szin: 'accent', jelzo: { szereplo: 'prompt', szoveg: '7 elem' }, szoveg: 'Az AI megírja a promptot a hét elemmel: Cél, Címzett, Forrás és határ, Kimeneti séma, Szabályok, Ellenőrzés, Mentés.' },
       { tol: 'prompt', ig: 'ai', csomag: 'kész prompt', szaggatott: true, szin: 'elakadas', iv: -0.2, szoveg: 'A prompt elkészült, de még nem fut: futtatás előtt meg kell mutatni.' },
       { tol: 'ai', ig: 'te', csomag: 'megmutatja', szaggatott: true, szin: 'elakadas', iv: -0.2, szoveg: 'Az AI futtatás előtt megmutatja neked a megírt promptot.' },
-      { aktiv: 'te', buborek: 'A: jó így · B: javítom', szoveg: 'Te döntesz: jóváhagyod, vagy javítod. A megfogalmazás az AI-é, a döntés a tiéd.' },
+      { aktiv: 'te', buborek: 'A: futtasd így · B: javítom', szoveg: 'Te döntesz: jóváhagyod, vagy javítod. A megfogalmazás az AI-é, a döntés a tiéd.' },
       { tol: 'te', ig: 'ai', csomag: 'A: jó így', szin: 'kesz', szoveg: 'Jóváhagytad a promptot: most már futhat.' },
       { tol: 'ai', ig: 'kimenet', csomag: 'futtatja', szin: 'accent', szoveg: 'Az AI lefuttatja a jóváhagyott promptot, és elkészül a kimenet.' },
       { aktiv: 'kimenet', buborek: 'Hol a forráshely?', ido: 4200, szoveg: 'A jóváhagyás nem helyettesíti a forrásellenőrzést: a kimenetet a forráshoz kell mérni.' }

@@ -405,7 +405,7 @@
         b.addEventListener('click', function () {
           gombok.forEach(function (x) { x.classList.remove('jo', 'rossz'); x.setAttribute('aria-pressed', 'false'); });
           var jo = b.hasAttribute('data-jo'); b.classList.add(jo ? 'jo' : 'rossz'); b.setAttribute('aria-pressed', 'true');
-          if (out) out.textContent = (jo ? 'Igen. ' : 'Nem egészen. ') + (b.getAttribute('data-visszajelzes') || '');
+          if (out) { out.textContent = b.getAttribute('data-visszajelzes') || (jo ? 'Igen.' : 'Nem egészen.'); out.classList.toggle('jo', jo); out.classList.toggle('rossz', !jo); }
         });
       });
     });
@@ -419,6 +419,7 @@
       });
     });
   }
+  var JELVENY_NEV = { '00': 'Célkártya-mester', '01': 'DNS-építő', '02': 'Próbafutás-mester', '03': 'Jogmátrix-készítő', '04': 'Agent-indító', '05': 'Független ellenőr', '06': 'Ügykövető-építő', '06b': 'Forrás-visszakereső', '07': 'Folyamatgazda' };
   function jelvenyRacs() {
     var pre = rootPrefix();
     document.querySelectorAll('ul.jelveny-racs').forEach(function (ul) {
@@ -427,12 +428,21 @@
         if (d.brk) return;
         var megvan = false; try { megvan = localStorage.getItem('wenova-jelveny:' + d.id) === '1'; } catch (e) { megvan = false; }
         var li = document.createElement('li'); if (megvan) li.className = 'megvan';
-        li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><a href="' + pre + d.href + '">' + esc(d.id + ' · ' + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
+        li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><b>' + esc(JELVENY_NEV[d.id] || d.rovid || d.n) + '</b><a href="' + pre + d.href + '">' + esc(d.id + ' · ' + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
         ul.appendChild(li);
       });
     });
   }
 
-  function init() { temaValto(); logo(); buildDaymaps(); lepesvezeto(); copyButtons(); checklists(); sidebar(); deck(); villamkerdesek(); forditok(); jelvenyRacs(); }
+  // ugrólista a gyakorlatoldal tetején: a megértés-ábrák, a fejezet ábrája és a lépések egy kattintásra
+  function ugroLista() {
+    var fej = document.querySelector('main.lap > .session-fejlec'); if (!fej || document.querySelector('.ugro.auto')) return;
+    var celok = [['megertes', 'Ezt kell megértened'], ['abra', 'A fejezet ábrája'], ['lepesek', 'Ugrás a lépésekhez']], nav = document.createElement('nav');
+    nav.className = 'ugro auto'; nav.setAttribute('aria-label', 'Ugrás az oldalon belül');
+    celok.forEach(function (c) { if (!document.getElementById(c[0])) return; var a = document.createElement('a'); a.href = '#' + c[0]; a.textContent = c[1]; if (c[0] === 'lepesek') a.className = 'fo'; nav.appendChild(a); });
+    if (nav.children.length > 1) fej.parentNode.insertBefore(nav, fej.nextSibling);
+  }
+
+  function init() { temaValto(); logo(); ugroLista(); buildDaymaps(); lepesvezeto(); copyButtons(); checklists(); sidebar(); deck(); villamkerdesek(); forditok(); jelvenyRacs(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

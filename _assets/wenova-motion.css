@@ -33,7 +33,7 @@
 
 /* ---------- áramlás (SVG) ---------- */
 .mozgo-gorget { overflow-x: auto; scrollbar-width: thin; }
-.mozgo-svg { display: block; width: 100%; height: auto; min-width: 640px; max-height: 76vh; font-family: var(--font, sans-serif); overflow: visible; }
+.mozgo-svg { display: block; width: 100%; height: auto; min-width: 470px; max-height: 76vh; font-family: var(--font, sans-serif); overflow: visible; }
 .m-doboz { fill: var(--surface, #fff); stroke: var(--ink, #14183A); stroke-width: 3; transition: fill .25s; }
 .m-arnyek { fill: var(--ink, #14183A); opacity: 0; transition: opacity .2s; }
 .m-szereplo { transition: opacity .3s; }

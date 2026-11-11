@@ -64,7 +64,7 @@ body.attekinto .napi-nav .nav-lep { display: none; }
 .nap-blokkok > li.szunet .ido { font-family: var(--mono); font-weight: 700; }
 @media (max-width: 760px) {
   .blokk { grid-template-columns: minmax(0, 1fr); gap: .5rem; padding: 1rem 1rem 1.1rem 1.6rem; }
-  .blokk .ido small { display: inline; } .blokk .ido small br { display: none; } .blokk .ido small::before { content: " · "; }
+  .blokk .ido small { display: block; }
   .blokk .gomb { justify-self: start; }
   .nap-blokkok > li.szunet { grid-template-columns: minmax(0, 1fr); gap: .1rem; padding-left: 1.6rem; }
 }

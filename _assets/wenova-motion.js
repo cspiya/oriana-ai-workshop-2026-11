@@ -184,9 +184,10 @@
     }
     if (cur.buborek && bubHely) {
       var bw = Math.max(80, cur.buborek.length * 9.6 + 34), bx = Math.max(bw / 2 + 8, Math.min(this.W - bw / 2 - 8, bubHely.x));
-      var fent = bubHely.y - bubHely.h / 2 - 54 > 8;
+      var emel = 0; Object.keys(this.sz).forEach(function (id) { if (self.sz[id] === bubHely && jelzok[id]) emel = 20; }); // a jelző fölé kerül
+      var fent = bubHely.y - bubHely.h / 2 - 54 - emel > 8;
       if (fent && sw && bubHely.y - bubHely.h / 2 - 54 < 62 && bx + bw / 2 > this.W - sw - 40) fent = false; // ne takarja a szamlalot
-      var by = fent ? bubHely.y - bubHely.h / 2 - 34 : bubHely.y + bubHely.h / 2 + 38;
+      var by = fent ? bubHely.y - bubHely.h / 2 - 34 - emel : bubHely.y + bubHely.h / 2 + 38;
       var b = sv('g', { 'class': 'm-buborek' + (anim ? ' be' : ''), transform: 'translate(' + bx + ',' + by + ')' }, this.gDin);
       sv('rect', { x: -bw / 2, y: -20, width: bw, height: 40, rx: 20, 'class': 'm-buborek-doboz' }, b);
       sv('circle', { cx: (bubHely.x - bx) * .5, cy: fent ? 28 : -28, r: 5, 'class': 'm-buborek-doboz' }, b);
