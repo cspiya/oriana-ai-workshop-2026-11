@@ -60,7 +60,7 @@ Töltsd le a workshop tananyagát innen: https://is.gd/oriana1112 (egy ZIP). Bon
 
 ![Az indító üzenet a projekt üzenetmezőjében, fölötte a projekt neve, jobbra a küldés gomb.](_assets/start-kepek/07-indito-uzenet.png)
 
-A rövid link (https://is.gd/oriana1112) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: `https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`; tartalékként a repó oldalán (https://github.com/cspiya/oriana-ai-workshop-2026-11) a Code → Download ZIP. A ZIP a böngésző Letöltések (Downloads) mappájába kerülhet; az AI azonosítja a most letöltött fájlt, a külső `oriana-ai-workshop-2026-11-main` mappát kihagyja, a belső almappákat megőrzi.
+A rövid link (https://is.gd/oriana1112) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: `https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`; tartalékként a repó oldalán (https://github.com/cspiya/oriana-ai-workshop-2026-11) a Code → Download ZIP. Az AI a ZIP-et a Wenova-AI-workshop mappába tölti le, a külső `oriana-ai-workshop-2026-11-main` mappát kihagyja, a belső almappákat megőrzi.
 
 Munka közben a ChatGPT engedélyt kér (**Engedélyezed…?**): a végigfutáskor a letöltéshez és egy záró ellenőrző parancshoz kért. Nézd meg, hogy a `Wenova-AI-workshop` mappában dolgozik, és kattints az **Egyszeri engedélyezés** gombra. A **Kibontás** linkkel a teljes parancsot is megnézheted.
 
@@ -69,6 +69,8 @@ Munka közben a ChatGPT engedélyt kér (**Engedélyezed…?**): a végigfutásk
 ![Engedélykérés az ellenőrző parancshoz, a Kibontás linkkel és az Egyszeri engedélyezés gombbal.](_assets/start-kepek/08b-engedely-ellenorzes.png)
 
 Ha az AI kérdez, például hogy frissítse-e a meglévő Tananyagot, a saját szavaiddal válaszolj.
+
+**Így ellenőrzöd:** Az AI elkezdi kialakítani a munkaterületet, majd felsorolja az elkészült mappákat és a következő lépést.
 
 ## Mi történik ezután
 
