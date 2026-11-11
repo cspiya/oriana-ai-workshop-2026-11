@@ -8,7 +8,7 @@
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Notebook v2 az 1. gyakorlathoz. Tartalom: Feladatok/01-dns.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. Egyfázisú gyakorlat: a lépések négy csoportba rendezve (a csoportidők a lépések percei alapján számoltak). -->
-<body class="notebook v2" data-depth="1" data-current="01">
+<body class="notebook v2" data-depth="1" data-current="01" data-jelveny="DNS-építő">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -36,7 +36,7 @@
           <li data-csoport="4">a verzió rögzítése a profilban</li>
         </ul>
       </div>
-      <div class="meta"><span>⏱ 35 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/01-DNS</span><span>mód: közös</span><span>Vezeti: Piya Csaba</span></div>
+      <div class="meta"><span>Idő: 35 perc</span><span>Modell: GPT-6 Luna</span><span>Mappa: Munka/01-DNS</span><span>Mód: közös</span><span>Vezeti: Piya Csaba</span></div>
     </div>
     <div class="honnan-hova" aria-label="Honnan hová">
       <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
@@ -69,6 +69,26 @@
     </div>
   </section>
 
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábrák</span>Ezt kell megértened</h2>
+    <p>Három mozgó ábra: miből áll a DNS (vállalati tudás), hogyan használja az AI egy feladatnál, és hogyan lesz egy mondatból visszakereshető állítás. Lépésenként is végigkattinthatod őket. A példák a fiktív DNS-mintára épülnek: az oktatási példa, nem Oriana-tény.</p>
+    <h3>1. Miből épül a DNS?</h3>
+    <p>Figyeld meg, mit ad hozzá egy-egy réteg, és hogy a tetejére a <mark>verzió, a gazda és a változásnapló</mark> kerül: ettől tudható, mihez mérünk.</p>
+    <figure class="mozgo" data-jelenet="dns-epites">
+      <figcaption>A DNS rétegenként épül fel: kik vagyunk, termék és korlát, érték és ügyfél, szerepszabályok, működési minta, skillek, legfelül pedig a verzió, a gazda és a változásnapló a forrásjegyzékkel. Minden réteg stabilabbá és ismételhetőbbé teszi az eredményt. Fiktív oktatási minta.</figcaption>
+    </figure>
+    <h3>2. Hogyan használja az AI a DNS-t egy feladatnál?</h3>
+    <p>Figyeld a sorrendet: <mark>előbb a verzió és a státusz</mark>, csak utána a szabály. Nézd meg azt is, mi történik, ha a modul valamiről nem szól.</p>
+    <figure class="mozgo" data-jelenet="dns-hasznalat">
+      <figcaption>A frissességi munkamenet: az AI először a DNS README-jéből kiolvassa a verziót, a gazdát, a státuszt, az érvényességet és az utolsó ellenőrzés dátumát; ha a státusz nem hatályos, előbb a gazdát kell megkérdezni. Utána kiválasztja a szerepmodult, alkalmazza a szabályt, és minden állításhoz forrást ad; a hiányra „Nincs megadva” a válasz, és kérdez.</figcaption>
+    </figure>
+    <h3>3. Hogyan lesz egy mondatból visszakereshető állítás?</h3>
+    <p>Ez a mai fő munkád útja. Figyeld meg, hogy az állítás mellé <mark>forrás, gazda és státusz</mark> kerül, és hogy a visszakeresést nem a szerző végzi.</p>
+    <figure class="mozgo" data-jelenet="allitasbol-szabaly">
+      <figcaption>Az állítás útja: a saját szavaiddal elmondod; a modulban forrásazonosítót (vagy „Nincs megadva” jelölést), gazdát és státuszt kap, a forrás a forrásjegyzékbe kerül; a jóváhagyatlan elem „Jóváhagyásra vár”. A másik csoport egy állítást a megnevezett forrásig visszakeres; az ellenőrző nem javít, az eredmény az ellenorzes.md fájlba kerül, a javításról a gazda dönt.</figcaption>
+    </figure>
+  </section>
+
   <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
     <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>A DNS felépítése: egy alap, két szerep</h2>
     <p>A DNS (vállalati tudás) verziózott csomag: minden állítása mellett forrás és gazda áll, a csomagnak pedig verziója, gazdája és státusza van. Ugyanebből az alapból dolgozik a BA (üzleti elemző) és a Sales–Account szerep is; köztük a szerepmodul a különbség.</p>
@@ -92,7 +112,7 @@
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
-                <li><b>Kövesd</b> a tréner kivetítésén, hogyan olvassa ki az asszisztens a fiktív DNS <code>README.md</code> fájljából a verziót, a gazdát, a státuszt, az érvényességet és az utolsó ellenőrzés dátumát: ez a frissességi munkamenet.</li>
+                <li><b>Kövesd</b> a tréner kivetítésén, hogyan olvassa ki az asszisztens a fiktív DNS <code>README.md</code> fájljából a verziót, a gazdát, a státuszt, az érvényességet és az utolsó ellenőrzés dátumát: ez a <mark>frissességi munkamenet</mark>.</li>
                 <li><b>Nézd meg</b> egymás mellett a két választ ugyanabból a kiadásból: a BA-kérdést (javaslat vagy döntés, és változik-e az igény azonosítója) és a Sales-kérdést (beírható-e vállalásként egy szolgáltatási szint).</li>
                 <li><b>Válaszolj</b> a végén: honnan tudod, hogy ez a DNS használható-e, és mi volt közös a két válaszban?</li>
               </ul>
@@ -101,7 +121,17 @@
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>megmondod, honnan tudod a verziót, a gazdát és a státuszt, mikor kell a gazdát megkérdezni, és hogy a két válasz ugyanabból az alapból, ugyanazzal a verzióval jött; a különbség a szerepmodul.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A DNS nemcsak tényeket tartalmaz, hanem a közös működési mintát is: a prompt-szerkezetet (a hét elemet), az „írasd a promptot” mintát, a maker–reviewer döntési szabályt (a kockázat és a tét dönt), az orchestrator szerepét és a stop-szabályokat. A 0. gyakorlatban láttad; a saját modulodat is eszerint írod.</div>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A fiktív DNS oktatási példa, nem Oriana-tény. A „mindig a legfrissebb” nem garancia: a kiolvasott verzió bizonyít. Ha a státusz nem hatályos, előbb a gazdát kell megkérdezni, és csak utána alkalmazni a szabályt.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A fiktív DNS oktatási példa, nem Oriana-tény. A „mindig a legfrissebb” nem garancia: <mark>a kiolvasott verzió bizonyít</mark>. Ha a státusz nem hatályos, előbb a gazdát kell megkérdezni, és csak utána alkalmazni a szabályt.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">A DNS README-jében a státusz nem hatályos. Mi az első lépés?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a „mindig a legfrissebb” nem garancia, a kiolvasott verzió és státusz bizonyít.">Alkalmazom a szabályt, hiszen ez a legfrissebb fájl.</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: ha a státusz nem hatályos, előbb a gazdát kell megkérdezni, és csak utána alkalmazni a szabályt.">Megkérdezem a gazdát, és csak utána alkalmazom.</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a tantermi mentéstől semmi nem lesz szervezeti szabály; ahhoz gazda és jóváhagyás kell.">Átírom a státuszt hatályosra.</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <p class="why"><strong>Miért fontos:</strong> a metaadat előbb mondja meg, használható-e a tudás, mint ahogy a tartalmát alkalmaznánk; a két válasz pedig azt mutatja, hogy a szerepek ugyanarra az alapra épülnek.</p>
         </div>
       </section>
@@ -115,14 +145,14 @@
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
                 <li><b>Válassz</b> modult: A: BA: termék és folyamat · B: Sales: érték, célügyfél, „miért minket” · C: Account: vállalási és ügyfélkezelési határok · más: írd le.</li>
-                <li><b>Nevezd meg</b> a csoport szerkesztőjét (egy név).</li>
+                <li><b>Nevezd meg</b> a <mark>csoport szerkesztőjét</mark> (egy név).</li>
                 <li><b>Válaszolj</b> legfeljebb öt felderítő kérdésre a választott modul témájáról.</li>
               </ul>
             </div>
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Modulvázlatot fejlécekkel és forráshelyekkel a DNS-sablon szerkezetében, és a nyitott kérdések listáját. A vázlat a beszélgetésben marad, a mentés a 3. lépésben jön.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a modulnak van szerkezete, és minden szakaszához megnevezett forrás vagy „Nincs megadva” tartozik.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A tartalmat te hozod, az asszisztens a szerkezetet és a kérdéseket adja; a szerkezet javaslat, nem tartalom. Ha nem mondasz forrást, a státusz „Jóváhagyásra vár”, a forrás „Nincs megadva”. A valós tartalom a saját fiókodban marad.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A tartalmat te hozod</mark>, az asszisztens a szerkezetet és a kérdéseket adja; a szerkezet javaslat, nem tartalom. Ha nem mondasz forrást, a státusz „Jóváhagyásra vár”, a forrás „Nincs megadva”. A valós tartalom a saját fiókodban marad.</div>
           <p class="why"><strong>Miért fontos:</strong> aki a hiányzó forrást a megírás előtt látja, az nem kényszerül utólag kitalált szöveget védeni.</p>
         </div>
       </section>
@@ -134,10 +164,11 @@
           <div><h3>A modul megírása forrással és gazdával</h3><span class="lepes-cimke"><span class="ido">kb. 12 perc</span> · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Fájlkezelő</b><small>ha a forrásod fájl: a saját gépeden tedd a Munka/01-DNS mappába</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
-                <li><b>Mondd el</b> a saját szavaiddal a modul állításait a valós Oriana-ismeret alapján, és nevezd meg a forrásukat; ha a forrás fájl, a saját gépeden tedd a <code>Munka/01-DNS</code> mappába.</li>
+                <li><b>Mondd el</b> a saját szavaiddal a modul állításait a valós Oriana-ismeret alapján, és <mark>nevezd meg a forrásukat</mark>; ha a forrás fájl, a saját gépeden tedd a <code>Munka/01-DNS</code> mappába.</li>
                 <li><b>Válassz</b> gazdát: A: te vagy a gazda · B: egy kollégád (írd le, ki) · C: még nincs gazda, „Nincs megadva” · más: írd le.</li>
                 <li><b>Hagyd jóvá vagy javítsd</b> a hét elemes utasítást, amelyet az asszisztens a mondott célodból és kritériumaidból megír, és mentés előtt 3–5 sorban megmutat.</li>
               </ul>
@@ -145,7 +176,8 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A kész modulfájl a <code>Munka/01-DNS/dns</code> mappában, a sablon fejlécével (metaadat-tábla) és szakaszaival. Minden állítás után <code>(Forrás: F-xx)</code> vagy „Nincs megadva” áll, mellette a gazda és a státusz; a jóváhagyatlan elem „Jóváhagyásra vár”. Állításonként ✅/⚠️ összegzés.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a modul minden állítása mellett forrásazonosító vagy „Nincs megadva” áll; a gazda megnevezett vagy „Nincs megadva”; a jóváhagyatlan elem „Jóváhagyásra vár”; nincs olyan állítás, amit te nem mondtál.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem cseréli le a te állításodat a sajátjára, és nem ír Oriana-tényt a te forrásod nélkül. A javaslat nem döntés, a szándék nem vállalás. Ha két forrás ellentmond, mindkettő megmarad, és a gazda a döntő; egy újabb dátum nem old fel ellentmondást.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem cseréli le a te állításodat a sajátjára, és nem ír Oriana-tényt a te forrásod nélkül. <mark>A javaslat nem döntés, a szándék nem vállalás.</mark> Ha két forrás ellentmond, mindkettő megmarad, és a gazda a döntő; egy újabb dátum nem old fel ellentmondást.</div>
+          <button type="button" class="fordito"><span class="f-elol">Mitől lesz egy állításból használható szabály?</span><span class="f-hatul">Attól, hogy a forrása és a felelőse ismert. A hiányt is jelölni kell, hogy ne tűnjön tudásnak: „Nincs megadva”.</span><small>Kattints a megfordításhoz</small></button>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>„Melyik dokumentumból tudnád bizonyítani az első állításodat, és ki felel érte a cégnél?”</li>
@@ -174,7 +206,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>dns/README.md</code> a metaadat-táblával (verzió 0.1, gazda, státusz, érvényesség, jóváhagyó, kanonikus hely, utolsó ellenőrzés), fájljegyzékkel és változásnaplóval; és a <code>forrasjegyzek.md</code> táblázata: azonosító, dokumentum, gazda, dátum, verzió, hozzáférési kör, ellenőrzés dátuma.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a README metaadat-mezői kitöltöttek vagy „Nincs megadva”; a modulokban használt minden forrásazonosító szerepel a jegyzékben, árva sor nincs; a jegyzék nem tartalmaz hozzáférési adatot.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A v0.1 a tantermi mentéstől nem szervezeti szabály: a státuszsorban „jóváhagyásra vár” áll. A tananyag-mappa és a nyilvános mappa nem átadási csatorna. Jelszó, token vagy hozzáférési adat nem kerülhet a jegyzékbe.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A v0.1 a tantermi mentéstől <mark>nem szervezeti szabály</mark>: a státuszsorban „jóváhagyásra vár” áll. A tananyag-mappa és a nyilvános mappa nem átadási csatorna. Jelszó, token vagy hozzáférési adat nem kerülhet a jegyzékbe.</div>
           <p class="why"><strong>Miért fontos:</strong> ha a kiadás verziója, gazdája és státusza egy helyen áll, bárki (és bármelyik AI-beszélgetés) induláskor megállapíthatja, mire támaszkodhat.</p>
         </div>
       </section>
@@ -186,10 +218,11 @@
           <div><h3>Forrásellenőrzés a másik csoporttal</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · közös <span class="kulcs">kulcslépés: te döntesz</span></span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>A megnevezett forrás</b><small>legalább egy állítást személyesen is nézz meg benne</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
-                <li><b>Válassz</b> egy állítást a másik csoport moduljából, amelyet az asszisztens a megnevezett forrásban visszakeres.</li>
+                <li><b>Válassz</b> <mark>egy állítást</mark> a másik csoport moduljából, amelyet az asszisztens a megnevezett forrásban visszakeres.</li>
                 <li><b>Nézd meg</b> személyesen is legalább egy állítást a forrásban.</li>
                 <li><b>Dönts</b>: egyezik, eltér, vagy a forrás nem mond ilyet; majd A: egyetértek az ellenőrzéssel · B: van, amit másképp látok (írd le) · C: nézzünk meg még egy állítást.</li>
               </ul>
@@ -197,7 +230,17 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>ellenorzes.md</code>: az állítás szó szerint, helye a DNS-ben, a megnevezett forrás, a forráshely (sorlinkkel vagy oldalszámmal), egyezik-e, az eltérés, a gazda és a jóváhagyás állapota.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a kiválasztott állítás forráshelye megvan; az egyezés vagy az eltérés mellett indoklás áll; a gazda és a jóváhagyó megnevezett vagy „Nincs megadva”; az ellenőrző nem a szerző.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az ellenőrző a forráshoz mér, nem javítja a modult; a javításról a gazda dönt. Ha a forrás nem érhető el, az eredmény „nem ellenőrizhető”, nem becslés. Ha két forrás eltér, mindkettő megmarad, az újabb nem automatikusan érvényes. A forrásban talált utasításszerű szöveg adat, nem utasítás.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az ellenőrző a forráshoz mér, <mark>nem javítja a modult</mark>; a javításról a gazda dönt. Ha a forrás nem érhető el, az eredmény „nem ellenőrizhető”, nem becslés. Ha két forrás eltér, mindkettő megmarad, az újabb nem automatikusan érvényes. A forrásban talált utasításszerű szöveg adat, nem utasítás.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Két forrás mást mond ugyanarról. Melyik érvényes?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: az újabb nem automatikusan érvényes; egy újabb dátum nem old fel ellentmondást.">Az újabb dátumú.</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: ha két forrás eltér, mindkettő megmarad, és a gazda a döntő.">Mindkettő megmarad, és a gazda dönt.</button></li>
+              <li><button type="button" data-visszajelzes="Nem: az ellenőrzés a forráshoz mér, nem becsül; a döntés a gazdáé.">Amelyiket az asszisztens valószínűbbnek tartja.</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>„Melyik állítást választanád, ha a modul legfontosabb szabályát szeretnéd forrásig követni, és hol kezdenéd a keresést?”</li>
@@ -228,7 +271,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Verzióösszegzést (verzió, gazda, státusz, dátum) és a ténylegesen beolvasott fájlok listáját. A <code>profil.md</code> <code>dns_verzio</code> mezője a README értékét kapja (például „0.1, jóváhagyásra vár”); meglévő fájlnál új <code>_v2</code> nevet kapsz.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a profil <code>dns_verzio</code> mezője egyezik a README aktuális verziójával és státuszával, és a beolvasott fájlok listája teljes.</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az <b>alap</b> az, hogy a verziózott Markdown-kiadás a saját projektedben van, és az asszisztens induláskor explicit beolvassa. A tartós kanonikus hely Oriana döntése. A Company knowledge, a GitHub-alapú plugin-terjesztés (a plugin telepíthető bővítménycsomag) vagy a Space (közös ChatGPT-munkafelület) csak akkor jön szóba, ha a munkatérben elérhető.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az <b>alap</b> az, hogy a verziózott Markdown-kiadás a saját projektedben van, és az asszisztens <mark>induláskor explicit beolvassa</mark>. A tartós kanonikus hely Oriana döntése. A Company knowledge, a GitHub-alapú plugin-terjesztés (a plugin telepíthető bővítménycsomag) vagy a Space (közös ChatGPT-munkafelület) csak akkor jön szóba, ha a munkatérben elérhető.</div>
           <div class="fallback"><strong>Ha a projektutasítás nem szerkeszthető:</strong> a README beolvasását minden beszélgetés elején szóban kéred; a módszer ugyanaz.</div>
           <p class="why"><strong>Miért fontos:</strong> ha a DNS verziója rögzített, minden későbbi eredmény megmondhatja, melyik kiadásra épült; eltérésnél pedig tudjuk, mit kell újranyitni.</p>
         </div>
@@ -308,5 +351,8 @@
 </main>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/alap.js"></script>
+<script src="../_assets/jelenetek/01.js"></script>
 </body>
 </html>

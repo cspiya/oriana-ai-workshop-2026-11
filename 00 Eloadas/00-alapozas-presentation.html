@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>00. Alapozás · Oriana × Wenova 2026.11.12</title>
 <link rel="stylesheet" href="../_assets/wenova.css">
+<link rel="stylesheet" href="../_assets/wenova-lapok.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Lapozható prezentáció. Navigáció: ← → szóköz, PgUp/PgDn, Home/End; S = tréneri jegyzet, O = áttekintés, F = teljes képernyő. -->
 <body class="deck" data-depth="1" data-footer="Oriana × Wenova · Alapozás · 2026.11.12">
 <div class="slides">
 
   <section class="slide title" id="cim">
+    <img class="deck-logo" src="../_assets/logo/wenova-szovedjegy.png" alt="Wenova">
+    <img class="deck-emblema" src="../_assets/logo/wenova-emblema.png" alt="">
     <div class="slide-eyebrow">Oriana × Wenova · ChatGPT-workshop · 2026.11.12</div>
     <h1>Mire használod holnaptól?</h1>
     <p>Rövid alapozás: mi az AI (mesterséges intelligencia), mit nem tud, és hogyan dolgozunk vele ellenőrizhetően.</p>
@@ -71,6 +75,15 @@
     </div>
     <p class="takeaway">A ChatGPT a 3. és a 4. típus.</p>
     <div class="notes">Időjelzés: 09:04-09:06 a következő diával együtt (négy típus és az AI nem céges adatbázis), 2 perc. Kérdezd: melyiket használtak már? A saját szavukkal mondják vissza a négy típust. Ez a 2. lépés a gyakorlatban.</div>
+  </section>
+
+  <section class="slide" id="prompt-ut">
+    <div class="slide-eyebrow">AI-alapok · tartalék</div>
+    <h2>A nyelvi modell a következő szót jósolja</h2>
+    <figure class="mozgo" data-jelenet="prompt-ut" data-auto="nincs">
+      <figcaption>A prompt tokenekre bomlik, és a modell a választ tokenenként állítja elő: minden lépésben a jelöltek közül választ egyet.</figcaption>
+    </figure>
+    <div class="notes">Tartalék dia, csak kérésre; a 09:00-09:40 sávba nem számít bele. A mozgó ábra lépésenként járható végig (Tovább gomb). Szemléltetés: a tokenhatárok és a százalékok nem egy valódi modell mérései.</div>
   </section>
 
   <section class="slide" id="nem-adatbazis">
@@ -246,5 +259,7 @@
 </div>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/alap.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Notebook v2 a 3. gyakorlathoz. Tartalom: Feladatok/03-kozos-munka.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. Egyfázisú gyakorlat: a négy lépés négy csoport (a csoportidők a lépések percei alapján számoltak). -->
-<body class="notebook v2" data-depth="1" data-current="03">
+<body class="notebook v2" data-depth="1" data-current="03" data-jelveny="Jogmátrix-készítő">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -36,7 +36,7 @@
           <li data-csoport="4">hozzáférési szabály: ki dönt az új hozzáférésről</li>
         </ul>
       </div>
-      <div class="meta"><span>⏱ 25 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/03-Kozos</span><span>mód: közös</span><span>Vezeti: Piya Csaba</span></div>
+      <div class="meta"><span>Idő: 25 perc</span><span>Modell: GPT-6 Luna</span><span>Mappa: Munka/03-Kozos</span><span>Mód: közös</span><span>Vezeti: Piya Csaba</span></div>
     </div>
     <div class="honnan-hova" aria-label="Honnan hová">
       <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
@@ -65,6 +65,21 @@
         <p>Az asszisztens kérdés nélkül elmondja a célt: a társaddal kipróbáljátok, ki mit lát és mit ír a megosztott anyagokban, és közösen felírjátok a hozzáférési szabályt a jogmátrixba. A próbához csak fiktív anyagot osztotok meg; a kimeneteken: FIKTÍV OKTATÁSI MINTA.</p>
       </div>
     </div>
+  </section>
+
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábrák</span>Ezt kell megértened</h2>
+    <p>Két mozgó ábra: hogyan lesz a saját anyagodból megosztott anyag és a próbából jogmátrix, és mi más egy felügyelet nélkül futó csapatfeladatnál. Lépésenként is végigkattinthatod őket.</p>
+    <h3>1. Ki mit lát és mit tehet? A páros próba útja</h3>
+    <p>Figyeld meg, hogy a jogmátrixba <mark>nem a beállítás kerül, hanem a próba eredménye</mark>: az, amit a társad a saját fiókjával tapasztalt, és megerősített.</p>
+    <figure class="mozgo" data-jelenet="megosztas-proba">
+      <figcaption>A páros próba: az asszisztens két mondatos, fiktív RONDO-összefoglalót ír; te megosztod a társaddal (beszélgetés-link, közös projekt vagy Space-oldal; az utóbbi kettő csak akkor, ha a munkatérben elérhető), és jogot adsz. A társad megpróbál olvasni, kommentelni és szerkeszteni, és elmondja mindhárom eredményt. Az asszisztens jegyzőkönyvbe írja a várt és a tapasztalt eredményt, ebből készül a jogmátrix; ami nem volt kipróbálva, az „nem próbáltuk”. A hozzáférési szabályt ti mondjátok ki.</figcaption>
+    </figure>
+    <h3>2. Mit tud a csapatfeladat, és hol kell megállnia?</h3>
+    <p>A csapatfeladat (Team Tasks, ha a munkatérben elérhető) nem a te előzményeidből dolgozik. Figyeld meg, mi megy át a szövegben, és hol van <mark>az írási határ és az emberi döntési pont</mark>.</p>
+    <figure class="mozgo" data-jelenet="csapatfeladat-hatar">
+      <figcaption>A csapatfeladat a csapat szolgáltatásfiókjával, felhőben fut, ezért nem örökli a létrehozó memóriáját, utasításait és előzményeit: mindent a feladat szövegének kell tartalmaznia. A heti ügyállapot-összesítőt a kijelölt helyre írja; ha azon kívül írna vagy küldene, az az emberi döntési pont, amelyről te döntesz előre a szövegben. Az új csapattag látja a korábbi futásokat és fájlokat. Az ütemezés csak akkor kész tény, ha láttad az ütemezett listában.</figcaption>
+    </figure>
   </section>
 
   <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
@@ -97,8 +112,18 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Kapcsolat-táblát: kapcsolat | kinek a jogán dolgozik | látszik-e nálam. Külön fájl nincs; a sorok a <code>jogmatrix.md</code> 2. szakaszába kerülnek.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden megnevezett kapcsolat mellett áll, hogy kinek a jogán dolgozik, és hogy látszik-e nálad.</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A plugin (telepíthető bővítménycsomag, amely skilleket és külső rendszerekhez kapcsolódó eszközöket foghat össze) és az app kapcsolata azzal a jogosultsággal dolgozik, amelyet a kapcsolt fiók ad; ez túlmehet a te személyes hozzáférésed határán. A munkatéri kapcsolatot a munkatér adminisztrátora hozza létre és engedélyezi; a csapatfeladat (Team Tasks) ezt használja. A hozzáférés tehát nem „enyém vagy a csapaté”, hanem a kapcsolt fiók joga.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A plugin (telepíthető bővítménycsomag, amely skilleket és külső rendszerekhez kapcsolódó eszközöket foghat össze) és az app kapcsolata azzal a jogosultsággal dolgozik, amelyet <mark>a kapcsolt fiók</mark> ad; ez túlmehet a te személyes hozzáférésed határán. A munkatéri kapcsolatot a munkatér adminisztrátora hozza létre és engedélyezi; a csapatfeladat (Team Tasks) ezt használja. A hozzáférés tehát nem „enyém vagy a csapaté”, hanem a kapcsolt fiók joga.</div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens a ChatGPT beállításait nem látja, ezért nem állít semmit, amit te nem láttál; menüt nem talál ki, jelszót vagy hozzáférési kulcsot nem kér.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Kinek a jogán dolgozik egy plugin vagy app kapcsolata?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a kapcsolt fiók joga túlmehet a te személyes hozzáférésed határán.">Mindig csak az én személyes hozzáférésem határán belül</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a hozzáférés nem „enyém vagy a csapaté”, hanem a kapcsolt fiók joga.">Azzal a joggal, amelyet a kapcsolt fiók ad</button></li>
+              <li><button type="button" data-visszajelzes="Nem: az asszisztens a ChatGPT beállításait nem látja; a kapcsolat a kapcsolt fiók jogával dolgozik.">Azzal, amit az asszisztens lát a beállításokban</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <div class="fallback"><strong>Ha a munkatérben nem látszik kapcsolat:</strong> a sor „nem látszik a munkatérben” jelölést kap, a tréner képsort mutat a kapcsolatnézetről, és a jogmátrix 2. szakasza a képsor alapján, „képsor alapján” jelöléssel készül.</div>
           <p class="why"><strong>Miért fontos:</strong> a kapcsolt rendszerbe írás vagy olvasás mindig valakinek a jogán történik; ha ezt nem tudod, nem tudod megmondani, ki mit láthat.</p>
         </div>
@@ -121,9 +146,9 @@
             </div>
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>megosztasi-proba.md</code> jegyzőkönyvet: dátum, pár, elem és mód, beállított jog, várt eredmény, tapasztalt eredmény, eltérés, látszik-e az utólagos üzenet, és a nem kipróbált elemek.</p></div>
           </div>
-          <p class="kesz-ha"><b>Kész, ha</b><span>legalább két megosztási szintre van kipróbált sor, mindegyiknél a várt és a tapasztalt eredmény különválasztva, az eltérés (ha volt) megnevezve; az olvasás, a komment és a szerkesztés külön sor vagy oszlop.</span></p>
+          <p class="kesz-ha"><b>Kész, ha</b><span>legalább két megosztási szintre van kipróbált sor, mindegyiknél <mark>a várt és a tapasztalt eredmény</mark> különválasztva, az eltérés (ha volt) megnevezve; az olvasás, a komment és a szerkesztés külön sor vagy oszlop.</span></p>
           <div class="callout tipp"><span class="callout-cim">A három szint</span>(1) <b>Beszélgetés</b> megosztása linkkel: munkatéri link, amely a munkatér tagjainak nyílik meg; hogy a megosztás után írt új üzenet látszik-e a társadnak, a próba dönti el. (2) <b>Közös projekt</b>, ha a munkatérben elérhető: Chat vagy Edit jog; az Edit utasítást és fájlt módosíthat. (3) <b>Space-oldal</b>, ha a munkatérben elérhető (a Space közös ChatGPT-munkafelület dokumentumok, diák, táblázatok, Sites és fájlok rendezésére és közös használatára): View, Comment, Edit jog, a hozzáférés öröklődik az oldalakra.</div>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak fiktív anyagot oszthattok meg, valós ügyfélanyagot soha. Az asszisztens nem látja a társad képernyőjét: az eredményt a társad megerősítése adja. Közös bejelentkezést ne használjatok, mindenki a saját fiókjával dolgozik. A kommentben megidézett asszisztens a címzett ellenőrzése nélkül nem küld semmit.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Csak fiktív anyagot</mark> oszthattok meg, valós ügyfélanyagot soha. Az asszisztens nem látja a társad képernyőjét: az eredményt a társad megerősítése adja. Közös bejelentkezést ne használjatok, mindenki a saját fiókjával dolgozik. A kommentben megidézett asszisztens a címzett ellenőrzése nélkül nem küld semmit.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>„Mit vársz, ki mit tehet a megosztott anyaggal, és mi lehetne a próba, amely ezt igazolja vagy cáfolja?”</li>
@@ -144,6 +169,7 @@
           <div><h3>Csapatfeladat folyamatváza és az Agents előnézete</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · közös <span class="kulcs">kulcslépés: a te szavaid</span></span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Böngésző: a ChatGPT webes felülete</b><small>az Agents előnézetét itt nézd meg, ha a munkatérben elérhető; a desktop alkalmazásban nem mindig látszik</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
@@ -154,8 +180,18 @@
             </div>
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A heti összesítő csapatfeladat-szövegét, a melléklet hét elemével kitöltve (Cél, Címzett, Forrás és határ, Kimeneti séma, Szabályok, Írási határ, Ellenőrzés, Mentés). Külön fájl nincs; a szöveg a <code>jogmatrix.md</code> 5. szakaszába kerül.</p></div>
           </div>
-          <p class="kesz-ha"><b>Kész, ha</b><span>a szöveg mind a hét eleme jelen van; az írási határ és az emberi döntési pont megnevezett; a szöveg önmagában értelmezhető, mert nem hivatkozik az előzményekre; semmi sem állítja, hogy az ütemezés él, hacsak nem láttad az ütemezett listában.</span></p>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a szöveg mind a hét eleme jelen van; <mark>az írási határ és az emberi döntési pont</mark> megnevezett; a szöveg önmagában értelmezhető, mert nem hivatkozik az előzményekre; semmi sem állítja, hogy az ütemezés él, hacsak nem láttad az ütemezett listában.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Team Tasks (ütemezésre vagy eseményre induló közös csapatfeladatok) a csapat szolgáltatásfiókjával, felhőben fut, ezért <b>nem örökli</b> a létrehozó memóriáját, utasításait és előzményeit: mindent, amire szüksége van, a szövegnek kell tartalmaznia. Feladatonként külön jog nem állítható, és az új csapattag látja a korábbi futásokat és fájlokat.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Mit örököl a csapatfeladat (Team Tasks) attól, aki létrehozta?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: felhőben, a csapat szolgáltatásfiókjával fut, ezért a létrehozó memóriáját és előzményeit nem örökli.">A memóriáját és az előzményeit</button></li>
+              <li><button type="button" data-visszajelzes="Nem: az utasításokat sem örökli.">Az utasításait</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: mindent, amire a feladatnak szüksége van, a szövegnek kell tartalmaznia.">Semmit: mindent a szövegnek kell tartalmaznia</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <div class="callout tipp"><span class="callout-cim">Az Agents</span>Az Agents (a munkatérben meghatározott feladatra beállítható asszisztens, amely utasításokat, tudást, skilleket és kapcsolt appokat használ) az oldalsávban a desktop alkalmazásban nem mindig látszik: ilyenkor weben ellenőrizd. Ha elérhető, weben a Preview a megosztás előtti próba; a jogok Owner, Can edit és Can chat, az Update új publikált verziót hoz létre. A konkrét jóváhagyási beállítás a munkatér szabályától függ.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
@@ -188,7 +224,8 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>jogmatrix.md</code> fájlt a sablon szakaszaival: jogmátrix, alkalmazás- és kapcsolatjogok, hozzáférési szabály, csapatfeladat-váz. A fájl tetején: FIKTÍV OKTATÁSI MINTA.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a mátrix legalább két megosztási szinten kipróbált sort tartalmaz, az olvasás, a komment és a szerkesztés külön jelölt; a kipróbálatlan elem „nem próbáltuk”; a szabály megnevezi, ki dönt az új hozzáférésről; minden sor visszavezethető a jegyzőkönyvre.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A mátrixba csak a tényleges próbából származó vagy a te megerősítésedet kapott adat kerülhet: ami nem volt kipróbálva, az „nem próbáltuk”, ami nem látszik, az „nem látszik a munkatérben”. Az asszisztens csak javaslatot ad a sor tartalmára, a szabályt ti mondjátok ki.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A mátrixba csak a tényleges próbából származó vagy a te megerősítésedet kapott adat kerülhet: ami nem volt kipróbálva, az <mark>„nem próbáltuk”</mark>, ami nem látszik, az „nem látszik a munkatérben”. Az asszisztens csak javaslatot ad a sor tartalmára, <mark>a szabályt ti mondjátok ki</mark>.</div>
+          <button type="button" class="fordito"><span class="f-elol">Mi kerül a jogmátrixba, ha valamit nem próbáltatok ki?</span><span class="f-hatul">„nem próbáltuk”. A mátrixba csak a tényleges próbából származó vagy a te megerősítésedet kapott adat kerülhet.</span><small>Kattints a megfordításhoz</small></button>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>„Melyik megosztási módnál tudtál a párod tapasztalatára hivatkozni, és melyiknél csak feltételezel?”</li>
@@ -276,5 +313,7 @@
 </main>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/03.js"></script>
 </body>
 </html>

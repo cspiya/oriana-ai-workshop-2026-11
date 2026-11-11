@@ -8,7 +8,7 @@
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Notebook v2 a(z) 6b. gyakorlathoz. Tartalom: Feladatok/06b-ba-utotag.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. -->
-<body class="notebook v2" data-depth="1" data-current="06b">
+<body class="notebook v2" data-depth="1" data-current="06b" data-jelveny="Forrás-visszakereső">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -36,7 +36,7 @@
           <li data-csoport="3">dokumentáció kódból, kódhely-visszakereséssel</li>
         </ul>
       </div>
-      <div class="meta"><span>⏱ 30 perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/06b-BA-utotag</span><span>mód: közös (az A fázis bekezdésjavítása önálló)</span><span>Vezeti: Piya Csaba</span></div>
+      <div class="meta"><span>Idő: 30 perc</span><span>Modell: GPT-6 Luna</span><span>Mappa: Munka/06b-BA-utotag</span><span>Mód: közös (az A fázis bekezdésjavítása önálló)</span><span>Vezeti: Piya Csaba</span></div>
     </div>
     <div class="honnan-hova" aria-label="Honnan hová">
       <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
@@ -73,6 +73,15 @@
     </div>
   </section>
 
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábra</span>Ezt kell megértened</h2>
+    <h3>Három feladat: mi megy be, mi jön ki, és mivel mérjük?</h3>
+    <p>Figyeld meg, hogy mindhárom feladatnál <mark>van egy mérés vagy visszakeresés</mark>, amely nem az asszisztens szaván múlik: a számláló, az összevetés a fejezettel, a kódhely. Lépésenként is végigkattinthatod.</p>
+    <figure class="mozgo" data-jelenet="ba-harom-feladat">
+      <figcaption>A három BA-feladat. A fázis: egy hivatkozásokkal teli bekezdésből a recept (Skill) szerint önállóan érthető szöveg lesz; a számláló előtte és utána méri a feloldatlan keresztreferenciákat, a forrás lábjegyzetbe kerül, és egy friss beszélgetés próbálja ki, érthető-e más dokumentum nélkül. B fázis: az FDD 11. fejezetéből (vagy a fiktív mintafejezetből) offline HTML-drótváz készül, amelyet a fejezet táblázatával vetsz össze; egy mező, egy javítás, újramérés. C fázis: a kódból és egy elavult kézikönyvből felhasználói szintű leírás készül kódhelyekkel; eltérésnél a forrás a kód, a döntés a szerzőé.</figcaption>
+    </figure>
+  </section>
+
   <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
     <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Három rövid BA-feladat, egy módszer</h2>
     <p>Mindhárom feladatnál ugyanaz a módszer: recept, mérhető ellenőrzés és forrás-visszakeresés. Az ábra a három feladat sorrendjét mutatja; a gyakorlat lépései ezen mennek végig.</p>
@@ -103,7 +112,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A recept három sora és a demó számai előtte és utána. Külön fájl nincs: a demó nem a te fájlod.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a számláló kimenete (előtte/utána) látszik, és a parancs vagy a kézi módszer megnevezett.</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Skill újrahasználható recept: a recept adja a szabályt, a számláló a mérést, a kettő együtt ellenőrizhető átalakítás. A „kevesebb hivatkozás” mérhető, és a számláló azt is megmutatja, mit nem ismer fel.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Skill újrahasználható recept: <mark>a recept adja a szabályt, a számláló a mérést</mark>, a kettő együtt ellenőrizhető átalakítás. A „kevesebb hivatkozás” mérhető, és a számláló azt is megmutatja, mit nem ismer fel.</div>
           <div class="fallback"><strong>Ha a Skill betöltése nem megy:</strong> a recept szövege a kérés része, a számlálás kézi; a kiesett funkció a Skill-betöltés, a módszer azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a szabály és a mérés szétválik: a recept megmondja, mit tegyen az átalakítás, a számláló pedig azt, hogy sikerült-e.</p>
         </div>
@@ -114,6 +123,7 @@
           <div><h3>Közös validáció friss beszélgetésben</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · A fázis · BA</span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Új beszélgetés</b><small>csak az átírt szöveget add oda, tedd fel a kérdést, és a választ hozd vissza ide</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
@@ -124,7 +134,17 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A friss beszélgetés válasza a számláló eredménye mellett.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a beépített szöveg és a forrás két helyen visszakeresve egyezik, és a számláló eredménye idézett (✅/⚠️).</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az önállóság próbája, hogy aki nem ismeri a forrásdokumentumot, megérti-e. A számláló ezt nem mondja meg.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az önállóság próbája, hogy <mark>aki nem ismeri a forrásdokumentumot, megérti-e</mark>. A számláló ezt nem mondja meg.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">A számláló szerint nem maradt feloldatlan hivatkozás. Kész az önállóan szállítható szöveg?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a hivatkozások száma csak az egyik mérce. Azt, hogy a szöveg egyedül is érthető-e, a számláló nem mondja meg.">Igen: a szám ezt bizonyítja</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: az önállóság próbája, hogy aki nem ismeri a forrásdokumentumot, megérti-e.">Még nem: az is kell, hogy a forrás nélkül érthető legyen</button></li>
+              <li><button type="button" data-visszajelzes="Nem: nem az AI szava dönt. Az eredmény attól jó, hogy mérhető, forrással alátámasztott, és te ellenőrizted.">Igen, ha az asszisztens késznek mondja</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <div class="fallback"><strong>Ha nincs friss beszélgetés:</strong> a pár olvassa el a szöveget a forrásdokumentum nélkül (páros emberi próba); a kiesett funkció a gépi értelmezési próba.</div>
           <p class="why"><strong>Miért fontos:</strong> a hivatkozások száma csak az egyik mérce; a másik, hogy a szöveg egyedül is érthető.</p>
         </div>
@@ -146,7 +166,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az átírt bekezdés lábjegyzettel, a hivatkozásszám előtte és utána, mentve az <code>ellenorzes.md</code> fájlba.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az előtte/utána szám megvan, és két beépített hely a forrásban visszakeresett (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A recept nem bővítheti a tartalmat. Hiányzó forrásnál „Nincs megadva” áll, az asszisztens nem találja ki a beépítendő szöveget. Elhúzódó futásnál az előkészített részleten dolgozol.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A recept <mark>nem bővítheti a tartalmat</mark>. Hiányzó forrásnál „Nincs megadva” áll, az asszisztens nem találja ki a beépítendő szöveget. Elhúzódó futásnál az előkészített részleten dolgozol.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>Mely kifejezések jelzik a bekezdésedben, hogy másik helyre mutat, és mit kell onnan átvenned, hogy a bekezdés magában is megálljon?</li>
@@ -177,8 +197,9 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az előkészített fejezet és a kész, általános drótváz. Külön fájl nincs: a demó szövege a tréneré.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a drótváz megnyílik böngészőben, és a FIKTÍV jelölés látszik (✅/⚠️).</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A drótváz (nem működő képernyővázlat) a leírás első próbája: ha a mező nem fér a képernyőre, vagy hiányzik az értékkészlet, a leírás hiányos.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A drótváz (nem működő képernyővázlat) <mark>a leírás első próbája</mark>: ha a mező nem fér a képernyőre, vagy hiányzik az értékkészlet, a leírás hiányos.</div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A drótváz általános, fiktív képernyőelemekkel készül, nem valós termék elemeivel, és konkrét termék képességeiről nem állít semmit. A választólisták értékkészlete a fejezetből jön.</div>
+          <button type="button" class="fordito"><span class="f-elol">Mit árul el a drótváz a képernyőleírásról?</span><span class="f-hatul">Ha egy mező nem fér a képernyőre, vagy hiányzik az értékkészlet, a leírás hiányos.</span><small>Kattints a megfordításhoz</small></button>
           <div class="fallback"><strong>Ha a Work nem tud fájlt készíteni:</strong> az előkészített általános drótváz megnyitása és a leírás kézi javítása a tartalék; a kiesett funkció a fájlkészítés.</div>
           <p class="why"><strong>Miért fontos:</strong> a drótváz azért érték, mert a leírásból ellenőrizhetően következik, nem azért, mert szép.</p>
         </div>
@@ -200,7 +221,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A javított HTML új verzióként (<code>_v2</code> utótaggal) és a választólista elemeinek összevetése az értékkészlettel, előtte és utána. Mentés a 6. lépésben.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a javított mező a fejezet sorával egyezik, és az összevetés kimenete idézett (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Egy mező, egy javítás, újramérés. Más mező nem módosulhat, külső erőforrás nincs.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Egy mező, egy javítás, újramérés.</mark> Más mező nem módosulhat, külső erőforrás nincs.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>Melyik mezőnél tér el a drótváz a fejezet táblázatától (típus, kötelező jelölés, értékkészlet), és mit kell pontosan kérned?</li>
@@ -219,6 +240,7 @@
           <div><h3>Drótváz mentése</h3><span class="lepes-cimke"><span class="ido">kb. 2 perc</span> · B fázis · BA</span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Böngésző</b><small>nyisd meg a mentett drótváz HTML-fájlját, és nézd meg a fejlécét</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
@@ -229,7 +251,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>drotvaz</code> mappában egy <code>ÉÉÉÉ-HH-NN_kepernyo_drotvaz.html</code> fájl (a forrás dátumával, ütközésnél <code>_v2</code>); az eredmény az <code>ellenorzes.md</code> 6. szakaszába is bekerül.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a fájl megnyitható, külső erőforrás (külső szkript, webbetűtípus, kép-hivatkozás) nincs benne, és a jelölés megvan (✅/⚠️).</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A kimenet közös kipróbálás, nem kész tervezés: a drótváz célja a leírás ellenőrzése, nem a képernyő végleges megtervezése.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A kimenet <mark>közös kipróbálás, nem kész tervezés</mark>: a drótváz célja a leírás ellenőrzése, nem a képernyő végleges megtervezése.</div>
           <p class="why"><strong>Miért fontos:</strong> az offline fájl bárhol megnyitható, ezért a teszt ugyanazt mutatja mindenkinek.</p>
         </div>
       </section>
@@ -251,7 +273,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Két minta egy-egy bekezdése kódhellyel; a kimenet felhasználói szintű leírás, nem függvénylista. Külön fájl nincs.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a megadott kódhely tényleg létezik (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A kód nem módosul. A mappát helyi fájlként olvassa az asszisztens (Work Local) vagy feltöltött fájlként; repó- vagy MCP-elérést (MCP: Model Context Protocol, külső rendszereket kapcsoló szabvány) csak „ha a munkatérben elérhető” feltételezünk.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A kód <mark>nem módosul</mark>. A mappát helyi fájlként olvassa az asszisztens (Work Local) vagy feltöltött fájlként; repó- vagy MCP-elérést (MCP: Model Context Protocol, külső rendszereket kapcsoló szabvány) csak „ha a munkatérben elérhető” feltételezünk.</div>
           <div class="fallback"><strong>Ha a helyi mappa vagy a repó-hozzáférés nem megy:</strong> feltöltöd a három fájlt, vagy a tréner adta ZIP-ből bontod ki; ha az sem, a tréneri felvételt nézed. A kiesett funkció a közvetlen mappaolvasás, a módszer azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a kódból írt dokumentáció akkor megbízható, ha minden szabálya visszakereshető a kódban.</p>
         </div>
@@ -272,7 +294,17 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Két idézet egymás mellett (kódhely és kézikönyv-mondat), egyezés vagy megnevezett eltérés.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>mindkét hely megnyitható, és az eltérés (ha van) megnevezett (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem dönti el, melyik a „helyes”: a forrás a kód, a döntés a szerzőé.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem dönti el, melyik a „helyes”: <mark>a forrás a kód, a döntés a szerzőé</mark>.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">A kézikönyv mondata eltér attól, amit a kód csinál. Ki dönt?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: az asszisztens nem dönti el, melyik a „helyes”; az eltérést megnevezi.">Az asszisztens: átírja a kézikönyvet</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a forrás a kód. A leírás elavulása éppen a visszakeresésből látszik.">Senki: a kézikönyv a mérvadó</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a forrás a kód, a döntés a szerzőé.">A szerző: a forrás a kód, az eltérést megnevezzük</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <p class="why"><strong>Miért fontos:</strong> a leírás elavulása csak a forrásban való visszakereséssel látszik; ezért a kód-dokumentáció módszere a visszakeresés.</p>
         </div>
       </section>
@@ -292,7 +324,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>dokumentacio</code> mappában a <code>ÉÉÉÉ-HH-NN_dokumentacio_kodbol.md</code> (ütközésnél <code>_v2</code>), kódhelyekkel; az <code>ellenorzes.md</code> 6. szakasza kitöltve a visszakeresés adataival.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a fájl megnyitható, a kódhelyek léteznek, és a jelölés megvan (✅/⚠️).</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A mai közös kipróbálás nem kész dokumentáció, hanem egy módszer: kódból leírás, kódhelyes visszakereséssel.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A mai közös kipróbálás nem kész dokumentáció, hanem egy módszer: <mark>kódból leírás, kódhelyes visszakereséssel</mark>.</div>
           <p class="why"><strong>Miért fontos:</strong> a mentett, visszakereshető leírás másnap is használható.</p>
         </div>
       </section>
@@ -372,5 +404,7 @@
 </main>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/06b.js"></script>
 </body>
 </html>

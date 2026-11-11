@@ -8,7 +8,7 @@
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Notebook v2 a(z) 6. gyakorlathoz. Tartalom: Feladatok/06-sites.md (2026-11-10 állapot). Rövid vonalvezető: a forgatókönyvet nem ismétli. -->
-<body class="notebook v2" data-depth="1" data-current="06">
+<body class="notebook v2" data-depth="1" data-current="06" data-jelveny="Ügykövető-építő">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -36,7 +36,7 @@
           <li data-csoport="3">Sites vagy helyi prototípus, azonos módszerrel</li>
         </ul>
       </div>
-      <div class="meta"><span>⏱ 25 perc közös + 30 perc B fázis</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/06-Sites</span><span>mód: közös</span><span>Vezeti: Piya Csaba, körbejár Kemény Krisztián · Kemény Krisztián (B fázis), körbejár Piya Csaba</span></div>
+      <div class="meta"><span>Idő: 25 perc közös + 30 perc B fázis</span><span>Modell: GPT-6 Luna</span><span>Mappa: Munka/06-Sites</span><span>Mód: közös</span><span>Vezeti: Piya Csaba, körbejár Kemény Krisztián · Kemény Krisztián (B fázis), körbejár Piya Csaba</span></div>
     </div>
     <div class="honnan-hova" aria-label="Honnan hová">
       <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
@@ -74,6 +74,21 @@
     </div>
   </section>
 
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábrák</span>Ezt kell megértened</h2>
+    <p>Két mozgó ábra a gyakorlat két fázisához: az A fázis közös, a B fázis csak a Sales-Account sávé (a BA-sáv 15:35-től a 6b gyakorlatot végzi). Lépésenként is végigkattinthatod őket.</p>
+    <h3>1. A fázis, közös: hogyan lesz az ellenőrzött eredményből ügykövető?</h3>
+    <p>Figyeld meg, mi juthat be az ügykövetőbe, és hogy a jogot <mark>két fiókkal, próbával igazoljuk</mark>: a szerver elutasítását kell látni, nem a gomb hiányát. A Sites elérése munkatérfüggő; ha a munkatérben nem elérhető, a helyi prototípussal ugyanez a menet.</p>
+    <figure class="mozgo" data-jelenet="ugykoveto-a-fazis">
+      <figcaption>Az A fázis: a briefben kimondod a szabályt (a tételek mindenkinek olvashatók, írni csak a saját tételt lehet, a szerveroldalon); az ügykövetőbe csak a reviewen átment vagy nyitott kérdésként jelölt tétel kerül, forráshellyel és státusszal. A párral kipróbáljátok a tartós adatot, a közös használatot és a rekordjogot; a tesztjegyzékbe a megfigyelt eredmény kerül (PASS, FAIL vagy NEM TESZTELT). Ha a Sites a munkatérben nem érhető el, a helyi prototípussal haladsz: kiesik a tartós adatbázis és a hitelesítés, a módszer azonos.</figcaption>
+    </figure>
+    <h3>2. B fázis, csak Sales-Account: javítás, tételek, export</h3>
+    <p>Figyeld meg a javító kört: <mark>egy hiba, egy javítás, egy újramérés</mark>, ugyanazzal a próbával. Utána jönnek a tételek, a következő lépések és az export.</p>
+    <figure class="mozgo" data-jelenet="ugykoveto-b-fazis">
+      <figcaption>A B fázis (Sales-Account): a tesztjegyzék egy FAIL vagy NEM TESZTELT próbájára fókuszált javítási kérést írsz; a javított verziót deploy nélkül mentjük, és ugyanazt a próbát futtatod újra. Ezután legfeljebb három ajánlati tételt vagy kockázatot rögzítesz forráshellyel és az R2-ből jövő státusszal, mindegyikhez egy következő lépéssel (javaslat, nem vállalás). A végén export készül a Munka/06-Sites mappába; a Site-ot nem töröljük, és nem publikáljuk nyilvánosan.</figcaption>
+    </figure>
+  </section>
+
   <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
     <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Az ügykövető útja: az ellenőrzött adattól az exportig</h2>
     <p>Az ügykövető akkor ér valamit, ha csak ellenőrzött vagy nyitottnak jelölt tétel kerül bele, és a jogosultság próbával igazolt. Az ábra ezt az utat mutatja; a gyakorlat lépései ezen mennek végig.</p>
@@ -104,8 +119,9 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Három mondat a <code>miniapp-brief.md</code> lényegéről: három tábla (<code>ugy</code>, <code>tetel</code>, <code>review</code>), a szabály (a tételek mindenkinek olvashatók, írni csak a saját tételt lehet) és a Site korlátja (csak fiktív adat, nyilvános publikálás nincs). Külön fájl nincs; az út a <code>tesztjegyzek.md</code> fejlécébe kerül.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a választott út rögzítve van; prototípus esetén a <code>prototipus.html</code> megnyílik.</span></p>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Sites a ChatGPT mini-alkalmazás-készítő funkciója, és a <b>Sites elérése munkatérfüggő</b>. Ami biztos: leírásból létrehozható, tartós adatbázist (D1) és munkatéri hitelesítést használ, a szerepek owner, editor, visitor, a mentett verzió és a deploy külön lépés. Ami a te munkatereden nem biztos, az „ha a munkatérben elérhető”.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A Sites a ChatGPT mini-alkalmazás-készítő funkciója, és a <b>Sites elérése munkatérfüggő</b>. Ami biztos: leírásból létrehozható, tartós adatbázist (D1) és munkatéri hitelesítést használ, a szerepek owner, editor, visitor, a mentett verzió és a deploy külön lépés. Ami a te munkatereden nem biztos, az <mark>„ha a munkatérben elérhető”</mark>.</div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A beépített AI-hívást az asszisztens nem ígéri, és nyilvános publikálás sincs ebben a gyakorlatban.</div>
+          <button type="button" class="fordito"><span class="f-elol">Miben más a tartós, közös adat, mint a beszélgetés?</span><span class="f-hatul">Itt a rendszernek kell megjegyeznie és védenie az adatot. Ezért próbával ellenőrizzük, nem hisszük.</span><small>Kattints a megfordításhoz</small></button>
           <div class="fallback"><strong>Ha a Sites két percen belül nem érhető el:</strong> a helyi prototípussal haladsz; a kiesett funkció a tartós adatbázis és a hitelesítés, a módszer (adatmodell, szabály, próba) azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a tartós, közös adat nem ugyanaz, mint a beszélgetés: itt a rendszernek kell megjegyeznie és védenie az adatot, ezért próbával ellenőrizzük, nem hisszük.</p>
         </div>
@@ -130,7 +146,7 @@
             <div class="lane ba"><h3>BA</h3><p>igények (<code>igeny</code>)</p></div>
             <div class="lane sa"><h3>Sales-Account</h3><p>ajánlati tételek és kockázatok (<code>ajanlati_tetel</code>, <code>kockazat</code>)</p></div>
           </div>
-          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Amit nem mondasz ki a briefben, azt az alkalmazás nem tudja. A jogosultság szabálya is követelmény, előre kell leírni; egy elrejtett gomb nem védelem.</div>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Amit nem mondasz ki a briefben, azt az alkalmazás nem tudja. A jogosultság szabálya is követelmény, előre kell leírni; <mark>egy elrejtett gomb nem védelem</mark>.</div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A brief nem tartalmazhat költést, kulcslétrehozást, kapcsolt appot vagy nyilvános publikálást. Az asszisztens nem írja át helyetted a briefet.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
@@ -159,7 +175,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>rekordok.md</code> első változata: minden tételnek van forráshelye és státusza (<code>review-n_atment</code> vagy <code>nyitott_kerdes</code>, az R2 eredménye szerint). Az <code>owner_email</code> fiktív cím.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>két tételnél a forráshelyet visszakerestük a nyers forrásban (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak olyan tétel kerül be, amely a reviewen átment, vagy nyitott kérdésként jelölt. Ami hiányzik, az „Nincs megadva”. A helyi prototípus a tartós adat és a hitelesítés nélkül működik, ezt kimondjuk.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak olyan tétel kerül be, <mark>amely a reviewen átment, vagy nyitott kérdésként jelölt</mark>. Ami hiányzik, az „Nincs megadva”. A helyi prototípus a tartós adat és a hitelesítés nélkül működik, ezt kimondjuk.</div>
           <div class="fallback"><strong>Ha a Site építése két percen belül nem indul:</strong> a tételeket a helyi prototípusba töltöd (export és import a JSON-fájlon át); a kiesett funkció a tartós adatbázis és a hitelesítés.</div>
           <p class="why"><strong>Miért fontos:</strong> egy közös ügykövető csak annyit ér, amennyire a benne lévő tételek ellenőrzöttek; a nyitott kérdés is nyitottnak látszik.</p>
         </div>
@@ -170,6 +186,7 @@
           <div><h3>Kétfiókos adat- és jogteszt</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · A fázis · közös</span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Az ügykövető a böngészőben</b><small>a Site (ha a munkatérben elérhető) vagy a <code>prototipus.html</code>: itt futtatod a próbákat a pároddal</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
@@ -181,8 +198,18 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A próba-tábla a <code>tesztjegyzek.md</code> fájlban: lépések, elvárt eredmény, kapott eredmény, PASS / FAIL / NEM TESZTELT.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden próbasorban a kapott eredmény megfigyelésre épül; prototípusnál a szimuláció jelölt.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az elvárt eredményt a próba előtt mondjátok ki. A rekordjognál a szerver elutasítását kell látnod, nem a gomb hiányát. Ha eltér az eredmény, az FAIL, nem korrigálod a jegyzéket; a ki nem próbált próba nem PASS. A 7. próbát (appkapcsolat) ma nem végezzük.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az elvárt eredményt a próba előtt mondjátok ki. A rekordjognál <mark>a szerver elutasítását</mark> kell látnod, nem a gomb hiányát. Ha eltér az eredmény, az FAIL, nem korrigálod a jegyzéket; <mark>a ki nem próbált próba nem PASS</mark>. A 7. próbát (appkapcsolat) ma nem végezzük.</div>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A „működik” állítás próba nélkül semmit sem ér: a jegyzék azt mutatja, mit ellenőriztünk, és mit nem.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">A társad nem lát szerkesztőgombot a te tételednél. Igazolt ezzel a rekordjog?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: egy elrejtett gomb nem védelem. A szabálynak a szerveroldalon kell érvényesülnie.">Igen: gomb nélkül nem tud módosítani</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a rekordjognál a szerver elutasítását kell látnod, nem a gomb hiányát.">Nem: a szerver elutasítását kell látni</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a „működik” állítás próba nélkül semmit sem ér.">Igen, ha a leírás szerint így működik</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <div class="fallback"><strong>Ha a második fiók vagy a Site nem érhető el:</strong> a hitelesítési és szerepköri próbát a tréneri bemutatón figyeled meg („NEM TESZTELT” vagy „szimulált” jelöléssel); a kiesett funkció a valódi hitelesítés. Időhiánynál az 1., 2. és 4. próba marad.</div>
           <p class="why"><strong>Miért fontos:</strong> a hitelesítés és a jog attól működik, hogy próbával kimutattuk, nem attól, hogy a leírás szerint működnie kell.</p>
         </div>
@@ -203,7 +230,17 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Mentett <code>rekordok.md</code> és <code>tesztjegyzek.md</code>, benne a verzióazonosító (ha a Site elérhető, különben „nincs”).</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a státusz és az R2 eredménye tételenként egyezik, és a két fájl megnyitható.</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Csak az R2 PASS tétel lehet <code>review-n_atment</code>. A Site törlése nem visszaállítható, ezért nem töröljük; a prototípus exportját elmentjük.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Csak az R2 PASS tétel</mark> lehet <code>review-n_atment</code>. A Site törlése nem visszaállítható, ezért nem töröljük; a prototípus exportját elmentjük.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Melyik tétel kaphat review-n_atment státuszt?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a bekerülés nem ellenőrzés. A státusz azt jelenti, hogy valaki ellenőrizte.">Amelyik már bekerült az ügykövetőbe</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a státusznak az R2 eredményével kell egyeznie, tételenként.">Amelyiket te rendben lévőnek látsz</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: csak az R2 PASS tétel lehet review-n_atment; a többi nyitott kérdés.">Csak az, amelyik az R2-ben PASS</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
           <p class="why"><strong>Miért fontos:</strong> a közös ügykövetőben a státusz kötelezettség: azt jelenti, hogy valaki ellenőrizte.</p>
         </div>
       </section>
@@ -225,7 +262,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Javított verzió azonosítóval és a próba új sora a <code>tesztjegyzek.md</code> fájlban (előtte és utána).</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az újrapróba kapott eredménye megfigyelt, és a verzióazonosító a jegyzékben van (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Egy hiba, egy javítás, egy újramérés; új funkció nem kerül be. A verziót deploy nélkül mentjük.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Egy hiba, egy javítás, egy újramérés</mark>; új funkció nem kerül be. A verziót deploy nélkül mentjük.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
               <li><b>Rávezető kérdés</b>Melyik próbán derül ki, hogy a szabály a szerveren érvényesül, és mit kell másképp kérni a Site-tól, hogy ez teljesüljön?</li>
@@ -254,7 +291,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>tesztjegyzek.md</code> 3. szakasza, kizárólag a bemutatott tényekből. A biztos út leírása: a Site exportálja az adott verzió tartalmát, külön ChatGPT-reviewer fut (az 5. gyakorlat receptjével), és az ellenőrzött R2-eredményt a Site <code>review</code> soraiba rögzíted.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden mező tényből vagy „Nincs megadva” jelzésből áll (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Natív AI-gombot nem ígérünk: ami nincs kipróbálva vagy dokumentálva, azt kimondjuk. Ha a számlázási forrás nem ismert, a mező „Nincs megadva”.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Natív AI-gombot nem ígérünk</mark>: ami nincs kipróbálva vagy dokumentálva, azt kimondjuk. Ha a számlázási forrás nem ismert, a mező „Nincs megadva”.</div>
           <div class="fallback"><strong>Ha a bemutató nem tartható meg:</strong> a mezők „Nincs megadva” jelzéssel maradnak, a biztos utat (export, külön reviewer, rögzítés) kézzel követed.</div>
           <p class="why"><strong>Miért fontos:</strong> egy funkció, amelyet nem próbáltunk ki vagy nem dokumentált, nem tanítható tényként; a jegyzék megmutatja, mit tudunk és mit nem.</p>
         </div>
@@ -265,6 +302,7 @@
           <div><h3>Ajánlati tételek rögzítése</h3><span class="lepes-cimke"><span class="ido">kb. 7 perc</span> · B fázis · Sales-Account</span></div>
         </header>
         <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Az ügykövető a böngészőben</b><small>a Site vagy a prototípus: töltsd be a tételeket, majd újratöltés után olvasd vissza</small></span></div>
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
@@ -275,7 +313,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A frissített <code>rekordok.md</code>: legfeljebb három tétel a saját <code>v2/</code> kalkulációból és az R2-ből, forráshellyel, státusszal és review-sorral.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>újratöltés után a tételek ugyanazzal az azonosítóval visszajönnek, és a forráshely két tételnél visszakeresett (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A státusz az R2-ből jön: <code>review-n_atment</code> csak R2 PASS esetén, különben <code>nyitott_kerdes</code>. A hiányzó adat „Nincs megadva”.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A státusz az R2-ből jön</mark>: <code>review-n_atment</code> csak R2 PASS esetén, különben <code>nyitott_kerdes</code>. A hiányzó adat „Nincs megadva”.</div>
           <div class="fallback"><strong>Ha a Site-ba nem tölthető be:</strong> a prototípus JSON-exportja a mentés; a kiesett funkció a tartós adatbázis.</div>
           <p class="why"><strong>Miért fontos:</strong> a követés attól megbízható, hogy a tétel mellett látszik, mi az ellenőrzés eredménye és honnan jön.</p>
         </div>
@@ -296,7 +334,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>rekordok.md</code> 3. szakasza: tételenként egy következő lépés.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden tételhez tartozik sor, és a felelős vagy a határidő nincs kitalálva (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ez javaslat, nem vállalás. A felelős hiányában „Nincs megadva”; a következő lépés nem lehet küldés vagy külső írás; határidő csak forrásból szerepelhet.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ez <mark>javaslat, nem vállalás</mark>. A felelős hiányában „Nincs megadva”; a következő lépés nem lehet küldés vagy külső írás; határidő csak forrásból szerepelhet.</div>
           <p class="why"><strong>Miért fontos:</strong> a követés attól proaktív, hogy minden tételnél látszik a következő lépés, a bemenet, a kimenet és a határ.</p>
         </div>
       </section>
@@ -316,7 +354,7 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Lezárt <code>tesztjegyzek.md</code> (összesítő: PASS / FAIL / NEM TESZTELT darabszám), <code>rekordok.md</code> és az export (CSV vagy JSON, <code>ÉÉÉÉ-HH-NN_ugykovetes_export.csv</code>) a <code>Munka/06-Sites</code> mappában.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az export sorainak száma egyezik a rekordokéval (✅/⚠️).</span></p>
-          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A Site-ot nem töröljük, és nem publikáljuk nyilvánosan; a „kész” nem publikálási engedély. A számokat a jegyzékből számoljuk, nem emlékezetből.</div>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A Site-ot nem töröljük, és nem publikáljuk nyilvánosan; <mark>a „kész” nem publikálási engedély</mark>. A számokat a jegyzékből számoljuk, nem emlékezetből.</div>
           <p class="why"><strong>Miért fontos:</strong> a tartós ügykövető nem a beszélgetésben él: az exportált állapot az, ami a nap után is megvan.</p>
         </div>
       </section>
@@ -397,5 +435,7 @@
 </main>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/06.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-/* Wenova workshop – közös JS notebookokhoz és lapozható prezentációkhoz. Design system v2 (2026-11-10).
+/* Wenova workshop – közös JS notebookokhoz és lapozható prezentációkhoz. Design system v2 (2026-11-10), v3 kiegészítés (2026-11-11):
+   Wenova-logó a felső sávban, fókusz mód (egyszerre egy lépés), jelvény, villámkérdés (.villamkerdes), fordítós kártya (button.fordito).
    Oriana × Wenova · 2026-11-12. Külső erőforrás nélkül, offline működik.
    - Téma-váltó: világos (alap) / sötét / rendszer; html[data-theme], mentés localStorage-ba ("wenova-tema"), try/catch-ben.
      A villanás elkerülésére a <head>-be egy sor is kerülhet (lásd notebook-template.html). A gomb a .topbar-tools elembe kerül,
@@ -197,6 +198,28 @@
     sin.querySelector('[data-a="prev"]').addEventListener('click', function () { ugras(cur - 1); });
     sin.querySelector('[data-a="next"]').addEventListener('click', function () { ugras(cur + 1); });
 
+    // Fókusz mód (v3): egyszerre egy lépés van kibontva; a többi egy sor, kattintásra nyílik. A választás a böngészőben marad.
+    var FOKUSZ_KEY = 'wenova-fokusz', fokusz = true;
+    try { fokusz = localStorage.getItem(FOKUSZ_KEY) !== 'ki'; } catch (e) { fokusz = true; }
+    var kap = document.createElement('button'); kap.type = 'button'; kap.className = 'fokusz-kapcsolo';
+    lista.insertBefore(kap, lista.firstChild);
+    function setFokusz(v, ment) {
+      fokusz = v; gy.classList.toggle('fokusz', v); kap.setAttribute('aria-pressed', String(v));
+      kap.textContent = v ? 'Fókusz: egyszerre egy lépés · kattints az összes kibontásához' : 'Minden lépés kibontva · kattints a fókusz módhoz';
+      if (ment) { try { localStorage.setItem(FOKUSZ_KEY, v ? 'be' : 'ki'); } catch (e) { /* privát mód */ } }
+    }
+    kap.addEventListener('click', function () { setFokusz(!fokusz, true); lepesek[cur].scrollIntoView({ block: 'start' }); });
+    lepesek.forEach(function (sec, i) {
+      var f = sec.querySelector('.lepes-fej'); if (!f) return;
+      f.addEventListener('click', function (e) {
+        if (!fokusz || sec.classList.contains('is-current')) return;
+        if (e.target.closest && e.target.closest('.lepes-kesz')) return;
+        ugras(i);
+      });
+      var cb = sec.querySelector('.lepes-kesz input');
+      if (cb) cb.addEventListener('change', function () { if (cb.checked && fokusz && i === cur && i < n - 1) setTimeout(function () { ugras(i + 1); }, 450); });
+    });
+
     var manual = false;
     function ugras(i) {
       i = Math.max(0, Math.min(n - 1, i));
@@ -222,16 +245,30 @@
       lepesek.forEach(function (s, k) { var k2 = s.classList.contains('is-kesz'); if (k2) done++; allomasok[k].classList.toggle('is-kesz', k2); });
       fej.querySelector('.db').textContent = 'Kész: ' + done + '/' + n;
       fej.querySelector('.sav i').style.width = (done / n * 100) + '%';
+      // jelvény (v3): ha minden lépés kész, a gyakorlat jelvénye megvan; az állapotot a napi térkép is olvassa
+      var megvan = done === n, jid = document.body.getAttribute('data-current') || '';
+      jsav.querySelector('.jelveny').classList.toggle('megvan', megvan);
+      jsav.querySelector('.jelveny').innerHTML = megvan ? CSILLAG : '?';
+      jsav.querySelector('.js-cim').textContent = megvan ? 'Megszerezted: ' + jnev : 'Jelvény: ' + jnev;
+      jsav.querySelector('.js-all').textContent = megvan ? 'Minden lépés kész. Szép munka!' : 'Még ' + (n - done) + ' lépés van hátra (' + done + ' / ' + n + ' kész).';
+      jsav.querySelector('.js-sav i').style.width = (done / n * 100) + '%';
+      if (jid) { try { if (megvan) localStorage.setItem('wenova-jelveny:' + jid, '1'); else localStorage.removeItem('wenova-jelveny:' + jid); } catch (e) { /* privát mód */ } }
     }
+    var jnev = document.body.getAttribute('data-jelveny') || 'a gyakorlat teljesítve';
+    var jsav = document.createElement('div'); jsav.className = 'jelveny-sav'; jsav.setAttribute('aria-live', 'polite');
+    jsav.innerHTML = '<span class="jelveny">?</span><div class="js-szoveg"><b class="js-cim"></b><span class="js-all"></span><div class="js-sav" aria-hidden="true"><i></i></div></div>';
+    lista.insertBefore(jsav, kap.nextSibling);
     function scrollSync() {
-      if (manual) return;
+      if (manual || fokusz) return;
       var line = window.innerHeight * 0.38, best = 0;
       lepesek.forEach(function (s, k) { var r = s.getBoundingClientRect(); if (r.top <= line) best = k; });
       if (best !== cur) setCur(best);
     }
     window.addEventListener('scroll', scrollSync, { passive: true });
     window.addEventListener('resize', scrollSync);
+    setFokusz(fokusz, false);
     setCur(0); frissit(); scrollSync();
+    if (fokusz) { var elso = -1; lepesek.forEach(function (s, k2) { if (elso < 0 && !s.classList.contains('is-kesz')) elso = k2; }); setCur(elso < 0 ? n - 1 : elso); }
     if (location.hash) { var t = document.getElementById(location.hash.slice(1)); var k = lepesek.indexOf(t); if (k >= 0) setTimeout(function () { setCur(k); }, 50); }
   }
 
@@ -343,6 +380,59 @@
     window.addEventListener('scroll', update, { passive: true }); update();
   }
 
-  function init() { temaValto(); buildDaymaps(); lepesvezeto(); copyButtons(); checklists(); sidebar(); deck(); }
+  /* ---------- v3: Wenova-logó, villámkérdés, fordítós kártya, jelvényrács ---------- */
+  var CSILLAG = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="#FFD84D" stroke="#14183A" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>';
+  function logo() {
+    var src = rootPrefix() + '_assets/logo/wenova-szovedjegy.png';
+    document.querySelectorAll('.topbar .brand').forEach(function (a) {
+      if (a.querySelector('.logo')) return;
+      var sp = document.createElement('span'); sp.className = 'brand-szoveg';
+      while (a.firstChild) sp.appendChild(a.firstChild);
+      var img = document.createElement('img'); img.className = 'logo'; img.src = src; img.alt = 'Wenova';
+      a.appendChild(img); a.appendChild(sp);
+    });
+    document.querySelectorAll('.sidebar, .logo-hely').forEach(function (sb) {
+      if (sb.querySelector('.logo-sav')) return;
+      var d = document.createElement('div'); d.className = 'logo-sav';
+      var img = document.createElement('img'); img.className = 'logo'; img.src = src; img.alt = 'Wenova';
+      d.appendChild(img); sb.insertBefore(d, sb.firstChild);
+    });
+  }
+  function villamkerdesek() {
+    document.querySelectorAll('.villamkerdes').forEach(function (vk) {
+      var out = vk.querySelector('.vk-visszajelzes'), gombok = vk.querySelectorAll('.vk-valaszok button');
+      gombok.forEach(function (b) {
+        b.addEventListener('click', function () {
+          gombok.forEach(function (x) { x.classList.remove('jo', 'rossz'); x.setAttribute('aria-pressed', 'false'); });
+          var jo = b.hasAttribute('data-jo'); b.classList.add(jo ? 'jo' : 'rossz'); b.setAttribute('aria-pressed', 'true');
+          if (out) out.textContent = (jo ? 'Igen. ' : 'Nem egészen. ') + (b.getAttribute('data-visszajelzes') || '');
+        });
+      });
+    });
+  }
+  function forditok() {
+    document.querySelectorAll('button.fordito').forEach(function (b) {
+      if (!b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(v));
+        var s = b.querySelector('small'); if (s) s.textContent = v ? 'Vissza a kérdéshez' : 'Kattints a megfordításhoz';
+      });
+    });
+  }
+  function jelvenyRacs() {
+    var pre = rootPrefix();
+    document.querySelectorAll('ul.jelveny-racs').forEach(function (ul) {
+      if (ul.children.length) return;
+      DAY.forEach(function (d) {
+        if (d.brk) return;
+        var megvan = false; try { megvan = localStorage.getItem('wenova-jelveny:' + d.id) === '1'; } catch (e) { megvan = false; }
+        var li = document.createElement('li'); if (megvan) li.className = 'megvan';
+        li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><a href="' + pre + d.href + '">' + esc(d.id + ' · ' + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
+        ul.appendChild(li);
+      });
+    });
+  }
+
+  function init() { temaValto(); logo(); buildDaymaps(); lepesvezeto(); copyButtons(); checklists(); sidebar(); deck(); villamkerdesek(); forditok(); jelvenyRacs(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

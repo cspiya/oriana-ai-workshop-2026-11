@@ -9,20 +9,23 @@
 <!-- A fenti sor a villanás ellen: a mentett (vagy ?tema=dark|light|system URL-paraméterrel kért) témát azonnal beállítja. -->
 
 </head>
-<!-- Notebook v2 (design system v2, 2026-11-10). Szerkezet felülről lefelé:
-     1. Felső napi navigáció (.topbar): a nap blokkjai menüként (a wenova.js DAY tömbjéből), az aktuális kiemelve sávszínnel, ◀ ▶ lépkedő, téma-váltó.
+<!-- Notebook v2 szerkezet, design system v3 („matricás munkafüzet”, 2026-11-11). Szerkezet felülről lefelé:
+     1. Felső napi navigáció (.topbar): tinta színű sáv a Wenova-logóval (a wenova.js teszi be), a nap blokkjai menüként (a wenova.js DAY tömbjéből), az aktuális kiemelve, ◀ ▶ lépkedő, téma-váltó.
      2. Session-fejléc (.session-fejlec): Cél egy mondatban · Mit gyakorolunk (csipszek csoportszínnel) · Honnan → hová · Miért fontos.
      3. Így indítsd (.start-box): az indító mondat(ok).
      4. Fejezet-ábra hely (.fejezet-abra): fejezetenként MÁS ábra. Az Á1 vezérelv-ábra csak a 00-s és a 07-es notebookban marad.
      5. Lépésvezető (.gyakorlat): bal oldalt függőleges haladási vonal (.lepes-sin, a JS tölti) állomásokkal, „Hol tartok” és „Kész: n/N”,
         előre/vissza; jobb oldalt a lépések (.lepes) színes fejléccel, csoportszínnel (data-csoport), „Mit csinálsz” / „Mit kapsz” / „Kész, ha…”,
-        Kész-pipa (localStorage). Alapállapotban minden lépés olvasható; az aktuálist a görgetés jelöli ki.
+        Kész-pipa (localStorage). Fókusz mód: egyszerre egy lépés van kibontva (a wenova.js kapcsolója). Ha minden lépés kész, a résztvevő
+        megkapja a gyakorlat jelvényét: a body elem data-jelveny attribútuma adja a nevét (rövid, a gyakorlat lényegére utaló név).
      6. Mitől jó az eredmény (ellenőrzőlista), Ha elakadsz (elakadás-doboz + tipp-létra), Vidd haza, Következő.
      Kiemelő dobozok: .callout.jegyezd (kulcsgondolat) · .callout.figyelj (csapda, hiba) · .callout.tipp · .callout.kesz · .callout.elakadas.
+     Kiemelés szövegben: mark elem (napsárga). Emoji helyett szöveg (a .meta sorban: „Idő: …”, „Modell: …”, „Mappa: …”).
+     Játékos elemek és mozgó ábra: a minták megjegyzésben állnak a fejezet-ábránál és az első lépésben; minden állításuk a tananyag szövegéből jöjjön.
      data-depth: hány szinttel a tananyag gyökere alatt van a fájl (Notebookok/ = 1). data-current: a gyakorlat azonosítója a nap térképén (00 … 06b, 07).
      Csoportszínek (data-csoport): 1 kék · 2 narancs · 3 lila · 4 rózsa · 5 olajzöld · 6 cián; nevesítve: elokeszites, maker, reviewer, rogzites, dontes, seged.
      Tiltott szavak a résztvevői anyagban: a tananyag AGENTS.md szerint. Fiktív oktatási minták. -->
-<body class="notebook v2" data-depth="1" data-current="NN">
+<body class="notebook v2" data-depth="1" data-current="NN" data-jelveny="A jelvény neve">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -47,7 +50,7 @@
           <li data-csoport="3">fogalom vagy mozdulat 3</li>
         </ul>
       </div>
-      <div class="meta"><span>⏱ NN perc</span><span>🤖 GPT-6 Luna</span><span>📁 Munka/NN-Nev</span><span>mód: vezetett</span></div>
+      <div class="meta"><span>Idő: NN perc</span><span>Modell: GPT-6 Luna</span><span>Mappa: Munka/NN-Nev</span><span>Mód: vezetett</span></div>
     </div>
     <div class="honnan-hova" aria-label="Honnan hová">
       <div class="allapot honnan"><span class="cimke">Honnan indulsz</span><ul><li>kiinduló állapot 1</li><li>kiinduló állapot 2</li></ul></div>
@@ -68,7 +71,12 @@
 
   <section class="fejezet-abra" id="abra" aria-labelledby="abra-cim">
     <h2 id="abra-cim"><span class="cimke">A fejezet ábrája</span>Mit mutat ez az ábra, egy mondatban</h2>
-    <!-- Fejezetenként más ábra: data-abra="vezerelv" csak a 00 és a 07 notebookban; a többi saját ábrát kap (második kör). -->
+    <!-- Fejezetenként más ábra: data-abra="vezerelv" csak a 00 és a 07 notebookban.
+         Mozgó magyarázó ábra (a statikus .abra helyett vagy mellett); a jelenet adata külön fájlban van (_assets/jelenetek/…js),
+         a közös jelenetek (alap.js): prompt-ut, szerepek-hurok, dns-epites. A szkripteket lásd a fájl végén.
+         <figure class="mozgo" data-jelenet="szerepek-hurok">
+           <figcaption>Az ábra szöveges megfelelője 1–2 mondatban: szkript nélkül is ebből érthető.</figcaption>
+         </figure> -->
     <figure class="abra" data-abra="NEV" data-stage="NN" data-cim="nincs">
       <figcaption>Az ábra szöveges megfelelője: mit mutat, mi az aktuális rész, mi következik.</figcaption>
     </figure>
@@ -86,11 +94,28 @@
         </header>
         <div class="lepes-test">
           <div class="lepes-racs">
-            <div class="mit-csinalsz"><h4>Mit csinálsz</h4><ul><li><b>Ige</b> + mit, mivel.</li><li><b>Ige</b> + mit, mivel.</li></ul></div>
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <!-- Alkalmazásváltás: csak ott, ahol a szöveg szerint tényleg másik alkalmazásra kell váltani; melyikre, és ott mit kell megadni. -->
+              <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Fájlkezelő</b><small>a Wenova-AI-workshop mappa</small></span></div>
+              <ul><li><b>Ige</b> + mit, mivel.</li><li><b>Ige</b> + mit, mivel.</li></ul></div>
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az asszisztens kimenete, fájl vagy táblázat.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az elfogadási kritérium résztvevői nyelven.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A kulcsgondolat egy mondatban.</div>
+          <!-- Villámkérdés: a helyes válaszon data-jo; minden válaszhoz egy mondat indoklás a tananyagból. Megoldókulcsot és a forrásokban
+               elrejtett hibát nem tartalmazhat.
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Kérdés a lépés kulcsgondolatára?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Egy mondat: miért nem.">Válasz 1</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Egy mondat: miért ez a jó.">Válasz 2</button></li>
+              <li><button type="button" data-visszajelzes="Egy mondat: miért nem.">Válasz 3</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+               Fordítós kártya:
+          <button type="button" class="fordito"><span class="f-elol">Kérdés?</span><span class="f-hatul">Válasz.</span><small>Kattints a megfordításhoz</small></button> -->
         </div>
       </section>
 
@@ -161,5 +186,8 @@
 </main>
 <script src="../_assets/wenova.js"></script>
 <script src="../_assets/wenova-abrak.js"></script>
+<!-- Mozgó ábrához (figure.mozgo) a wenova.js UTÁN: a lejátszó, majd a jelenetfájl(ok). Ha az oldalon nincs mozgó ábra, ez a két sor elhagyható. -->
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/alap.js"></script>
 </body>
 </html>

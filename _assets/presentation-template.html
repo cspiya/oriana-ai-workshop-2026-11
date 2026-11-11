@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NN. Előadás címe · Oriana × Wenova 2026.11.12</title>
 <link rel="stylesheet" href="../_assets/wenova.css">
+<link rel="stylesheet" href="../_assets/wenova-lapok.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 </head>
 <!-- Lapozható prezentáció. Navigáció: ← → szóköz, PgUp/PgDn, Home/End; S = tréneri jegyzet, O = áttekintés, F = teljes képernyő.
      data-depth: hány szinttel a 02_Production gyökere alatt van a fájl (00 Eloadas/ = 1). data-footer: a diák láblécének szövege.
-     Szabály: dián legfeljebb 4-5 sor vagy egy ábra; belső görgetősáv nincs (a dia nem nőhet a képernyőnél nagyobbra). -->
+     Szabály: dián legfeljebb 4-5 sor vagy egy ábra; belső görgetősáv nincs (a dia nem nőhet a képernyőnél nagyobbra).
+     Design system v3 (2026-11-11): a wenova.css után a wenova-lapok.css adja a diák v3-igazítását. A nyitódián (.slide.title) tinta
+     háttéren áll a Wenova-szóvédjegy (.deck-logo) és az embléma (.deck-emblema). Kiemelés: .takeaway (napsárga doboz), .kicker,
+     mark elem; emoji helyett szöveg. Dia-komponensek: .cols > .card · .cmp > .bad / .good · .steps6 · .seven · .tiles · .news · .band.
+     Mozgó ábra dián (csak ha elfér; az ábra mellett legfeljebb a cím álljon a dián):
+       <figure class="mozgo" data-jelenet="prompt-ut" data-auto="nincs"><figcaption>Szöveges megfelelő 1–2 mondatban.</figcaption></figure>
+     és a fájl végén a wenova.js UTÁN a wenova-motion.js, majd a jelenetek/alap.js (lásd a megjegyzést a szkripteknél). -->
 <body class="deck" data-depth="1" data-footer="Oriana × Wenova · Alapozás · 2026.11.12">
 <div class="slides">
 
   <section class="slide title" id="cim">
+    <img class="deck-logo" src="../_assets/logo/wenova-szovedjegy.png" alt="Wenova">
+    <img class="deck-emblema" src="../_assets/logo/wenova-emblema.png" alt="">
     <div class="slide-eyebrow">Oriana × Wenova · ChatGPT-workshop · 2026.11.12</div>
     <h1>Előadás címe</h1>
     <p>Egy mondatos alcím: mit visz haza a hallgató.</p>
@@ -24,10 +34,7 @@
     <div class="slide-eyebrow">Hol tartunk a napban</div>
     <h2>A nap íve</h2>
     <ul class="daymap" data-current="00"></ul>
-    <ul>
-      <li>Ma nem eszközt tanulunk, hanem módszert.</li>
-      <li>Minden blokk végén mentett eredmény a saját mappádban.</li>
-    </ul>
+    <p class="takeaway">Minden blokk végén mentett eredmény a saját mappádban.</p>
     <div class="notes">Házirend, laptop mikortól kell.</div>
   </section>
 
@@ -59,5 +66,9 @@
 
 </div>
 <script src="../_assets/wenova.js"></script>
+<!-- Ha a diákon .abra ábra van, ide jön a wenova-abrak.js; ha mozgó ábra (figure.mozgo) van, utána a wenova-motion.js és a jelenetek/alap.js:
+<script src="../_assets/wenova-abrak.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/alap.js"></script> -->
 </body>
 </html>
