@@ -9,6 +9,12 @@
 .mozgo-szin { padding: 1rem 1.2rem .4rem; background: var(--bg, #F6F7FC); background-image: radial-gradient(var(--border, #C5CAE3) 1.2px, transparent 1.2px); background-size: 22px 22px; }
 .mozgo-felirat { display: flex; gap: .8rem; align-items: flex-start; padding: .9rem 1.2rem; min-height: 4.2rem; background: var(--jegyezd-soft, #FFF4C2); border-top: 2px solid var(--ink, #14183A); border-bottom: 2px solid var(--ink, #14183A); font-size: 1.12rem; font-weight: 600; line-height: 1.4; color: var(--text, #14183A); }
 .mozgo-szam { flex: 0 0 auto; font-family: var(--mono, monospace); font-size: .82rem; font-weight: 700; background: var(--ink-fix, #14183A); color: #fff; border-radius: 999px; padding: .2rem .7rem; margin-top: .1rem; white-space: nowrap; }
+/* Konkrét példa: a jelenet esete (állandó) és az aktuális lépés megfelelője ebben az esetben */
+.mozgo-pelda { display: grid; grid-template-columns: auto 1fr; gap: .3rem .8rem; align-items: baseline; padding: .8rem 1.2rem; background: var(--accent-soft, #E3EAFF); border-bottom: 2px solid var(--ink, #14183A); font-size: 1rem; line-height: 1.4; }
+.mozgo-pelda[hidden] { display: none; }
+.mozgo-pelda .mp-cimke { font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; background: var(--accent, #6C9BFF); color: var(--ink-fix, #14183A); border: 2px solid var(--ink, #14183A); border-radius: 999px; padding: .1rem .7rem; white-space: nowrap; }
+.mozgo-pelda .mp-eset { font-weight: 800; }
+.mozgo-pelda .mp-lepes { grid-column: 1 / -1; font-family: var(--mono, monospace); font-size: .92rem; background: var(--surface, #fff); border: 2px dashed var(--border-strong, #8A90B4); border-radius: 10px; padding: .5rem .7rem; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 2.6rem; }
 .mozgo-vezerlo { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .7rem 1.2rem; }
 .mozgo .m-g { font: inherit; font-size: .95rem; font-weight: 800; min-height: 2.75rem; min-width: 2.75rem; padding: 0 .8rem; border: 2px solid var(--ink, #14183A); border-radius: 12px; background: var(--surface, #fff); color: var(--text, #14183A); cursor: pointer; }
 .mozgo .m-g:hover:not(:disabled) { background: var(--jegyezd, #FFD84D); color: var(--ink-fix, #14183A); }
@@ -54,12 +60,13 @@
 .m-csomag-szoveg { font-size: 17px; font-weight: 800; fill: var(--ink-fix, #14183A); text-anchor: middle; }
 .m-buborek-doboz { fill: var(--surface, #fff); stroke: var(--ink, #14183A); stroke-width: 2.5; }
 .m-buborek-szoveg { font-size: 16.5px; font-weight: 700; font-style: italic; fill: var(--text, #14183A); text-anchor: middle; }
-.m-buborek.be { animation: m-fel .35s ease-out both; }
+.m-buborek.be { animation: m-elo .35s ease-out both; }
 .m-jelzo-hatter { fill: var(--jegyezd, #FFD84D); stroke: var(--ink, #14183A); stroke-width: 2.5; }
 .m-jelzo-szoveg { font-size: 16px; font-weight: 800; fill: var(--ink-fix, #14183A); text-anchor: middle; }
 .m-szamlalo-hatter { fill: var(--ink-fix, #14183A); }
 .m-szamlalo-szoveg { font-size: 18px; font-weight: 800; fill: #fff; text-anchor: middle; }
 @keyframes m-dolgozik { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes m-elo { from { opacity: 0; } to { opacity: 1; } }
 @keyframes m-fel { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ---------- tokenek (HTML) ---------- */

@@ -15,7 +15,9 @@
    prefers-reduced-motion: reduce esetén nincs automatikus lejátszás és nincs mozgás, a lépések kattintással járhatók végig.
 
    ============================ JELENET REGISZTRÁLÁSA ============================
-   WenovaMotion.jelenet('nev', { tipus: 'aramlas' | 'tokenek' | 'epites', cim: '…', ... });
+   WenovaMotion.jelenet('nev', { tipus: 'aramlas' | 'tokenek' | 'epites', cim: '…', pelda: 'Az eset egy mondatban', ... });
+   A jelenet `pelda` mezője az eset neve (például: „a RONDO jóváhagyási workflow FDD-egysége”); a lépések `pelda` mezője (aramlas és
+   epites típusnál) azt mutatja meg, mit jelent az adott lépés ebben az esetben. Ha nincs megadva, a példasáv nem jelenik meg.
 
    tipus: 'aramlas'  – szereplők között utazó csomagok (ki kinek mit ad, hurokkal, számlálóval)
      meret: [1000, 560]                       a rajzvászon mérete (viewBox)
@@ -30,6 +32,7 @@
         szamlalo: 'Kör 1 / 2',  a jobb felső sarok számlálója (a következő módosításig érvényes)
         szin: 'kesz',           a csomag és a vonal színe
         szoveg: '…',            a lépés egy mondata (kötelező)
+        pelda: '…',             KONKRÉT PÉLDA: mit jelent ez a lépés a jelenet esetében (mit írsz, mi megy át, mi készül); a felirat alatt jelenik meg
         ido: 3200               a lépés ideje ms-ban automatikus lejátszáskor (alap: 3000)
      }]
 
@@ -196,7 +199,8 @@
   };
   Aramlas.prototype.hossz = function () { return this.def.lepesek.length; };
   Aramlas.prototype.szoveg = function (k) { return this.def.lepesek[k].szoveg || ''; };
-  Aramlas.prototype.ido = function (k) { return this.def.lepesek[k].ido || 3000; };
+  Aramlas.prototype.ido = function (k) { return this.def.lepesek[k].ido || (this.def.lepesek[k].pelda ? 4200 : 3000); };
+  Aramlas.prototype.pelda = function (k) { return this.def.lepesek[k].pelda || ''; };
 
   /* ================================ TOKENEK ================================ */
   function Tokenek(szin_, def) {
@@ -257,7 +261,8 @@
   function Epites(szin_, def) { this.def = def; this.gyoker = el('div', 'ep'); szin_.appendChild(this.gyoker); }
   Epites.prototype.hossz = function () { return this.def.lepesek.length; };
   Epites.prototype.szoveg = function (k) { return this.def.lepesek[k].szoveg || ''; };
-  Epites.prototype.ido = function (k) { return this.def.lepesek[k].ido || 3400; };
+  Epites.prototype.ido = function (k) { return this.def.lepesek[k].ido || (this.def.lepesek[k].pelda ? 4400 : 3400); };
+  Epites.prototype.pelda = function (k) { return this.def.lepesek[k].pelda || ''; };
   Epites.prototype.rajzol = function (k, anim) {
     var d = this.def, L = d.lepesek, n = L.length, h = '<div class="ep-torony">';
     for (var j = n - 1; j > k; j--) h += '<div class="ep-blokk hely" aria-hidden="true"><span class="ep-sorszam">' + (j + 1) + '</span><span>&nbsp;</span></div>';
@@ -281,6 +286,8 @@
     var fej = el('div', 'mozgo-fej', '<span class="mozgo-cimke">Mozgó ábra</span><b>' + esc(def.cim || '') + '</b>');
     var szin_ = el('div', 'mozgo-szin'); szin_.setAttribute('data-tipus', def.tipus);
     this.felirat = el('div', 'mozgo-felirat', '<span class="mozgo-szam"></span><span class="mozgo-szoveg"></span>'); this.felirat.setAttribute('aria-live', 'polite');
+    this.pelda = el('div', 'mozgo-pelda', '<span class="mp-cimke">Konkrét példa</span><span class="mp-eset"></span><span class="mp-lepes"></span>'); this.pelda.setAttribute('aria-live', 'polite'); this.pelda.hidden = true;
+    this.pelda.querySelector('.mp-eset').textContent = def.pelda || '';
     var vez = el('div', 'mozgo-vezerlo'); vez.setAttribute('role', 'group'); vez.setAttribute('aria-label', 'Az ábra lejátszása');
     function gomb(cls, szoveg, cim, fn) { var b = el('button', cls, szoveg); b.type = 'button'; b.title = cim; b.setAttribute('aria-label', cim); b.addEventListener('click', fn); vez.appendChild(b); return b; }
     this.bElol = gomb('m-g', '⏮', 'Elölről', function () { self.all(); self.mutat(0, true); });
@@ -288,7 +295,7 @@
     this.bJatek = gomb('m-g fo', '▶ Lejátszás', 'Lejátszás vagy szünet', function () { if (self.megy) self.all(); else self.jatek(); });
     this.bTovabb = gomb('m-g', '▶', 'Következő lépés', function () { self.all(); self.mutat(self.k + 1, true); });
     this.pottyok = el('div', 'mozgo-pottyok'); vez.appendChild(this.pottyok);
-    [fej, szin_, this.felirat, vez].forEach(function (x) { fig.insertBefore(x, cap); });
+    [fej, szin_, this.felirat, this.pelda, vez].forEach(function (x) { fig.insertBefore(x, cap); });
     this.r = new TIPUS[def.tipus](szin_, def);
     this.n = this.r.hossz();
     for (var i = 0; i < this.n; i++) (function (i) {
@@ -309,6 +316,9 @@
     this.r.rajzol(k, anim && !nincsMozgas());
     this.felirat.querySelector('.mozgo-szam').textContent = (k + 1) + ' / ' + this.n;
     this.felirat.querySelector('.mozgo-szoveg').textContent = this.r.szoveg(k);
+    var pl = this.r.pelda ? this.r.pelda(k) : '';
+    this.pelda.hidden = !(pl || this.pelda.querySelector('.mp-eset').textContent);
+    this.pelda.querySelector('.mp-lepes').textContent = pl || '(ennél a lépésnél nincs külön példa)';
     var ps = this.pottyok.children;
     for (var i = 0; i < ps.length; i++) { ps[i].classList.toggle('volt', i < k); ps[i].classList.toggle('most', i === k); if (i === k) ps[i].setAttribute('aria-current', 'step'); else ps[i].removeAttribute('aria-current'); }
     this.bVissza.disabled = k === 0; this.bTovabb.disabled = k === this.n - 1;
