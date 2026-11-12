@@ -31,6 +31,15 @@ body.attekinto .napi-nav .nav-lep { display: none; }
 .link-doboz { border: 2px dashed var(--border-strong); border-radius: var(--radius-lg); background: var(--surface); padding: 1rem 1.2rem; margin: var(--space-3) 0; }
 .link-doboz p { max-width: none; margin: 0 0 .4rem; overflow-wrap: anywhere; } .link-doboz p:last-child { margin-bottom: 0; }
 
+/* QR-doboz: a repó linkje kivetítőről telefonra (a kód mindig fekete-fehér, sötét témában is) */
+.qr-doboz { display: grid; grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: var(--space-4); align-items: center; border: 2px solid var(--border-strong); border-radius: var(--radius-lg); background: var(--surface); padding: 1.2rem; margin: var(--space-3) 0; }
+.qr-doboz .qr-kep { display: block; background: #fff; border-radius: 12px; overflow: hidden; line-height: 0; }
+.qr-doboz .qr-kep svg { display: block; width: 100%; height: auto; shape-rendering: crispEdges; }
+.qr-doboz p { max-width: none; margin: 0 0 .6rem; color: var(--text-secondary); overflow-wrap: anywhere; } .qr-doboz p:last-child { margin-bottom: 0; }
+.qr-doboz .qr-rovid { font-family: var(--mono); font-weight: 700; font-size: clamp(1.5rem, 3.2vw, 2.6rem); line-height: 1.2; color: var(--text); margin: .2rem 0 1rem; }
+.qr-doboz .qr-rovid a { color: inherit; }
+@media (max-width: 760px) { .qr-doboz { grid-template-columns: 1fr; } .qr-doboz .qr-kep { max-width: 22rem; } }
+
 /* Ugrólista (az oldal szakaszai) */
 .ugro { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: var(--space-3) 0 0; max-width: none; }
 .ugro li { margin: 0; }
