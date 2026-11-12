@@ -37,3 +37,7 @@ Minden notebook ugyanazt a vázat követi, felülről lefelé:
 8. **Vidd haza** és a **Következő** blokk kártyája.
 
 Megnyitás: dupla kattintás a fájlra, böngészőben, internet nélkül. A közös stílus, a napi térkép és a lépésvezető a `../_assets/wenova.css` és `wenova.js`, az ábrák a `wenova-abrak.js` fájlban vannak; a sablon új notebookhoz: `../_assets/notebook-template.html`. Vetítéshez URL-kapcsolók: `?tema=dark` (sötét) és `?anim=nincs` (az ábrák azonnal végállapotban).
+
+## Előadás-jegyzet
+
+`chatgpt-terkep.html`: ChatGPT Business térkép a nap elejére: Chat és Work, Work Local és Cloud, felületek, modellek; projekt, skill, plugin, kapcsolat, agent, Sites, Space; csapatmunka, a közös DNS gazdája és frissítése (két másolható prompttal); token és keret, mért fogyasztási adatokkal.

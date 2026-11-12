@@ -457,7 +457,7 @@
   // ugrólista a gyakorlatoldal tetején: a megértés-ábrák, a fejezet ábrája és a lépések egy kattintásra
   function ugroLista() {
     var fej = document.querySelector('main.lap > .session-fejlec'); if (!fej || document.querySelector('.ugro.auto')) return;
-    var celok = [['megertes', 'Ezt kell megértened'], ['abra', 'A fejezet ábrája'], ['lepesek', 'Ugrás a lépésekhez']], nav = document.createElement('nav');
+    var celok = [['megertes', 'Ezt kell megértened'], ['abra', 'A fejezet ábrája'], ['dns-promptok', 'A DNS promptjai egyben'], ['lepesek', 'Ugrás a lépésekhez']], nav = document.createElement('nav');
     nav.className = 'ugro auto'; nav.setAttribute('aria-label', 'Ugrás az oldalon belül');
     celok.forEach(function (c) { if (!document.getElementById(c[0])) return; var a = document.createElement('a'); a.href = '#' + c[0]; a.textContent = c[1]; if (c[0] === 'lepesek') a.className = 'fo'; nav.appendChild(a); });
     if (nav.children.length > 1) fej.parentNode.insertBefore(nav, fej.nextSibling);

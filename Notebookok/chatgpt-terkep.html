@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT Business térkép: felépítés, építőelemek, csapatmunka, keret · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+<style>
+.tk-bevezeto { max-width: 64rem; }
+.tk-szakasz { scroll-margin-top: 5rem; }
+.tk-szakasz > h2 { display: flex; align-items: center; gap: .8rem; font-size: 1.7rem; }
+.tk-szam { flex: 0 0 auto; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 2px solid var(--ink, #14183A); background: var(--jegyezd, #FFD84D); color: var(--ink-fix, #14183A); font-weight: 800; display: grid; place-items: center; font-size: 1.2rem; }
+.tk-racs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); gap: 1rem; margin: 1rem 0; }
+.tk-k { border: 2px solid var(--ink, #14183A); border-radius: 18px; background: var(--surface, #fff); padding: 1rem 1.1rem; box-shadow: 4px 4px 0 var(--ink, #14183A); }
+.tk-k h3 { margin: 0 0 .2rem; font-size: 1.15rem; }
+.tk-k .tk-al { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; border: 2px solid var(--ink, #14183A); border-radius: 999px; padding: .05rem .6rem; margin-bottom: .5rem; background: var(--accent-soft, #E3EAFF); }
+.tk-k .tk-al.z { background: var(--kesz-soft, #DFF5E7); } .tk-k .tk-al.s { background: var(--jegyezd-soft, #FFF6D6); } .tk-k .tk-al.p { background: var(--figyelj-soft, #FFE3DC); } .tk-k .tk-al.l { background: var(--elakadas-soft, #EDE6FF); }
+.tk-k p { margin: .3rem 0; font-size: .95rem; }
+.tk-k dl { margin: .4rem 0 0; font-size: .92rem; }
+.tk-k dt { font-weight: 800; margin-top: .45rem; }
+.tk-k dd { margin: 0; color: var(--text-secondary, #3A4063); }
+.tk-ket { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.tk-tabla { overflow-x: auto; }
+.tk-tabla table th { text-align: left; }
+.tk-lepcso { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .6rem; counter-reset: l; }
+.tk-lepcso li { counter-increment: l; border: 2px solid var(--ink, #14183A); border-radius: 14px; padding: .7rem 1rem .7rem 3.4rem; position: relative; background: var(--surface, #fff); }
+.tk-lepcso li::before { content: counter(l); position: absolute; left: .8rem; top: .65rem; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 2px solid var(--ink, #14183A); background: var(--accent, #6C9BFF); color: var(--ink-fix, #14183A); font-weight: 800; display: grid; place-items: center; }
+.tk-lepcso b { display: block; }
+.tk-forras { font-size: .85rem; color: var(--text-muted, #555B7A); }
+.tk-szakasz pre.prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .tk-ket { grid-template-columns: 1fr; } }
+</style>
+</head>
+<!-- ChatGPT Business térkép: az előadásrészek jegyzete az új formátumban. Források: a 2026. szeptemberi eszköztár-előadás, az Oriana modellhasználati irányelve, a novemberi alapozó és újdonság-diák, a glosszárium, a 3. gyakorlat forgatókönyve, a fiktív DNS-minta. -->
+<body class="notebook v2" data-depth="1">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="tk-bevezeto" id="cel">
+    <div class="eyebrow"><span>Előadás-jegyzet · a nap eleje</span><span class="badge all">közös</span></div>
+    <h1>ChatGPT Business térkép: mi mire való, és hogyan dolgozik belőle egy csapat?</h1>
+    <p>Négy kérdés, amelyre a nap elején közösen választ adunk: <b>hogyan épül fel</b> a ChatGPT (Chat, Work, helyi és felhős munka, felületek, modellek), <b>milyen építőelemei</b> vannak (projekt, skill, plugin, kapcsolat, agent, Sites, Space), <b>hogyan dolgozik vele egy csapat</b> (megosztás, közös szabályok, az Oriana DNS gazdája és frissítése), és <b>hogyan takarékoskodunk a kerettel</b>.</p>
+    <div class="callout figyelj"><span class="callout-cim">Mielőtt elhiszed</span>A ChatGPT gyorsan változik, és sok funkció munkatérfüggő. Ez az oldal a 2026. szeptemberi és novemberi tananyag állapotát rögzíti. <b>Csak az számít igennek, amit a saját képernyődön láttál</b>; ami nálad nem látszik, arra azt mondjuk: „nem látszik a munkatérben”.</div>
+    <nav class="ugro auto" aria-label="Ugrás az oldalon belül"><a href="#felepites">1. Hogyan épül fel?</a><a href="#epitoelemek">2. Építőelemek</a><a href="#csapat">3. Csapatmunka és a közös DNS</a><a href="#keret">4. Token és keret</a><a href="#fogalmak">Fontos fogalmak</a></nav>
+  </section>
+
+  <!-- ======================================================= 1 -->
+  <section class="tk-szakasz" id="felepites">
+    <h2><span class="tk-szam">1</span>Hogyan épül fel? Három választás minden feladat előtt</h2>
+    <p>Minden feladatnál három dolgot választasz: <b>munkamódot</b> (Chat vagy Work), <b>helyet</b> (a Work a gépeden vagy a felhőben fut-e), és <b>modellt</b>. A felület (asztali app, web, mobil) azt dönti el, hogy ezek közül mi érhető el.</p>
+
+    <h3>Chat vagy Work?</h3>
+    <div class="tk-ket">
+      <div class="tk-k"><span class="tk-al">Chat</span><h3>Egy kérdés, egy válasz</h3>
+        <p>Kérdés, megfogalmazás, ötletelés, egy csatolt dokumentum alapján adott válasz.</p>
+        <dl><dt>Példa</dt><dd>„Fogalmazd át udvariasabbra ezt a levelet.” · „Mit jelent ez a bekezdés a szerződésben?”</dd>
+        <dt>Mire nem való</dt><dd>Sok fájl, mappák, több lépéses munka, fájlkimenet mentése.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al z">Work</span><h3>Több lépés, fájlokkal</h3>
+        <p>Az AI a megnyitott munkamappában fájlokat olvas és ír, több lépést önállóan végez, skillt és kapcsolatot használhat.</p>
+        <dl><dt>Példa</dt><dd>„Kezdjük a 4. gyakorlatot.” · „Vesd össze a mappa három jegyzetét, és mentsd táblázatba az eltéréseket.”</dd>
+        <dt>Mire figyelj</dt><dd>Több keretet fogyaszt. Az Oriana irányelve: „Ne indíts Work-feladatot olyan munkára, amelyet egy egyszerű Chat is meg tud oldani.”</dd></dl></div>
+    </div>
+
+    <h3>Work a gépeden (Local) vagy a felhőben (Cloud)?</h3>
+    <div class="tk-ket">
+      <div class="tk-k"><span class="tk-al s">Work Local</span><h3>A gépeden fut</h3>
+        <p>A helyi géphez és a munkamappához kötött munka: a mappáid a gépeden vannak, az AI ott olvas és oda ment.</p>
+        <dl><dt>Mikor jó</dt><dd>Helyi fájlokon végzett összetett munka: Excel, Word, sok forrás egy mappában, script futtatása, fájlkimenet. A mai gyakorlatok ilyenek.</dd>
+        <dt>Korlát</dt><dd>Hosszú futásnál a gépnek bekapcsolva és online kell maradnia, és az alkalmazásnak futnia kell.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al l">Work Cloud</span><h3>Felhős gépen fut</h3>
+        <p>A munka a te géped nélkül is fut.</p>
+        <dl><dt>Mikor jó</dt><dd>Hosszú vagy ütemezett futás, amelyhez nem kell a géped.</dd>
+        <dt>Korlát</dt><dd>A helyi fájljaidat nem örökli: a bemenetet külön elérhetővé kell tenni (feltöltött vagy kapcsolaton át elérhető anyag).</dd></dl></div>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Döntési kérdés</span>Hol van a forrás? Mennyi ideig fut? Kell-e hozzá a géped? Ha a forrás a gépeden van, Local. Ha a munkának nélküled is mennie kell, Cloud, de akkor a forrást előbb oda kell juttatni.</div>
+
+    <h3>Melyik felületen mit tudsz?</h3>
+    <div class="tk-tabla"><table>
+      <tr><th>Felület</th><th>Mire való</th><th>Mire nem</th><th>Ma</th></tr>
+      <tr><td><b>Asztali app</b></td><td>Work helyi mappával, fájlkimenet, projektek</td><td>Az Agents oldal nem mindig látszik benne</td><td>ez a fő felület</td></tr>
+      <tr><td><b>Web</b></td><td>Munkatér-beállítások, Sites, Agents</td><td>Work a saját géped mappájával</td><td>ha az Agents kell</td></tr>
+      <tr><td><b>Mobil</b></td><td>Gyors kérdés, diktálás, fotó</td><td>Több fájlos feladat, fájlkimenet</td><td>nem használjuk</td></tr>
+      <tr><td><b>Codex</b></td><td>Fejlesztői felület és parancssor ugyanarra a motorra; a pluginek és skillek itt is használhatók</td><td>Nem a mindennapi irodai munka felülete</td><td>nem használjuk; a tananyag példáit ezzel futtattuk le ellenőrzésként</td></tr>
+    </table></div>
+    <p class="tk-forras">Ugyanazzal a fiókkal és munkatérrel használod mindet. A beszélgetés és a feladat kontextusa akkor is a felhőben tárolódik, ha a munka helyben fut. (Forrás: a 2026. szeptemberi eszköztár-előadás; a felületek elérhetősége azóta változhatott.)</p>
+
+    <h3>Melyik modellt mire?</h3>
+    <div class="tk-racs">
+      <div class="tk-k"><span class="tk-al">alap</span><h3>GPT-6 Luna</h3><p>A vezetett és közös munka modellje: összefoglalás, adatkinyerés, kategorizálás, ismétlődő feldolgozás, skill futtatása, gyors kérdés.</p><p><b>Ma:</b> minden tutor-gyakorlat.</p></div>
+      <div class="tk-k"><span class="tk-al z">maker</span><h3>GPT-6.1 Terra</h3><p>A hosszú, önálló háttérmunka modellje a Work-ben (közepes effort).</p><p><b>Ma:</b> a 4. gyakorlat makere, amely ebéd alatt dolgozik.</p></div>
+      <div class="tk-k"><span class="tk-al l">reviewer</span><h3>GPT-6.1 Sol</h3><p>Összevetés, több forrás, döntés-előkészítés, független ellenőrzés.</p><p><b>Ma:</b> az 5. gyakorlat reviewere és a 4. gyakorlat páros ellenőre.</p></div>
+      <div class="tk-k"><span class="tk-al p">kivétel</span><h3>Astra</h3><p>Az Oriana irányelvében a különösen összetett feladatok kategóriája; a legtöbb keretet fogyasztja.</p><p><b>Ma:</b> nem használjuk.</p></div>
+    </div>
+    <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Mindig a legkisebb olyan modellt használd, amely megbízhatóan el tudja végezni a feladatot. Ha egy modell nem látszik a választóban, szólj a trénernek: nem találgatunk, és nem választunk helyette másikat.</div>
+
+    <h3>Mennyit tehet a Work kérdezés nélkül?</h3>
+    <div class="tk-racs">
+      <div class="tk-k"><span class="tk-al p">lépésenként kérdez</span><h3>Ask for Approval</h3><p>Ismeretlen forrás, érzékeny anyag, első használat. Teljes kontroll, sok megszakítás.</p></div>
+      <div class="tk-k"><span class="tk-al z">ma ez az ajánlott</span><h3>Approve for me</h3><p>Ismert munkamappa, egyeztetett kimenet. A feladaton belül önálló, a munka gördülékeny.</p></div>
+      <div class="tk-k"><span class="tk-al s">csak megbízható környezetben</span><h3>Full access</h3><p>Egyértelmű, visszaállítható folyamat. A leggyorsabb, de egy félreértett cél több nem kívánt módosítást okozhat.</p></div>
+    </div>
+    <p class="tk-forras">A felület pontos elnevezése a ChatGPT verziójától függhet. A választásod a 0. gyakorlatban kerül a profilodba.</p>
+  </section>
+
+  <!-- ======================================================= 2 -->
+  <section class="tk-szakasz" id="epitoelemek">
+    <h2><span class="tk-szam">2</span>Építőelemek: mi micsoda, és mire használd?</h2>
+    <p>Ezekből rakod össze a saját munkamódodat. A sorrend nem véletlen: előbb a tudás és a szabály (projekt, skill), utána a kapcsolat a rendszerekhez (plugin, kapcsolat), végül az, ami magától fut vagy másoknak szól (ütemezett feladat, agent, Sites, Space).</p>
+    <div class="tk-racs">
+      <div class="tk-k"><span class="tk-al">a munka helye</span><h3>Projekt és projektutasítás</h3>
+        <p>Összetartozó beszélgetések és fájlok közös tere. A projektutasítás minden benne indított beszélgetésre érvényes alapszabály.</p>
+        <dl><dt>Mire használd</dt><dd>Egy ügy, egy ügyfél vagy egy visszatérő feladat minden beszélgetése egy helyen, ugyanazokkal a szabályokkal.</dd>
+        <dt>Ma</dt><dd>Az <code>Oriana AI-workshop</code> projekt a <code>Wenova-AI-workshop</code> mappával.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al z">a recept</span><h3>Skill</h3>
+        <p>Egy feladat újrahasználható utasításcsomagja (<code>SKILL.md</code>): mikor fusson, mit kap, milyen lépéseket végez, mit ad vissza, hogyan ellenőrzi magát.</p>
+        <dl><dt>Mire használd</dt><dd>Amit már kétszer-háromszor ugyanúgy megcsináltál, és a menete letisztult.</dd>
+        <dt>Mire figyelj</dt><dd>Szabályt tartalmaz, nem konkrét ügyféladatot vagy dátumot.</dd>
+        <dt>Ma</dt><dd>Az 5. gyakorlat reviewer-receptje, a BA-szekció keresztreferencia-skillje, a Sales-szekció ügyfélprofil-skillje.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al l">a csomag</span><h3>Plugin</h3>
+        <p>Telepíthető bővítménycsomag: skilleket, külső rendszerekhez kapcsolódó eszközöket és referenciafájlokat foghat össze.</p>
+        <dl><dt>Ki mit tesz</dt><dd>A munkatér adminja engedélyezi, a tag telepíti, és ha kell, a saját fiókjával bejelentkezik.</dd>
+        <dt>Mire figyelj</dt><dd>A saját GPT-k tervezett kivezetése 2026-12-11; a helyüket a pluginek és skillek veszik át. A fiókod értesítése az irányadó.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al s">az ajtó a rendszerekhez</span><h3>Kapcsolat (MCP)</h3>
+        <p>Szabályozott csatorna egy külső rendszerhez (például dokumentumtár, levelezés, naptár), hogy ne kelljen kézzel feltölteni a fájlt. Az MCP nyílt szabvány erre.</p>
+        <dl><dt>Mire figyelj</dt><dd>A kapcsolat a <b>kapcsolt fiók jogosultságával</b> dolgozik: azt látja, amihez annak a fióknak joga van. Módosítás külön engedélyhez kötött.</dd>
+        <dt>Ami nem változik</dt><dd>A lényeges állítást az eredeti forrásban ellenőrzöd.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al">magától indul</span><h3>Ütemezett feladat és Team Tasks</h3>
+        <p>Az ütemezett feladat egy bevált promptot adott időben vagy rendszeresen futtat. A Team Tasks ugyanez csapatszinten: ütemezésre vagy eseményre indul, a csapat szolgáltatásfiókjával.</p>
+        <dl><dt>Mire figyelj</dt><dd>A csapatfeladat nem örökli a létrehozó memóriáját és előzményeit: mindent az utasításnak kell tartalmaznia, az írási határt is.</dd>
+        <dt>Szabály</dt><dd>Előbb egy bevált feladatot rögzíts, csak utána ütemezd. Ha a munkatérben elérhető.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al p">feladatra szabott asszisztens</span><h3>Agents (Workspace Agent)</h3>
+        <p>A munkatérben beállított, egy feladatra szabott asszisztens: utasítást, tudást, skilleket és kapcsolt appokat használ, megosztható.</p>
+        <dl><dt>Hol találod</dt><dd>A <b>webes</b> felületen. Az asztali appban nem mindig látszik: ez nem hiba, weben ellenőrizd.</dd>
+        <dt>Ma</dt><dd>A Sales-Account szekció „Oriana ügyfélkutatás” ügynöke; a 7. gyakorlatban a sajátod leírását tervezed meg. Ha a munkatérben elérhető.</dd>
+        <dt>Ne keverd</dt><dd>Az <code>AGENTS.md</code> egy utasításfájl a mappában, nem ez a funkció.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al z">megmutatható eredmény</span><h3>Sites</h3>
+        <p>Weboldal vagy kisebb webalkalmazás ellenőrzött tartalomból: szűrhető beszámoló, ügykövető, státuszoldal. Linkkel osztható, jogosultság szerint.</p>
+        <dl><dt>Szabály</dt><dd>Előbb az ellenőrzött tartalom, utána a látvány: az oldal ugyanazt a számot mutassa, amelyet ellenőriztél. A mentés és a közzététel (deploy) külön lépés.</dd>
+        <dt>Ma</dt><dd>A 6. kiegészítő gyakorlat ügykövetője. Ha a munkatérben elérhető.</dd></dl></div>
+      <div class="tk-k"><span class="tk-al l">közös felület</span><h3>Space</h3>
+        <p>Közös ChatGPT-munkafelület dokumentumok, diák, táblázatok, Sites és fájlok rendezésére és közös használatára.</p>
+        <dl><dt>Jogok</dt><dd>Megtekintés, komment, szerkesztés (View, Comment, Edit); a hozzáférés öröklődik az oldalakra.</dd>
+        <dt>Ma</dt><dd>A 3. kiegészítő gyakorlat próbálja ki. Ha a munkatérben elérhető.</dd></dl></div>
+    </div>
+    <div class="callout tipp"><span class="callout-cim">Hogyan épülnek egymásra?</span>A <b>projekt</b> adja a helyet és az alapszabályt. A <b>skill</b> egy feladat receptje. A <b>plugin</b> skilleket és kapcsolatokat csomagol egybe, hogy a csapat ugyanazt telepítse. Az <b>agent</b> ezekből épít feladatra szabott asszisztenst, az <b>ütemezés</b> pedig magától elindítja. A <b>Sites</b> és a <b>Space</b> az, ahol az eredményt mások is látják.</div>
+  </section>
+
+  <!-- ======================================================= 3 -->
+  <section class="tk-szakasz" id="csapat">
+    <h2><span class="tk-szam">3</span>Csapatmunka: mit hol osztunk meg, és kié a közös tudás?</h2>
+    <p>A csapatmunkához három dolog kell: tudni, <b>mit hol lehet megosztani</b>; tudni, hogy a megosztás <b>milyen jogot ad</b>; és megegyezni, hogy a közös szabályoknak <b>ki a gazdája</b>.</p>
+
+    <h3>A megosztás szintjei</h3>
+    <div class="tk-tabla"><table>
+      <tr><th>Mit osztasz meg</th><th>Mit lát a másik</th><th>Mire jó</th></tr>
+      <tr><td><b>Beszélgetés linkkel</b></td><td>A munkatér tagjainak megnyíló nézet a beszélgetésről. Hogy a megosztás után írt üzenet látszik-e, azt próbáld ki.</td><td>Átadás, betanítás: „így csináltam”.</td></tr>
+      <tr><td><b>Közös projekt</b></td><td>Jogok: Chat vagy Edit. Az Edit utasítást és fájlt is módosíthat.</td><td>Egy ügy közös beszélgetései azonos szabályokkal.</td></tr>
+      <tr><td><b>Space-oldal</b></td><td>View, Comment vagy Edit; a jog öröklődik az oldalakra.</td><td>Közös dokumentumok, táblázatok, Sites egy helyen.</td></tr>
+      <tr><td><b>Kész, ellenőrzött fájl</b></td><td>Amit a megszokott közös tárhely jogosultsága enged.</td><td>A végeredmény átadása a cég szabályai szerint.</td></tr>
+      <tr><td><b>Skill, plugin, agent</b></td><td>A plugint az admin engedélyezi, a tag telepíti; az agent megosztható.</td><td>Ugyanaz a recept az egész csapatnak.</td></tr>
+    </table></div>
+    <div class="callout figyelj"><span class="callout-cim">Négy külön jog</span>Az olvasás, a kommentelés, a szerkesztés és az appengedély négy külön jog. A beállítás neve csak ígéret: <b>a tényleges hozzáférést a próba mutatja meg</b> (a társad megpróbál olvasni, kommentelni, szerkeszteni). Bizalmas anyag csak a céges munkatérbe kerül, magánfiókba soha; közös bejelentkezés nincs, mindenki a saját fiókjával dolgozik.</div>
+    <p class="tk-forras">A közös projekt és a Space csak akkor érhető el, ha a munkatérben látszik. Ha nem: a cég szabályai szerint engedélyezett fájlátadás a tartalék.</p>
+
+    <h3>Hogyan lesz az Oriana DNS közös tudás?</h3>
+    <p>A DNS attól közös, hogy <b>egy helyen van, verziója és gazdája van</b>, és mindenki ugyanazt a kiadást olvassa. Nem egyetlen oldal: mappa, benne modulokkal, és idővel nő.</p>
+    <ol class="tk-lepcso">
+      <li><b>Egy kanonikus hely.</b>A DNS egyetlen, megnevezett helyen él; a README „Kanonikus hely” mezője mondja meg, hol. Másolatból nem dolgozunk. Hogy ez melyik közös tárhely vagy projekt legyen, arról az Oriana dönt: Nincs megadva.</li>
+      <li><b>A README mondja meg, használható-e.</b>Verzió, gazda, státusz, érvényesség, jóváhagyó, utolsó ellenőrzés. Ha a státusz nem hatályos, vagy az érvényesség lejárt, előbb a gazdát kérdezed.</li>
+      <li><b>Mindenki olvas, és a beszélgetés elején beolvastatja.</b>A projektutasítás egy sora gondoskodik róla, hogy az AI minden beszélgetés elején megmondja, melyik verzióból dolgozik.</li>
+      <li><b>Bárki javasolhat, de a javaslat nem döntés.</b>Aki hibát vagy újabb forrást talál, javaslatfájlt készít: érintett állítás, javasolt szöveg, forráshely. A modult nem írja át.</li>
+      <li><b>A gazda dönt, és új verziót ad ki.</b>A modul gazdája jóváhagyja vagy elutasítja a javaslatot; a jóváhagyott változás új verziószámot és új sort kap a változásnaplóban. A régi változat megmarad.</li>
+      <li><b>Független ellenőrzés.</b>Egy másik ember (vagy külön beszélgetés) egy-két állítást visszakeres a forrásban, mielőtt a kiadás „hatályos” lesz.</li>
+    </ol>
+    <div class="tk-tabla"><table>
+      <tr><th>Szerep</th><th>Mit tehet</th><th>Mit nem</th></tr>
+      <tr><td><b>Mindenki</b></td><td>Olvas, alkalmaz, hivatkozik (modul, szakasz, verzió), hibát és hiányt jelez, javaslatot ír.</td><td>Nem írja át a modult, nem dolgozik saját másolatból.</td></tr>
+      <tr><td><b>A modul gazdája</b></td><td>Dönt a javaslatról, átvezeti, verziót ad, vezeti a változásnaplót.</td><td>Nem hagyja jóvá a saját ellenőrzése alapján „hatályosnak”.</td></tr>
+      <tr><td><b>Jóváhagyó</b></td><td>Kimondja, hogy a kiadás hatályos szabály.</td><td>Amíg nincs megnevezve: „Nincs megadva”, és a kiadás tervezet.</td></tr>
+      <tr><td><b>Az AI</b></td><td>Beolvassa, alkalmazza, a hiányt kimondja, javaslatot készít.</td><td>Nem talál ki állítást, és nem dönt a gazda helyett.</td></tr>
+    </table></div>
+    <p class="tk-forras">Ez javasolt működési minta a fiktív DNS-minta szerkezete alapján; a szerepek betöltéséről és a jogokról az Oriana dönt. Ma a v0.1 a saját fiókodban és gépeden készül; nem szervezeti szabály.</p>
+
+    <h3>Két prompt a frissítéshez</h3>
+    <p>Mindkettőt valódi futással ellenőriztük egy kitalált cég két forrásán. A <code>&lt;…&gt;</code> helyére a saját adatod kerül.</p>
+    <div class="tk-ket">
+      <div class="pelda"><span class="pelda-cimke">Bárki: frissítési javaslat</span>
+        <pre class="prompt-box">Cél: frissítési javaslat a DNS &lt;modul, például szabalyok/ba.md&gt; moduljához. A modult nem módosítod.
+Címzett: a modul gazdája: &lt;név&gt;.
+Forrás és határ: az új forrás: &lt;fájl&gt;, és a jelenlegi modul: Munka/01-DNS/dns/&lt;modul&gt;; más forrás nincs.
+Kimeneti séma: javaslat-tábla: érintett állítás vagy hiány szó szerint | javasolt új szöveg | forrás és forráshely | miért. Ha az új forrás ellentmond a jelenlegi szövegnek, mindkettő szerepeljen.
+Szabályok: a javaslat nem döntés; a modulfájlt nem írod át; hiány „Nincs megadva”.
+Ellenőrzés: minden sorhoz van forráshely (fájl és pont).
+Mentés: Munka/01-DNS/javaslatok/&lt;dátum&gt;_&lt;modul&gt;_javaslat.md.</pre></div>
+      <div class="pelda"><span class="pelda-cimke">A gazda: jóváhagyás és új verzió</span>
+        <pre class="prompt-box">Cél: a jóváhagyott javaslatok átvezetése és új verzió kiadása. Ezt a modul gazdája futtatja: &lt;név&gt; vagyok, és a &lt;javaslatfájl&gt; következő sorait hagyom jóvá: &lt;sorok&gt;.
+Címzett: mindenki, aki a DNS-ből dolgozik.
+Forrás és határ: a javaslatfájl jóváhagyott sorai és az ott megnevezett forrás; más változtatás nem kerülhet be.
+Kimeneti séma: a modul új változata; a README-ben az új verzió és az utolsó ellenőrzés dátuma, új sor a változásnaplóban (verzió, dátum, változás, ki); a forrásjegyzékben az új forrás sora.
+Szabályok: a korábbi modulváltozat megmarad a régi verziószámmal a nevében; hiány „Nincs megadva”. A kiadás státusza nem változik: amíg a jóváhagyó nincs megnevezve, marad „tervezet, jóváhagyásra vár”.
+Ellenőrzés: a változásnapló új sora megnevezi a javaslatfájlt; a modul minden új állításánál van forrásazonosító, és az szerepel a forrásjegyzékben.
+Mentés: a modul új változata, a régi változat másolata, a README és a forrásjegyzék.</pre></div>
+    </div>
+    <div class="callout figyelj"><span class="callout-cim">Amit a próbafutás megmutatott</span>A javaslat-prompt a modulhoz nem nyúlt, és a tábla minden sorához forráshelyet adott; ahol az új forrás sem mondott semmit, ott megmaradt a „Nincs megadva”. A gazda promptja új verziót (0.2) adott ki, megőrizte a régi változatot, és a változásnaplóban megnevezte a javaslatfájlt. Egy dolgot viszont elrontott: a kiadás státuszát „jóváhagyott”-ra írta, pedig jóváhagyó nem volt megnevezve. Ezért került utólag a promptba a státuszról szóló mondat (ezzel a mondattal még nem futtattuk újra): <b>a gazda döntése egy javaslatról még nem teszi hatályossá a kiadást</b>. (Kitalált cég, FIKTÍV OKTATÁSI MINTA; a két futás kb. 37 és 66 ezer tokent használt.)</div>
+    <p>A DNS elkészítésének hat promptja az <a href="01-dns-notebook.html#dns-promptok">1. gyakorlat oldalán</a> található, egyben.</p>
+  </section>
+
+  <!-- ======================================================= 4 -->
+  <section class="tk-szakasz" id="keret">
+    <h2><span class="tk-szam">4</span>Token és keret: mi fogyaszt, és hogyan takarékoskodj?</h2>
+    <p>A modell <b>tokenekben</b> dolgozik: egy magyar szó nagyjából 1,5–2 token. Minden bemenet token (az előzmény, a csatolt fájl, a mappa beolvasott része, az utasítás), és minden kimenet is; a kimeneti token a drágább. A Work a munkatér közös Work-keretét fogyasztja.</p>
+    <div class="tk-ket">
+      <div class="tk-k"><span class="tk-al p">ez viszi a keretet</span><h3>Mi fogyaszt sokat?</h3>
+        <ul>
+          <li>Hosszú beszélgetés: az előzmény <b>minden körben újra</b> bemenet.</li>
+          <li>Túl nagy modell egy egyszerű feladatra.</li>
+          <li>Work indítása egyszerű kérdésre.</li>
+          <li>Az egész mappa bevonása, ha csak néhány fájl kell.</li>
+          <li>Hosszú utasítás- és tudásfájlok beolvasása minden új beszélgetésben.</li>
+          <li>Több kör maker és reviewer egy kis tétű feladaton.</li>
+        </ul></div>
+      <div class="tk-k"><span class="tk-al z">hat szokás</span><h3>Hogyan takarékoskodj?</h3>
+        <ul>
+          <li><b>Új feladat, új beszélgetés.</b> A lezárt feladatot ne vidd tovább.</li>
+          <li><b>Chat vagy Work?</b> Egyszerű kérdésre Chat.</li>
+          <li><b>A legkisebb elegendő modell.</b> Luna az alap.</li>
+          <li><b>Csak a szükséges forrás.</b> Nevezd meg a fájlt, ne az egész mappát.</li>
+          <li><b>Mondd meg a kimenet méretét.</b> „Legfeljebb egy oldal”, „csak az eltérések”.</li>
+          <li><b>A tét dönt.</b> Kis tétnél egy menet és egy gépi ellenőrzés elég; reviewer akkor kell, ha a kimenet kifelé megy, pénzt, vállalást vagy döntést érint.</li>
+        </ul></div>
+    </div>
+    <h3>Mennyi az annyi? Mért adatok a tananyag próbafutásaiból</h3>
+    <div class="tk-tabla"><table>
+      <tr><th>Mit futtattunk</th><th>Felhasznált token</th><th>Mit mutat</th></tr>
+      <tr><td>Egy gyakorlat indítása („Kezdjük az N. gyakorlatot”), első válasz</td><td>kb. 40–63 ezer</td><td>A szabályok, a profil és a forgatókönyv beolvasása már az első üzenetnél sokba kerül.</td></tr>
+      <tr><td>Egy rövid visszakérdezés (orchestrator)</td><td>kb. 12 ezer</td><td>Egy egyszerű kör is tízezres nagyságrend Work-ben.</td></tr>
+      <tr><td>Egy maker-futás egy tízsoros jegyzeten</td><td>kb. 20–39 ezer</td><td>A javító kör nem olcsóbb az elsőnél.</td></tr>
+      <tr><td>Egy reviewer-futás ugyanazon</td><td>kb. 23–35 ezer</td><td>Az ellenőrzés nagyjából annyiba kerül, mint a készítés.</td></tr>
+      <tr><td>A <a href="pelda-hurok.html">teljes példa</a>: 3 változat, 3 ellenőrzés</td><td>kb. 223 ezer</td><td>Ezért dönt a tét arról, kell-e a teljes hurok.</td></tr>
+    </table></div>
+    <p class="tk-forras">A mérések 2026. november 11–12-én készültek, parancssorból, ugyanazzal a motorral; nálad az értékek eltérhetnek. Ezek tokenek, nem kreditek és nem forintok: az átváltást és a munkatér keretét a munkatér tulajdonosa látja. A saját fogyasztásodat a beállítások használati nézetében követheted (az elnevezés verziófüggő; ha nem látszik, szólj).</p>
+    <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A keretet nem a „sok kérdés” viszi el, hanem a hosszú előzmény, a nagy modell és a feleslegesen indított Work. Ha egy beszélgetés elkalandozott, zárd le, és kezdj újat a mentett fájlból.</div>
+  </section>
+
+  <section class="fogalmak" id="fogalmak">
+    <span class="fg-cimke">Fontos fogalmak</span>
+    <h3>Amit ebből az előadásból megjegyzel</h3>
+    <dl>
+      <div><dt>Chat és Work</dt><dd>Chat: egy válasz. Work: több lépés a munkamappa fájljaival.</dd></div>
+      <div><dt>Work Local és Cloud</dt><dd>Local: a gépeden, a mappáiddal. Cloud: a géped nélkül, külön elérhetővé tett forrással.</dd></div>
+      <div><dt>Skill</dt><dd>Egy ismétlődő feladat receptje, konkrét adat nélkül.</dd></div>
+      <div><dt>Plugin</dt><dd>Skillek és kapcsolatok egy telepíthető csomagban.</dd></div>
+      <div><dt>Kapcsolat (MCP)</dt><dd>Csatorna egy külső rendszerhez, a kapcsolt fiók jogán.</dd></div>
+      <div><dt>Agents</dt><dd>Feladatra szabott munkatéri asszisztens; a webes felületen keresd.</dd></div>
+      <div><dt>Sites és Space</dt><dd>Sites: megmutatható oldal ellenőrzött tartalomból. Space: közös munkafelület.</dd></div>
+      <div><dt>Gazda</dt><dd>Az az ember, aki egy DNS-modulért felel: ő dönt a változásról, és ő ad új verziót.</dd></div>
+      <div><dt>Token</dt><dd>A modell mértékegysége; a bemenet és a kimenet is fogyasztja a keretet.</dd></div>
+    </dl>
+    <ul class="megjegyzendo">
+      <li>A legkisebb megbízhatóan elegendő modell és munkamód.</li>
+      <li>A megosztás hatását a próba mutatja meg, nem a beállítás neve.</li>
+      <li>A közös tudásnak egy helye, verziója és gazdája van; a javaslat nem döntés.</li>
+      <li>Új feladat, új beszélgetés.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · A funkciók elérhetősége munkatérfüggő; a saját képernyőd az irányadó.</span><span><a href="../index.html">Napi térkép</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="../index.html">Napi térkép</a>
+      <a href="00-halado-setup-notebook.html" rel="next">0. gyakorlat ▶</a>
+      <a href="01-dns-notebook.html">1. gyakorlat: Oriana DNS</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+</body>
+</html>

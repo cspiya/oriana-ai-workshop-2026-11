@@ -97,6 +97,107 @@
     </figure>
   </section>
 
+  <section class="dns-promptok" id="dns-promptok" aria-labelledby="dns-promptok-cim">
+    <style>
+    .dns-promptok .dp-racs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr)); gap: 1rem; align-items: start; }
+    .dns-promptok .dp-kartya { margin: 0; }
+    .dns-promptok h2 .cimke { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--jegyezd, #FFD84D); color: var(--ink-fix, #14183A); border: 2px solid var(--ink, #14183A); border-radius: 999px; padding: .15rem .7rem; margin-right: .7rem; vertical-align: middle; }
+    .dns-promptok .dp-kartya h3 { margin: .2rem 0 .5rem; font-size: 1.1rem; }
+    .dns-promptok pre.prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; }
+    .dns-promptok pre.dp-nyers { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono, monospace); font-size: .85rem; line-height: 1.45; background: var(--surface-2, #F6F4EE); border: 2px dashed var(--border-strong, #8A90B4); border-radius: 12px; padding: .7rem .9rem; margin: 0; max-height: 26rem; overflow: auto; }
+    </style>
+    <h2 id="dns-promptok-cim"><span class="cimke">Másolható promptok</span>A DNS promptjai egyben: ezzel a hat prompttal áll elő a közös tudás</h2>
+    <p>A gyakorlatban az asszisztens vezet, és ő rakja össze ezeket a kéréseket. Itt egyben látod mind a hatot, a prompt hét eleme szerint: így <b>a workshop után, asszisztensvezetés nélkül is</b> el tudod készíteni vagy bővíteni a DNS-t. A <code>&lt;…&gt;</code> helyére a saját adatod kerül. A valós Oriana-tartalom a saját fiókodban és gépeden marad.</p>
+    <div class="callout tipp"><span class="callout-cim">Ellenőrizve</span>A promptokat ténylegesen lefuttattuk egy kitalált cég két rövid forrásán (FIKTÍV OKTATÁSI MINTA). A kártyákon lenyitható, mit adott a futás: nálad a szöveg más lesz, a forma ugyanez. Figyeld meg, hogy ahol a forrás hallgat, ott a modulban „Nincs megadva” áll, nem kitalált szabály.</div>
+    <div class="dp-racs">
+<div class="pelda dp-kartya" id="dns-prompt-1"><span class="pelda-cimke">1. prompt</span><h3>Nézd meg, milyen egy kész DNS</h3><span class="szerep">Az 1. lépéshez · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Cél: lássam, milyen egy verziózott, forrással ellátott tudáscsomag (DNS).
+Címzett: én és a csoportom.
+Forrás és határ: kizárólag a Tananyag/04 usecase RONDO/dns-minta mappa fájljai; ez fiktív oktatási minta, nem tény.
+Kimeneti séma: a README metaadatának öt sora (verzió, gazda, státusz, érvényesség, utolsó ellenőrzés); egy mintaállítás a forrásazonosítójával; válasz erre a kérdésre, modul, szakasz és verzió megjelölésével: &lt;a kérdésed, például: Beírhatunk-e egy ügyfél által kért szolgáltatási szintet vállalásként az ajánlatba?&gt;
+Szabályok: ami nincs a mintában: Nincs megadva.
+Ellenőrzés: a kiolvasott metaadat egyezik a README táblájával, a hivatkozás visszakereshető a fájlban.
+Mentés: nincs fájl.</pre>
+<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">**Válasz:** A kért szolgáltatási szintet vállalásként csak akkor írhatjuk az ajánlatba, ha azt forrás támasztja alá: hatályos szerződés vagy jóváhagyás. Forrás nélkül nem vállalás. **Modul:** `szabalyok/sales`; **szakasz:** „Vállalás”; **DNS-verzió:** `0.1-minta`. A szolgáltatási szint forrásaként a minta a hatályos szerződést jelöli meg ([szabalyok/account.md](Tananyag/04%20usecase%20RONDO/dns-minta/szabalyok/account.md), „Szolgáltatási szint és kommunikációs vállalás”). A kért konkrét szint és annak jóváhagyása: **Nincs megadva**.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 15,659.</p></div></details>
+</div>
+<div class="pelda dp-kartya" id="dns-prompt-2"><span class="pelda-cimke">2. prompt</span><h3>Kérj modulvázat és felderítő kérdéseket</h3><span class="szerep">A 2. lépéshez · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Cél: a &lt;BA / Sales / Account&gt; szerepmodul váza és a hozzá szükséges források listája.
+Címzett: én és a csoport szerkesztője: &lt;név&gt;.
+Forrás és határ: a Tananyag/04 usecase RONDO/dns-sablon szerkezete és a válaszaim; cégadatot csak tőlem vagy az általam megnevezett forrásból vegyél.
+Kimeneti séma: modulvázlat a sablon fejléceivel, minden szakasz mellett forrásmezővel; a végén a nyitott kérdések listája.
+Szabályok: ne találj ki állítást; hiány „Nincs megadva”; ami nincs jóváhagyva: „Jóváhagyásra vár”. Előbb tegyél fel legfeljebb öt felderítő kérdést arról, melyik forrásunk miről szól.
+Ellenőrzés: minden szakasz mellett áll forrásmező.
+Mentés: a vázlat a beszélgetésben marad; a mentés a következő promptnál jön.</pre>
+<p class="megj">Erre a promptra az asszisztens kérdésekkel válaszol: te a saját szavaiddal felelsz, ő ebből készíti a vázat.</p>
+</div>
+<div class="pelda dp-kartya" id="dns-prompt-3"><span class="pelda-cimke">3. prompt</span><h3>Írasd meg a szerepmodult forrással és gazdával</h3><span class="szerep">A 3. lépéshez (kulcslépés) · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Cél: a &lt;BA / Sales / Account&gt; szerepmodul v0.1 változata, minden állításhoz forrással és gazdával.
+Címzett: a későbbi gyakorlatok AI-ja és a másik csoport ellenőrzője.
+Forrás és határ: &lt;a megnevezett forrásaid, fájlnévvel&gt; és a Tananyag/04 usecase RONDO/dns-sablon szerkezete; más forrás nincs, a dns-minta tartalmát ne vedd át.
+Kimeneti séma: a sablon fejléce (metaadat-tábla) és szakaszai; minden állítás után (Forrás: F-xx) vagy Nincs megadva.
+Szabályok: hiány „Nincs megadva”; jóváhagyatlan állítás „Jóváhagyásra vár”; ellentmondó források egymás mellett maradnak. A gazda: &lt;név&gt;. A státusz: &lt;tervezet, jóváhagyásra vár&gt;.
+Ellenőrzés: minden állításnál van forrásazonosító vagy hiányjelölés; a gazda meg van nevezve.
+Mentés: Munka/01-DNS/dns/&lt;modulfájl&gt;.md, ütközésnél _v2.</pre>
+<details class="minta"><summary>A próbafutás eredménye: a modul két szakasza (kitalált cég forrásaiból)</summary><div class="minta-test"><pre class="dp-nyers">## Igényazonosító és forráskövetés
+
+1. Minden igény kapjon egyedi azonosítót, például R-01, R-02; az azonosító később ne változzon. (Forrás: F-01 – `forras/ba_kezikonyv_reszlet.md`, 1. pont; gazda: Kántor Vince)
+2. Az igény mellett legyen feltüntetve, melyik megbeszélésen vagy dokumentumban hangzott el. (Forrás: F-01 – `forras/ba_kezikonyv_reszlet.md`, 2. pont; gazda: Kántor Vince)
+
+## Javaslat és döntés
+
+A javaslatot és a döntést külön kell jelölni; döntésnek csak az tekinthető, amit a jegyzőkönyv döntésként rögzít. (Forrás: F-01 – `forras/ba_kezikonyv_reszlet.md`, 3. pont; gazda: Kántor Vince)
+…
+## KAPU I: a felmérési anyag ellenőrzése
+
+1. Mennyiségi ellenőrzés: Nincs megadva. (Forrás: Nincs megadva; gazda: Kántor Vince)
+2. Tartalmi ellenőrzés: Nincs megadva. (Forrás: Nincs megadva; gazda: Kántor Vince)</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 30,313.</p></div></details>
+</div>
+<div class="pelda dp-kartya" id="dns-prompt-4"><span class="pelda-cimke">4. prompt</span><h3>Állíttasd össze a kiadást: README és forrásjegyzék</h3><span class="szerep">A 4. lépéshez · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Cél: a v0.1 kiadás README-je és forrásjegyzéke.
+Címzett: a későbbi beszélgetések AI-ja és a gazda.
+Forrás és határ: a Munka/01-DNS/dns mappába mentett modulok, a bennük hivatkozott forrásfájlok fejléce és a Tananyag/04 usecase RONDO/dns-sablon szerkezete; új állítás nem kerülhet bele.
+Kimeneti séma: a sablon README-je szerint: metaadat-tábla (verzió: 0.1; gazda: &lt;név&gt;; státusz: &lt;tervezet, jóváhagyásra vár&gt;; érvényesség, jóváhagyó, kanonikus hely, utolsó ellenőrzés), fájljegyzék, változásnapló. A forrásjegyzék táblázata: azonosító, dokumentum, gazda, dátum, verzió, hozzáférési kör, ellenőrzés dátuma.
+Szabályok: hiány „Nincs megadva”; jelszó vagy hozzáférési kulcs nem szerepelhet.
+Ellenőrzés: a modulokban használt minden forrásazonosító szerepel a jegyzékben, és a jegyzékben nincs árva sor.
+Mentés: Munka/01-DNS/dns/README.md és Munka/01-DNS/forrasjegyzek.md, ütközésnél _v2.</pre>
+<p class="megj">Próbafutással ellenőrizve; felhasznált token: kb. 25,185. Az eredmény a kiadás README-je és forrásjegyzéke lett, a metaadat-táblával, fájljegyzékkel és változásnaplóval.</p>
+</div>
+<div class="pelda dp-kartya" id="dns-prompt-5"><span class="pelda-cimke">5. prompt</span><h3>Ellenőriztess egy állítást a forrásig</h3><span class="szerep">Az 5. lépéshez (kulcslépés; a másik csoport modulján) · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Cél: egy kiválasztott állítás forrásig visszakeresve: &lt;melyik modul melyik állítása&gt;.
+Címzett: a modul gazdája és a csoport.
+Forrás és határ: a modul és a benne megnevezett forrás (a forrásjegyzék szerint); más forrás nincs.
+Kimeneti séma: állítás szó szerint, hely a DNS-ben, megnevezett forrás, megtalálható-e, forráshely (fájl és pont), egyezik-e, eltérés, gazda, jóváhagyás állapota.
+Szabályok: nem javítod a modult; hiány „nem ellenőrizhető” vagy „Nincs megadva”; eltérésnél mindkét hely megőrizve.
+Ellenőrzés: a forráshely fájllal és pontszámmal megadva.
+Mentés: Munka/01-DNS/ellenorzes.md, ütközésnél _v2.</pre>
+<details class="minta"><summary>A próbafutás eredménye: az ellenorzes.md (részlet)</summary><div class="minta-test"><pre class="dp-nyers"># Forrásig visszakeresett állítás ellenőrzése
+
+## Hatókör
+
+A vizsgálat a `Munka/01-DNS/dns/szabalyok/ba.md` első igényazonosító-szabályára és a modul által megnevezett F-01 forrásra terjed ki. Más forrást nem használtam.
+
+## Ellenőrzési eredmény
+
+| Mező | Eredmény |
+|---|---|
+| Állítás szó szerint | „Minden igény kapjon egyedi azonosítót, például R-01, R-02; az azonosító később ne változzon.” |
+| Hely a DNS-ben | `Munka/01-DNS/dns/szabalyok/ba.md`, „Igényazonosító és forráskövetés” szakasz, 1. szabály |
+| Megnevezett forrás | F-01 – Példa Szoftver Kft.: BA-kézikönyv, részlet; `forras/ba_kezikonyv_reszlet.md` (forrásjegyzék: `Munka/01-DNS/forrasjegyzek.md`) |
+| Megtalálható-e | Igen |
+| Forráshely (fájl és pont) | `forras/ba_kezikonyv_reszlet.md`, 1. pont |
+| Egyezik-e | Igen, tartalmilag |
+| Eltérés | A forrás szövege: „Minden igény egyedi azonosítót kap (R-01, R-02…); az azonosító később nem változik.” A modul ezt így fogalmazza: „Minden igény kapjon egyedi azonosítót, például R-01, R-02; az azonosító később ne változzon.” A szabály tartalma egyezik; a mondat megfogalmazása és a példafelsorolás jelölése eltér. |
+| Gazda | Kántor Vince (a modul szerint; a forrásjegyzék az F-01 gazdájánál „Nincs megadva” értéket közöl) |
+| Jóváhagyás állapota | A modul státusza: „tervezet, jóváhagyásra vár”; a forrásjegyzékben F-01: „v0.9, tervezet”. Jóváhagyás ténye nincs megadva, ezért az állítás nem tekinthető jóváhagyott szabálynak. |</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 21,431.</p></div></details>
+</div>
+<div class="pelda dp-kartya" id="dns-prompt-6"><span class="pelda-cimke">6. prompt</span><h3>Rögzítsd a verziót: ezzel indul minden későbbi beszélgetés</h3><span class="szerep">A 6. lépéshez, és utána minden új beszélgetés elején · ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Olvasd be a Munka/01-DNS/dns/README.md fájlt, és mondd meg egy sorban a verziót, a gazdát, a státuszt és az utolsó ellenőrzés dátumát. Sorold fel, mely fájlokat olvastad be ténylegesen. Ha a státusz nem hatályos, vagy az érvényesség lejárt, szólj, mielőtt a szabályokat alkalmaznád. Fájlt ne módosíts.</pre>
+<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">Verzió **0.1**; gazda **Kántor Vince**; státusz **tervezet, jóváhagyásra vár**; utolsó ellenőrzés **2026-11-12**. A státusz nem hatályos kiadást jelez, az érvényesség pedig nincs megadva, ezért a szabályokat ne alkalmazd jóváhagyottként.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 7,967.</p></div></details>
+</div>
+    </div>
+    <p>A DNS később sem „kész”: bővül és változik. A frissítés két promptja (javaslat bárkitől, jóváhagyás és új verzió a gazdától) és a szerepek táblája a <a href="chatgpt-terkep.html#csapat">ChatGPT Business térkép csapatmunka-részében</a> van.</p>
+  </section>
+
   <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
     <h2 id="lepesek-cim">A gyakorlat 6 lépése</h2>
     <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
