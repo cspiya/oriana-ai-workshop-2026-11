@@ -108,7 +108,7 @@
     </style>
     <h2 id="dns-promptok-cim"><span class="cimke">Másolható promptok</span>A DNS promptjai egyben: ezzel a hat prompttal áll elő a közös tudás</h2>
     <p>A gyakorlatban az asszisztens vezet, és ő rakja össze ezeket a kéréseket. Itt egyben látod mind a hatot, a prompt hét eleme szerint: így <b>a workshop után, asszisztensvezetés nélkül is</b> el tudod készíteni vagy bővíteni a DNS-t. A <code>&lt;…&gt;</code> helyére a saját adatod kerül. A valós Oriana-tartalom a saját fiókodban és gépeden marad.</p>
-    <div class="callout tipp"><span class="callout-cim">Ellenőrizve</span>A promptokat ténylegesen lefuttattuk egy kitalált cég két rövid forrásán (FIKTÍV OKTATÁSI MINTA). A kártyákon lenyitható, mit adott a futás: nálad a szöveg más lesz, a forma ugyanez. Figyeld meg, hogy ahol a forrás hallgat, ott a modulban „Nincs megadva” áll, nem kitalált szabály.</div>
+    <div class="callout tipp"><span class="callout-cim">Ellenőrizve</span>A promptokat a 2. kivételével ténylegesen lefuttattuk egy kitalált cég két rövid forrásán (FIKTÍV OKTATÁSI MINTA). A kártyákon lenyitható, mit adott a futás: nálad a szöveg más lesz, a forma ugyanez. Figyeld meg, hogy ahol a forrás hallgat, ott a modulban „Nincs megadva” áll, nem kitalált szabály.</div>
     <div class="dp-racs">
 <div class="pelda dp-kartya" id="dns-prompt-1"><span class="pelda-cimke">1. prompt</span><h3>Nézd meg, milyen egy kész DNS</h3><span class="szerep">Az 1. lépéshez · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Cél: lássam, milyen egy verziózott, forrással ellátott tudáscsomag (DNS).
@@ -118,7 +118,7 @@ Kimeneti séma: a README metaadatának öt sora (verzió, gazda, státusz, érv�
 Szabályok: ami nincs a mintában: Nincs megadva.
 Ellenőrzés: a kiolvasott metaadat egyezik a README táblájával, a hivatkozás visszakereshető a fájlban.
 Mentés: nincs fájl.</pre>
-<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">**Válasz:** A kért szolgáltatási szintet vállalásként csak akkor írhatjuk az ajánlatba, ha azt forrás támasztja alá: hatályos szerződés vagy jóváhagyás. Forrás nélkül nem vállalás. **Modul:** `szabalyok/sales`; **szakasz:** „Vállalás”; **DNS-verzió:** `0.1-minta`. A szolgáltatási szint forrásaként a minta a hatályos szerződést jelöli meg ([szabalyok/account.md](Tananyag/04%20usecase%20RONDO/dns-minta/szabalyok/account.md), „Szolgáltatási szint és kommunikációs vállalás”). A kért konkrét szint és annak jóváhagyása: **Nincs megadva**.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 15,659.</p></div></details>
+<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">**Válasz:** A kért szolgáltatási szintet vállalásként csak akkor írhatjuk az ajánlatba, ha azt forrás támasztja alá: hatályos szerződés vagy jóváhagyás. Forrás nélkül nem vállalás. **Modul:** `szabalyok/sales`; **szakasz:** „Vállalás”; **DNS-verzió:** `0.1-minta`. A szolgáltatási szint forrásaként a minta a hatályos szerződést jelöli meg ([szabalyok/account.md](Tananyag/04%20usecase%20RONDO/dns-minta/szabalyok/account.md), „Szolgáltatási szint és kommunikációs vállalás”). A kért konkrét szint és annak jóváhagyása: **Nincs megadva**.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 15 659.</p></div></details>
 </div>
 <div class="pelda dp-kartya" id="dns-prompt-2"><span class="pelda-cimke">2. prompt</span><h3>Kérj modulvázat és felderítő kérdéseket</h3><span class="szerep">A 2. lépéshez · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Cél: a &lt;BA / Sales / Account&gt; szerepmodul váza és a hozzá szükséges források listája.
@@ -128,7 +128,7 @@ Kimeneti séma: modulvázlat a sablon fejléceivel, minden szakasz mellett forr�
 Szabályok: ne találj ki állítást; hiány „Nincs megadva”; ami nincs jóváhagyva: „Jóváhagyásra vár”. Előbb tegyél fel legfeljebb öt felderítő kérdést arról, melyik forrásunk miről szól.
 Ellenőrzés: minden szakasz mellett áll forrásmező.
 Mentés: a vázlat a beszélgetésben marad; a mentés a következő promptnál jön.</pre>
-<p class="megj">Erre a promptra az asszisztens kérdésekkel válaszol: te a saját szavaiddal felelsz, ő ebből készíti a vázat.</p>
+<p class="megj">Ezt a promptot nem futtattuk le próbaként: a válasza kérdésekből áll, amelyekre te felelsz a saját szavaiddal, és az asszisztens ebből készíti a vázat.</p>
 </div>
 <div class="pelda dp-kartya" id="dns-prompt-3"><span class="pelda-cimke">3. prompt</span><h3>Írasd meg a szerepmodult forrással és gazdával</h3><span class="szerep">A 3. lépéshez (kulcslépés) · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Cél: a &lt;BA / Sales / Account&gt; szerepmodul v0.1 változata, minden állításhoz forrással és gazdával.
@@ -150,7 +150,7 @@ A javaslatot és a döntést külön kell jelölni; döntésnek csak az tekinthe
 ## KAPU I: a felmérési anyag ellenőrzése
 
 1. Mennyiségi ellenőrzés: Nincs megadva. (Forrás: Nincs megadva; gazda: Kántor Vince)
-2. Tartalmi ellenőrzés: Nincs megadva. (Forrás: Nincs megadva; gazda: Kántor Vince)</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 30,313.</p></div></details>
+2. Tartalmi ellenőrzés: Nincs megadva. (Forrás: Nincs megadva; gazda: Kántor Vince)</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 30 313.</p></div></details>
 </div>
 <div class="pelda dp-kartya" id="dns-prompt-4"><span class="pelda-cimke">4. prompt</span><h3>Állíttasd össze a kiadást: README és forrásjegyzék</h3><span class="szerep">A 4. lépéshez · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Cél: a v0.1 kiadás README-je és forrásjegyzéke.
@@ -160,7 +160,7 @@ Kimeneti séma: a sablon README-je szerint: metaadat-tábla (verzió: 0.1; gazda
 Szabályok: hiány „Nincs megadva”; jelszó vagy hozzáférési kulcs nem szerepelhet.
 Ellenőrzés: a modulokban használt minden forrásazonosító szerepel a jegyzékben, és a jegyzékben nincs árva sor.
 Mentés: Munka/01-DNS/dns/README.md és Munka/01-DNS/forrasjegyzek.md, ütközésnél _v2.</pre>
-<p class="megj">Próbafutással ellenőrizve; felhasznált token: kb. 25,185. Az eredmény a kiadás README-je és forrásjegyzéke lett, a metaadat-táblával, fájljegyzékkel és változásnaplóval.</p>
+<p class="megj">Próbafutással ellenőrizve; felhasznált token: kb. 25 185. Az eredmény a kiadás README-je és forrásjegyzéke lett, a metaadat-táblával, fájljegyzékkel és változásnaplóval.</p>
 </div>
 <div class="pelda dp-kartya" id="dns-prompt-5"><span class="pelda-cimke">5. prompt</span><h3>Ellenőriztess egy állítást a forrásig</h3><span class="szerep">Az 5. lépéshez (kulcslépés; a másik csoport modulján) · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Cél: egy kiválasztott állítás forrásig visszakeresve: &lt;melyik modul melyik állítása&gt;.
@@ -188,11 +188,11 @@ A vizsgálat a `Munka/01-DNS/dns/szabalyok/ba.md` első igényazonosító-szabá
 | Egyezik-e | Igen, tartalmilag |
 | Eltérés | A forrás szövege: „Minden igény egyedi azonosítót kap (R-01, R-02…); az azonosító később nem változik.” A modul ezt így fogalmazza: „Minden igény kapjon egyedi azonosítót, például R-01, R-02; az azonosító később ne változzon.” A szabály tartalma egyezik; a mondat megfogalmazása és a példafelsorolás jelölése eltér. |
 | Gazda | Kántor Vince (a modul szerint; a forrásjegyzék az F-01 gazdájánál „Nincs megadva” értéket közöl) |
-| Jóváhagyás állapota | A modul státusza: „tervezet, jóváhagyásra vár”; a forrásjegyzékben F-01: „v0.9, tervezet”. Jóváhagyás ténye nincs megadva, ezért az állítás nem tekinthető jóváhagyott szabálynak. |</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 21,431.</p></div></details>
+| Jóváhagyás állapota | A modul státusza: „tervezet, jóváhagyásra vár”; a forrásjegyzékben F-01: „v0.9, tervezet”. Jóváhagyás ténye nincs megadva, ezért az állítás nem tekinthető jóváhagyott szabálynak. |</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 21 431.</p></div></details>
 </div>
 <div class="pelda dp-kartya" id="dns-prompt-6"><span class="pelda-cimke">6. prompt</span><h3>Rögzítsd a verziót: ezzel indul minden későbbi beszélgetés</h3><span class="szerep">A 6. lépéshez, és utána minden új beszélgetés elején · ezt írod a ChatGPT-be</span>
 <pre class="prompt-box">Olvasd be a Munka/01-DNS/dns/README.md fájlt, és mondd meg egy sorban a verziót, a gazdát, a státuszt és az utolsó ellenőrzés dátumát. Sorold fel, mely fájlokat olvastad be ténylegesen. Ha a státusz nem hatályos, vagy az érvényesség lejárt, szólj, mielőtt a szabályokat alkalmaznád. Fájlt ne módosíts.</pre>
-<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">Verzió **0.1**; gazda **Kántor Vince**; státusz **tervezet, jóváhagyásra vár**; utolsó ellenőrzés **2026-11-12**. A státusz nem hatályos kiadást jelez, az érvényesség pedig nincs megadva, ezért a szabályokat ne alkalmazd jóváhagyottként.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 7,967.</p></div></details>
+<details class="minta"><summary>A próbafutás válasza (részlet)</summary><div class="minta-test"><pre class="dp-nyers">Verzió **0.1**; gazda **Kántor Vince**; státusz **tervezet, jóváhagyásra vár**; utolsó ellenőrzés **2026-11-12**. A státusz nem hatályos kiadást jelez, az érvényesség pedig nincs megadva, ezért a szabályokat ne alkalmazd jóváhagyottként.</pre><p class="megj">Felhasznált token ennél a futásnál: kb. 7 967.</p></div></details>
 </div>
     </div>
     <p>A DNS később sem „kész”: bővül és változik. A frissítés két promptja (javaslat bárkitől, jóváhagyás és új verzió a gazdától) és a szerepek táblája a <a href="chatgpt-terkep.html#csapat">ChatGPT Business térkép csapatmunka-részében</a> van.</p>
