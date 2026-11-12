@@ -30,7 +30,8 @@
   var KIEG = [
     { id: '02', rovid: 'Adatgyűjtés', n: 'RONDO-portál: adatgyűjtés', href: 'Notebookok/02-portal-notebook.html' },
     { id: '03', rovid: 'Megosztás', n: 'Közös munka és megosztás', href: 'Notebookok/03-kozos-munka-notebook.html' },
-    { id: '06', rovid: 'Ügykövető', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html' }
+    { id: '06', rovid: 'Ügykövető', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html' },
+    { id: 'uc3', rovid: 'Projekt-szabályok', n: 'Projekt-szabályrendszer promptokkal', href: 'Notebookok/uc3-szabalyrendszer-notebook.html' }
   ];
   var SAV_NEV = { all: 'közös sáv', ba: 'BA sáv', sa: 'Sales–Account sáv', par: 'párhuzamos: BA és Sales–Account' };
 
@@ -439,7 +440,7 @@
       });
     });
   }
-  var JELVENY_NEV = { '00': 'Célkártya-mester', '01': 'DNS-építő', '02': 'Próbafutás-mester', '03': 'Jogmátrix-készítő', '04': 'Agent-indító', '05': 'Független ellenőr', '06': 'Ügykövető-építő', '06b': 'Forrás-visszakereső', '07': 'Folyamatgazda', 'uc1': 'Ügyfélprofil-készítő', 'uc2': 'Ügynök-építő' };
+  var JELVENY_NEV = { '00': 'Célkártya-mester', '01': 'DNS-építő', '02': 'Próbafutás-mester', '03': 'Jogmátrix-készítő', '04': 'Agent-indító', '05': 'Független ellenőr', '06': 'Ügykövető-építő', '06b': 'Forrás-visszakereső', '07': 'Folyamatgazda', 'uc1': 'Ügyfélprofil-készítő', 'uc2': 'Ügynök-építő', 'uc3': 'Szabályszerző' };
   function jelvenyRacs() {
     var pre = rootPrefix();
     document.querySelectorAll('ul.jelveny-racs').forEach(function (ul) {

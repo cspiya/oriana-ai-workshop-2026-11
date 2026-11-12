@@ -22,6 +22,7 @@ Kiegészítő gyakorlatok: nincsenek a napi időrendben, de a tananyag részei, 
 | 2 | 30 perc | `02-portal-notebook.html` | portál API nélkül: kézi út vagy böngésző-agent, dry run → alkalmazás → visszaolvasás |
 | 3 | 25 perc | `03-kozos-munka-notebook.html` | megosztási jogok mátrixa, app-kapcsolat, csapatfeladat, hozzáférési szabály |
 | 6 | 25 + 30 perc | `06-sites-notebook.html` | ügykövető: adat → app → jogosultság → megosztás |
+| Projekt-szabályrendszer promptokkal | 45 perc | `uc3-szabalyrendszer-notebook.html` | három mozgó ábra: így áll össze a szabálygyűjtemény; így dolgozik utána (három szerep, három kapu); projektszabály vagy céges DNS |
 
 ## Szerkezet (design system v2)
 

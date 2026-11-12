@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt-szabályrendszer promptokkal: orchestrator, maker, reviewer és AGENTS.md · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Projekt-szabályrendszer promptokkal (uc3). Az oldal vezet: kilenc rövid prompt egy beszélgetésben. Az AI mércéje: 03 usecase Projekt szabalyok/szabalyrendszer-recept.md. -->
+<body class="notebook v2" data-depth="1" data-current="uc3" data-jelveny="Szabályszerző">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="uc3" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>Projekt-szabályrendszer promptokkal · Kiegészítő gyakorlat · 45 perc</span><span class="badge all">közös</span></div>
+      <h1 id="cim">A saját projekted szabályai kilenc rövid prompttal: orchestrator, maker, reviewer és AGENTS.md</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Összerakod a saját projekted szabálygyűjteményét, amellyel utána BA-ként (BA: üzleti elemző) vagy Sales-esként dolgozol: működési minta, maker, reviewer, orchestrator és a projekt <code>AGENTS.md</code> fájlja. Te rövid promptokkal mondod a célt; a profi szabályokat az AI írja meg, a részletekre pedig rákérdez.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">rövid prompt a céllal, a részleteket az AI kérdezi ki</li>
+          <li data-csoport="1">a projekt működési mintája: mikor elég egy menet, mikor kell két szerep</li>
+          <li data-csoport="2">három szerep szabálya: maker, reviewer, orchestrator</li>
+          <li data-csoport="3">az <code>AGENTS.md</code> összeállítása és az indítók</li>
+          <li data-csoport="3">ellenőrzés és próba, mielőtt használod</li>
+          <li data-csoport="3">döntés: projektszabály vagy javaslat a céges DNS-be</li>
+        </ul>
+      </div>
+      <div class="meta"><span>Idő: 45 perc</span><span>Kimenet: bemásolható szabálycsomag</span><span>Kinek: BA vagy Sales</span><span>Kilenc prompt, egy beszélgetés</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>egy saját projekt, amelyen dolgozol vagy dolgozni fogsz</li>
+          <li>a szereped: BA vagy Sales</li>
+          <li>a mai nap mintája: láttad, hogyan dolgozik a maker és a reviewer</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>AGENTS.md</code>: a projekt belépő fájlja az indítókkal</li>
+          <li><code>szabalyok/</code>: működési minta, maker, reviewer, orchestrator</li>
+          <li><code>naplo.md</code>, és egy döntés: projektszabály vagy DNS-javaslat</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> ma a workshop projektje kész szabályokkal dolgozott: elég volt beírnod egy indítót. Ebben a gyakorlatban ugyanezt megépíted a saját projektedre, hogy holnap ott is elég legyen egy indító.</p></div>
+    </div>
+  </section>
+
+  <section id="modszer" aria-labelledby="modszer-cim">
+    <h2 id="modszer-cim">A módszer: rövid cél, az AI kérdez</h2>
+    <p class="lead">Nem kell hosszú promptot írnod vagy bemásolnod. Minden lépés ugyanazt az öt mozdulatot követi.</p>
+    <ol>
+      <li><b>Te mondod a célt</b> két-három sorban: mit szeretnél, és melyik projekthez.</li>
+      <li><b>Az AI kérdez.</b> Egyszerre legfeljebb hármat, választható opciókkal; az első opció az ajánlott.</li>
+      <li><b>Te válaszolsz:</b> kiválasztasz egy opciót, vagy a saját szavaiddal leírod.</li>
+      <li><b>Az AI megírja a szabályt,</b> teljesen. Az általános, profi részt magától tudja; a projektre szabott részt tőled kapta.</li>
+      <li><b>Te átnézed,</b> és ha kell, egy mondatban kérsz javítást.</li>
+    </ol>
+    <div class="grid-2">
+      <div class="card"><h3>Mit ír meg az AI magától?</h3><p>Azt, ami minden projektben igaz: a reviewer nem javít, a maker új verzióba ment, a „kész” nem küldési engedély. Ezt egy recept adja, amelyet az AI olvas be, nem te másolsz.</p></div>
+      <div class="card"><h3>Mit kérdez meg tőled?</h3><p>Azt, amit csak te tudhatsz: mi készül a projektben, miből, kinek, ki dönt, és mi a határ. Céges értéket (összeghatár, név, árlista) az AI nem talál ki.</p></div>
+    </div>
+    <div class="callout jegyezd"><span class="callout-cim">Ha valamit te sem tudsz</span>A kész szabályban nem marad üres mező. Ha egy kérdésre most nem tudsz válaszolni, az AI egyértelmű helyőrzőt ír oda, amely megmondja, mi kerül oda és ki tudja megmondani, például: <code>[KITÖLTENDŐ: a hatályos árlista neve és éve · kereskedelmi vezető]</code>. Ezeket a fájl végén a „Rád váró tételek” lista gyűjti össze.</div>
+  </section>
+
+  <section id="inditas" aria-labelledby="inditas-cim">
+    <h2 id="inditas-cim">A gyakorlat indítása</h2>
+    <ol>
+      <li>Az <code>Oriana AI-workshop</code> projektben nyiss <mark>új Work-beszélgetést</mark>. Ha a saját projektedben dolgozol, ott nyisd meg.</li>
+      <li>A kilenc promptot <mark>ugyanabban a beszélgetésben</mark> küldd el, egymás után. Így minden lépés az előzőre épül, és a promptok rövidek maradhatnak.</li>
+      <li>A <code>&lt;…&gt;</code> közötti részt cseréld a sajátodra, mielőtt elküldöd a promptot.</li>
+      <li>Minden lépés után nyisd meg az elkészült fájlt, és olvasd el. A szabály a tiéd: amit nem értesz vagy másképp szeretnél, írasd át.</li>
+    </ol>
+    <div class="callout tipp"><span class="callout-cim">Hová kerülnek a fájljaid?</span>A workshop munkaterületén a <code>Munka/03 usecase Projekt szabalyok/projekt</code> mappába; az asszisztens létrehozza. A Tananyagot nem módosítja, és a munkaterület gyökerében lévő <code>AGENTS.md</code> fájlt sem írja felül. A valós projekted adatai a saját gépeden maradnak.</div>
+    <div class="callout figyelj"><span class="callout-cim">Valós adat</span>Jelszót, hozzáférési kulcsot és valós ügyféladatot ne írj a beszélgetésbe. A szabályokhoz a forrás neve és helye kell, a tartalma nem.</div>
+  </section>
+
+  <section id="menetrend" aria-labelledby="menetrend-cim">
+    <h2 id="menetrend-cim">45 perces menetrend</h2>
+    <table>
+      <thead><tr><th>Idő</th><th>Lépés</th><th>Ami létrejön</th></tr></thead>
+      <tbody>
+        <tr><td>0–5. perc</td><td><a href="#lepes-1">1. Kiindulás: projekt és szerep</a></td><td>összefoglaló a projektről</td></tr>
+        <tr><td>5–12. perc</td><td><a href="#lepes-2">2. Működési minta</a></td><td><code>szabalyok/mukodesi-minta.md</code></td></tr>
+        <tr><td>12–18. perc</td><td><a href="#lepes-3">3. Maker</a></td><td><code>szabalyok/maker.md</code></td></tr>
+        <tr><td>18–24. perc</td><td><a href="#lepes-4">4. Reviewer</a></td><td><code>szabalyok/reviewer.md</code></td></tr>
+        <tr><td>24–29. perc</td><td><a href="#lepes-5">5. Orchestrator és napló</a></td><td><code>szabalyok/orchestrator.md</code>, <code>naplo.md</code></td></tr>
+        <tr><td>29–34. perc</td><td><a href="#lepes-6">6. AGENTS.md</a></td><td><code>AGENTS.md</code></td></tr>
+        <tr><td>34–38. perc</td><td><a href="#lepes-7">7. Csomagellenőrzés</a></td><td><code>ellenorzes.md</code></td></tr>
+        <tr><td>38–41. perc</td><td><a href="#lepes-8">8. Próba egy indítóval</a></td><td><code>probakor.md</code></td></tr>
+        <tr><td>41–45. perc</td><td><a href="#lepes-9">9. Projektszabály vagy DNS</a></td><td><code>szint-dontes.md</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábra · 1</span>Így áll össze a szabálygyűjtemény</h2>
+    <p>Figyeld meg, hogy te mindig csak <mark>a célt mondod és válaszolsz</mark>; a szabály szövegét az AI írja, a recept alapján. Lépésenként is végigkattinthatod.</p>
+    <figure class="mozgo" data-jelenet="uc3-epites">
+      <figcaption>Így áll össze a szabálygyűjtemény. Egy rövid prompttal megmondod a célt és megnevezed a receptet. Az AI beolvassa a receptet, amelyből tudja, mi kell egy szabályfájlba, majd kérdez: egyszerre legfeljebb hármat, opciókkal. Válaszolsz, és az AI megírja az első szabályfájlt, a működési mintát; megnyitod és átnézed. Ugyanez a kör ismétlődik a maker, a reviewer és az orchestrator szabályaival. A hatodik prompttal a négy szabályfájlból összeáll a projekt AGENTS.md fájlja az indítókkal. A végén ellenőrizteted a csomagot, kipróbálod, és eldöntöd, hogy projektszabály marad-e, vagy javaslatként megy a céges DNS-be.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 9 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">Alap <span class="when">0–12. perc</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Alap" data-rovid="Kiindulás" data-ido="0–5. perc">
+        <header class="lepes-fej">
+          <div><h3>Kiindulás: melyik projekt, milyen szerep</h3><span class="lepes-cimke"><span class="ido">0–5. perc</span> · mondd meg a célt, a többit az AI kérdezi</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>ChatGPT asztali alkalmazás: új Work-beszélgetés a projektben</b><small>mind a kilenc promptot ebbe a beszélgetésbe küldöd</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Írd be</b> a projekted nevét és a szerepedet az 1. promptba, és küldd el.</li>
+                <li><b>Válaszolj</b> az AI kérdéseire: választhatsz az opciókból, vagy leírhatod a saját szavaiddal.</li>
+                <li><b>Olvasd el</b> az összefoglalót: jól értette-e a projektet?</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Rövid összefoglalót arról, mit tud az AI a projektedről: mi készül benne, miből, kinek, és ki dönt.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">1. prompt · másolható</span>
+              <span class="szerep">A &lt;…&gt; részeket cseréld a sajátodra</span>
+              <pre class="prompt-box">Projekt-szabályrendszert szeretnék a &lt;projekt neve&gt; projekthez, &lt;BA / Sales&gt; munkára. Olvasd be a Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md fájlt, és kérdezz arról, amit a szabályokhoz tudnod kell.</pre>
+              <p class="megj">Az AI kérdésekkel válaszol, nem kész szabállyal. Ez így jó: előbb megérti a projektet.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>A recept: az AI mércéje</h5>
+              <p>A recept egy fájl a tananyagban, amely megmondja az AI-nak, mitől profi egy szabályfájl. Ettől maradhat rövid a te promptod.</p>
+              <p>Itt: az 1. prompt megnevezi a receptet. A további nyolc promptnak már nem kell: ugyanabban a beszélgetésben az AI emlékszik rá.</p>
+              <span class="tanulsag">a mércét egyszer adod meg, utána csak a célt mondod.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az AI összefoglalta a projektet, és az összefoglaló <mark>a te projektedről szól</mark>: stimmel a szerep, a kimenet és a döntéshozó.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Ha a saját projektedben dolgozol</span>Ott nincs Tananyag mappa. Másold a <a href="../03%20usecase%20Projekt%20szabalyok/szabalyrendszer-recept.md"><code>szabalyrendszer-recept.md</code></a> fájlt a projektmappádba, és a promptban azt a helyet nevezd meg.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Alap" data-rovid="Működési minta" data-ido="5–12. perc" data-kulcs>
+        <header class="lepes-fej">
+          <div><h3>Működési minta: hogyan dolgozunk AI-val ebben a projektben</h3><span class="lepes-cimke"><span class="ido">5–12. perc</span> · az első szabályfájl</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b><small>a 2. prompt az 1. lépés válaszaira épít</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 2. promptot.</li>
+                <li><b>Döntsd el</b> a kérdéseknél: mi a kicsi, a közepes és a nagy tét a projektedben.</li>
+                <li><b>Nyisd meg</b> a kész fájlt, és nézd meg a döntési táblát.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>szabalyok/mukodesi-minta.md</code> fájlt: a prompt hét eleme, a hat prompt-szabály, a döntési tábla és a stop-szabályok, a projektedre szabva.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">2. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Írd meg a projekt működési mintáját. Amit ehhez a projektről tudnod kell, azt előbb kérdezd meg.</pre>
+              <p class="megj">A szöveg nálad más lesz. Azt nézd: a döntési tábla három sora a te projekted példáit tartalmazza-e.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Döntési tábla: egy menet vagy két szerep</h5>
+              <p>Nem minden feladathoz kell maker és reviewer. A tét dönt, nem a feladat mérete: ami kifelé megy, pénzt, vállalást vagy döntést érint, ahhoz két szerep kell.</p>
+              <p>Itt: te mondod meg, mi a kicsi, a közepes és a nagy tét a saját projektedben; az AI ebből írja meg a táblát.</p>
+              <span class="tanulsag">a szabály akkor használható, ha a te feladataid szerepelnek benne.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a fájl; a döntési táblában <mark>a saját feladataidat</mark> látod; a stop-szabályoknál szám áll a körök mellett.</span></p>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Egy kétsoros e-mail megy az ügyfélnek egy új határidőről. Egy menet elég?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a tét dönt, nem a méret. Ami kifelé megy és vállalást érint, ahhoz ellenőr kell.">Igen, mert rövid</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a tét dönt. Kifelé megy és vállalást tartalmaz, ezért független ellenőrzés kell.">Nem: kifelé megy és vállalást érint</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a gépi ellenőrzés a formát és a számot nézi; azt, hogy a vállalás mögött van-e döntés, nem.">Igen, ha a helyesírást gép ellenőrzi</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">Bármelyik lépés után</span>
+        <h3>Ha valamit átírnál</h3>
+        <p>A szabály a tiéd. Ha egy pont nem stimmel, ezt a rövid promptot használd; a 2–6. lépés után bármikor elküldheted.</p>
+        <div class="pelda">
+          <span class="pelda-cimke">Pontosító prompt · másolható</span>
+          <span class="szerep">A &lt;…&gt; részt cseréld a sajátodra</span>
+          <pre class="prompt-box">Ezt a pontot írd át így: &lt;melyik pont, és mi legyen benne&gt;. A többit hagyd változatlanul.</pre>
+        </div>
+      </div>
+
+      <div class="lepes-csoport-cim" data-csoport="2">Három szerep <span class="when">12–29. perc</span></div>
+
+      <section class="lepes" id="lepes-3" data-csoport="2" data-csoport-nev="Három szerep" data-rovid="Maker" data-ido="12–18. perc" data-kulcs>
+        <header class="lepes-fej">
+          <div><h3>Maker: a készítő szabályai</h3><span class="lepes-cimke"><span class="ido">12–18. perc</span> · BA vagy Sales, az 1. lépésben megadott szereped szerint</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 3. promptot.</li>
+                <li><b>Mondd el</b> a kérdésekre: mit készít a maker, miből dolgozik, és mit nem tehet meg.</li>
+                <li><b>Nézd meg</b> a fájl végén a „Rád váró tételek” listát.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>szabalyok/maker.md</code> fájlt: mit olvashat, hogyan tervez és mér, hány kört javíthat, mit naplóz, mikor áll meg, és mit nem tehet.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">3. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Írd meg a maker szabályait. Előbb kérdezd meg, mit készít a maker ebben a projektben, és miből dolgozik.</pre>
+              <p class="megj">A szerepedet nem kell újra megadnod: az AI az 1. lépésből tudja, hogy BA vagy Sales munkáról van szó.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Közös váz és a szereped rétege</h5>
+              <p>A maker szabályainak fele minden projektben ugyanaz: terv jóváhagyással, mérés, napló, új verzió, tiltások. A másik fele a szerepedtől függ.</p>
+              <p><b>BA:</b> igényazonosító, forráshely minden állításnál, a javaslat nem döntés. <b>Sales:</b> megnevezett árlista, újraszámolt összegek, a kérés nem vállalás.</p>
+              <span class="tanulsag">az általánosat az AI tudja, a projektedet te.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a fájl; szerepel benne <mark>a te kimeneted és a te forrásaid</mark> neve; a tiltások között ott van, hogy a maker nem küld és nem publikál.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ha a fájlban olyan összeghatárt, nevet vagy százalékot látsz, amelyet nem te mondtál, kérdezz rá: honnan van? Céges értéket az AI nem találhat ki.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-4" data-csoport="2" data-csoport-nev="Három szerep" data-rovid="Reviewer" data-ido="18–24. perc" data-kulcs>
+        <header class="lepes-fej">
+          <div><h3>Reviewer: a független ellenőr szabályai</h3><span class="lepes-cimke"><span class="ido">18–24. perc</span> · megállapít, nem javít</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 4. promptot.</li>
+                <li><b>Mondd meg</b> három-öt pontban, mitől számít késznek a munka a projektedben.</li>
+                <li><b>Nevezd meg</b>, ki dönt a reviewer jelentése után.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>szabalyok/reviewer.md</code> fájlt: mit kap meg a reviewer, hogyan ítél kritériumonként, milyen formában írja le a megállapításait, és mikor mondhat megfelelt eredményt.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">4. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Írd meg a független reviewer szabályait. Előbb kérdezd meg, mit kell ellenőriznie, és mitől számít késznek a munka.</pre>
+              <p class="megj">A „mitől kész” válaszaidból lesznek a kritériumok: ezekhez méri majd a reviewer a munkát.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Független ellenőrzés</h5>
+              <p>A reviewer friss beszélgetésben dolgozik, és csak a kész munkát, a kritériumokat és a forrásokat kapja meg. A maker beszélgetését és naplóját nem: így nem veszi át a maker tévedéseit.</p>
+              <p><b>BA:</b> teljes-e minden értékkészlet, végigkövethető-e a folyamat. <b>Sales:</b> minden számot maga számol újra, és minden vállalás mögött forrást keres.</p>
+              <span class="tanulsag">aki készítette, az nem ellenőrizheti függetlenül.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a fájl; a kritériumok <mark>a te szavaidból</mark> lettek; a fájl kimondja, hogy a reviewer nem javít, és hogy amit nem tud ellenőrizni, az nem teljesített.</span></p>
+          <button type="button" class="fordito"><span class="f-elol">A reviewer talál egy elírt összeget. Kijavítja?</span><span class="f-hatul">Nem: leírja, hol van, mi a bizonyíték, és mit javasol. A javítás a maker dolga.</span><small>Kattints a megfordításhoz</small></button>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-5" data-csoport="2" data-csoport-nev="Három szerep" data-rovid="Orchestrator" data-ido="24–29. perc">
+        <header class="lepes-fej">
+          <div><h3>Orchestrator és napló: ki koordinál, ki dönt</h3><span class="lepes-cimke"><span class="ido">24–29. perc</span> · ezt a szerepet te töltöd be</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> az 5. promptot.</li>
+                <li><b>Nevezd meg</b>, ki dönt a három kapunál: a tervnél, az átvételnél és a review után.</li>
+                <li><b>Nyisd meg</b> az üres naplót: ezt látnád szívesen utólag?</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>szabalyok/orchestrator.md</code> fájlt és egy üres <code>naplo.md</code> táblát a fejléccel.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">5. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Írd meg az orchestrator szabályait, és készíts üres naplót. Előbb kérdezd meg, ki dönt a kapuknál, és mit naplózzunk.</pre>
+              <p class="megj">Kis feladatnál nincs szükség orchestratorra; ezt a kész fájl is kimondja.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Orchestrator: szerep, nem menüpont</h5>
+              <p>Az orchestrator a hosszú munkát koordinálja: bont, kapukat tart, naplót vezet, összegez. Maga nem készít és nem ellenőriz.</p>
+              <p>Itt: a szerepet te töltöd be. Te indítod a külön beszélgetéseket, és te hagyod jóvá a kapukat; az AI a bontást javasolja és a naplót vezeti.</p>
+              <span class="tanulsag">a kapunál mindig ember dönt.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a két fájl; mindhárom kapunál <mark>név vagy szerepkör</mark> áll; a napló fejlécében ott a „döntés és ok” oszlop.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Nézd meg mozgásban</span>Hogyan dolgozik együtt a három szerep, ha kész a csomag? <a href="#mukodes">A 2. mozgó ábra</a> végigviszi egy körön.</div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: három szerep</h3>
+        <dl>
+          <div><dt>Maker</dt><dd>A készítő szerep: jóváhagyott terv szerint elkészíti a kimenetet, méri a kritériumokhoz, és korlátozott számú körben javít.</dd></div>
+          <div><dt>Reviewer</dt><dd>A független ellenőr: friss beszélgetésben, szűk csomagból dolgozik; megállapít, de nem javít.</dd></div>
+          <div><dt>Orchestrator</dt><dd>A koordináló szerep: bont, kaput tart, naplóz, összegez. Szerep és munkamód, nem menüpont.</dd></div>
+          <div><dt>Kapu</dt><dd>Döntési pont, ahol ember hagy jóvá: a terv előtt, az átvételnél és a review után.</dd></div>
+          <div><dt>Kritérium</dt><dd>Mérhető feltétel arra, hogy a munka kész. A reviewer ehhez mér.</dd></div>
+          <div><dt>Napló</dt><dd>Körönként egy sor: mi történt, mi lett az eredmény, ki mit döntött és miért.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>A maker készít, a reviewer megállapít, az orchestrator koordinál: a három szerep nem keveredik.</li>
+          <li>A reviewer nem kapja meg a maker beszélgetését.</li>
+          <li>A „kész” nem küldési engedély.</li>
+        </ul>
+      </div>
+
+      <div class="lepes-csoport-cim" data-csoport="3">Összerakás és döntés <span class="when">29–45. perc</span></div>
+
+      <section class="lepes" id="lepes-6" data-csoport="3" data-csoport-nev="Összerakás és döntés" data-rovid="AGENTS.md" data-ido="29–34. perc" data-kulcs>
+        <header class="lepes-fej">
+          <div><h3>AGENTS.md: a projekt belépő fájlja</h3><span class="lepes-cimke"><span class="ido">29–34. perc</span> · ebből dolgozik az AI minden új beszélgetésben</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 6. promptot.</li>
+                <li><b>Válassz</b> jelet az indítókhoz: rövid, nagybetűs szó, például a projekt rövid neve.</li>
+                <li><b>Nyisd meg</b> a fájlt, és keresd meg benne az öt indítót.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>AGENTS.md</code> fájlt: mi ez a projekt, az öt indító, és a három szerep szabályai egy helyen.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">6. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Állítsd össze a projekt AGENTS.md fájlját a négy szabályfájlból. Előbb kérdezd meg, mi legyen az indítók jele.</pre>
+              <p class="megj">Ha a jeled például ALFA, az indítók: ALFA orchestrator · ALFA maker · ALFA javítás R1 · ALFA reviewer R1 · ALFA reviewer R2.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Indító: egy rövid mondat, amelyre az AI szerepbe lép</h5>
+              <p>Az <code>AGENTS.md</code> egy utasításfájl a projektmappa gyökerében. Az indító egy fix mondat, amelyről az AI tudja, melyik szabály szerint dolgozzon.</p>
+              <p>Itt: a mai „RONDO 04 maker” mintájára a saját jeleddel kapsz indítókat. A szabályok a fájlban vannak, ezért a prompt egyetlen sor marad.</p>
+              <span class="tanulsag">a szabályt egyszer írod le, utána csak az indítót mondod.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan az <code>AGENTS.md</code>; mind az öt indító <mark>a te jeleddel</mark> szerepel; a három szerep szabályai a fájlban vannak, nem csak hivatkozás mutat rájuk.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Ne keverd</span>Az <code>AGENTS.md</code> egy utasításfájl a mappában. Nem azonos a munkatér Agents funkciójával.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-7" data-csoport="3" data-csoport-nev="Összerakás és döntés" data-rovid="Ellenőrzés" data-ido="34–38. perc">
+        <header class="lepes-fej">
+          <div><h3>Csomagellenőrzés: ellentmondás, hiány, kitöltetlen hely</h3><span class="lepes-cimke"><span class="ido">34–38. perc</span> · az AI listát ad, a javításról te döntesz</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 7. promptot.</li>
+                <li><b>Válaszolj</b>, ahol az AI még tőled vár adatot.</li>
+                <li><b>Döntsd el</b> a ⚠️ tételeknél, melyiket javítsa.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>ellenorzes.md</code> fájlt: ✅/⚠️ lista fájl és sor szerint arról, hogy a csomag egységes-e.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">7. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Ellenőrizd a teljes csomagot: ellentmondás, hiányzó hivatkozás, kitöltetlen hely. Ne javíts magadtól: ahol tőlem vársz választ, kérdezz.</pre>
+              <p class="megj">Jó jel, ha talál valamit: például a maker két kört enged, a működési minta hármat.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Előbb megállapítás, utána javítás</h5>
+              <p>Ha az AI ellenőrzés közben rögtön javít, nem látod, mi volt a hiba. Ezért előbb listát kérsz, és te döntöd el, mi változzon.</p>
+              <p>Itt: az AI megnézi, hogy az indítók mindenhol egyformák-e, az <code>AGENTS.md</code> egyezik-e a szabályfájlokkal, és maradt-e kitöltendő hely.</p>
+              <span class="tanulsag">ez önellenőrzés: hasznos, de nem független review.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a lista; minden ⚠️ tételről döntöttél; a megmaradt helyőrzőkről tudod, <mark>kitől kell megkérdezned</mark>.</span></p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-8" data-csoport="3" data-csoport-nev="Összerakás és döntés" data-rovid="Próba" data-ido="38–41. perc">
+        <header class="lepes-fej">
+          <div><h3>Próba egy indítóval</h3><span class="lepes-cimke"><span class="ido">38–41. perc</span> · érthető és követhető-e a szabály</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Írd be</b> a jeledet a 8. promptba, és küldd el.</li>
+                <li><b>Nézd meg</b>: kimondja-e az AI a szerepét, és felsorolja-e, mit olvasott be.</li>
+                <li><b>Figyeld</b>, hogy nem kezd-e javítani: a reviewer csak megállapít.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>probakor.md</code> fájlt: mit válaszolt az AI az indítóra, és mely fájlokat olvasta be.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">8. prompt · másolható</span>
+              <span class="szerep">A &lt;JEL&gt; helyére a saját jeled kerül</span>
+              <pre class="prompt-box">Olvasd be a most elkészült AGENTS.md fájlt, és válaszolj a &lt;JEL&gt; reviewer R1 indítóra úgy, ahogy az előírja. Sorold fel, mely fájlokat olvastad be.</pre>
+              <p class="megj">Még nincs mit ellenőriznie: a jó válasz az, hogy reviewerként jelentkezik, és megmondja, mit vár a csomagban.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Mit bizonyít ez a próba, és mit nem</h5>
+              <p>Azt bizonyítja, hogy a szabály érthető: az AI el tudja olvasni, és aszerint viselkedik.</p>
+              <p>Azt nem, hogy a saját projektedben egy új beszélgetés magától betölti. Azt ott kell kipróbálnod: friss beszélgetés, csak az indító.</p>
+              <span class="tanulsag">a valódi próba a saját projektedben van.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az AI <mark>reviewerként</mark> válaszolt, felsorolta a beolvasott fájlokat, és nem javított semmit.</span></p>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-9" data-csoport="3" data-csoport-nev="Összerakás és döntés" data-rovid="Projekt vagy DNS" data-ido="41–45. perc">
+        <header class="lepes-fej">
+          <div><h3>Döntés: projektszabály marad, vagy javaslat a céges DNS-be</h3><span class="lepes-cimke"><span class="ido">41–45. perc</span> · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 9. promptot.</li>
+                <li><b>Válaszolj</b>: használná-e más is, és mi igaz csak erre a projektre.</li>
+                <li><b>Döntsd el</b>: projektszabály, javaslat a DNS-be, vagy később.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>szint-dontes.md</code> fájlt a döntéssel és az indokkal; ha javaslatot teszel, a <code>dns-javaslat.md</code> fájlt is a DNS gazdájának.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">9. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Maradjon ez projektszabály, vagy javasoljuk a céges DNS-be? Kérdezz, hogy el tudjuk dönteni, és készítsd el, ami a döntéshez kell.</pre>
+              <p class="megj">A javaslat nem döntés: a közös DNS-t a gazdája frissíti. A csomagod addig is érvényes a projektedben.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Két szint: projekt és cég</h5>
+              <p><b>Projektszabály:</b> azonnal érvényes, de csak a te projektedben; te vagy a gazdája.</p>
+              <p><b>Céges szabály (DNS):</b> mindenkire érvényes, ezért gazda, jóváhagyás és verzió kell hozzá. A DNS a vállalati szabályok verziózott gyűjteménye.</p>
+              <span class="tanulsag">kezdd projektszinten; ami bevált és más is használná, azt javasold a DNS-be.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan a döntésed indokkal; ha javaslatot tettél, a javaslatban külön látszik, <mark>mi általános és mi csak a te projektedre igaz</mark>.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Nézd meg mozgásban</span>A két út egymás mellett: <a href="#szint">a 3. mozgó ábra</a>.</div>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="fejezet-abra" id="mukodes" aria-labelledby="mukodes-cim">
+    <h2 id="mukodes-cim"><span class="cimke">Mozgó ábra · 2</span>Így dolgozik utána a szabálygyűjtemény</h2>
+    <p>Ha a csomag a projektedben van, a munka indítókkal megy. Figyeld meg a <mark>három kaput</mark>: mindegyiknél te döntesz. Az ábrán az indítók jele ALFA; te a sajátodat használod.</p>
+    <figure class="mozgo" data-jelenet="uc3-mukodes" data-auto="nincs">
+      <figcaption>Így dolgozik a kész szabálygyűjtemény. Friss beszélgetésben beírod a maker indítóját; az AI az AGENTS.md fájlból tudja, hogy a maker szabályai szerint dolgozik. A maker tervet mutat: ez az első kapu, te hagyod jóvá. Ezután önállóan készít, mér és javít, új verzióba ment, és minden körről sort ír a naplóba. A második kapu az átvétel: megnézed a kimenetet, és összeállítod a csomagot. Másik friss beszélgetésben indítod a reviewert, aki csak a csomagot kapja meg; megállapít, de nem javít. A harmadik kapu a döntés a jelentés után: mehet, javítani kell, vagy megállunk. Javításnál a maker csak a megnevezett hibákat javítja, új verzióba. A napló rögzíti, ki mit döntött és miért.</figcaption>
+    </figure>
+  </section>
+
+  <section class="fejezet-abra" id="szint" aria-labelledby="szint-cim">
+    <h2 id="szint-cim"><span class="cimke">Mozgó ábra · 3</span>Projektszabály vagy céges DNS</h2>
+    <p>A két szint nem zárja ki egymást: a csomag a projektedben azonnal érvényes, a közös DNS-be pedig <mark>javaslatként</mark> megy, és a gazda dönt róla.</p>
+    <figure class="mozgo" data-jelenet="uc3-szint" data-auto="nincs">
+      <figcaption>Projektszabály vagy céges DNS. Megkérdezed, melyik szintre kerüljön a csomag; az AI rákérdez, használná-e más is, mi igaz csak erre a projektre, és ki a közös DNS gazdája. Az egyik út: a csomagot a saját projektmappád gyökerébe másolod, ahol azonnal érvényes, és friss beszélgetésben, csak az indítóval kipróbálod. A másik út: javaslat készül a DNS gazdájának arról, mi általános és mi projektfüggő. A javaslat nem döntés: a gazda hagyja jóvá, és jóváhagyás után a szabály új verzióval kerül a közös DNS-be. A csomag addig is érvényes a projektedben.</figcaption>
+    </figure>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">Pipáld ki a hat pontot a kész csomagon.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div><b>A te projekted:</b> a szabályokban a saját kimeneteid, forrásaid és döntéshozóid szerepelnek.</div></li>
+      <li data-id="v2"><div><b>Nincs kitalált érték:</b> minden összeghatár, név és százalék tőled származik; ahol nem tudtad, egyértelmű helyőrző áll, és tudod, kitől kérdezed meg.</div></li>
+      <li data-id="v3"><div><b>Elválnak a szerepek:</b> a maker nem minősíti magát, a reviewer nem javít, a kapunál ember dönt.</div></li>
+      <li data-id="v4"><div><b>Eldönthető szabályok:</b> minden szabályról meg lehet mondani, teljesült-e; a köröknél és lépéseknél szám áll.</div></li>
+      <li data-id="v5"><div><b>Egységes csomag:</b> az indítók mindenhol azonosak, és az <code>AGENTS.md</code> egyezik a szabályfájlokkal.</div></li>
+      <li data-id="v6"><div><b>Megvan a döntés:</b> tudod, hogy projektszabály marad, vagy javaslatként megy a DNS-be, és miért.</div></li>
+    </ul>
+  </section>
+
+  <section id="elakadas" aria-labelledby="elakadas-cim">
+    <h2 id="elakadas-cim">Ha elakadsz</h2>
+    <div class="callout elakadas"><span class="callout-cim">Az AI nem kérdez, hanem rögtön ír</span>Írd be: „Állj meg. Előbb kérdezz arról, amit a projektről tudnod kell, és csak utána írd meg.”</div>
+    <div class="callout elakadas"><span class="callout-cim">Túl sok a kérdés</span>Írd be: „A többit töltsd ki az ajánlott opcióval, és mutasd meg, mit választottál.” Utána nézd át, és ami nem stimmel, írasd át.</div>
+    <div class="callout elakadas"><span class="callout-cim">Az AI nem találja a receptet</span>Add meg a teljes helyét, vagy nyisd meg a <a href="../03%20usecase%20Projekt%20szabalyok/szabalyrendszer-recept.md">receptet</a>, és csatold a beszélgetéshez, ha a környezet támogatja.</div>
+    <div class="callout elakadas"><span class="callout-cim">A szabály túl hosszú vagy bonyolult</span>Írd be: „Rövidítsd egy képernyőnyire. Egy szabály egy mondat legyen.”</div>
+    <div class="callout elakadas"><span class="callout-cim">Új beszélgetést kellett nyitnod</span>Küldd el újra az 1. promptot, és tedd hozzá: „A <code>projekt</code> mappában már vannak kész szabályfájlok; olvasd be őket, és onnan folytassuk.”</div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Vidd haza</h2>
+    <ol>
+      <li><b>Másold</b> a <code>projekt</code> mappa tartalmát a saját projektmappád gyökerébe: az <code>AGENTS.md</code> fájlt, a <code>szabalyok</code> mappát és a <code>naplo.md</code> fájlt. Ha ott már van <code>AGENTS.md</code>, ne írd felül: előbb nézd meg, mi van benne.</li>
+      <li><b>Próbáld ki élesben:</b> a saját projektedben nyiss friss beszélgetést, és csak az indítót írd be, például a maker indítóját. Ha az AI a maker szabályai szerint jelentkezik, a csomag működik.</li>
+      <li><b>Töltsd ki</b> a „Rád váró tételek” listát: kérdezd meg azt, akit a helyőrző megnevez, és írasd be a választ a pontosító prompttal.</li>
+      <li><b>Egy-két hét használat után</b> nézd át: mi vált be? Ami más projektben is működne, azt javasold a DNS gazdájának.</li>
+    </ol>
+    <div class="callout jegyezd"><span class="callout-cim">A módszer máshol is működik</span>Rövid cél, az AI kérdez, te válaszolsz, az AI megírja, te átnézed. Ugyanígy kérhetsz briefet, ellenőrzőlistát vagy sablont is: nem a hosszú prompt adja a minőséget, hanem a jó kérdések és a te válaszaid.</div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Kapcsolódik</span><h3>7. gyakorlat: saját folyamat átvitele</h3><p>Ott a saját feladatod briefjét írod meg. Az itt elkészült szabálycsomag adja hozzá a keretet: ki készít, ki ellenőriz, ki dönt.</p></div>
+      <a class="gomb" href="07-sajat-atvitel-notebook.html">A 7. gyakorlatra ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · Projekt-szabályrendszer promptokkal · A recept általános: nem tartalmaz cégadatot. A valós projekted szabályai a saját gépeden maradnak.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="../index.html#kiegeszito" rel="prev">◀ Kiegészítő gyakorlatok</a>
+      <a href="../index.html">Napi térkép</a>
+      <a href="07-sajat-atvitel-notebook.html" rel="next">7. gyakorlat ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/uc3.js"></script>
+</body>
+</html>

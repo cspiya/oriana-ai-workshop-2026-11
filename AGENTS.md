@@ -117,6 +117,7 @@ Kiegészítő gyakorlatok (a tananyag részei, de 2026-11-12-én nincsenek a pro
 | 02 Adatgyűjtés RONDO-portálról (30 perc) | `02-portal.md` | `02-Portal` | GPT-6 Luna | közös |
 | 03 Közös munka és megosztás (25 perc) | `03-kozos-munka.md` | `03-Kozos` | GPT-6 Luna | közös |
 | 06 RONDO ügykövető (Sites); a B fázis csak Sales-Account (25 + 30 perc) | `06-sites.md` | `06-Sites` | GPT-6 Luna | közös, B: Sales-Account |
+| Projekt-szabályrendszer promptokkal (UC3; 45 perc) | nincs; a gyakorlatoldal vezet: `Notebookok/uc3-szabalyrendszer-notebook.html` | `03 usecase Projekt szabalyok` | GPT-6 Luna | közös (BA vagy Sales) |
 
 ## Ügyfélprofil-gyakorlatok (UC1, UC2)
 Az UC1 közös, az UC2 a Sales-Account szekcióé. Ezt a két blokkot a gyakorlatoldal vezeti (`Tananyag/Notebookok/uc1-ugyfelprofil-notebook.html`, `uc2-ugyfelprofil-agent-notebook.html`): a résztvevő onnan másolja be a promptokat, egymás után.
@@ -126,6 +127,15 @@ Az UC1 közös, az UC2 a Sales-Account szekcióé. Ezt a két blokkot a gyakorla
 - Mentés: `Munka/01 usecase Ugyfelprofil`, illetve `Munka/02 usecase Ugyfelprofil agent` (hozd létre, ha hiányzik). A prompt „saját 01 usecase Ugyfelprofil mappám” kifejezése a `Munka` alatti mappát jelenti; a `Tananyag/01 usecase Ugyfelprofil` csak a vizuális minta, csak olvasd.
 - Az UC1 1. és 2. promptjának eredményét a válasz mellett mentsd is (`kutatas_1.md`, `kutatas_2.md`, forráslinkekkel). Fix név: a végleges profil mindig `Oriana_Rondo_Ugyfelprofil.html`; finomításkor az előző állapotot `_v1` néven őrizd meg, a frissítettet ezen a néven add vissza.
 - Az ügynöklétrehozás munkatérfüggő: ha nem elérhető, mondd ki; mentést, megosztást vagy publikálást bizonyíték nélkül ne állíts.
+
+## Projekt-szabályrendszer gyakorlat (UC3)
+Kiegészítő gyakorlat, időpont nélkül. A gyakorlatoldal vezet (`Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html`): a résztvevő kilenc rövid promptot küld egy beszélgetésben, és ezekkel rakja össze a saját projektje szabálygyűjteményét: működési minta, maker, reviewer, orchestrator és a projekt `AGENTS.md` fájlja.
+- Nincs „Kezdjük az N. gyakorlatot” indító. Ha a résztvevő az oldal egyik promptját küldi (projekt-szabályrendszer kérése, működési minta, maker, reviewer, orchestrator, a projekt `AGENTS.md` összeállítása, csomagellenőrzés, próba, projektszabály vagy DNS), ne indíts tutor-nyitást, és ne írd át a kérést. A „Mit futtat az AI?” közlés itt elmarad.
+- A mércéd a `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md`: olvasd be, és aszerint dolgozz. A módszer: a résztvevő röviden megmondja a célt, te kérdezel a részletekről, és csak utána írsz. Itt a recept kérdezési rendje érvényes: egyszerre legfeljebb három kérdés, opciókkal, az első az ajánlott.
+- A kész szabályfájlban nem marad üres mező, és nem írsz bele „Nincs megadva” jelölést: az általános szabályt megírod, a projekttől függőt megkérdezed. Ha a résztvevő sem tudja, egyértelmű helyőrzőt írsz: `[KITÖLTENDŐ: mit várunk ide · ki tudja megmondani]`, és a fájl végén „Rád váró tételek” listában sorolod fel. Céghez kötött értéket ne találj ki; a `dns-minta` fiktív értékeit ne vedd át.
+- Mentés: `Munka/03 usecase Projekt szabalyok/projekt/` (hozd létre, ha hiányzik). A generált `AGENTS.md` ebbe a mappába kerül; a munkaterület gyökerében lévő `AGENTS.md` fájlt ne írd felül. FIKTÍV jelölés nem kell rá: ez a résztvevő saját projektjének szabálya, és a saját gépén marad.
+- A résztvevő által választott jelű indítók (például „ALFA maker”) a generált csomag részei. Ezen a munkaterületen csak akkor kövesd őket, ha a résztvevő kifejezetten a generált `AGENTS.md` beolvasását kéri (az oldal 8. promptja); mondd ki, hogy a valódi próba a saját projektmappában, friss beszélgetésben történik.
+- Az orchestrator szerep és munkamód, nem menüpont. A közös DNS-t a gazdája frissíti: te csak `dns-javaslat.md` fájlt készítesz, a javaslat nem döntés.
 
 ## Módszer
 Kövesd ezt a sorrendet: Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés. A prompt hét eleme: Cél, Címzett, Forrás és határ, Kimeneti séma, Szabályok, Ellenőrzés, Mentés.
