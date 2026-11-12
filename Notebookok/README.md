@@ -6,13 +6,22 @@ Blokkonként egy rövid, offline HTML-itiner a 2026.11.12-i workshophoz. A noteb
 |---|---|---|---|
 | 0 | 09:00 | `00-halado-setup-notebook.html` | a nap térképe (Á1) és az érettségi lépcső (Á2) |
 | 1 | 09:40 | `01-dns-notebook.html` | a DNS felépítése: öt réteg, egy alap, két szerep |
-| 2 | 10:15 | `02-portal-notebook.html` | portál API nélkül: kézi út vagy böngésző-agent, dry run → alkalmazás → visszaolvasás |
-| 3 | 11:00 | `03-kozos-munka-notebook.html` | megosztási jogok mátrixa, app-kapcsolat, csapatfeladat, hozzáférési szabály |
+| Ügyfélprofil promptokkal | 10:15 | `uc1-ugyfelprofil-notebook.html` | a négy prompt lánca ugyanabban a beszélgetésben (mozgó ábra) |
 | 4 | 11:25 | `04-rondo-agent-notebook.html` | az agentfutás íve: brief → ebéd alatti futás → átvétel → javítás; BA és Sales-Account sáv |
 | 5 | 13:25 | `05-rondo-reviewer-notebook.html` | maker–reviewer hurok: R1, R2, stop-döntés (Á4) |
-| 6 | 15:10 | `06-sites-notebook.html` | ügykövető: adat → app → jogosultság → megosztás |
-| 6b | 15:35 | `06b-ba-utotag-notebook.html` | három BA-recept: dokumentum, drótváz, dokumentáció kódból |
+| Ügyfélprofil agent | 15:10 | `uc2-ugyfelprofil-agent-notebook.html` | a három helyszín közti út az ügynök beállításáig (mozgó ábra) |
 | 7 | 16:05 | `07-sajat-atvitel-notebook.html` | a nap térképe a végén (Á1) és a lépcső 30 napra (Á2) |
+
+A két Ügyfélprofil-blokkhoz nincs forgatókönyv: az oldal vezet, másolható promptokkal. Szünetek: 11:15-11:25, 12:30-13:15 (ebéd), 14:35-14:50.
+
+Kiegészítő gyakorlatok: nincsenek a napi időrendben, de a tananyag részei, és ugyanúgy indíthatók („Kezdjük az N. gyakorlatot”).
+
+| Gyakorlat | Idő | Fájl | Fejezet-ábra |
+|---|---|---|---|
+| 2 | 30 perc | `02-portal-notebook.html` | portál API nélkül: kézi út vagy böngésző-agent, dry run → alkalmazás → visszaolvasás |
+| 3 | 25 perc | `03-kozos-munka-notebook.html` | megosztási jogok mátrixa, app-kapcsolat, csapatfeladat, hozzáférési szabály |
+| 6 | 25 + 30 perc | `06-sites-notebook.html` | ügykövető: adat → app → jogosultság → megosztás |
+| 6b | 30 perc | `06b-ba-utotag-notebook.html` | három BA-recept: dokumentum, drótváz, dokumentáció kódból |
 
 ## Szerkezet (design system v2)
 

@@ -16,16 +16,21 @@
   var DAY = [
     { id: '00', rovid: 'Alapozás', t: '09:00', n: 'Saját feladat, AI-alapok', href: 'Notebookok/00-halado-setup-notebook.html', sav: 'all' },
     { id: '01', rovid: 'DNS', t: '09:40', n: 'Oriana DNS', href: 'Notebookok/01-dns-notebook.html', sav: 'all' },
-    { id: '02', rovid: 'Adatgyűjtés', t: '10:15', n: 'RONDO-portál: adatgyűjtés', href: 'Notebookok/02-portal-notebook.html', sav: 'all' },
-    { id: 'b1', t: '10:45', n: 'Szünet', brk: true },
-    { id: '03', rovid: 'Megosztás', t: '11:00', n: 'Közös munka és megosztás', href: 'Notebookok/03-kozos-munka-notebook.html', sav: 'all' },
+    { id: 'uc1', rovid: 'Ügyfélprofil', t: '10:15', n: 'Ügyfélprofil promptokkal', href: 'Notebookok/uc1-ugyfelprofil-notebook.html', sav: 'all' },
+    { id: 'b1', t: '11:15', n: 'Szünet', brk: true },
     { id: '04', rovid: 'RONDO agent', t: '11:25', n: 'RONDO agent: KAPU I, maker', href: 'Notebookok/04-rondo-agent-notebook.html', sav: 'par' },
     { id: 'b2', t: '12:30', n: 'Ebéd', brk: true },
     { id: '05', rovid: 'Reviewer', t: '13:25', n: 'Reviewer és stop-döntés', href: 'Notebookok/05-rondo-reviewer-notebook.html', sav: 'par' },
     { id: 'b3', t: '14:35', n: 'Szünet', brk: true },
-    { id: '06', rovid: 'Ügykövető', t: '15:10', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html', sav: 'sa' },
-    { id: '06b', rovid: 'BA-utótag', t: '15:35', n: 'BA-utótag', href: 'Notebookok/06b-ba-utotag-notebook.html', sav: 'ba' },
+    { id: 'uc2', rovid: 'Ügyfélprofil agent', t: '15:10', n: 'Ügyfélprofil agent', href: 'Notebookok/uc2-ugyfelprofil-agent-notebook.html', sav: 'all' },
     { id: '07', rovid: 'Saját folyamat', t: '16:05', n: 'Saját folyamat átvitele', href: 'Notebookok/07-sajat-atvitel-notebook.html', sav: 'all' }
+  ];
+  // Kiegészítő gyakorlatok: nincsenek a napi időrendben (2026-11-12-i döntés), de a tananyag részei és ugyanúgy indíthatók.
+  var KIEG = [
+    { id: '02', rovid: 'Adatgyűjtés', n: 'RONDO-portál: adatgyűjtés', href: 'Notebookok/02-portal-notebook.html' },
+    { id: '03', rovid: 'Megosztás', n: 'Közös munka és megosztás', href: 'Notebookok/03-kozos-munka-notebook.html' },
+    { id: '06', rovid: 'Ügykövető', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html' },
+    { id: '06b', rovid: 'BA-utótag', n: 'BA-utótag', href: 'Notebookok/06b-ba-utotag-notebook.html' }
   ];
   var SAV_NEV = { all: 'közös sáv', ba: 'BA sáv', sa: 'Sales–Account sáv', par: 'párhuzamos: BA és Sales–Account' };
 
@@ -220,6 +225,19 @@
       if (cb) cb.addEventListener('change', function () { if (cb.checked && fokusz && i === cur && i < n - 1) setTimeout(function () { ugras(i + 1); }, 450); });
     });
 
+    // Blokkvégi „Fontos fogalmak” doboz: fókusz módban csak akkor nyitott, ha a blokk utolsó lépése az aktuális; kattintásra nyílik-csukódik.
+    var fgDobozok = Array.prototype.slice.call(lista.querySelectorAll(':scope > .fogalmak'));
+    function fogalomAllapot() {
+      fgDobozok.forEach(function (d) {
+        if (d.getAttribute('data-kezi')) return;
+        var elozo = d.previousElementSibling; while (elozo && !elozo.classList.contains('lepes')) elozo = elozo.previousElementSibling;
+        d.classList.toggle('nyitva', !!(elozo && elozo === lepesek[cur]));
+      });
+    }
+    fgDobozok.forEach(function (d) {
+      d.addEventListener('click', function () { if (!fokusz) return; d.setAttribute('data-kezi', '1'); d.classList.toggle('nyitva'); });
+    });
+
     var manual = false;
     function ugras(i) {
       i = Math.max(0, Math.min(n - 1, i));
@@ -233,6 +251,7 @@
       allomasok.forEach(function (li, k) { li.classList.toggle('is-current', k === i); if (k === i) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current'); });
       var cs = lepesek[i].getAttribute('data-csoport') || '';
       fej.setAttribute('data-csoport', cs);
+      fogalomAllapot();
       fej.querySelector('.sz').textContent = (i + 1) + '/' + n + ' lépés';
       fej.querySelector('.nev').textContent = lepesek[i].getAttribute('data-rovid') || '';
       sin.querySelector('[data-a="prev"]').disabled = i === 0;
@@ -419,16 +438,16 @@
       });
     });
   }
-  var JELVENY_NEV = { '00': 'Célkártya-mester', '01': 'DNS-építő', '02': 'Próbafutás-mester', '03': 'Jogmátrix-készítő', '04': 'Agent-indító', '05': 'Független ellenőr', '06': 'Ügykövető-építő', '06b': 'Forrás-visszakereső', '07': 'Folyamatgazda' };
+  var JELVENY_NEV = { '00': 'Célkártya-mester', '01': 'DNS-építő', '02': 'Próbafutás-mester', '03': 'Jogmátrix-készítő', '04': 'Agent-indító', '05': 'Független ellenőr', '06': 'Ügykövető-építő', '06b': 'Forrás-visszakereső', '07': 'Folyamatgazda', 'uc1': 'Ügyfélprofil-készítő', 'uc2': 'Ügynök-építő' };
   function jelvenyRacs() {
     var pre = rootPrefix();
     document.querySelectorAll('ul.jelveny-racs').forEach(function (ul) {
       if (ul.children.length) return;
-      DAY.forEach(function (d) {
+      DAY.concat(KIEG).forEach(function (d) {
         if (d.brk) return;
         var megvan = false; try { megvan = localStorage.getItem('wenova-jelveny:' + d.id) === '1'; } catch (e) { megvan = false; }
         var li = document.createElement('li'); if (megvan) li.className = 'megvan';
-        li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><b>' + esc(JELVENY_NEV[d.id] || d.rovid || d.n) + '</b><a href="' + pre + d.href + '">' + esc(d.id + ' · ' + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
+        li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><b>' + esc(JELVENY_NEV[d.id] || d.rovid || d.n) + '</b><a href="' + pre + d.href + '">' + esc((/^uc/.test(d.id) ? '' : d.id + ' · ') + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
         ul.appendChild(li);
       });
     });

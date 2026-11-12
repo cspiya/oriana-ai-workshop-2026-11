@@ -58,16 +58,18 @@
   var NARROW = window.matchMedia ? window.matchMedia('(max-width: 640px)') : { matches: false };
   var uidCounter = 0;
 
-  /* A nap blokkjai (a wenova.js DAY tömbjével egyező idők; csak a feliratokhoz). */
+  /* A nap blokkjai (a wenova.js DAY tömbjével egyező idők; csak a feliratokhoz). A 02, 03, 06, 06b kiegészítő gyakorlat, nincs a napi időrendben. */
   var DAY = {
     '00': { n: 'Saját feladat, AI-alapok', t: '09:00', c: '0. gyakorlat' },
     '01': { n: 'Oriana DNS', t: '09:40', c: '1. gyakorlat' },
-    '02': { n: 'RONDO-portál: adatgyűjtés', t: '10:15', c: '2. gyakorlat' },
-    '03': { n: 'Közös munka és megosztás', t: '11:00', c: '3. gyakorlat' },
+    '02': { n: 'RONDO-portál: adatgyűjtés', t: 'kiegészítő', c: '2. gyakorlat' },
+    '03': { n: 'Közös munka és megosztás', t: 'kiegészítő', c: '3. gyakorlat' },
     '04': { n: 'RONDO agent: KAPU I, maker', t: '11:25', c: '4. gyakorlat' },
     '05': { n: 'Reviewer és stop-döntés', t: '13:25', c: '5. gyakorlat' },
-    '06': { n: 'Ügykövető (Sites)', t: '15:10', c: '6. gyakorlat' },
-    '06b': { n: 'BA-utótag', t: '15:35', c: 'BA-utótag' },
+    '06': { n: 'Ügykövető (Sites)', t: 'kiegészítő', c: '6. gyakorlat' },
+    '06b': { n: 'BA-utótag', t: 'kiegészítő', c: 'BA-utótag' },
+    'uc1': { n: 'Ügyfélprofil promptokkal', t: '10:15', c: 'Ügyfélprofil' },
+    'uc2': { n: 'Ügyfélprofil agent', t: '15:10', c: 'Ügyfélprofil agent' },
     '07': { n: 'Saját folyamat átvitele', t: '16:05', c: '7. gyakorlat' }
   };
   var DAY_ORDER = ['00', '01', '02', '03', '04', '05', '06', '06b', '07'];

@@ -18,7 +18,7 @@ A munkamappa `C:\Users\<felhasználónév>\Wenova-AI-workshop\Munka`. Ha nem ér
 
 ### A) Hol tartok?
 
-Ha nincs időpont vagy gyakorlatszám, kérj opciós választ a napi térkép blokkjaiból; az első opció a következő esedékes gyakorlat legyen, utolsó opció: „más: írd le”. A napi térkép alapján (a 2026-11-12-i idők) nevezd meg a gyakorlatot, a forgatókönyvet, a munkamappát és a modellt. Adj egyetlen következő lépést.
+Ha nincs időpont vagy gyakorlatszám, kérj opciós választ a napi térkép blokkjaiból; az első opció a következő esedékes gyakorlat legyen, utolsó opció: „más: írd le”. A napi térkép alapján (a 2026-11-12-i idők) nevezd meg a gyakorlatot, a forgatókönyvet, a munkamappát és a modellt. Adj egyetlen következő lépést. A két Ügyfélprofil-blokk (10:15-11:15 és 15:10-16:05) idején a következő lépés nem indító mondat, hanem a gyakorlatoldal következő másolható promptja. A 2., a 3., a 6. és a 6b gyakorlat kiegészítő: nincs a napi időrendben, de ugyanúgy indítható; időpontot ne mondj hozzá, csak perceket.
 
 ### B) Kezdjük az N. gyakorlatot
 

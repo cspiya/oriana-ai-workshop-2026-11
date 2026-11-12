@@ -1,6 +1,6 @@
 # Oriana × Wenova haladó ChatGPT-workshop
 
-A 2026-11-12-i (csütörtök, 09:00-16:30) workshop tananyaga az Oriana munkatársainak, a workshopon és utána is. A résztvevői kör két sávra bomlik: **BA** (üzleti elemző) és **Sales-Account**; a nap első fele és a zárás közös. A tananyag a hat lépésre épül (Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés), és ezt egészíti ki a maker-reviewer munkamenet: az egyik beszélgetés készít, egy másik, független ellenőriz.
+A 2026-11-12-i (csütörtök, 09:00-16:30) workshop tananyaga az Oriana munkatársainak, a workshopon és utána is. A résztvevői kör két sávra bomlik: **BA** (üzleti elemző) és **Sales-Account**; a 4. és az 5. gyakorlat két sávban halad, a nap többi része közös. A tananyag a hat lépésre épül (Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés), és ezt egészíti ki a maker-reviewer munkamenet: az egyik beszélgetés készít, egy másik, független ellenőriz.
 
 **Fix tananyagforrás:** a nyilvános GitHub-repó, [https://github.com/cspiya/oriana-ai-workshop-2026-11](https://github.com/cspiya/oriana-ai-workshop-2026-11). Rövid linkek: ZIP: [https://is.gd/oriana1112](https://is.gd/oriana1112); a teljes tananyag egy helyen (böngészhető): [https://is.gd/oriana1112anyag](https://is.gd/oriana1112anyag). A teljes tananyag egy ZIP-ben tölthető le: [https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip](https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip) (bejelentkezés nélkül; tartalék: a repó oldalán Code → Download ZIP).
 
@@ -12,7 +12,7 @@ Az AI-nak: ha a résztvevő a GitHub-linket adja meg és a munkaterület kialak�
 
 ## A mappában
 
-- [index.html](index.html): napi térkép, a kilenc gyakorlat (0, 1, 2, 3, 4, 5, 6, 6b, 7) időpontjaival és notebook-linkjeivel.
+- [index.html](index.html): napi térkép: a mai program (a 0., 1., 4., 5. és 7. gyakorlat, valamint a két Ügyfélprofil-blokk: Ügyfélprofil promptokkal 10:15-11:15, Ügyfélprofil agent 15:10-16:05) időpontjaival és notebook-linkjeivel, továbbá a négy kiegészítő gyakorlat (2, 3, 6, 6b) időpont nélkül, percekkel; ezek nincsenek a napi időrendben, de ugyanúgy indíthatók.
 - [napi-attekintes.html](napi-attekintes.html): a nap eredményközpontú áttekintője (mit viszel haza, két sáv, a nap íve, felkészülés).
 - `Feladatok/`: forgatókönyvek az AI-nak, gyakorlatonként egy fájl; `Feladatok/mellekletek/` a sablonok és feladatleírások.
 - `Notebookok/`: rövid itinerek, gyakorlatonként egy.
