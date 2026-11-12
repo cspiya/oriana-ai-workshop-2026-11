@@ -22,8 +22,9 @@
 
   <section class="session-fejlec" id="cel" aria-labelledby="cim">
     <div class="cim-blokk">
-      <div class="eyebrow"><span>Ügyfélprofil use case 2 · Prompt Guide · 15:10–16:05</span><span class="badge all">közös</span></div>
+      <div class="eyebrow"><span>Ügyfélprofil use case 2 · Prompt Guide · 15:10–16:05 · Sales-Account szekció</span><span class="badge sa">Sales-Account</span><span>vezeti: Kemény Krisztián</span></div>
       <h1 id="cim">Ügyfélkutató ügynök az 1-es feladatból</h1>
+      <p>15:10-től két szekció dolgozik párhuzamosan: ez a Sales-Account szekció oldala. A BA-szekció ugyanekkor a <a href="06b-ba-utotag-notebook.html">6b gyakorlaton</a> dolgozik.</p>
       <div class="cel"><span class="cel-cimke">Cél</span><p>Az 1-es mappa saját kutatási anyagaiból és a kész Rondo HTML-ből elkészíted a skillt és az általános sablont, majd a ChatGPT ügynöklétrehozójában beállítod az ügynököt. Utána egy cégnév indítja a kutatást, az ellenőrzést, a javítást és a fájlátadást.</p></div>
       <div class="gyakorolunk">
         <h4>Mit gyakorolunk</h4>
@@ -59,15 +60,16 @@
 
   <section id="hol" aria-labelledby="hol-cim">
     <h2 id="hol-cim">Mi történik, és hol?</h2>
-    <p class="lead">Három helyszínen dolgozol. Minden lépés elején sötét sáv mutatja, melyikben vagy éppen.</p>
-    <table>
+    <p class="lead">Egy rövid kézi lépés után három helyszínen dolgozol. Minden lépés elején sötét sáv mutatja, melyikben vagy éppen.</p>
+    <div style="overflow-x: auto"><table>
       <thead><tr><th>Hely</th><th>Feladat</th><th>Mit viszel tovább?</th></tr></thead>
       <tbody>
         <tr><td>Helyi fájlokat elérő Work-beszélgetés</td><td>1. lépés: az 1-es feladatból skill és sablon létrehozása.</td><td>A most elkészített SKILL.md és Oriana_Sablon_Ugyfelprofil.html.</td></tr>
-        <tr><td>Work → üzenetmező melletti + → ügynöklétrehozó funkció</td><td>0.0: kézzel létrehozzuk az üres ügynököt. 2–4. lépés: a meglévő ügynök beállításait promptokkal készítjük el.</td><td>Próbára kész saját ügynök.</td></tr>
+        <tr><td>ChatGPT: Ügynökök / Agents rész (kézi felületi lépés)</td><td>0.0: kézzel létrehozzuk az üres ügynököt.</td><td>Üres, elnevezett ügynök.</td></tr>
+        <tr><td>Work → üzenetmező melletti + → ügynöklétrehozó funkció</td><td>2–4. lépés: a meglévő ügynök beállításait promptokkal készítjük el.</td><td>Próbára kész saját ügynök.</td></tr>
         <tr><td>Az ügynök Preview / Előnézet vagy saját beszélgetése</td><td>5–7. lépés: cégnév, kimenet ellenőrzése, mentés és új próba.</td><td>Letölthető HTML + JSON + CSV.</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>Először a 0.0 lépésben kézzel létrehozod és elnevezed az üres ügynököt. Ezt az ügynököt utána promptokkal állítod be és építed készre. Utána egy cégnév indítja a kutatást, ellenőrzést, javítást és fájlátadást; a rutinlépésekhez nem kell közben utasítanod.</p>
     <div class="callout figyelj"><span class="callout-cim">Korlátok</span>Ez a Work-ben indított ChatGPT-ügynöklétrehozás, nem a fejlesztői API Agent Builder. A felületi elnevezés és elérhetőség <mark>munkatérfüggő</mark>. Ha az ügynöklétrehozás vagy a fájlkészítés nem elérhető, azt jelezni kell; <mark>egy prompt nem kapcsol be hiányzó jogosultságot</mark>. Nincs SharePoint/MCP, és az ügynök nem éri el automatikusan a helyi mappáidat.</div>
   </section>
@@ -124,7 +126,7 @@ Egyelőre csak ezt az üres ügynököt készítsd elő. Ha már van saját ilye
           <div class="lepes-racs">
             <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
               <ul>
-                <li><b>Nyisd meg</b> a saját helyi munkaterületedet. Az <code>01 usecase  Ugyfelprofil</code> mappában legyen az előző gyakorlat kutatási anyaga és végleges <code>Oriana_Rondo_Ugyfelprofil.html</code> fájlja. Ez az egyetlen bemenet.</li>
+                <li><b>Nyisd meg</b> a saját helyi munkaterületedet. Az <code>01 usecase Ugyfelprofil</code> mappában legyen az előző gyakorlat kutatási anyaga és végleges <code>Oriana_Rondo_Ugyfelprofil.html</code> fájlja. Ez az egyetlen bemenet.</li>
                 <li><b>Futtasd</b> itt a lenti promptot. Nem kell előre létrehozott SKILL.md, sablon vagy második feladatcsomag. Az eredeti HTML-t nem másoljuk és nem módosítjuk.</li>
                 <li>A futás végén <b>nyisd meg</b> a most elkészült <code>02 usecase Ugyfelprofil agent/SKILL.md</code> fájlt és a <code>Forrasok/Oriana_Sablon_Ugyfelprofil.html</code> sablont.</li>
               </ul>
@@ -141,13 +143,12 @@ Egyelőre csak ezt az üres ügynököt készítsd elő. Ha már van saját ilye
             <div class="pelda">
               <span class="pelda-cimke">1. lépés · másolható szöveg</span>
               <span class="szerep">Ezt másolod a Work-beszélgetés üzenetmezőjébe</span>
-              <pre class="prompt-box">Olvasd be a saját „01 usecase  Ugyfelprofil” mappám kutatási anyagait és végleges Oriana_Rondo_Ugyfelprofil.html fájlját. Az eredetit ne másold és ne módosítsd; hiány esetén kérd el a tényleges helyét.
+              <pre class="prompt-box">Olvasd be a saját „01 usecase Ugyfelprofil” mappám kutatási anyagait és végleges Oriana_Rondo_Ugyfelprofil.html fájlját. Az eredetit ne másold és ne módosítsd; hiány esetén kérd el a tényleges helyét.
 Hozd létre mellette a „02 usecase Ugyfelprofil agent” mappát Forrasok és Kimenetek almappával.
 A Rondo HTML teljes topológiájából készíts egyetlen Forrasok/Oriana_Sablon_Ugyfelprofil.html sablont. Őrizd meg a DOM-ot, CSS-t, logót, szakaszokat, kártyákat, diagramokat, vezérlőket, forrásjegyzéket, CSV-exportot, mobil- és nyomtatási nézetet. Csak a cégspecifikus tartalmat cseréld kitöltési helyre/null értékre; hiányt ne rajzolj nullának.
 A 2-es mappa gyökerébe készíts önálló SKILL.md-t, name: oriana-ugyfelkutato és description YAML-fejléccel. Relatív sablonhivatkozása: Forrasok/Oriana_Sablon_Ugyfelprofil.html. Külső segédfájl nélkül írja le a cégnévtől a forrásolt magyar HTML + kutatas.json + CSV átadásáig tartó önálló folyamatot: cégazonosítás, három lezárt év, hivatalos honlap, CompanyWall, Cégadatok és lehetőség szerint eredeti beszámoló, működés/beruházás/IT, Oriana-kapcsolódások és öt találkozókérdés, sablonkitöltés, ellenőrzés, legfeljebb két javítási kör.
 Válassza külön a céget/csoportot, tényt/hipotézist, pénzügyi és létszámfogalmakat, tervet/tényt; ne becsüljön hiányt. Ne kérjen rutinjóváhagyást; csak valódi cégazonossági, fájl- vagy hozzáférési akadálynál álljon meg. Kész állapot a letölthető, teljes sablonhű HTML és adatfájlok, nem puszta összefoglaló.
 Ellenőrizd a két új fájlt és add a mentési linkjüket. Eltérő meglévő munkafájlnál készíts új változatot. Kutatást és ügynököt most ne indíts.</pre>
-              <p class="megj">A prompt a mappanevet két szóközzel írja („01 usecase  Ugyfelprofil”). Ha az asszisztens nem találja a mappát, a prompt szerint elkéri a tényleges helyét.</p>
             </div>
             <div class="altalanos">
               <span class="alt-cimke">Mi ez általánosságban?</span>

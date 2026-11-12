@@ -487,6 +487,40 @@ Modell: GPT-6.1 Terra, közepes effort. DNS-verzió: 0.1-minta, Tananyag/04 usec
           <span class="tanulsag">az agent nem kérdezhet vissza: amit tudnia kell, az a briefben vagy a megnevezett fájlokban legyen.</span>
           </div>
           </div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa (BA): fit-gap tábla és igazodás az FDD-egységhez · FIKTÍV OKTATÁSI MINTA</span>
+          <p class="megj">Az FDD-séma 4. fejezete a fit-gap, a 9. az igazodás. A két kérést önállóan is elküldheted, vagy a lényegüket a briefed Cél és Ellenőrzés pontjába írod. A <code>&lt;…&gt;</code> helyőrzők helyére a saját fájlod kerül: ezeket a tananyag nem tartalmazza.</p>
+          <span class="szerep">Te ezt írod: fit-gap tábla</span>
+          <pre class="prompt-box">Cél: fit-gap tábla az FDD-egységemhez: minden igényről látsszon, hogy a meglévő alapképesség fedezi-e.
+Címzett: én, és az FDD-egység 4. fejezete (Fit-gap).
+Forrás és határ: az igények: a kriteriumok.md forráslistájának fájljai. Az alapképességek: &lt;a standard funkciók listájának fájlja&gt;. Más forrást és a saját általános tudásodat ne használd.
+Kimeneti séma: tábla, soronként egy igény: FG-ID | Igény (R-NN és rövid leírás) | Az igény forráshelye (fájl, hely) | Az alapképesség fedezi-e: igen / részben / nem / Nincs megadva | Az alapképesség forráshelye | Eltérés (gap) | Javaslat, nem döntés (vagy NK-NN nyitott kérdés).
+Szabályok: a forrás minden igénye szerepel, kihagyás nélkül, a forrás azonosítóival. Amit a megadott lista nem támaszt alá, ott „Nincs megadva” áll, és a tétel nyitott kérdés; termékképességet forrás nélkül ne állíts. Az ellentmondó forrásokat mindkét hellyel együtt add meg. A javaslat nem döntés.
+Ellenőrzés: hány igény van a forrásban, és hány sor a táblában; két sor forráshelyét keresd vissza, és idézd.
+Mentés: Munka/04-Agent/ÉÉÉÉ-HH-NN_fit-gap_tabla.md; a fejlécben: FIKTÍV OKTATÁSI MINTA.</pre>
+          <span class="szerep">Ezt kapod vissza (a forma)</span>
+          <div class="ai-valasz"><table><thead><tr><th>FG-ID</th><th>Igény</th><th>Forráshely</th><th>Fedezi-e</th><th>Eltérés (gap)</th><th>Javaslat, nem döntés</th></tr></thead><tbody><tr><td>FG-01</td><td>R-…: …</td><td>&lt;fájl&gt;, &lt;hely&gt;</td><td>igen / részben / nem / Nincs megadva</td><td>…</td><td>… vagy NK-…</td></tr></tbody></table><p>Igények a forrásban: … · sorok a táblában: … ✅ / ⚠️</p></div>
+          <span class="szerep">Te ezt írod: igazodás a korábbi funkciókhoz és az adatstruktúrákhoz</span>
+          <pre class="prompt-box">Cél: ellenőrizd, hogy az FDD-egységem igazodik-e (a) a korábbi projektben létrehozott funkcionalitáshoz és (b) a megadott adatstruktúrákhoz.
+Címzett: én, és az FDD-egység 9. fejezete (Igazodás korábbi funkcióhoz és adatszerkezethez).
+Forrás és határ: az FDD-egység: &lt;az FDD-egységed fájlja&gt;. (a) &lt;a korábbi projekt funkciólistájának fájlja&gt;. (b) &lt;az ODM-séma fájlja&gt;. Csak ezekből dolgozz.
+Kimeneti séma: két tábla. (a) FN-ID | Az egység funkciója | A korábbi funkció neve és helye a listában | Egyezik / eltér: miben / nincs megfelelője / Nincs megadva. (b) AD-ID | Az egység mezője | Az adatstruktúra megfelelő eleme és helye | Eltérés (név, típus, kötelezőség, értékkészlet) / Nincs megadva.
+Szabályok: semmit ne igazíts át: az eltérést megnevezed, nem javítod. Ami nincs a megadott forrásban: „Nincs megadva”, és nyitott kérdés (NK-NN). A korábbi projekt anyagát csak összevetésre használd; az egység tartalmát ne vedd belőle.
+Ellenőrzés: minden FN- és AD-azonosító szerepel-e; két sor mindkét forráshelyét idézd.
+Mentés: Munka/04-Agent/ÉÉÉÉ-HH-NN_igazodas_ellenorzes.md</pre>
+          <p class="megj">A RONDO-mintában nincs valódi funkciólista és nincs ODM-séma. Ha a helyőrzőt nem töltöd ki, az érintett oszlop minden sora „Nincs megadva” lesz: ez a helyes eredmény, nem hiba.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Fit-gap és igazodás</h5>
+          <p><b>Fit-gap:</b> illeszkedés- és eltéréselemzés: az igény összevetése az alapképességgel, a hiányok és a szükséges döntések megjelölésével.</p>
+          <p><b>Miért kell forráshely minden sorhoz?</b> A „fedezi” csak akkor ellenőrizhető állítás, ha megnyitható, hol áll az igény, és hol a képesség. Forráshely nélkül a tábla találgatás.</p>
+          <p>Itt: az FDD-séma (<code>fdd-sema/FDD_sema_FIKTIV.md</code>) 4. és 9. fejezete. A séma kimondja: az alapképesség benne fiktív és általános, az Effector 8.1 és az ODM konkrét képességei nem szerepelnek, mert forrás nem igazolja őket.</p>
+          <p><b>Az ODM-sémát és a korábbi projekt funkciólistáját te adod meg forrásként.</b> A tananyag ezekről nem tud semmit; ami nincs a forrásban: „Nincs megadva”.</p>
+          <span class="tanulsag">a fit-gap tábla annyit ér, amennyi forrás áll mögötte; az igazodásnál az eltérést megnevezed, a döntés nem az AI-é.</span>
+          </div>
+          </div>
           <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: egy önállóan futtatható agent-brief
 Címzett: a GPT-6.1 Terra maker
 Forrás és határ: a kriteriumok.md és a benne felsorolt fájlok; a Tananyag csak olvasható

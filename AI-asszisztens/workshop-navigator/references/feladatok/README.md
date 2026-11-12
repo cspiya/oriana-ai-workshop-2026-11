@@ -13,12 +13,12 @@ A résztvevő a ChatGPT-projektben azt írja: „Kezdjük az N. gyakorlatot” (
 | `04-rondo-agent.md` | 4. Agent: felmérés ellenőrzése, FDD-egység / ajánlat | 11:25-12:30, 13:15-13:25, 14:15-14:35 | BA és Sales-Account, párhuzamosan | `Munka/04-Agent` |
 | `05-rondo-reviewer.md` | 5. Független ellenőrzés (R1, R2, stop-döntés) | 13:25-13:45, 13:45-14:15, 14:50-15:10 | BA és Sales-Account, párhuzamosan | `Munka/05-Reviewer` |
 | `06-sites.md` | 6. Ügyállapot-követés (Sites) | kiegészítő, 25 + 30 perc (a B fázis csak Sales-Account) | közös, majd Sales-Account | `Munka/06-Sites` |
-| `06b-ba-utotag.md` | 6b. BA-utótag | kiegészítő, 30 perc | BA | `Munka/06b-BA-utotag` |
+| `06b-ba-utotag.md` | 6b. BA-utótag (BA-szekció) | 15:10-15:25, 15:25-15:45, 15:45-16:05 | BA | `Munka/06b-BA-utotag` |
 | `07-sajat-atvitel.md` | 7. Saját folyamat átvitele | 16:05-16:30 | közös | `Munka/07-Sajat` |
 
-A 2., a 3., a 6. és a 6b gyakorlat kiegészítő: 2026-11-12-én nincs a napi időrendben, de a tananyag része, és ugyanúgy indítható; időpont helyett csak percek tartoznak hozzá. A nap sorrendjében az `AGENTS.md` „Hol tartok?” táblája az irányadó: ha egy forgatókönyv indítása vagy zárása más időpontot vagy más következő gyakorlatot nevez meg, a táblát kell követni.
+A 2., a 3. és a 6. gyakorlat kiegészítő: 2026-11-12-én nincs a napi időrendben, de a tananyag része, és ugyanúgy indítható; időpont helyett csak percek tartoznak hozzá. A nap sorrendjében az `AGENTS.md` „Hol tartok?” táblája az irányadó: ha egy forgatókönyv indítása vagy zárása más időpontot vagy más következő gyakorlatot nevez meg, a táblát kell követni.
 
-A 10:15-11:15 (Ügyfélprofil promptokkal) és a 15:10-16:05 (Ügyfélprofil agent) közötti blokkhoz nincs forgatókönyv: a `Notebookok/uc1-ugyfelprofil-notebook.html` és a `Notebookok/uc2-ugyfelprofil-agent-notebook.html` vezet, másolható promptokkal; mindkettő közös sáv. Szünet: 11:15-11:25.
+A 10:15-11:15 (Ügyfélprofil promptokkal) és a 15:10-16:05 (Ügyfélprofil agent) közötti blokkhoz nincs forgatókönyv: a `Notebookok/uc1-ugyfelprofil-notebook.html` és a `Notebookok/uc2-ugyfelprofil-agent-notebook.html` vezet, másolható promptokkal; az első közös sáv, a második a Sales-Account szekcióé. 15:10-16:05 között két szekció dolgozik párhuzamosan: a BA-szekció a 6b gyakorlaton (`06b-ba-utotag.md`), a Sales-Account szekció az Ügyfélprofil agenten. Szünet: 11:15-11:25.
 
 A forgatókönyvek szerkezete:
 - YAML-frontmatter: id, cim, blokk, ido, vezeti, sav, munkamappa, modell, ajanlott_mod, fazisok, inditok, proaktiv_elem, eredmeny, forrasok, kimenetek, mellekletek, glosszarium, b_terv.

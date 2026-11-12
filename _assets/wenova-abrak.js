@@ -58,7 +58,7 @@
   var NARROW = window.matchMedia ? window.matchMedia('(max-width: 640px)') : { matches: false };
   var uidCounter = 0;
 
-  /* A nap blokkjai (a wenova.js DAY tömbjével egyező idők; csak a feliratokhoz). A 02, 03, 06, 06b kiegészítő gyakorlat, nincs a napi időrendben. */
+  /* A nap blokkjai (a wenova.js DAY tömbjével egyező idők; csak a feliratokhoz). A 02, 03, 06 kiegészítő gyakorlat, nincs a napi időrendben; 15:10-től két szekció: BA (6b) és Sales-Account (Ügyfélprofil agent). */
   var DAY = {
     '00': { n: 'Saját feladat, AI-alapok', t: '09:00', c: '0. gyakorlat' },
     '01': { n: 'Oriana DNS', t: '09:40', c: '1. gyakorlat' },
@@ -67,9 +67,9 @@
     '04': { n: 'RONDO agent: KAPU I, maker', t: '11:25', c: '4. gyakorlat' },
     '05': { n: 'Reviewer és stop-döntés', t: '13:25', c: '5. gyakorlat' },
     '06': { n: 'Ügykövető (Sites)', t: 'kiegészítő', c: '6. gyakorlat' },
-    '06b': { n: 'BA-utótag', t: 'kiegészítő', c: 'BA-utótag' },
+    '06b': { n: 'BA-szekció', t: '15:10', c: 'BA-szekció (6b)' },
     'uc1': { n: 'Ügyfélprofil promptokkal', t: '10:15', c: 'Ügyfélprofil' },
-    'uc2': { n: 'Ügyfélprofil agent', t: '15:10', c: 'Ügyfélprofil agent' },
+    'uc2': { n: 'Ügyfélprofil agent', t: '15:10', c: 'Sales-Account szekció' },
     '07': { n: 'Saját folyamat átvitele', t: '16:05', c: '7. gyakorlat' }
   };
   var DAY_ORDER = ['00', '01', '02', '03', '04', '05', '06', '06b', '07'];
@@ -156,10 +156,10 @@
       megj: 'Az 1. gyakorlatban készül az első változat, a napon végig bővül.' },
     { id: 'munkafolyamat', nev: 'Agentikus munkafolyamat', rovid: 'hat lépés', chip: true, szin: '', hol: ['02'],
       def: 'A módszer hat lépése minden gyakorlatban ugyanaz: cél, forrás, utasítás, ellenőrzés, javítás, rögzítés. A maker végzi a célt, a forrást, az utasítást, majd a javítást és a rögzítést; az ellenőrzés a reviewer köre, független, friss kontextusban. Ami nincs ellenőrizve és rögzítve, az nem kész.',
-      megj: 'A 2. gyakorlatban: eszközhasználó agent, dry run.' },
+      megj: 'A 4. gyakorlatban: a maker a hat lépés szerint dolgozik (kiegészítő: 2. gyakorlat, dry run).' },
     { id: 'ember-dont', nev: 'Ember dönt', szin: 'warn', hol: ['03'],
       def: 'Az ügyfélnek kimenő és a visszafordíthatatlan lépésnél ember dönt. A többit a kapuk és a bizonyíték fedik, hogy az emberi idő a valóban fontos döntésre menjen.',
-      megj: 'A 3. gyakorlat 3. lépése: írási határ egy felügyelet nélkül futó feladatnál.' },
+      megj: 'A 4. és az 5. gyakorlat átvételi és stop-döntése (kiegészítő: 3. gyakorlat, írási határ).' },
     { id: 'maker', nev: 'Maker kör', szin: '', hol: ['04'],
       def: 'Cél, forrás, utasítás, majd javítás és rögzítés: a maker elkészíti az első változatot, maga futtatja a gépi ellenőrzést, a reviewer megállapításai alapján javít, és rögzíti a bizonyítékot.',
       megj: 'A 4. gyakorlatban: KAPU I az agenttel.' },
@@ -168,7 +168,7 @@
       megj: 'A 4. gyakorlatban és a BA-utótagban mélyül.' },
     { id: 'szerep-sa', nev: 'Sales–Account szerep', rovid: 'Sales–Account folyamata', chip: true, szin: '', hol: ['04', '06'], lanc: true,
       def: 'Ugyanabból a DNS-ből dolgozik, más modullal: ajánlat, ügyállapot, ügyfél felé menő üzenet; ami kimegy, ott ember dönt.',
-      megj: 'A 4. gyakorlatban és a 6. gyakorlat ügykövetőjében.' },
+      megj: 'A 4. gyakorlatban (kiegészítő: a 6. gyakorlat ügykövetője).' },
     { id: 'reviewer', nev: 'Reviewer kör', szin: '', hol: ['05'],
       def: 'Ellenőrzés, független és friss kontextusban: a reviewer a forrásig néz és megállapít, nem javít; a javítás a makeré. A kör korlátos: ha nem lesz jó, stop-döntés és döntési brief, nem csendes újrapróbálás.',
       megj: 'Az 5. gyakorlatban: reviewer és stop-döntés.' },
@@ -177,7 +177,7 @@
       megj: 'Az 5. gyakorlatban zárul a két kapu.' },
     { id: 'proaktiv', nev: 'Proaktív segéd', rovid: 'hat feltétel', chip: true, szin: '', hol: ['06'],
       def: 'Hat feltétel, hogy a segéd ne csak válaszoljon, hanem figyeljen és jelezzen: állandó kontextus; recept; ellenőrizhető cél és ellenőr; hosszú futás és jelzés; ütemezés vagy esemény (ha elérhető); saját brief.',
-      megj: 'A 6. gyakorlatban: az ügykövető.' },
+      megj: 'A 15:10-es Sales-Account szekcióban: saját ügyfélkutató ügynök (kiegészítő: 6. gyakorlat, ügykövető).' },
     { id: 'visszacsatolas', nev: 'Tanulság → DNS v0.2', szin: '', hol: ['07'],
       def: 'Ami a kapuknál és a szerepeknél kiderül, visszakerül a DNS-be. A következő változat jobb forrásból indul: az AI-natív működés folyamat, nem státusz.',
       megj: 'A 7. gyakorlatban: a saját folyamat átvitele és az első 30 nap.' }

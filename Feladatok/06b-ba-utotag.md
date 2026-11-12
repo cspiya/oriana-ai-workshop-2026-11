@@ -2,13 +2,13 @@
 id: "06b"
 cim: "BA-utótag: keresztreferencia-skill, képernyőterv, dokumentáció kódból"
 blokk: 6
-ido: "15:35-16:05"
+ido: "15:10-16:05"
 vezeti: "Piya Csaba; körbejár: Kemény Krisztián"
 sav: "BA"
 munkamappa: "Munka/06b-BA-utotag"
 modell: "GPT-6 Luna"
 ajanlott_mod: kozos
-fazisok: ["A: 15:35-15:43 önállóan szállítható dokumentum", "B: 15:43-15:55 képernyőterv", "C: 15:55-16:05 dokumentáció kódból"]
+fazisok: ["A: 15:10-15:25 önállóan szállítható dokumentum", "B: 15:25-15:45 képernyőterv", "C: 15:45-16:05 dokumentáció kódból"]
 inditok: ["Kezdjük a 6b gyakorlatot", "Folytassuk a 6b gyakorlatot"]
 proaktiv_elem: ["Skill meghívása determinisztikus számlálóval", "Work fájlkészítés (HTML-drótváz)", "helyi mappából kód olvasása (Work Local; repó- vagy MCP-elérés: ha a munkatérben elérhető)"]
 eredmeny: ["E10"]
@@ -39,7 +39,7 @@ Az FDD-egység (funkcionális tervdokumentum) elkészülte után három rövid, 
 A résztvevő az `Oriana AI-workshop` projekt Work-beszélgetésében ezt írja: „Kezdjük a 6b gyakorlatot.” Ezután a fázisok között: „Folytassuk a 6b gyakorlatot.” Az AI ilyenkor a `Munka/06b-BA-utotag` fájljaiból állapítja meg, hol tart, és egy sorban közli, például: „6b gyakorlat, B fázis: képernyőterv.” Fázisfelismerés: nincs `ellenorzes.md` → A; van `ellenorzes.md`, de nincs fájl a `drotvaz/` mappában → B; van drótváz, de nincs fájl a `dokumentacio/` mappában → C. Az AI első üzenete kérdés nélkül:
 
 1. **Cél:** három BA-utótag-feladat: önállóan szállítható dokumentum, képernyőterv-drótváz, dokumentáció kódból; mindegyiknél a mérhető ellenőrzés és a forrás-visszakeresés a hangsúly.
-2. **Út:** A fázis, 15:35-15:43: demó, közös számlálás és friss chates értelmezési próba, majd 3 perc önálló bekezdésjavítás · B fázis, 15:43-15:55: képernyőterv, 4 perc demó, 6 perc közös mezőjavítás, 2 perc mentés · C fázis, 15:55-16:05: dokumentáció kódból, 4 perc két minta, 4 perc közös visszakeresés, 2 perc mentés.
+2. **Út:** A fázis, 15:10-15:25: demó, közös számlálás és friss chates értelmezési próba, majd 3 perc önálló bekezdésjavítás · B fázis, 15:25-15:45: képernyőterv, 4 perc demó, 6 perc közös mezőjavítás, 2 perc mentés · C fázis, 15:45-16:05: dokumentáció kódból, 4 perc két minta, 4 perc közös visszakeresés, 2 perc mentés.
 3. **Hová jutunk:** az [ellenorzes.md](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/06b-BA-utotag/ellenorzes.md), a [drotvaz](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/06b-BA-utotag/drotvaz/) mappa és a [dokumentacio](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/06b-BA-utotag/dokumentacio/) mappa.
 4. **Mit tanulunk:** a hat lépés Ellenőrzés és Rögzítés szakasza gyors feladatokon; a Skill mint újrahasználható recept, determinisztikus előtte/utána számlálóval; a prompt hét eleme a drótváz kérésében.
 5. **Hová mentek:** a kimeneteket a [Munka/06b-BA-utotag](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/06b-BA-utotag/) mappába mentem, a [Tananyagot](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Tananyag/) nem módosítom. Minden minta fiktív.

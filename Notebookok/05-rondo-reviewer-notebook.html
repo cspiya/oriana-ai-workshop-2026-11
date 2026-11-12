@@ -436,6 +436,21 @@ Idézd a review/ mappa tartalmát.</pre>
           <span class="tanulsag">a rubrika nem váltja ki a forrást.</span>
           </div>
           </div>
+          <div class="pelda">
+          <span class="pelda-cimke">Példa (BA): végigjátszható-e a folyamat az FDD-egység alapján?</span>
+          <p class="megj">A KAPU II harmadik kérdése a teljes folyamat értelmezhetősége. Ezt a gép nem méri: a szerkezeti ellenőrzés azt nézi, hogy az elemek össze vannak-e kötve, nem azt, hogy a folyamat végigvihető-e. Ezt a kérést a reviewer beszélgetésébe írod az R1 után, vagy a 2. lépésben a receptedbe veszed fel.</p>
+          <span class="szerep">Te ezt írod a reviewernek</span>
+          <pre class="prompt-box">Cél: derüljön ki, hogy az FDD-egység alapján elképzelhető-e a teljes folyamat: egy igény útja az elejétől a végéig.
+Címzett: én (a stop-döntéshez) és a fejlesztő, aki ebből dolgozna.
+Forrás és határ: csak a review/ csomag FDD-egysége. Ami abban nincs leírva, azt ne pótold a saját tudásodból.
+Kimeneti séma: tábla, soronként egy lépés: Lépés | Ki végzi (szerepkör) | Forráshely az FDD-ben (fejezet, azonosító) | Megszakad-e, vagy találgatni kell: nem / igen: mi hiányzik | Hiányzó értékkészlet (mező, vagy: nincs). A végén egy sor: végigjátszható / nem játszható végig, és hol akad el először.
+Szabályok: nem javítasz és nem egészítesz ki. Ahol találgatnod kellene, megállsz, és megnevezed a hiányt. Minden felsorolás típusú mezőnél nézd meg, van-e teljes értékkészlet; ha nincs: „Nincs megadva”.
+Ellenőrzés: minden sorhoz van forráshely; két lépést idézz szó szerint az FDD-ből.
+Mentés: az R1.md jelentésbe, külön „Folyamatpróba” szakaszként.</pre>
+          <span class="szerep">Ezt kapod vissza (a forma)</span>
+          <div class="ai-valasz"><table><thead><tr><th>Lépés</th><th>Ki végzi</th><th>Forráshely az FDD-ben</th><th>Megszakad-e</th><th>Hiányzó értékkészlet</th></tr></thead><tbody><tr><td>1. …</td><td>…</td><td>7. fejezet, E…; 5. fejezet, FN-…</td><td>nem</td><td>nincs</td></tr><tr><td>2. …</td><td>…</td><td>…</td><td>nem / igen: …</td><td>nincs / &lt;mező&gt;</td></tr></tbody></table><p>Összegzés: végigjátszható / nem játszható végig; az első megszakadás helye: …</p></div>
+          <p class="megj">Csak a forma: hogy a te FDD-egységed hol szakad meg, azt a futás mutatja meg. Ha a reviewer egy lépésnél találgatna, az megállapítás (finding), és a 8. lépés szerint osztályozod.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az összevetés soraihoz tartozik az <code>R1.md</code> hely (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span><mark>Három réteg ellenőrzi egymást</mark>: a kód a szerkezetet, a forrás a tényeket, a rubrika a használhatóságot méri. A gépi ellenőrzés nem bizonyítja a szemantikai helyességet.</div>
           <div class="villamkerdes">
@@ -666,8 +681,12 @@ Idézd a review/ mappa tartalmát.</pre>
         </ul>
       </div>
     </div>
-    <div class="kovetkezo sav-all">
-      <div><span class="cimke">Következő</span><h3>Szünet 14:35, majd Ügyfélprofil agent · 15:10</h3><p>Nincs indító mondat: a gyakorlatoldal másolható promptjait küldöd el, egymás után.</p></div>
+    <div class="kovetkezo sav-ba">
+      <div><span class="cimke">Következő · két szekció párhuzamosan</span><h3>BA: 6b BA-szekció (15:10)</h3><p>Indító mondat az új Work-beszélgetésben: <em>„Kezdjük a 6b gyakorlatot.”</em> Vezeti: Piya Csaba.</p></div>
+      <a class="gomb" href="06b-ba-utotag-notebook.html">Tovább a BA-szekcióra ▶</a>
+    </div>
+    <div class="kovetkezo sav-sa">
+      <div><span class="cimke">Következő · két szekció párhuzamosan</span><h3>Sales-Account: Ügyfélprofil agent (15:10)</h3><p>Nincs indító mondat: a gyakorlatoldal másolható promptjait küldöd el, egymás után. Vezeti: Kemény Krisztián.</p></div>
       <a class="gomb" href="uc2-ugyfelprofil-agent-notebook.html">Tovább az ügyfélprofil agentre ▶</a>
     </div>
   </section>
@@ -677,7 +696,8 @@ Idézd a review/ mappa tartalmát.</pre>
     <div class="pager">
       <a href="04-rondo-agent-notebook.html" rel="prev">◀ 4. gyakorlat</a>
       <a href="../index.html">Napi térkép</a>
-      <a href="uc2-ugyfelprofil-agent-notebook.html" rel="next">Ügyfélprofil agent ▶</a>
+      <a href="06b-ba-utotag-notebook.html" rel="next">BA: 6b BA-szekció ▶</a>
+      <a href="uc2-ugyfelprofil-agent-notebook.html" rel="next">Sales-Account: Ügyfélprofil agent ▶</a>
     </div>
   </footer>
 </main>

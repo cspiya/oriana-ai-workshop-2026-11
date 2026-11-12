@@ -5,6 +5,22 @@
   if (!window.WenovaMotion) return;
   var M = window.WenovaMotion;
 
+  /* A BA útja a napban: a hat előre beküldött BA-kérdés térképe (4., 5. és 6b gyakorlat) */
+  M.jelenet('ba-ut-a-napban', {
+    tipus: 'epites',
+    cim: 'A BA útja a napban: hat kérdés, hat állomás',
+    alap: 'Felmérési anyag: jegyzetek, leírások, táblák',
+    mero: 'Ellenőrzött, átadható BA-kimenet',
+    lepesek: [
+      { blokk: { nev: 'KAPU I', alcim: '4. gyakorlat, A fázis: teljes-e a csomag?', szin: 'jegyezd' }, ad: 'Tudod, mi van meg, mi hiányzik, és mi mond ellent.', szoveg: 'KAPU I: az említett anyagokat a fájlok tényleges tartalmához párosítod; minden megállapításnak van forráshelye.' },
+      { blokk: { nev: 'FDD-egység fit-gappel', alcim: '4. gyakorlat, B–D fázis: egy funkcióblokk', szin: 'accent' }, ad: 'Kis egység készül, előre leírt mércével.', szoveg: 'Az FDD kis egységben készül a séma szerint: csoportosítás, elképzelés, fit-gap, funkciók, önellenőrzés az igényekhez, igazodás.' },
+      { blokk: { nev: 'KAPU II', alcim: '5. gyakorlat: független ellenőrzés', szin: 'elakadas' }, ad: 'Fejlesztésre csak ellenőrzött egység megy.', szoveg: 'KAPU II: a reviewer az értékkészleteket, az összhangot és a teljes folyamat értelmezhetőségét nézi, friss beszélgetésben.' },
+      { blokk: { nev: 'Önállóan szállítható', alcim: '6b, A fázis: recept és számláló', szin: 'tipp' }, ad: 'A dokumentum a környezete nélkül is érthető.', szoveg: 'A recept beépíti a hivatkozott szöveget, a forrás lábjegyzetbe kerül; a számláló előtte és utána mér, a próba friss beszélgetés.' },
+      { blokk: { nev: 'Képernyőterv', alcim: '6b, B fázis: drótváz a mezőtáblából', szin: 'g2' }, ad: 'A leírás első próbája, a megadott listán belül.', szoveg: 'A fejezet mezőtáblájából drótváz készül; a képességlistát te adod forrásként, ami nincs rajta, az nyitott kérdés.' },
+      { blokk: { nev: 'Dokumentáció kódból', alcim: '6b, C fázis: leírás kódhelyekkel', szin: 'kesz' }, ad: 'A leírás visszakereshető a kódban.', ido: 4400, szoveg: 'A szintet a kimeneti séma mondja ki; minden szabály mellett kódhely áll; eltérésnél a forrás a kód, a döntés a szerzőé.' }
+    ]
+  });
+
   /* Három rövid BA-feladat: mi megy be, mi jön ki, és mivel mérjük */
   M.jelenet('ba-harom-feladat', {
     tipus: 'aramlas',

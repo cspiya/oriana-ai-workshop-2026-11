@@ -89,6 +89,8 @@ Ha a visszajelzés a projekt utasításmezőjébe illesztendő három sort is ja
 
 ![A napi térkép (Tananyag/index.html) a ChatGPT beépített böngészőpaneljében.](_assets/start-kepek/09c-napi-terkep.png)
 
+*A kép a napi térkép korábbi változatát mutatja: a kinézet és a napirend azóta megújult. Az érvényes program a megnyíló oldalon áll.*
+
 **Így ellenőrzöd:** A `Wenova-AI-workshop` mappában ott van a `Tananyag` és a `Munka`, valamint az `AGENTS.md`, a `Tananyag\index.html` pedig megnyílik.
 
 ## Az első gyakorlat

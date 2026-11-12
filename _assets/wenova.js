@@ -22,15 +22,15 @@
     { id: 'b2', t: '12:30', n: 'Ebéd', brk: true },
     { id: '05', rovid: 'Reviewer', t: '13:25', n: 'Reviewer és stop-döntés', href: 'Notebookok/05-rondo-reviewer-notebook.html', sav: 'par' },
     { id: 'b3', t: '14:35', n: 'Szünet', brk: true },
-    { id: 'uc2', rovid: 'Ügyfélprofil agent', t: '15:10', n: 'Ügyfélprofil agent', href: 'Notebookok/uc2-ugyfelprofil-agent-notebook.html', sav: 'all' },
+    { id: '06b', rovid: 'BA-szekció', t: '15:10', n: 'BA-szekció: keresztreferencia, képernyőterv, dokumentáció kódból', href: 'Notebookok/06b-ba-utotag-notebook.html', sav: 'ba' },
+    { id: 'uc2', rovid: 'Sales: ügynök', t: '15:10', n: 'Sales-Account szekció: Ügyfélprofil agent', href: 'Notebookok/uc2-ugyfelprofil-agent-notebook.html', sav: 'sa' },
     { id: '07', rovid: 'Saját folyamat', t: '16:05', n: 'Saját folyamat átvitele', href: 'Notebookok/07-sajat-atvitel-notebook.html', sav: 'all' }
   ];
   // Kiegészítő gyakorlatok: nincsenek a napi időrendben (2026-11-12-i döntés), de a tananyag részei és ugyanúgy indíthatók.
   var KIEG = [
     { id: '02', rovid: 'Adatgyűjtés', n: 'RONDO-portál: adatgyűjtés', href: 'Notebookok/02-portal-notebook.html' },
     { id: '03', rovid: 'Megosztás', n: 'Közös munka és megosztás', href: 'Notebookok/03-kozos-munka-notebook.html' },
-    { id: '06', rovid: 'Ügykövető', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html' },
-    { id: '06b', rovid: 'BA-utótag', n: 'BA-utótag', href: 'Notebookok/06b-ba-utotag-notebook.html' }
+    { id: '06', rovid: 'Ügykövető', n: 'Ügykövető (Sites)', href: 'Notebookok/06-sites-notebook.html' }
   ];
   var SAV_NEV = { all: 'közös sáv', ba: 'BA sáv', sa: 'Sales–Account sáv', par: 'párhuzamos: BA és Sales–Account' };
 
@@ -308,8 +308,9 @@
         var clone = box.cloneNode(true); var b = clone.querySelector('.copy-btn'); if (b) b.remove();
         var text = clone.textContent.replace(/^\s+|\s+$/g, '');
         var done = function () { btn.textContent = 'Másolva'; btn.classList.add('done'); setTimeout(function () { btn.textContent = 'Másolás'; btn.classList.remove('done'); }, 1600); };
-        if (navigator.clipboard) navigator.clipboard.writeText(text).then(done);
-        else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+        var tartalek = function () { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Jelöld ki és másold kézzel'; } ta.remove(); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, tartalek);
+        else tartalek();
       });
       box.appendChild(btn);
     });
