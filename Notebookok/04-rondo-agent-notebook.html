@@ -126,6 +126,25 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Egy sor: verzió, státusz, érvényesség, modul, a megnyitott fájlból idézve. Külön fájl nincs, a briefbe kerül.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Kezdjük a 4. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>„Az 1. lépésnél tartunk a 19 lépésből (A fázis); most: cél és DNS-verzió; utána: forrásleltár scripttel; a fázis végén: jelentés és hibajegyzék mentése.”</p><p>DNS: verzió <b>0.1-minta</b> · státusz: oktatási minta, nem hatályos szabályzat · érvényesség: 2026-11-12 (az oktatási nap) · utolsó ellenőrzés: 2026-11-10 · a rád vonatkozó modul BA-sávon <code>szabalyok/ba.md</code>, Sales-Account sávon <code>szabalyok/sales.md</code>.</p><p>Melyik DNS-verziót használjuk? A: a saját (<code>Munka/01-DNS/dns/</code>) · B: a fiktív minta (ajánlott a gyakorlathoz) · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod</span>
+          <pre class="prompt-box">B</pre>
+          <p class="megj">A sor a fiktív <code>dns-minta/README.md</code> „Metaadat” táblájából idézett. Ha a sajátodat választod, a te fájlod értékei állnak itt.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>DNS-verzió</h5>
+          <p>A DNS a vállalat bemutatását, terméktudását, döntési szabályait és ezek forrásait összefogó, verziózott tudáscsomag. Nem a hálózati DNS.</p>
+          <p>Itt: a <code>dns-minta/README.md</code> „Metaadat” táblája: Verzió 0.1-minta, Gazda „Nincs megadva (fiktív minta)”, Utolsó ellenőrzés 2026-11-10.</p>
+          <span class="tanulsag">a verziót a megnyitott fájlból idézd, ne emlékezetből.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a verzió, a státusz és az utolsó ellenőrzés dátuma a megnyitott fájlból idézett, nem emlékezetből.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A DNS a vállalati működési és tudásszabályok verziózott gyűjteménye. Az agent csak azt tudja, amit a brief és a megnevezett fájlok mondanak, ezért a briefnek ki kell mondania, <mark>melyik verzió szerint dolgozik</mark>.</div>
           <p class="why"><strong>Miért fontos:</strong> a szabályok verziózottak: ha nem mondod ki a verziót, nem ellenőrizhető, mihez mérünk.</p>
@@ -142,6 +161,23 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>leltar.py</code> és <code>leltar_eredmeny.txt</code> az <code>ellenorzes/</code> mappában: fájlonként név, tartalomból megállapított típus, méret, dátum, első sor.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li><code>forrasok/BA</code> mappa (a <code>projekt-B</code> almappa külön)</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li><code>forrasok/Sales-Account</code> mappa</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <div class="ai-valasz"><p>Semmit: ezt a lépést az asszisztens futtatja, kérdés nincs.</p></div>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p><code>leltar_eredmeny.txt</code>, két oszlop elhagyva (méret, első sor):</p><table><thead><tr><th>Fájl</th><th>Típus a tartalom alapján</th><th>Dátum</th></tr></thead><tbody><tr><td>BA: <code>2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md</code></td><td>egyeztetési jegyzet</td><td>2026-11-05</td></tr><tr><td>BA: <code>SPEC_reszlet_jovahagyasi_workflow_v2.3.md</code></td><td>specifikációrészlet</td><td>2026-07-30</td></tr><tr><td>Sales-Account: <code>2025_RONDO_ajanlat_licenc_support.md</code></td><td>ajánlat</td><td>2025-11-14</td></tr><tr><td>…</td><td>…</td><td>…</td></tr></tbody></table><p>Sorok száma: … · fájlok a mappában: … · egyezik: ✅ vagy ⚠️. A parancs és a tényleges kimenet idézve.</p></div>
+          <p class="megj">A típust a script a fájl tartalmából állapítja meg, nem a nevéből. BA-sávon a <code>projekt-B</code> almappa külön leltárt kap.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Determinisztikus ellenőrzés</h5>
+          <p>Kóddal végzett ellenőrzés a megadott kritériumok szerint; a futtatott parancsot és a tényleges eredményt rögzíteni kell.</p>
+          <p>Itt: a <code>leltar.py</code> script és a <code>leltar_eredmeny.txt</code> az <code>ellenorzes/</code> mappában.</p>
+          <span class="tanulsag">a kód minden futásnál ugyanazt adja, de csak a szerkezetet méri; a tartalmat te ítéled meg.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a sorok száma egyezik a fájlok számával, és a parancs meg a tényleges kimenet látszik.</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A fájlnév nem bizonyíték a tartalomra</mark>, és a gép csak a szerkezetet méri. Hogy mit jelent a tartalom, azt te ítéled meg.</div><div class="fallback"><strong>Ha nem fut kód a munkatérben:</strong> két perc után kézzel, a mappa megnyitásával készíted el a leltárt a KAPU I jelentés (BA) vagy a forrás-ellenőrző lista (Sales-Account) sablonjának 1. szakaszával. A kiesett funkció a kódfuttatás, a módszer azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a gépi leltár gyors és megismételhető, ezért ellenőrizhető és újrafuttatható.</p>
@@ -158,6 +194,30 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Sales-Account: öt sor (tény, forrásfájl, oldalszám) az <code>agent-brief.md</code> „Ügyfélkontextus” vázlatába. BA: a KAPU I kérésed vázlata, a következő lépés bemenete.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>nincs ügyfélkutatás: fogalmazd meg a saját szavaiddal a KAPU I kérésed vázlatát</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>rögzíts öt tényt a RONDO cégadatlapból: méret, trend, tulajdonos, vezetőváltás, pénzügyi erő</li><li>forrás: a cégadatlap és a hozzá tartozó három PDF (cégkivonat, két e-beszámoló), webes keresés nincs</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">BA: a KAPU I kérésed vázlata (példa, a saját szavaiddal írd)</span>
+          <pre class="prompt-box">Cél: a RONDO felmérési csomag teljességének és belső összhangjának ellenőrzése, mielőtt az FDD-egység készül.
+Forrás és határ: csak a forrasok/BA mappa; a projekt-B almappa külön.
+A többi öt elemet a 4. lépésben írom meg.</pre>
+          <span class="szerep">Sales-Account: te ezt írod (példa)</span>
+          <pre class="prompt-box">Nyisd meg a RONDO_cegadatlap.md fájlt és a hozzá tartozó három PDF-et (cégkivonat, két e-beszámoló).
+Öt tényt rögzítek az agent-brief „Ügyfélkontextus” vázlatába: méret, trend, tulajdonos, vezetőváltás, pénzügyi erő.
+Mindegyiket keresd vissza a megnyitott forrásban, és add meg a forrásfájlt és az oldalszámot.
+Webes keresés nincs. Megtérülést és belső költségadatot ne írj. Ami nincs a forrásban: Nincs megadva.</pre>
+          <span class="szerep">Sales-Account: ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><table><thead><tr><th>Tény</th><th>Forrásfájl</th><th>Oldal</th></tr></thead><tbody><tr><td>Méret: 2025-ben 179 fő az átlagos statisztikai állományi létszám</td><td><code>CEGINFO_EB20250101-20251231_RONDO_Hull.pdf</code></td><td>2. o. ✅</td></tr><tr><td>Trend: …</td><td>…</td><td>…</td></tr><tr><td>Tulajdonos · vezetőváltás · pénzügyi erő: …</td><td>…</td><td>…</td></tr></tbody></table></div>
+          <p class="megj">Egy sort mutatunk; a másik négy tényt te választod ki a cégadatlapról, és az AI mindet visszakeresi.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Cégadatlap</h5>
+          <p>A RONDO nyilvános cégadataiból készült lap (<code>RONDO_cegadatlap.md</code>): a tárolt cégkivonatból és két közzétett éves beszámolóból, forrással és oldalszámmal. A Sales-Account sáv ügyfélkutatásának egyetlen valós forrása a három hozzá tartozó PDF-fel együtt.</p>
+          <p>Itt: ami a cégadatlapon van, valós; a projekt, az igények, az ajánlat és a többi szám kitalált.</p>
+          <span class="tanulsag">a valós adat csak forrással és oldalszámmal ér valamit.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>Sales-Account: mind az öt tény mellett fájl és oldalszám áll, az AI visszakereste, és nincs megtérülés vagy belső költségadat. BA: a kérésed vázlata megvan.</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ami a cégadatlapon van, valós; minden más (projekt, igények, ajánlat, számok) kitalált. A kettőt ne keverd, és a valós adatnál <mark>a forráshely az egyetlen védelem a kitalálás ellen</mark>. Ami nincs a forrásban, az „Nincs megadva”.</div><div class="fallback"><strong>Ha a cégadatlap nem nyitható meg:</strong> két perc után az öt tényt a mappából kézzel keresd ki, és a forrás-ellenőrző lista sablon megfelelő sorába írd. A kiesett funkció a gépi visszakeresés.</div>
           <p class="why"><strong>Miért fontos:</strong> a RONDO cégadatai nyilvánosak, a projekt kitalált, és a valós adat csak forrással meg oldalszámmal ér valamit.</p>
@@ -174,6 +234,44 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A kérésed alapján futó ellenőrzés a sávod forrásmappáján; a jelentés a 6. lépésben kerül mentésre.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>a felmérési csomag teljessége és belső összhangja</li><li>kapsz: leltár, mennyiségi és tartalmi ellenőrzés, hibajegyzék, előzetes státusz</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>az ajánlati források tisztázása: mi hatályos, mi csak kérés, mi nincs megadva</li><li>kapsz: tételes lista fájl, hely, dátum, verzió és hatály oszloppal</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">BA: a kérésed eleje (félkész váz, a többit te írod)</span>
+          <pre class="prompt-box">Cél: a forrasok/BA felmérési csomag teljességének és belső összhangjának ellenőrzése (KAPU I).
+Címzett: én és a B fázis briefje.
+Forrás és határ: …
+Kimeneti séma: …
+Szabályok: …
+Ellenőrzés: …
+Mentés: …</pre>
+          <span class="szerep">Sales-Account: a kérésed eleje (félkész váz)</span>
+          <pre class="prompt-box">Cél: forrás-ellenőrző lista a forrasok/Sales-Account négy fájljából: mi hatályos, mi csak kérés, mi nincs megadva.
+Címzett: én és a B fázis briefje.
+Forrás és határ: …
+Kimeneti séma: …
+Szabályok: …
+Ellenőrzés: …
+Mentés: …</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>Cél ✅ · Címzett ✅ · Forrás és határ ⚠️ · Kimeneti séma ⚠️ · Szabályok ✅ · Ellenőrzés ✅ · Mentés ✅. Egy javítási javaslat: … A: futtasd így · B: javítom.</p><p>A futtatás után egy sor formája, BA (mennyiségi ellenőrzés):</p><table><tbody><tr><th>Tétel</th><td>T-03: a jelenlegi folyamat szöveges leírása (PDF)</td></tr><tr><th>Hol szerepel az emlékeztetőben</th><td><code>2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md</code>, 36. sor</td></tr><tr><th>Megtalált fájl (tartalom alapján)</th><td>…</td></tr><tr><th>Státusz</th><td>megvan / hiányzik / Nincs megadva</td></tr></tbody></table><p>Sales-Account (tételek):</p><table><tbody><tr><th>Tétel-ID és tétel</th><td>T-01: Standard licenc, megnevezett felhasználó, nettó 105 000 HUF / év</td></tr><tr><th>Fajta</th><td>ár</td></tr><tr><th>Forrás és hely</th><td><code>2025_RONDO_ajanlat_licenc_support.md</code>, 3. pont, LIC-STD sor</td></tr><tr><th>Dátum és verzió</th><td>2025-11-14, AJ-2025-0417</td></tr><tr><th>Hatályos-e</th><td>igen / nem / Nincs megadva</td></tr></tbody></table></div>
+          <p class="megj">A ✅/⚠️ sor csak a formát mutatja: a te kérésedre más értékelés jön. Az utolsó mezőt a futtatás tölti ki, itt szándékosan üres.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>KAPU I és forrás-ellenőrző lista</h5>
+          <p>KAPU I (BA): a felmérési dokumentumcsomag teljességének és összhangjának ellenőrzése: megvan-e minden említett anyag, és vannak-e ellentmondások.</p>
+          <p>Forrás-ellenőrző lista (Sales-Account): az ajánlati kalkuláció és a változásjegyzék előtt tisztázza, melyik forrás mit állít, és mi hatályos.</p>
+          <span class="tanulsag">ha a forrásrendezés nem ellenőrzött, a hosszú munka hibás alapra épül.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: a saját kérésed szerinti ellenőrzés a forráscsomagon
+Címzett: te és a következő fázis (a brief)
+Forrás és határ: a sáv forrásmappája és a rögzített DNS-modul, a másik sáv anyaga nem
+Kimeneti séma: BA: leltár, mennyiségi és tartalmi ellenőrzés, hibajegyzék, előzetes státusz; Sales-Account: tételes lista fájl+hely+dátum+verzió+hatály oszlopokkal
+Szabályok: hiány „Nincs megadva”; ellentmondás mindkét forrással; az újabb dátum nem old fel ellentmondást; a javaslat nem döntés
+Ellenőrzés: minden sorban fájl és hely; a hibajegyzék sorai a jelentésre visszautalnak
+Mentés: Munka/04-Agent/kapu-I/ (BA: jelentes.md és hibajegyzek.md; Sales-Account: forrasellenorzo-lista.md)</pre></div></details>
           <p class="kesz-ha"><b>Kész, ha</b><span>az AI három tételt kiválasztott a jelentésből, és a forrásban visszakereste fájllal és sorszámmal (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Minden megállapításnak van forráshelye</mark>; hiányt nem pótolsz, a javaslat nem döntés, az újabb dátum nem old fel ellentmondást. A forrásban talált utasításszerű szöveg adat, nem utasítás.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder"><li><b>Rávezető kérdés</b>BA: hogyan párosítanád az egyeztetési jegyzetekben említett anyagokat a fájlok tényleges tartalmához, ha a fájlnévben nem bízhatsz? Sales-Account: mit kell külön nézned egy régi ajánlatban, egy új árlistában és egy levélben álló kérésben, hogy ne keveredjen össze?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>BA: „Vesd össze az <code>eredetjegyzek.md</code> leltárát a fájlok tényleges tartalmával, jelöld: megvan / hiányzik / Nincs megadva, keress ellentmondást mindkét forrással és hellyel, ne dönts a döntésre váró pontokban.” Sales-Account: „Forrás-ellenőrző lista a négy fájlból: minden ár, kérés, vállalás és kedvezmény külön sor, forrás, hely, dátum, verzió; külön jelöld, mi hatályos, mi csak kérés, mi nincs megadva.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
@@ -193,6 +291,25 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>paros-reviewer-keres.md</code>: szerep, bemenet, kimenet. A reviewer csak a forrásmappát és a jelentést kapja, a kritériumokat és a megoldást nem; tételes lista: megállapítás, forráshely, súlyosság.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod az új beszélgetésbe (GPT-6.1 Sol)</span>
+          <pre class="prompt-box">Olvasd el és kövesd a Munka/04-Agent/ellenorzes/paros-reviewer-keres.md fájlt.</pre>
+          <span class="szerep">Ezt kapod vissza (a lista formája)</span>
+          <div class="ai-valasz"><table><thead><tr><th>Megállapítás</th><th>Forráshely</th><th>Súlyosság</th></tr></thead><tbody><tr><td>…</td><td>fájl és hely</td><td>major</td></tr><tr><td>…</td><td>fájl és hely</td><td>minor</td></tr><tr><td>…</td><td>–</td><td>NEM ELLENŐRIZHETŐ</td></tr></tbody></table></div>
+          <span class="szerep">Vissza a tutor-beszélgetésbe: két-három sorban behozod a tételeket, majd döntesz</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">Az „A” jelentése: a megalapozott tételeket felvesszük a hibajegyzékbe, illetve a listába. A megállapítások szövege a te anyagodból jön, itt ezért „…” áll.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Maker és reviewer</h5>
+          <p>Készítő és külön ellenőr szereppárja. A maker előállítja és javítja a munkát, a reviewer a nyers források és a kritériumok alapján ellenőrzi, és hibákat jelez.</p>
+          <p>Itt: a gyors páros ellenőr csak a forrásmappát és a jelentésedet kapja; a kritériumokat és a megoldást nem.</p>
+          <span class="tanulsag">a friss beszélgetés nem ismeri a készítő gondolatmenetét, ezért néz rá tényleg másodszor.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a reviewer három megállapítását visszakerested a forrásban; a reviewer által nem látott tételeket külön jelölted.</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A reviewer nem javít</mark>, és amit nem tud ellenőrizni, azt „NEM ELLENŐRIZHETŐ” jelöli. A friss beszélgetés nem ismeri a készítő gondolatmenetét, ezért néz rá tényleg másodszor.</div><div class="fallback"><strong>Ha a Sol modell vagy az új beszélgetés nem érhető el:</strong> két perc után a pár néz rá a jelentésedre és a bizonyítéklistádra (páros emberi review). A kiesett funkció a gépi független ellenőr.</div>
           <p class="why"><strong>Miért fontos:</strong> a független ellenőr kevesebbet lát, de szabadabban: a saját vakfoltját ritkán veszi észre az ember vagy a gép.</p>
@@ -209,11 +326,43 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>BA: <code>kapu-I/jelentes.md</code> és <code>kapu-I/hibajegyzek.md</code>. Sales-Account: <code>kapu-I/forrasellenorzo-lista.md</code>. A fájlokon: KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>előzetes átadási státusz: A: feltételes (tételes hiányokkal, ajánlott, ha vannak javítható hibák) · B: blokkolt · C: lezárt · más: írd le</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>nyitott tételek a kalkuláció előtt: A: mind a „Nincs megadva” és a kérés típusú tétel (ajánlott) · B: csak a számítást érintők · más: írd le</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod (részlet)</span>
+          <div class="ai-valasz"><p>Kész fájlok linkkel, összesítő számokkal (hiányok: … · ellentmondások: … · tételek: …). Egy hibajegyzék-sor formája (BA, <code>hibajegyzek.md</code>):</p><table><tbody><tr><th>HJ</th><td>HJ-01</td></tr><tr><th>Súlyosság</th><td>blocker / major / minor</td></tr><tr><th>Hely</th><td>fájl és hely</td></tr><tr><th>Leírás</th><td>…</td></tr><tr><th>Javasolt teendő</th><td>…</td></tr><tr><th>Státusz</th><td>nyitott / javítva / döntésre vár</td></tr></tbody></table><p>BA kérdés: „Az előzetes átadási státusz javaslata: A: feltételes · B: blokkolt · C: lezárt · más: írd le.” Sales-Account kérdés: „Melyik tételek nyitottak a kalkuláció előtt? A: mind a ‚Nincs megadva’ és a kérés típusú tételek · B: csak a számítást érintők · más: írd le.”</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">A válaszod javaslat, nem végleges döntés. A fájlokon ott áll: KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Súlyosság: blocker, major, minor</h5>
+          <p>A hiba súlyossága a hibajegyzékben: blocker = a munka nem adható tovább, major = lényeges hiba, amelyet javítani kell, minor = kisebb, a használhatóságot nem akadályozó hiba.</p>
+          <p>Itt: a hibajegyzék minden sora azonosítót (HJ-01 …), súlyosságot, helyet és javasolt teendőt kap.</p>
+          <span class="tanulsag">ha a hibának nincs azonosítója és helye, a javítás nem mérhető.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a fájlok léteznek, megnyithatók, és minden sorban van fájl és hely; a hibajegyzék sorain azonosító, súlyosság (blocker, major, minor), hely és javasolt teendő áll.</span></p>
           
           <p class="why"><strong>Miért fontos:</strong> a rögzített hibajegyzék <mark>a B fázis mérőpontja</mark>: erre épül a brief, a javítás és később az átadási döntés.</p>
         </div>
       </section>
+
+      <div class="fogalmak">
+      <span class="fg-cimke">Az A fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>DNS</dt><dd>A vállalat bemutatását, terméktudását és döntési szabályait összefogó, verziózott tudáscsomag; a brief kimondja, melyik verzió szerint dolgozik az agent.</dd></div>
+      <div><dt>KAPU I</dt><dd>A felmérési dokumentumcsomag teljességének és összhangjának ellenőrzése: megvan-e minden említett anyag, és vannak-e ellentmondások.</dd></div>
+      <div><dt>Determinisztikus ellenőrzés</dt><dd>Kóddal végzett ellenőrzés; a futtatott parancsot és a tényleges eredményt rögzíteni kell.</dd></div>
+      <div><dt>Cégadatlap</dt><dd>A RONDO valós, nyilvános cégadataiból készült lap, forrással és oldalszámmal; minden más a projektben kitalált.</dd></div>
+      <div><dt>Blocker, major, minor</dt><dd>A hiba súlyossága: nem adható tovább · lényeges, javítani kell · kisebb, a használhatóságot nem akadályozza.</dd></div>
+      <div><dt>Maker és reviewer</dt><dd>Készítő és külön ellenőr; a reviewer nem javít, a források alapján hibát jelez.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A fájlnév nem bizonyíték a tartalomra, és a gép csak a szerkezetet méri.</li><li>Minden megállapításnak van forráshelye; ami nincs a forrásban, az „Nincs megadva”.</li><li>A javaslat nem döntés, és az újabb dátum nem old fel ellentmondást.</li><li>A rögzített hibajegyzék a B fázis mérőpontja.</li></ul>
+      </div>
 
       <div class="lepes-csoport-cim" data-csoport="2">B fázis · Brief és indítás <span class="when">11:45–12:30</span></div>
       <section class="lepes" id="lepes-7" data-csoport="2" data-csoport-nev="Brief és indítás" data-rovid="Munkamód és kiinduló állapot" data-ido="kb. 5 perc">
@@ -226,6 +375,24 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs: a választott mód indokkal a briefbe kerül.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p>„A 7. lépésnél tartunk a 19 lépésből (B fázis); most: munkamód és kiinduló állapot; utána: kritériumok megírása; a fázis végén: a háttérmunka indítása 12:25-kor.”</p><p>Local: a helyi mappából dolgozik, de a gépnek online kell maradnia, az alkalmazásnak futnia kell. Cloud: a gép nélkül is fut, de a forrásokat külön elérhetővé kell tenni. Az A fázis fájljai: <code>kapu-I/</code> ✅.</p><p>Melyik módban fusson az agent? A: Local · B: Cloud · C: egyik sem érhető el, tréneri tartalék v1 · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <span class="szerep">Ez kerül a briefbe</span>
+          <div class="ai-valasz"><p><code>Mód: Work Local; indok: helyi fájl.</code></p></div>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Work Local és Work Cloud</h5>
+          <p>Work Local: a Work helyi géphez és munkamappához kötött munkavégzése. Hosszú helyi futásnál a gépnek online kell maradnia és az alkalmazásnak futnia kell.</p>
+          <p>Work Cloud: a Work felhőben futó munkavégzése; a szükséges bemeneteket külön elérhetővé kell tenni, a helyi fájlok hozzáférését nem örökli.</p>
+          <span class="tanulsag">csak azt feltételezd elérhetőnek, amit a felületen látsz.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az A fázis fájljai megvannak (✅/⚠️), és a mód a briefbe kerül, indokkal.</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Local módban <mark>a gépnek online kell maradnia</mark>, és az alkalmazásnak futnia kell. Cloud módban a helyi fájlokat nem örökli, a forrásokat külön elérhetővé kell tenni. Csak azt feltételezd elérhetőnek, amit a felületen látsz.</div><div class="fallback"><strong>Ha egyik mód sem indítható:</strong> két perc után a tréneri tartalék v1 jelölve marad az átvételhez; a brief, a kritériumok és a terv ettől még elkészül. A kiesett funkció a háttérfutás.</div>
           <p class="why"><strong>Miért fontos:</strong> a mód határozza meg, mit lát és meddig fut az agent; egy rosszul választott mód csendben meghiúsítja az ebéd alatti futást.</p>
@@ -242,6 +409,36 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>kriteriumok.md</code>: K1–K7 tábla, forráslista (fájl, dátum, verzió), öt állítás, nyitott tételek, körkeret számmal (2 belső kör, R1 és R2).</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>a sablon BA táblája; a forráslistában a <code>forrasok/BA</code> fájljai, a javított jelentés és az FDD-séma (<code>fdd-sema/FDD_sema_FIKTIV.md</code>)</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>a sablon Sales-Account táblája; a forráslistában a <code>forrasok/Sales-Account</code> négy fájlja dátummal és verzióval</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">A kérésed eleje (félkész váz, a többit te írod)</span>
+          <pre class="prompt-box">Cél: mérhető kritériumlista (K1–K7) a saját sávomra, a RONDO-esetre.
+Címzett: az agent és később a reviewer.
+Forrás és határ: …
+Kimeneti séma: …
+Szabályok: …
+Ellenőrzés: …
+Mentés: …</pre>
+          <span class="szerep">Így néz ki a kész fájl egy részlete</span>
+          <div class="ai-valasz"><p>Egy K-sor a <code>kriteriumok.md</code> fájlban, a sablon mezőivel (BA tábla, K6: ez az egyetlen előre kitöltött sor):</p><table><tbody><tr><th>K</th><td>K6</td></tr><tr><th>Szempont</th><td>Tartalmi rubrika (1-5)</td></tr><tr><th>Irányadó kérdés</th><td>Teljesség, pontosság, használhatóság, egyértelműség</td></tr><tr><th>Elvárás</th><td>Átlag legalább 4/5, egyik sem 3 alatt (módosíthatod, indokold)</td></tr><tr><th>Mérés (mivel, ki)</th><td>Reviewer-pontozás, szempontonként 1-2 mondat indokkal</td></tr><tr><th>Küszöb</th><td>te írod</td></tr><tr><th>Eredmény R1 / R2</th><td>később kerül ide</td></tr></tbody></table><p>Egy sor, amelyet te töltesz ki (K4, Forráskapcsolat): irányadó kérdés: „Az öt kijelölt állítás a forrásban a megadott helyen megvan-e?”; elvárás, mérés, küszöb: te írod.</p><p>Forráslista-sor (BA): <code>S1 | 2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md | 2026-11-05 | v1 | … | …</code></p><p>Az öt állítás kijelölése: A: rögzített seeddel (ajánlott) · B: kézzel · más: írd le.</p></div>
+          <p class="megj">Az AI előtölti a fejlécet és a forráslistát, de az elvárásokat nem írja meg helyetted. Sales-Account sávon a K6 szempontjai: pontosság, ügyfélbiztonság, érthetőség, döntéshozói használhatóság.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>K1–K7 kritérium</h5>
+          <p>A kritérium rövidítése K: hét számozott, mérhető elvárás. A <code>kriteriumok.md</code> a maker és a reviewer közös mércéje: az elfogadási kritériumok és a nyitott tételek listája.</p>
+          <p>Itt: minden K-hoz elvárás, mérés és küszöb tartozik; a fejlécben a körkeret: belső kör legfeljebb 2, külső kör R1 és R2.</p>
+          <span class="tanulsag">ami nincs előre leírva, azt utólag nem lehet objektíven mérni.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: mérhető kritériumlista a saját sávra
+Címzett: az agent és a reviewer
+Forrás és határ: a forráslista dátummal és verzióval, a DNS-modul, az A fázis hibajegyzéke vagy listája
+Kimeneti séma: a sablon K1-K7 tábla, öt állítás, nyitott tételek
+Szabályok: minden elvárásnál mérés és küszöb; ami nem mérhető, nyitott tételként szerepel; a körkeret számmal
+Ellenőrzés: minden K-nak van mérése és küszöbe, a forráslista fájljai léteznek
+Mentés: Munka/04-Agent/kriteriumok.md</pre></div></details>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden K-nak van elvárása, mérése és küszöbe; a forráslista fájljai léteznek; a körkeret számmal szerepel; az öt állítás forráshelye megvan.</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ami nem mérhető, az nyitott tételként szerepel, nem hallgatod el. Az AI nem írja meg helyetted az elvárásokat; a megoldás egyetlen elemét sem mondja meg.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder"><li><b>Rávezető kérdés</b>Melyik három dolgot vársz el a kimenettől, amit kóddal vagy számolással le tudsz mérni, és melyik kettőt tudod csak forrásból vagy olvasással megítélni?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>„A <code>kriteriumok-sablon</code> K1–K7 sorait töltsd ki a RONDO-esetre: elvárás egy mondatban, mérés (script, számolás vagy olvasás), küszöb. Forráslista dátummal és verzióval. Az öt állítást rögzített seeddel válaszd ki. Körkeret: 2 belső kör, R1 és R2.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
@@ -260,6 +457,43 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>agent-brief.md</code>: úgy, hogy <mark>az agent rád várás nélkül tudjon dolgozni</mark>. Sales-Account: a briefbe kerül az „Ügyfélkontextus” mező is, a 3. lépés öt valós ténye forrással és oldalszámmal.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Egy kitöltött brief-részlet a sablon soraival (a hiányzó pontokat te írod)</span>
+          <pre class="prompt-box"># Agent-brief: RONDO &lt;változat&gt;
+KITALÁLT PROJEKTFORGATÓKÖNYV – FIKTÍV OKTATÁSI MINTA
+Mód: Work Local; indok: helyi fájl.
+Modell: GPT-6.1 Terra, közepes effort. DNS-verzió: 0.1-minta, Tananyag/04 usecase RONDO/dns-minta/README.md.
+1. Cél: két kötelező kimenet, címzett és formátum.
+   BA: javított KAPU I jelentés (a kapu-I/atadas.md státusszal) és kis FDD-egység.
+   Sales-Account: ajánlati kalkuláció és kockázatos változásjegyzék.
+2. Forrás: …
+3. Korlát: …
+4. Ellenőrzés: …
+5. Menet: …
+6. Stop: minden kritérium teljesült; vagy maximum kör;
+   vagy két körben nincs javulás; vagy hiányzó döntés/jogosultság.
+7. Zárás: …</pre>
+          <span class="szerep">Ezt kapod vissza (a forma)</span>
+          <div class="ai-valasz"><p>1. Cél ✅ · 2. Forrás ✅ · 3. Korlát ⚠️ · 4. Ellenőrzés ✅ · 5. Menet ✅ · 6. Stop ✅ · 7. Zárás ⚠️. Hivatkozott fájlok: <code>kriteriumok.md</code> ✅. Egy javítási javaslat: …</p></div>
+          <p class="megj">A mód a 7. lépés döntése, a DNS-verzió az 1. lépésből jön. Sales-Account sávon a fejlécbe kerül az „Ügyfélkontextus” sor is: a 3. lépés öt ténye forrásfájllal és oldalszámmal.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Agent-brief</h5>
+          <p>A makernek szóló írásos feladatleírás (<code>agent-brief.md</code>): cél, bemenetek, kimenetek, korlátok és ellenőrzés. A hosszú háttérfutás előtt a résztvevő hagyja jóvá.</p>
+          <p>Itt: a sablon hét pontja: Cél, Forrás, Korlát, Ellenőrzés, Menet, Stop, Zárás. Az agent csak azt tudja, ami a briefben és a briefben megnevezett fájlokban van.</p>
+          <span class="tanulsag">az agent nem kérdezhet vissza: amit tudnia kell, az a briefben vagy a megnevezett fájlokban legyen.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: egy önállóan futtatható agent-brief
+Címzett: a GPT-6.1 Terra maker
+Forrás és határ: a kriteriumok.md és a benne felsorolt fájlok; a Tananyag csak olvasható
+Kimeneti séma: a sablon hét pontja, két kötelező kimenettel
+Szabályok: hiány „Nincs megadva”; ellentmondás látható marad; nincs küldés, külső írás vagy publikálás
+Ellenőrzés: a hét pont megvan, a hivatkozott fájlok léteznek, a körkeret és a stop-szabály számmal szerepel
+Mentés: Munka/04-Agent/agent-brief.md</pre></div></details>
           <p class="kesz-ha"><b>Kész, ha</b><span>a hét pont megvan, a hivatkozott fájlok léteznek, a körkeret és a stop-szabály számmal szerepel (a futó ellenőrzés a 11. lépésben jön).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A briefbe nem kerülhet jelszó, kulcs vagy valós adat. Ha a brief nem teljes, az indítás nem akad el: a hiány nyitott tételként a <code>kriteriumok.md</code> végére kerül.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder"><li><b>Rávezető kérdés</b>Ha az agent holnap reggel egyedül nyitja meg a mappát, mit kell tudnia, amit ma te tudsz, és mit nem szabad csinálnia?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>„Írd meg az agent-briefet a sablon hét pontjára. Mód és DNS-verzió: … Cél: két kötelező kimenet (…, …). Forrás: a <code>kriteriumok.md</code> forráslistája. Korlát: hiány ‚Nincs megadva’, nincs küldés vagy külső írás. Ellenőrzés: K1–K7. Menet: legfeljebb 8 lépéses terv, legfeljebb 2 belső kör. Stop: … Zárás: mentési hely és verzió.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
@@ -279,6 +513,24 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>terv.md</code>: a sablon táblája és a jóváhagyási blokk, a jóváhagyás idejével.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>1. lépés kötötten: a KAPU I jelentés javítása, determinisztikus újramérés, a <code>kapu-I/atadas.md</code> státusza (lezárt / feltételes / blokkolt)</li><li>az FDD-egység csak nem blokkolt státusz után készül; blokkoltnál az agent megáll</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>a forrás-ellenőrző lista véglegesítése</li><li>a kalkuláció pénznemenként külön újraszámolva, majd a változásjegyzék</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod (részlet)</span>
+          <div class="ai-valasz"><p>A <code>terv.md</code> első sora, BA:</p><table><tbody><tr><th>#</th><td>1</td></tr><tr><th>Lépés</th><td>a KAPU I jelentés javítása, determinisztikus újramérés, a <code>kapu-I/atadas.md</code> státusza</td></tr><tr><th>Bemenet</th><td>…</td></tr><tr><th>Kimenet</th><td>…</td></tr><tr><th>Mérés (K-azonosító)</th><td>…</td></tr><tr><th>Kör</th><td>belső 1</td></tr></tbody></table><p>Sales-Account: 1. a forrás-ellenőrző lista véglegesítése; utána a kalkuláció pénznemenként külön újraszámolva; utána a változásjegyzék.</p><p>A tervet: A: jóváhagyom, ahogy van (ajánlott) · B: módosítom: írd le, mit · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <span class="szerep">A jóváhagyási blokk a terv.md végén</span>
+          <div class="ai-valasz"><table><tbody><tr><th>Jóváhagyta</th><td>a neved vagy a kezdőbetűid</td></tr><tr><th>Dátum és idő</th><td>ÉÉÉÉ-HH-NN ÓÓ:PP</td></tr><tr><th>Módosítás a javaslathoz képest</th><td>nincs</td></tr><tr><th>Nyitott tétel a futás előtt</th><td>hivatkozás a <code>kriteriumok.md</code> nyitott tételeire, vagy: nincs</td></tr></tbody></table></div>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>FDD és FDD-egység (BA)</h5>
+          <p>FDD: funkcionális tervdokumentum: a felmért üzleti igényből levezetett folyamatok, funkciók, adatok és képernyők leírása a fejlesztés előkészítéséhez.</p>
+          <p>FDD-egység: az FDD egy önállóan érthető funkcióblokkja, legfeljebb 3-5 funkcióval, a fiktív séma szerint kitöltve. Itt: csak nem blokkolt átadási státusz után készül.</p>
+          <span class="tanulsag">a jóváhagyott terv a határ: hiányzó döntésnél az agent megáll, nem talál ki semmit.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>legfeljebb 8 lépés van (✅/⚠️), a terv a briefhez és a kritériumokhoz igazodik; BA: az 1. lépés a jelentés javítása.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span><mark>A jóváhagyott terv a határ</mark>: az agent azon belül dolgozik, és hiányzó döntésnél megáll, nem talál ki semmit.</div>
           <p class="why"><strong>Miért fontos:</strong> a futás előtti jóváhagyás az ember kontrollpontja; utána az agent a terv szerint, a határokon belül dolgozik.</p>
@@ -295,6 +547,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>elofutas.py</code> és <code>elofutas_eredmeny.txt</code> az <code>ellenorzes/</code> mappában, valamint a <code>naplo.md</code> fejléce.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <div class="ai-valasz"><p>Semmit: ezt a lépést az asszisztens futtatja, kérdés nincs.</p></div>
+          <span class="szerep">Ezt kapod vissza</span>
+          <div class="ai-valasz"><p><code>elofutas_eredmeny.txt</code> (a forma; a te eredményed más lehet):</p><table><thead><tr><th>Ellenőrzés</th><th>Eredmény</th><th>Hiba helye</th></tr></thead><tbody><tr><td>a hivatkozott fájlok léteznek</td><td>✅</td><td>–</td></tr><tr><td>a brief hét pontja megvan</td><td>✅</td><td>–</td></tr><tr><td>minden K-nak van mérése és küszöbe</td><td>⚠️</td><td><code>kriteriumok.md</code>, K… sor</td></tr><tr><td>a körszám és a stop-szabály szerepel</td><td>✅</td><td>–</td></tr><tr><td>a napló fejléce megvan</td><td>✅</td><td>–</td></tr></tbody></table></div>
+          <p class="megj">A script nem javít: a ⚠️ sort te pótolhatod, de az indítás 12:25-kor a hiánnyal is megy, a hiány nyitott tétel.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve látszik, és a körszám meg a stop-szabály szerepel (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A script nem javít helyetted</mark>, és a tartalom jóságát nem tudja. Az indítás a hiányokkal is megy 12:25-kor; a hiány nyitott tétel.</div><div class="fallback"><strong>Ha nem fut kód:</strong> az öt ellenőrzést kézzel végzed egy ellenőrzőlapon, az AI sorról sorra végigvezet. A kódos cél nem teljesültként jelölt, a módszer azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a determinisztikus ellenőrzés ugyanazt méri minden futásnál; ez a három réteg közül az első, a forrás-visszakeresés és a rubrika a második és a harmadik.</p>
@@ -312,6 +572,24 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Egy kezdősor a <code>naplo.md</code>-ben: a kezdés ideje, mód, modell, a terv fájlja. A futás állapota a felületen látszik.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod az új beszélgetésbe (GPT-6.1 Terra, közepes effort)</span>
+          <pre class="prompt-box">RONDO 04 maker</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>A maker beolvassa az <code>agent-brief.md</code>, a <code>kriteriumok.md</code> és a <code>terv.md</code> fájlt, valamint a briefben felsorolt forrásokat; mást nem. Legfeljebb 8 lépéses tervet mutat, jóváhagyod, utána önállóan dolgozik.</p><p>Kezdősor a <code>naplo.md</code> fájlban: a kezdés ideje · mód · modell · a terv fájlja, például: 2026-11-12 12:25 · Work Local · GPT-6.1 Terra, közepes effort · <code>Munka/04-Agent/terv.md</code>.</p><p>Egy későbbi naplósor (alapmérés, a sablon szerint):</p><table><tbody><tr><th>kör</th><td>0</td></tr><tr><th>idő</th><td>ÉÉÉÉ-HH-NN ÓÓ:PP</td></tr><tr><th>belső/külső</th><td>belső</td></tr><tr><th>hiba-ID</th><td>alapmérés</td></tr><tr><th>változtatás</th><td>nincs (alapmérés)</td></tr><tr><th>K-eredmények</th><td>K1: …, K2: …, K7: …</td></tr><tr><th>rubrika</th><td>átlag és legalacsonyabb szempont</td></tr><tr><th>stop/folytatás és ok</th><td>folytatás: ok; vagy stop: melyik szabály</td></tr></tbody></table></div>
+          <span class="szerep">A tutor-beszélgetésben az értesítésről (például)</span>
+          <pre class="prompt-box">A</pre>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Napló és naplósor</h5>
+          <p>A maker munkamenet-naplója (<code>naplo.md</code>): körönként egy sor: kör, idő, hiba-ID, változtatás, eredmények és a stop vagy folytatás oka.</p>
+          <p>A sor szerkezete szó szerint: <code>kör | idő | belső/külső | hiba-ID | változtatás | K-eredmények | rubrika | stop/folytatás és ok</code></p>
+          <span class="tanulsag">sort csak hozzáfűzni lehet: a korábbi állapotot a napló őrzi.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a futás elindult (az állapot látszik), és a kezdősor a naplóban megvan (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A 12:25-ös indítás védett lépés: <mark>akkor is indítunk, ha a brief nem teljes</mark>; a hiány a <code>kriteriumok.md</code> nyitott tételei között marad.</div><div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A maker csak a briefet, a kritériumokat, a tervet és a briefben megnevezett fájlokat olvassa. Nincs küldés, külső írás vagy publikálás, és a hiányzó döntést nem pótolja.</div><div class="fallback"><strong>Ha a háttérfutás két percen belül nem indul:</strong> a tréneri tartalék v1 jelölve marad az átvételhez, a naplóban rögzítve. A módszer (brief, kritérium, ellenőrzés) teljesült, a háttérfutás nem.</div>
           <div class="villamkerdes">
@@ -328,6 +606,21 @@
         </div>
       </section>
 
+      <div class="fogalmak">
+      <span class="fg-cimke">A B fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>Work Local és Work Cloud</dt><dd>Local: helyi géphez kötött futás, a gép online marad. Cloud: felhőben fut, a bemeneteket külön kell elérhetővé tenni.</dd></div>
+      <div><dt>K1–K7 kritérium</dt><dd>Hét számozott, mérhető elvárás; mindegyikhez elvárás, mérés és küszöb tartozik.</dd></div>
+      <div><dt>Agent-brief</dt><dd>A makernek szóló írásos feladatleírás: cél, bemenetek, kimenetek, korlátok és ellenőrzés.</dd></div>
+      <div><dt>Ellenőrizhető cél</dt><dd>Hosszabb munka célja három részben: a kimenet (mi készül), a korlát (mit nem tehet) és az ellenőrzés (ebből látszik, hogy teljesült).</dd></div>
+      <div><dt>Körkeret</dt><dd>Belső kör legfeljebb 2; külső kör: R1 és R2, legfeljebb két review.</dd></div>
+      <div><dt>Napló</dt><dd>A maker munkamenet-naplója: körönként egy sor a változtatásról, az eredményről és a stop vagy folytatás okáról.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A <code>kriteriumok.md</code> a mérce az agentnek és később a reviewernek.</li><li>Az agent csak azt tudja, amit a brief és a megnevezett fájlok mondanak.</li><li>A jóváhagyott terv a határ; a hiányzó döntést az agent nem pótolja.</li><li>12:25-kor akkor is indítunk, ha a brief nem teljes; a hiány nyitott tétel.</li></ul>
+      </div>
+
       <div class="lepes-szunet"><span class="ido">12:30–13:15</span><p>Ebéd: az agent a háttérben fut, neked nincs feladatod.</p></div>
 
       <div class="lepes-csoport-cim" data-csoport="3">C fázis · Átvétel <span class="when">13:15–13:25</span></div>
@@ -341,6 +634,25 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs: a napló utolsó sora és a <code>v1/</code> fájllistája.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Folytassuk a 4. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>„4. gyakorlat, C fázis: átvétel.”</p><p>A napló utolsó sora (például): <code>2 | … | belső | … | … | K1: teljesült, K2: … | … | stop: a belső körkeret elfogyott</code></p><p>A <code>v1/</code> fájllistája: … Honnan jön a v1? A: a saját maker-futásból (ajánlott, ha elkészült) · B: a tréneri tartalékból (jelölve) · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">Az asszisztens a maker beszélgetésébe nem lát bele: csak a mentett fájlokat és a naplót olvassa.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Stop-szabály</h5>
+          <p>A maker megáll, ha minden K teljesült és nincs nyitott blocker vagy major; ha elfogyott a körkeret; ha két körben nincs javulás; vagy ha hiányzó döntés vagy jogosultság következik.</p>
+          <p>Itt: a napló utolsó sora kimondja, melyik szabály miatt állt meg a futás, és több kör nem indul.</p>
+          <span class="tanulsag">a határnál nem állsz le csendben: a sor megmondja, miért.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a fájlok léteznek, és a napló utolsó sora a futás befejezését vagy a megszakadás okát mutatja (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A „kész” üzenet nem bizonyíték</mark>: azt ellenőrizzük, mi készült el és mi nem. Az asszisztens a maker beszélgetésébe nem lát bele, csak a mentett fájlokat és a naplót olvassa.</div><div class="fallback"><strong>Ha a futás nem indult el vagy nem fejeződött be:</strong> a tréneri tartalék v1 az átvétel tárgya, a rögzítőlapon „B-tervvel” jelöléssel.</div>
           <p class="why"><strong>Miért fontos:</strong> a hosszú futás eredménye is csak akkor számít, ha ellenőrizzük, mi készült el.</p>
@@ -357,6 +669,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>ellenorzes/atvetel_eredmeny.txt</code>: a <code>kriteriumok.md</code> méréseinek eredménye a <code>v1/</code> fájlokon, a maker futásától függetlenül.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>a javított jelentés és a <code>kapu-I/atadas.md</code> státusza látszik</li><li>ha az <code>atadas.md</code> blokkolt, az FDD hiánya nem hiba, hanem a terv szerinti megállás</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>a kalkuláció összegei; ha képletek vannak, a képlet-újraszámolás eredménye külön sorban</li></ul></div></div>
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>ellenorzes/atvetel_eredmeny.txt</code> (a forma):</p><table><thead><tr><th>K és mérés</th><th>Parancs</th><th>Tényleges eredmény</th></tr></thead><tbody><tr><td>K…: …</td><td>a futtatott parancs, idézve</td><td>a tényleges kimenet, idézve</td></tr><tr><td>K…: …</td><td>–</td><td>NEM ELLENŐRIZHETŐ</td></tr></tbody></table><p>BA: a javított jelentés és a <code>kapu-I/atadas.md</code> státusza külön sorban. Sales-Account: a kalkuláció összegei; ha képletek vannak, a képlet-újraszámolás eredménye külön sorban.</p><p>Az átvétel-ellenőrzés eredményét: A: elfogadom (a mért hiányok a reviewer dolga) · B: egy mérést vitatok: írd le · C: újrafuttatjuk · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">A mérések a te <code>kriteriumok.md</code> fájlodból jönnek, és a maker futásától függetlenül futnak. Itt nem javítunk, csak mérünk.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a parancs és a tényleges eredmény idézve van, és az AI két mért értéket visszakeresett a forrásban (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Amit a készítő magáról mond, az nem bizonyíték. A független mérés ad értelmet a „kész” szónak; <mark>az átvételnél nem javítunk, csak mérünk</mark>.</div><div class="fallback"><strong>Ha nem fut kód:</strong> a mérések egy kézi ellenőrzőlapon készülnek; a kódos cél nem teljesültként jelölt.</div>
           <div class="villamkerdes">
@@ -383,11 +703,40 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>v1/atvetel.md</code> az átadási sablon B része szerint; BA-sávon a <code>kapu-I/atadas.md</code> státusza is.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>rögzíted vagy megerősíted a <code>kapu-I/atadas.md</code> státuszát (lezárt / feltételes / blokkolt): ettől függ, hogy az FDD-egység készülhetett-e</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>az átvételi jegyzék a <code>v1/atvetel.md</code> fájlban</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod, miután válaszoltál</span>
+          <div class="ai-valasz"><p><code>v1/atvetel.md</code>, az átadási sablon B része (például):</p><table><tbody><tr><th>Verzió</th><td>v1</td></tr><tr><th>Honnan jött</th><td>saját maker-futás</td></tr><tr><th>Kötelező kimenet 1 megvan és megnyílik</th><td>igen, fájl</td></tr><tr><th>Kötelező kimenet 2 megvan és megnyílik</th><td>igen, fájl</td></tr><tr><th>Mérések (<code>ellenorzes/</code>)</th><td>melyik script futott, eredmény</td></tr><tr><th>Naplósorok száma és a körkeret</th><td>… sor, a keret: 2 belső kör</td></tr><tr><th>Átvételi státusz</th><td>feltételesen átvéve</td></tr><tr><th>Feltétel vagy ok</th><td>a mért hiányok tételesen: …</td></tr><tr><th>Mehet-e a reviewerhez</th><td>igen</td></tr></tbody></table><p>BA: a <code>kapu-I/atadas.md</code> mezői: Státusz (lezárt / feltételes / blokkolt), Indok, Újramérés, FDD-egység indítható? (igen / nem).</p></div>
+          <span class="szerep">Te ezt válaszolod (például: feltételesen átvéve)</span>
+          <pre class="prompt-box">A</pre>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Átvételi státusz</h5>
+          <p>Három érték: átvéve, feltételesen átvéve, nem átvett. Feltételes átvételnél a hiányok tételesek.</p>
+          <p>Itt: tréneri tartalék esetén a jegyzékben „B-terv” áll; a tartalék átvétele nem önálló maker-teljesítés.</p>
+          <span class="tanulsag">a következő kör a rögzített állapotra épül, nem a bizalomra.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden mezőhöz tartozik bizonyíték, és a tartalék jelölve van (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ami nem mérhető, azt nem minősítjük késznek, és <mark>a „kész” nem küldési engedély</mark>. Tartalék esetén a jegyzékben „B-terv” áll.</div>
           <p class="why"><strong>Miért fontos:</strong> a dokumentált státusz miatt a következő kör nem a bizalomra, hanem a rögzített állapotra épül.</p>
         </div>
       </section>
+
+      <div class="fogalmak">
+      <span class="fg-cimke">A C fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>Stop-szabály</dt><dd>Megállás, ha minden K teljesült, elfogyott a körkeret, két körben nincs javulás, vagy hiányzik egy döntés vagy jogosultság.</dd></div>
+      <div><dt>Átvételi státusz</dt><dd>Átvéve, feltételesen átvéve vagy nem átvett; a feltételes átvétel hiányai tételesek.</dd></div>
+      <div><dt>B-terv</dt><dd>Tartalékút: ha egy funkció a munkatérben nem érhető el, ugyanazt a módszert gyakoroljuk másik eszközzel, jelölve.</dd></div>
+      <div><dt>NEM ELLENŐRIZHETŐ</dt><dd>Ami nem mérhető, azt nem minősítjük késznek: ez a jelölés nem számít teljesítettnek.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A „kész” üzenet nem bizonyíték: azt ellenőrizzük, mi készült el és mi nem.</li><li>Az átvételnél nem javítunk, csak mérünk.</li><li>A „kész” nem küldési engedély.</li></ul>
+      </div>
 
       <div class="lepes-csoport-cim" data-csoport="4">D fázis · Javítás R1 alapján <span class="when">14:15–14:35</span></div>
       <section class="lepes" id="lepes-16" data-csoport="4" data-csoport-nev="Javítás R1 alapján" data-rovid="A javítási kör kijelölése" data-ido="kb. 6 perc">
@@ -400,6 +749,40 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>terv.md</code> új „R1 javítás” szakasza: megállapítás-azonosítók, tiltott módosítások, körkeret, stop.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Folytassuk a 4. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (a lista formája)</span>
+          <div class="ai-valasz"><p>„4. gyakorlat, D fázis: javítás R1 alapján.” Az <code>R1.md</code> megállapításai súlyosság szerint, K-kapcsolattal (a forma):</p><table><thead><tr><th>ID</th><th>Súlyosság</th><th>Hely</th><th>K</th></tr></thead><tbody><tr><td>F-01</td><td>blocker</td><td>a vizsgált fájl és hely</td><td>K…</td></tr><tr><td>F-02</td><td>major</td><td>…</td><td>K…</td></tr><tr><td>F-03</td><td>minor</td><td>…</td><td>K…</td></tr></tbody></table></div>
+          <span class="szerep">A javítási jegyzeted eleje (félkész váz, a többit te írod)</span>
+          <pre class="prompt-box">Cél: fókuszált javítás az R1.md alapján, új változatként a v2/ mappába.
+Címzett: a maker a „RONDO 04 javítás R1” futásban.
+Forrás és határ: …
+Kimeneti séma: …
+Szabályok: …
+Ellenőrzés: …
+Mentés: …</pre>
+          <span class="szerep">A döntésed (például: minden blockert és majort)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">Hogy melyik megállapítás a fontos, azt az asszisztens nem mondja meg: ez a te ítéleted.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>R1</h5>
+          <p>A képzés első független ellenőrzési köre és annak jelentése. A maker első változatát vizsgálja a kritériumok és források alapján.</p>
+          <p>Itt: a <code>Munka/05-Reviewer/R1.md</code> az 5. gyakorlat B fázisának kimenete; ha nincs meg, a javítási kör nem indul.</p>
+          <span class="tanulsag">a fókuszált javítás nem ront el olyat, ami jó volt.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: fókuszált javítási terv az R1 alapján
+Címzett: a maker a „RONDO 04 javítás R1” futásban
+Forrás és határ: az R1.md, a kriteriumok.md, a terv.md, a v1/; új forrás nincs
+Kimeneti séma: a terv „R1 javítás” szakasza: megállapítás-azonosítók, tiltott módosítások, körkeret, stop
+Szabályok: csak az R1-ben megnevezett hibák; hiányzó döntést nem pótol
+Ellenőrzés: minden kijelölt megállapításhoz tartozik K
+Mentés: Munka/04-Agent/terv.md</pre></div></details>
           <p class="kesz-ha"><b>Kész, ha</b><span>a kijelölt azonosítók az <code>R1.md</code>-ben léteznek, és a jegyzet tartalmazza a körkeretet és a stop-szabályt (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az asszisztens nem mondja meg, melyik megállapítás a fontos: <mark>ez a te ítéleted</mark>. Ha az <code>R1.md</code> nincs meg (az 5. gyakorlat B fázisának kimenete), a javítási kör nem indul.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder"><li><b>Rávezető kérdés</b>Mely megállapítások csökkentenék a legtöbbet a K-teljesülés hiányából, és mi az, amit semmiképp nem akarsz, hogy az agent megváltoztasson?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>„Az <code>R1.md</code> megállapításai közül a(z) …, … azonosítójúakat javítsa az agent, új változatként a <code>v2/</code> mappába. Ne módosítson olyan részt, amelyre nincs megállapítás. Legfeljebb 2 belső kör. Stop: minden K teljesül; vagy elfogy a körkeret; vagy két körben nincs javulás; vagy hiányzó döntés kell. Minden körben napló.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
@@ -418,6 +801,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>ellenorzes/r1_megallapitas_visszakeres.md</code>: két idézet linkkel, egyezés vagy eltérés.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>ellenorzes/r1_megallapitas_visszakeres.md</code> (a forma):</p><table><tbody><tr><th>A reviewer bizonyítéka</th><td><code>R1.md</code>, F-… sor: „…”</td></tr><tr><th>A nyers forrás</th><td>fájl és sorszám, linkkel: „…”</td></tr><tr><th>Egyezés</th><td>✅ egyezik · ⚠️ eltér · a hely nem található</td></tr></tbody></table><p>A megállapítás: A: jogos, javítandó · B: vitatom (írd le, miért) · C: nem dönthető el a forrásból · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">A két idézetet te olvasod össze; az asszisztens nem ítél helyetted.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a két hely linkkel megnyitható (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A reviewer sem tévedhetetlen, a reviewer-jelentés is csak egy állítás: <mark>a forrás igazolja vagy cáfolja</mark>. A döntés a tiéd.</div>
           <p class="why"><strong>Miért fontos:</strong> nem hit, hanem bizonyíték alapján javítunk.</p>
@@ -435,6 +826,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>naplo.md</code> kezdősora, a futás végén a <code>v2/</code> mappa. A maker az <code>R1.md</code>-t is olvassa, és <mark>csak a kijelölt hibákat javítja</mark>.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod az új beszélgetésbe (GPT-6.1 Terra)</span>
+          <pre class="prompt-box">RONDO 04 javítás R1</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>A maker az <code>agent-brief.md</code>, a <code>kriteriumok.md</code> és a <code>terv.md</code> mellett a <code>Munka/05-Reviewer/R1.md</code> jelentést is beolvassa, és csak az ott megnevezett, kijelölt hibákat javítja, új verzióba (<code>v2/</code>); meglévő verziót nem ír felül.</p><p>Egy naplósor a javítási körből (például):</p><p><code>1 | ÉÉÉÉ-HH-NN ÓÓ:PP | belső | F-01 | egyetlen fókuszált változtatás: … | K1: …, K2: … | … | folytatás: …</code></p></div>
+          <p class="megj">A hiba-ID itt a reviewer-jelentés azonosítója. Egy körben egy fókuszált változtatás készül, a legsúlyosabb hibára.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a futás elindult, és a naplóban megvan a kezdősor (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A futás a szünetbe is átnyúlhat (14:35–14:50); a szünet nem plusz programidő. Nincs küldés, külső írás, publikálás.</div><div class="fallback"><strong>Ha a javítási futás két percen belül nem indul:</strong> a tréneri tartalék, hibás v1-en dokumentált javítás a B-terv: ugyanazt a javítási módszert gyakorlod. Ha 14:35-ig nem fejeződik be, az újramérés 14:50-kor az 5. gyakorlat 10. lépésével együtt történik.</div>
           <p class="why"><strong>Miért fontos:</strong> a javítás hosszú háttérmunka is lehet: indítod, a futás jelez, a végén te mérsz és döntesz.</p>
@@ -451,13 +850,59 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>ellenorzes/v1_v2_osszevetes.txt</code>: a determinisztikus mérések a <code>v2/</code> fájlokon, összevetve a <code>v1/</code> eredményeivel.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>ellenorzes/v1_v2_osszevetes.txt</code> (a forma):</p><table><thead><tr><th>K</th><th>v1</th><th>v2</th><th>Változás</th></tr></thead><tbody><tr><td>K…</td><td>nem teljesült</td><td>teljesült</td><td>javult</td></tr><tr><td>K…</td><td>teljesült</td><td>teljesült</td><td>változatlan</td></tr><tr><td>K…</td><td>…</td><td>…</td><td>romlott (ha van, ez is látszik)</td></tr></tbody></table><p>Naplósorok: … · körkeret: 2 belső kör · betartva: ✅ vagy ⚠️. A v2-t: A: mehet az R2 reviewerhez (ajánlott) · B: még egy belső kör, ha van keret és idő · C: a tréneri tartalék v2-vel megyünk tovább (jelölve) · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Repeat until good</h5>
+          <p>Ellenőrzés, célzott javítás és újraellenőrzés ismétlése a teljesítési vagy megállási feltételig. A képzésben korlátozott körszámmal fut.</p>
+          <p>Itt: ugyanaz a mérőrendszer méri a v1-et és a v2-t, ezért a javulás számmal látszik.</p>
+          <span class="tanulsag">a javítás nem érzés, hanem szám.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a parancs és az eredmény idézve van, és a körkeret betartva (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Feltételes idejű lépés: ha a <code>v2/</code> 14:35-ig elkészült, most fut; ha nem, 14:50-kor az 5. gyakorlat 10. lépésében, ahol a döntés is megszületik.</div><div class="callout figyelj"><span class="callout-cim">Figyelj</span>A romlás is látszik a táblán, és <mark>a maker saját összegzése nem bizonyíték</mark>.</div><div class="fallback"><strong>Ha nem fut kód:</strong> az összevetés kézi ellenőrzőlapon készül; a kódos cél nem teljesültként jelölt.</div>
           <p class="why"><strong>Miért fontos:</strong> a mérés mutatja meg, javult-e valami: a javítás nem érzés, hanem szám.</p>
         </div>
       </section>
 
+      <div class="fogalmak">
+      <span class="fg-cimke">A D fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>R1</dt><dd>Az első független ellenőrzési kör és annak jelentése; a maker első változatát vizsgálja.</dd></div>
+      <div><dt>Finding (megállapítás)</dt><dd>A reviewer tételes megállapítása: azonosító, súlyosság, hely, bizonyíték, javasolt javítás.</dd></div>
+      <div><dt>Repeat until good</dt><dd>Ellenőrzés, célzott javítás és újraellenőrzés ismétlése, korlátozott körszámmal.</dd></div>
+      <div><dt>v2</dt><dd>A javított változat új verzióként készül; a maker meglévő verziót nem ír felül.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A reviewer-jelentés is csak egy állítás: a forrás igazolja vagy cáfolja.</li><li>A maker csak az R1-ben megnevezett, kijelölt hibákat javítja.</li><li>A romlás is látszik a táblán; a maker saját összegzése nem bizonyíték.</li></ul>
+      </div>
+
     </div>
+  </section>
+
+  <section id="fogalmak" aria-label="Fontos fogalmak és megjegyzendők">
+  <div class="fogalmak">
+  <span class="fg-cimke">A gyakorlat végén</span>
+  <h3>Fontos fogalmak és megjegyzendők</h3>
+  <dl>
+  <div><dt>Agent-brief</dt><dd>Az agent önálló utasítása: cél, forrás, korlát, ellenőrzés, menet, stop, zárás. Amit az agentnek tudnia kell, az itt vagy a megnevezett fájlokban van.</dd></div>
+  <div><dt>K1–K7 kritérium</dt><dd>Hét mérhető elvárás méréssel és küszöbbel: a maker és a reviewer közös mércéje.</dd></div>
+  <div><dt>Determinisztikus ellenőrzés</dt><dd>Kóddal végzett mérés, rögzített paranccsal és tényleges eredménnyel; a tartalmi helyességet nem bizonyítja.</dd></div>
+  <div><dt>Napló és körkeret</dt><dd>Körönként egy naplósor; legfeljebb 2 belső kör és két review (R1, R2).</dd></div>
+  <div><dt>Stop-szabály</dt><dd>Minden K teljesült; elfogyott a körkeret; két körben nincs javulás; vagy hiányzik egy döntés vagy jogosultság.</dd></div>
+  <div><dt>KAPU I és FDD-egység (BA)</dt><dd>Előbb a felmérési csomag teljességi és összhang-ellenőrzése; az FDD-egység csak nem blokkolt státusz után készül.</dd></div>
+  </dl>
+  <h4>Jegyezd meg</h4>
+  <ul class="megjegyzendo"><li>Az ellenőrizhető cél három része: a kimenet, a korlát és az ellenőrzés.</li><li>Három réteg adja a „jó”-t: a determinisztikus mérés, a forrás-visszakeresés és a rubrika.</li><li>Amit a készítő magáról mond, az nem bizonyíték; a független mérés ad értelmet a „kész” szónak.</li><li>A „kész” nem küldési engedély.</li></ul>
+  </div>
   </section>
 
   <section id="validalas" aria-labelledby="validalas-cim">

@@ -71,6 +71,14 @@
         <p>Nincs <code>agent-brief.md</code> → A fázis; van <code>agent-brief.md</code>, de nincs <code>kovetkezo-lepes.md</code> → B fázis (rögzítés és beszámoló).</p>
       </div>
     </div>
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Te ezt írod a ChatGPT-be</span>
+<pre class="prompt-box">Kezdjük a 7. gyakorlatot.</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p><b>1. Cél:</b> a saját visszatérő feladatod átvitele a mai módszerre: saját brief, következő lépés, mentett sablonok, vállalás.</p><p><b>2. Út:</b> A fázis, 16:05–16:20: a saját brief megírása és ellenőrzése · B fázis, 16:20–16:30: a következő lépés leírása és az 5 napos terv, a sablonok és a vállalás mentése, a nap íve és a lépcső.</p><p><b>5. Hová mentek:</b> a kimeneteket a <code>Munka/07-Sajat</code> mappába mentem, a Tananyagot nem módosítom. A valós Oriana-adat ebben a mappában marad a saját gépeden.</p><p>Ajánlott mód: önálló. A kulcslépéseknél te írod a briefet és a következő lépést; én futtatok és ellenőrzök.</p><p>Mai minták: <code>04-Agent/agent-brief.md</code> ✅ · <code>kriteriumok.md</code> ✅ · reviewer-recept ⚠️ hiányzik: a melléklet sablonja pótolja.</p></div>
+            <p class="megj">A ✅/⚠️ sor a te mappáid szerint változik; ami hiányzik, azt a mellékletek sablonjai pótolják, külön kérdés nélkül.</p>
+          </div>
   </section>
 
   <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
@@ -120,6 +128,23 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A feladat és a DNS-verzió a megnyitott fájlokból idézve (ha a verzió nincs meg: „Nincs megadva”). Külön fájl nincs.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a feladat és a DNS-verzió a megnyitott fájlokból idézett (✅/⚠️).</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Te ezt írod (a döntésed)</span>
+<pre class="prompt-box">A: a profilomban rögzített feladat.</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p><b>Feladat</b> (<code>profil.md</code>): „&lt;a profilodban rögzített feladat&gt;” ✅</p><p><b>DNS-verzió</b> (<code>Munka/01-DNS/dns/README.md</code>): &lt;verzió&gt; ✅ – vagy, ha nincs ilyen fájl: Nincs megadva ⚠️</p><p>Valós adatot ne írj a beszélgetésbe: a brief a forrás nevét és helyét tartalmazza, a tartalmát nem.</p></div>
+            <p class="megj">Ha a profilban nincs feladat, az asszisztens egyszer kérdez: A: egy visszatérő jelentés vagy összefoglaló · B: egy ellenőrzési feladat · C: egy ajánlat vagy dokumentum előkészítése · más: írd le.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Delegálható feladat</h5>
+            <p>Olyan visszatérő feladat, amelyet át tudsz adni, mert a brief önmagában elég hozzá: benne van a kimenet, a korlát és az ellenőrzés.</p>
+            <p>Itt: a 0. gyakorlatban a profilodba (<code>profil.md</code>) és a célkártyádra (<code>celkartya.md</code>) írt saját feladat. A mai módszer nem a RONDO-ügy sajátja: bármely visszatérő feladat delegálható, ha van brief, kritérium és stop-szabály.</p>
+            <span class="tanulsag">a legkisebb, ismétlődő feladat a jó kiindulás.</span>
+          </div>
+          </div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Valós adatot, jelszót vagy kulcsot nem írsz a beszélgetésbe: a brief a forrás nevét és helyét tartalmazza, a tartalmát nem. <mark>A legkisebb, ismétlődő feladat a jó kiindulás</mark>.</div>
           <p class="why"><strong>Miért fontos:</strong> a módszer akkor marad meg, ha azonnal egy saját, valós feladaton használod.</p>
         </div>
@@ -141,6 +166,57 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>agent-brief.md</code> (egy brief, amely önmagában elég a delegáláshoz), a hét pont ✅/⚠️ ellenőrzésével.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a hét pont megvan; a kimenet, a korlát és az ellenőrzés külön látszik; a körszám és a stop-szabály számmal szerepel; a DNS-verzió szerepel vagy „Nincs megadva”.</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így indul itt</span>
+            <span class="szerep">Te ezt írod (előbb a döntésed a módról)</span>
+<pre class="prompt-box">A: Local, mert a forrás a gépemen van.</pre>
+            <span class="szerep">A brief eleje a sablon szerint (a hét pontot te írod meg)</span>
+<pre class="prompt-box"># Agent-brief: &lt;saját folyamat neve&gt;
+Mód: Work Local; indok: helyi fájl.
+DNS-verzió: &lt;verzió és hely, vagy: nincs&gt;.
+1. Cél: &lt;kimenet, címzett és formátum&gt;.
+2. Forrás: …
+3. Korlát: …
+4. Ellenőrzés: …
+5. Menet: …
+6. Stop: …
+7. Zárás: …</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p>1. Cél ✅ · 2. Forrás ✅ · 3. Korlát ✅ · 4. Ellenőrzés ✅ · 5. Menet ✅ · 6. Stop ⚠️ · 7. Zárás ✅</p><p>Ellenőrizhető cél: kimenet ✅ · korlát ✅ · ellenőrzés ✅</p><p>Egy javítási javaslat: a 6. pontban a körszám nincs számmal megadva.</p><p>A: futtasd így · B: javítom</p></div>
+            <p class="megj">A ⚠️ a visszajelzés formáját mutatja. A briefbe a forrás neve és helye kerül, a tartalma nem; jelszó, kulcs és valós ügyféladat sem.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Agent-brief és ellenőrizhető cél</h5>
+            <p><b>Agent-brief:</b> a makernek szóló írásos feladatleírás: cél, bemenetek, kimenetek, korlátok és ellenőrzés.</p>
+            <p><b>Ellenőrizhető cél:</b> hosszabb munka célja három részben: a kimenet (mi készül), a korlát (mit nem tehet) és az ellenőrzés (ebből látszik, hogy teljesült).</p>
+            <p>Itt: a <code>07-sajat-brief-sablon.md</code> három kérdése: Mi készül el, kinek, milyen formában? Mit nem tehet az agent? Mitől tudod, hogy jó?</p>
+            <span class="tanulsag">a saját feladat akkor delegálható, ha a brief önmagában elég.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test">
+<pre class="prompt-box">Cél: egy önállóan futtatható brief a saját feladatra.
+Címzett: a jövőbeli agent (vagy te holnap).
+Forrás és határ: a feladat forrásainak neve és helye; a tartalom a saját gépen marad.
+Kimeneti séma: a sablon hét pontja, K-kritériumokkal.
+Szabályok: hiány „Nincs megadva”; javaslat nem döntés; írási határ kimondott; nincs küldés vagy külső írás.
+Ellenőrzés: a hét pont megvan, a körszám és a stop-szabály számmal szerepel.
+Mentés: Munka/07-Sajat/agent-brief.md.</pre>
+            <p class="megj">A sablon teljes váza (<code>07-sajat-brief-sablon.md</code>):</p>
+<pre class="prompt-box"># Agent-brief: &lt;saját folyamat neve&gt;
+Mód: Work Local vagy Cloud; indok: &lt;helyi fájl / gép nélkül fusson&gt;.
+Modell: &lt;GPT-6.1 Terra, közepes effort, vagy más, indoklással&gt;.
+DNS-verzió: &lt;verzió és hely, vagy: nincs&gt;.
+1. Cél: &lt;kimenet, címzett és formátum&gt;.
+2. Forrás: &lt;tételes, dátumozott forráslista; hol vannak&gt;.
+3. Korlát: &lt;hiány "Nincs megadva"; javaslat nem döntés; írási határ&gt;.
+4. Ellenőrzés: &lt;kritériumok, mérés és küszöb; determinisztikus ellenőrzés&gt;.
+5. Menet: &lt;legfeljebb 8 lépéses terv, jóváhagyás; legfeljebb 2 belső kör (alapértelmezés; indokolt esetben más szám)&gt;.
+6. Stop: &lt;teljesülés; körkeret; nincs javulás; hiányzó döntés/jogosultság&gt;.
+7. Zárás: &lt;mentési hely, verzió, ellenőrzési mód&gt;.</pre>
+            <p class="megj">Miért így épül fel: a saját feladat akkor delegálható, ha a brief önmagában elég; ezért kell a kimenet, a korlát és az ellenőrzés. A minta a keretet adja; a tartalmat a saját feladatod adja, azt senki sem tudja helyetted.</p>
+          </div></details>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Jelszó, kulcs és valós ügyféladat nem kerülhet a briefbe; az írási határ kimondott, küldés vagy külső írás nincs. A Local vagy Cloud futás elérését csak abból mondjuk, amit a felületen látsz („ha a munkatérben elérhető”).</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
@@ -171,6 +247,12 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>brief_ellenorzes.py</code> és a <code>brief_ellenorzes_eredmeny.txt</code> a <code>Munka/07-Sajat/sablonok</code> mappában.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve látszik (✅/⚠️).</span></p>
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Itt nem írsz semmit: a script lefut, ezt kapod (részlet a brief_ellenorzes_eredmeny.txt fájlból)</span>
+            <div class="ai-valasz"><p>a hét pont megvan: ✅</p><p>a forrásnevek meg vannak adva: ✅</p><p>a DNS-verzió szerepel (vagy „Nincs megadva”): ✅</p><p>a körszám és a stop-szabály számmal szerepel: ⚠️ hiányzik</p><p>az írási határ kimondott: ✅</p><p>jelszó- vagy kulcsmintázat: nincs találat ✅</p></div>
+            <p class="megj">A sorok a te briefed szerint változnak. A hiányt te pótolod; az asszisztens nem javítja ki a briefet helyetted.</p>
+          </div>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A gép gyorsan látja, ha egy kötelező elem hiányzik; <mark>azt viszont nem, hogy jó-e a tartalom</mark>. A determinisztikus ellenőrzés az első védvonal, a második a független ellenőr, a harmadik a forrás-visszakeresés.</div>
           <div class="fallback"><strong>Ha nem fut kód:</strong> a hét pont kézi ellenőrzőlapon készül; a kódos cél nem teljesültként jelölt.</div>
           <div class="villamkerdes">
@@ -202,10 +284,42 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>reviewer-brief-sablon.md</code> a <code>sablonok</code> mappában, a mai recept másolataként a feladathoz igazítva, és a kijelölt ellenőr megnevezése.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a sablon fájlja létrejött, és az ellenőr megnevezése megvan (vagy „még nincs”) (✅/⚠️).</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Te ezt írod (a döntésed)</span>
+<pre class="prompt-box">B: egy kolléga.</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p><b>Ellenőr:</b> egy kolléga (a nevét te mondod meg; valós személyt nem találok ki).</p><p><b>Mentve:</b> <code>Munka/07-Sajat/sablonok/reviewer-brief-sablon.md</code>: a mai recept másolata, a feladatodhoz igazítandó részek <code>&lt;…&gt;</code> jelöléssel ✅</p><p>A sablon tartalmazza a mai recept kötelező elemeit: friss beszélgetés, szűk csomag, a reviewer nem javít.</p></div>
+            <p class="megj">Ha még nincs ellenőröd, a válasz: „C: még nincs”; addig a reviewer-recept fut friss beszélgetésben, és te keresel vissza a forrásban.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Független ellenőr (reviewer)</h5>
+            <p>A független ellenőr szerepe: nem javít, hanem a forrás és a kritériumok alapján ítél (PASS, FAIL, NEM ELLENŐRIZHETŐ), és hibákat jelez.</p>
+            <p>Itt: a mai reviewer-recepted a <code>Munka/05-Reviewer</code> mappából, sablonként a saját feladatodra; mellé egy ember, akit te nevezel meg.</p>
+            <span class="tanulsag">az ellenőrzés attól független, hogy más szemmel, szűk bemenettel történik; a név vagy a „még nincs” is információ.</span>
+          </div>
+          </div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A reviewer nem javít</mark>: friss beszélgetés, szűk csomag. Az ellenőr nevét te mondod; az asszisztens valós személyt nem talál ki.</div>
           <p class="why"><strong>Miért fontos:</strong> aki nem tud megnevezni ellenőrt, annak a munkája ellenőrizetlen marad; a név vagy a „még nincs” is információ.</p>
         </div>
       </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">Az A fázis végén</span>
+        <h3>Fontos fogalmak és megjegyzendők</h3>
+        <dl>
+          <div><dt>Agent-brief</dt><dd>A makernek szóló írásos feladatleírás: cél, bemenetek, kimenetek, korlátok és ellenőrzés.</dd></div>
+          <div><dt>Ellenőrizhető cél</dt><dd>Három rész: a kimenet (mi készül), a korlát (mit nem tehet) és az ellenőrzés (ebből látszik, hogy teljesült).</dd></div>
+          <div><dt>Delegálható feladat</dt><dd>Visszatérő feladat, amelyhez van brief, kritérium és stop-szabály; a brief önmagában elég az átadáshoz.</dd></div>
+          <div><dt>DNS</dt><dd>A vállalat bemutatását, terméktudását, döntési szabályait és ezek forrásait összefogó, verziózott tudáscsomag; nem a hálózati DNS.</dd></div>
+          <div><dt>Determinisztikus ellenőrzés</dt><dd>Kóddal végzett ellenőrzés; a futtatott parancsot és a tényleges eredményt rögzíteni kell.</dd></div>
+          <div><dt>Reviewer</dt><dd>A független ellenőr szerepe: nem javít, hanem a forrás és a kritériumok alapján ítél.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo"><li>Valós adat, jelszó vagy kulcs nem kerül a beszélgetésbe: a brief a forrás nevét és helyét tartalmazza, a tartalmát nem.</li><li>A gép gyorsan látja, ha egy kötelező elem hiányzik; azt viszont nem, hogy jó-e a tartalom.</li><li>Három védvonal: a determinisztikus ellenőrzés, a független ellenőr, a forrás-visszakeresés.</li><li>Az ellenőr nevét te mondod; a „még nincs” is információ.</li></ul>
+      </div>
 
       <div class="lepes-csoport-cim" data-csoport="2">B fázis · Rögzítés és beszámoló <span class="when">16:20–16:30</span></div>
 
@@ -225,6 +339,41 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>kovetkezo-lepes.md</code> (a négy elemmel és az őszinte „állapot ma” mezővel) és az <code>ot-napos-terv.md</code>: öt munkanap, naponként cél, fájl, ellenőrzés és kivel; a javasolt időablak 2026-11-13-tól 2026-11-19-ig.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>input, output, kritérium és írási határ megvan; az állapot ma: élesítve / engedélyeztetni kell / mentett szöveg; a terv 1. napja kitöltött, a 2–5. nap előtöltött javaslat, valós adat nélkül.</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így indul itt</span>
+            <span class="szerep">Te ezt írod (előbb a döntésed a formáról)</span>
+<pre class="prompt-box">C: kézi ismétlés előkészítése.</pre>
+            <span class="szerep">A leírás váza a sablon szerint (a négy elemet te írod meg)</span>
+<pre class="prompt-box">Név: …
+Mikor fut: nincs ütemezés (kézi ismétlés)
+Input (mit kap, honnan, melyik verzióból): …
+Output (mi készül, hová): …
+Kritérium (mitől jó; mérés és küszöb): …
+Írási határ (mit nem módosíthat; mit csak jóváhagyás után): …
+Állapot ma: mentett szöveg</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p>Input ✅ · Output ✅ · Kritérium ✅ · Írási határ ✅ · Állapot ma: mentett szöveg</p><p><b>5 napos terv, 1. nap (javaslat: 2026-11-13):</b> a saját brief első futtatása a saját feladaton, friss beszélgetésben; a kimenetet a reviewer-recept külön beszélgetésben ellenőrzi.</p><p>Kivel: &lt;a 4. lépés döntése, vagy: még nincs&gt; · Ezt a sort és a holnap reggeli első lépést most te pontosítod.</p><p>2–5. nap: előtöltött javaslat, házi feladat (másnap reggel írod át a saját szavaiddal).</p></div>
+            <p class="megj">Az 1. nap szövege a <code>07-ot-napos-terv-sablon.md</code> sora. Az ütemezett feladat (A) és a Workspace Agent leírása (B) csak akkor választható, ha a munkatérben elérhető.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Következő lépés és 5 napos gyakorló terv</h5>
+            <p><b>Következő lépés:</b> leírás arról, hogyan lesz a mai briefből ismétlődő vagy proaktív segéd. Három forma: ütemezett feladat szövege, Workspace Agent leírása, kézi ismétlés; mindegyikhez input, output, kritérium és írási határ kell.</p>
+            <p><b>5 napos gyakorló terv:</b> öt munkanapos indítási terv: naponként cél, fájl, ellenőrzés és kivel. Az első nap a saját brief első futtatása, az utolsó a tanulság DNS-be vitele. Javaslat, nem vállalás.</p>
+            <span class="tanulsag">ami nincs napokra bontva, az másnap reggel könnyen elmarad.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test">
+<pre class="prompt-box">Cél: a briefből ismétlődő vagy proaktív segéd leírása, és az első hét napokra bontva.
+Címzett: te és a jövőbeli futtató.
+Forrás és határ: a mai brief, a profil és a sablonok; a leírás és a terv nem tartalmaz valós adatot.
+Kimeneti séma: a sablon táblája (név, mikor fut, input, output, kritérium, írási határ, független ellenőr, hiba esetén, állapot ma) + az 5 napos terv öt sora (nap, cél, fájl, ellenőrzés, kivel; órán az 1. nap kész, a többi előtöltött javaslat).
+Szabályok: javaslat nem vállalás; hiány „Nincs megadva”; továbbküldés jóváhagyással.
+Ellenőrzés: mind a négy elem megvan, és az 5 napos terv 1. napja kitöltött, a 2–5. nap előtöltött.
+Mentés: Munka/07-Sajat/kovetkezo-lepes.md, Munka/07-Sajat/ot-napos-terv.md.</pre>
+            <p class="megj">Miért így épül fel: egy segéd attól lesz proaktív, hogy előre le van írva, mit kap, mit ad, mitől jó, és mit nem szabad csinálnia; a terv pedig attól indul el, hogy az első hét napokra van bontva.</p>
+          </div></details>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>Ma nem élesítünk kötelezően</mark>. Az ütemezés és a Workspace Agent elérhetősége munkatérfüggő (az Agent előfordulhat, hogy csak a webes felületen látszik). Az 5 napos terv javaslat, nem vállalás, és valós ügyféladat nem kerül bele, csak a forrás neve és helye.</div>
           <details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder">
@@ -254,6 +403,23 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A sablonok a <code>Munka/07-Sajat/sablonok</code> mappában (agent-brief-sablon, kriteriumok-sablon, reviewer-brief-sablon, és a mai reviewer-recept másolata, ha létezik), a <code>vallalas.md</code>, és a profil „Vállalás” szakasza. A sablonmentés rutinlépés, az asszisztens végzi.</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a fájlok léteznek, a dátum abszolút, a profil „Vállalás” szakasza kitöltött, és minden mező kitöltött vagy „Nincs megadva”.</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Te ezt írod (a két döntésed egy válaszban)</span>
+<pre class="prompt-box">A és A: 2026-11-13-ra vállalom az első valódi használatot, és a teljes időt mérem.</pre>
+            <span class="szerep">Ezt kapod vissza (részlet a vallalas.md-ből)</span>
+            <div class="ai-valasz"><p><b>Feladat:</b> &lt;a profilodban rögzített feladat&gt;</p><p><b>Nap:</b> 2026-11-13 · <b>Ellenőrző személy:</b> &lt;a 4. lépés döntése&gt; · <b>Mérce:</b> teljes idő</p><p><b>Mérési szabály:</b> az első három valódi használatnál a teljes idő mérése, javítással és ellenőrzéssel együtt.</p><p>Mentve: <code>vallalas.md</code>, a profil „Vállalás” szakasza, és a <code>sablonok</code> mappa: <code>agent-brief-sablon.md</code>, <code>kriteriumok-sablon.md</code>, <code>reviewer-brief-sablon.md</code> ✅</p></div>
+            <p class="megj">A nap és a mérce a te döntésed; ami nincs megadva, az „Nincs megadva”, nem kitalált dátum.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Vállalás</h5>
+            <p>A te saját döntésed arról, mit viszel át a saját munkádba, és mikorra. A javaslat és a szándék még nem vállalás.</p>
+            <p>Itt: a <code>07-vallalas-sablon.md</code> mezői: feladat, forrás, DNS-verzió, konkrét nap, ellenőrző személy, mérce, mi hiányzik. A rövid formája a profilod „Vállalás” szakasza lesz.</p>
+            <span class="tanulsag">a konkrét nap és a mérés teszi a vállalást ellenőrizhetővé.</span>
+          </div>
+          </div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A vállalás a te saját döntésed, nem kényszer; az ellenőrző személy a 4. lépés döntése. A sablonokba valós adat nem kerül. Ha az első használat napja eltér a terv 1. napjától, a terv napjait ahhoz igazítjuk.</div>
           <div class="villamkerdes">
             <span class="vk-cimke">Villámkérdés</span>
@@ -285,6 +451,24 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Egy új sor a <code>vallalas.md</code> végén: a csoport foka a következő 30 napra és a gazda (vagy „Nincs megadva”).</p></div>
           </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a csoport megnevezett egy fokot és egy gazdát (vagy „Nincs megadva”); a sor megvan a <code>vallalas.md</code> fájlban; a mondatok a saját szavaid (✅/⚠️).</span></p>
+          <div class="pelda-par">
+          <div class="pelda">
+            <span class="pelda-cimke">Példa: így néz ki itt</span>
+            <span class="szerep">Te ezt írod (azt, amit a jegyző a csoport nevében bemondott)</span>
+<pre class="prompt-box">A: eggyel feljebb a ma jelölt foknál: &lt;a fok neve&gt;; gazda: &lt;név vagy szerepkör&gt;.</pre>
+            <span class="szerep">Ezt kapod vissza (részlet)</span>
+            <div class="ai-valasz"><p>A profilod <code>szint_ma</code> mezője: „&lt;a reggel kimondott fok neve&gt;” – vagy: Nincs megadva.</p><p>Rögzítve a <code>vallalas.md</code> végén: a csoport foka a következő 30 napra: &lt;a fok neve&gt; · gazda: &lt;név, szerepkör vagy Nincs megadva&gt; ✅</p><p>A fokot a csoport jelölte; én nem választok és nem értékelek.</p></div>
+            <p class="megj">Ha a csoport nem döntött, a válaszod: „C: még nem döntünk, Nincs megadva”; ez is információ. A saját záró mondatodat te fogalmazod.</p>
+          </div>
+          <div class="altalanos">
+            <span class="alt-cimke">Mi ez általánosságban?</span>
+            <h5>Gazda és érettségi szint</h5>
+            <p><b>Gazda:</b> az a személy vagy szerepkör, aki egy szabályért, tudásmodulért vagy folyamatért felel, és dönt a módosításáról. Ha nincs kijelölve: „Nincs megadva”.</p>
+            <p><b>Érettségi szint:</b> az AI-használat öt foka, számok nélkül; a fokot a csoport jelöli ki magáról (ma és 30 nap múlva). Nem mérés és nem Oriana-tény.</p>
+            <p>Itt: a 30 napos lépés gazdája az, aki továbbviszi. A nap záró kérdése: „Ki a gazdája ennek a folyamatnak, és hogyan tudjuk meg, hogy jó?”</p>
+            <span class="tanulsag">aki látja, honnan hová jutott, és ki viszi tovább, az másnap reggel is tudja, mit indít.</span>
+          </div>
+          </div>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A fokokhoz szám nem tartozik; a besorolás csoportjavaslat, nem mérés és nem Oriana-tény. Ha a csoport nem ért egyet, a sor „Nincs megadva”, és ez is információ. A saját mondatodat nem az asszisztens fogalmazza.</div>
           <div class="callout tipp"><span class="callout-cim">Tipp</span><b>Első 30 nap</b> (tervezői javaslat, nem vállalás): egy kis kör (champion-kör), amely kipróbálja és továbbadja; egy lista arról, mit szabad kipróbálni és mit kell döntésre továbbvinni; három recept; az első mérőszámok (átfutási idő, első körös elfogadási arány, újramunka). A 90. napnál a csapat dönt: mi marad, mit állítunk le, mi lehet a következő segéd (ha a munkatérben elérhető).</div>
           <div class="fallback"><strong>Ha az ábra nem látszik a vetítésen:</strong> a notebook szöveges felirata és az öt fok listája ugyanazt mondja; a tréner abból halad.</div>
@@ -292,6 +476,38 @@
         </div>
       </section>
 
+      <div class="fogalmak">
+        <span class="fg-cimke">A B fázis végén</span>
+        <h3>Fontos fogalmak és megjegyzendők</h3>
+        <dl>
+          <div><dt>Ütemezett feladat</dt><dd>Előre megadott időpontban vagy rendszeresen önállóan induló feladat; ma a leírását készítjük el, élesítése nem kötelező, és csak akkor érhető el, ha a munkatérben engedélyezett.</dd></div>
+          <div><dt>Workspace Agent</dt><dd>A munkatérben beállított, feladatra szabott asszisztens; ma csak a leírását tervezzük meg, ha a munkatérben elérhető.</dd></div>
+          <div><dt>5 napos gyakorló terv</dt><dd>Öt munkanapos indítási terv: naponként cél, fájl, ellenőrzés és kivel. Javaslat, nem vállalás.</dd></div>
+          <div><dt>Vállalás</dt><dd>A saját döntésed arról, mit viszel át a saját munkádba, és mikorra.</dd></div>
+          <div><dt>Érettségi szint</dt><dd>Az AI-használat öt foka, számok nélkül; a fokot a csoport jelöli ki magáról.</dd></div>
+          <div><dt>Gazda</dt><dd>Aki egy szabályért, tudásmodulért vagy folyamatért felel, és dönt a módosításáról.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo"><li>Ma nem élesítünk kötelezően: a leírás mentése a gyakorlat eredménye.</li><li>Ami nincs időponthoz és mércéhez kötve, az nem vállalás, csak szándék.</li><li>A fokot a csoport jelöli, nem a tréner és nem az asszisztens; szám nem tartozik hozzá.</li><li>Az AI-natív irány, nem státusz.</li></ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="fogalmak" aria-label="Fontos fogalmak és megjegyzendők az oldal végén">
+    <div class="fogalmak">
+      <span class="fg-cimke">Az oldal végén: a 7. gyakorlat hat fogalma</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+        <div><dt>Delegálható feladat</dt><dd>Amit át tudsz adni, mert a brief önmagában elég.</dd></div>
+        <div><dt>Ellenőrizhető cél</dt><dd>Kimenet, korlát, ellenőrzés.</dd></div>
+        <div><dt>Vállalás</dt><dd>Konkrét nap és mérce; enélkül csak szándék.</dd></div>
+        <div><dt>5 napos terv</dt><dd>Az első hét napokra bontva; az 1. nap a saját brief első futtatása.</dd></div>
+        <div><dt>Gazda</dt><dd>Aki felel a folyamatért, és dönt a módosításáról.</dd></div>
+        <div><dt>AI-natív szervezet</dt><dd>Közös, verziózott tudás, két szerep, ellenőrző kapuk, proaktív segéd; a különbséget a közös tudás, a kapuk és a gazdák adják, nem az eszköz.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>Három dolgot vigyél haza: egy folyamatot, amelyet újratervezel; egy kaput, amely az AI munkáját ellenőrzi; és egy szabályt, amelyet leírtál, gazdával és forrással.</li><li>A kérdés mindenkinek: „Ki a gazdája ennek a folyamatnak, és hogyan tudjuk meg, hogy jó?”</li><li>A valós Oriana-feladat a saját fiókodban és gépeden marad.</li></ul>
     </div>
   </section>
 

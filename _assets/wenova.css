@@ -967,6 +967,44 @@ body.deck .deck-bar { background: var(--ink-fix); }
 .abra .abra-cim { font-weight: 800; }
 .abra-chips button, .abra .abra-chips button { border: 2px solid var(--ink); font-weight: 700; }
 .abra-info { border: 2px solid var(--ink) !important; border-radius: var(--radius) !important; }
+/* ---------- v3.1: konkrét példa + általános jelentés egymás mellett, blokkvégi fogalmak ---------- */
+/* Példa és általános jelentés párban: balra a KONKRÉT (mit írsz, mit kapsz), jobbra az ÁLTALÁNOS (mi ez, mi a tanulság) */
+.pelda-par { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: var(--space-2); margin: var(--space-2) 0; align-items: start; max-width: none; }
+.pelda-par > * { min-width: 0; margin: 0; }
+@media (max-width: 900px) { .pelda-par { grid-template-columns: 1fr; } }
+.pelda { border: 2px solid var(--ink); border-radius: var(--radius-lg); background: var(--surface); padding: 1rem 1.1rem; margin: var(--space-2) 0; box-shadow: var(--kemeny-kis); max-width: none; }
+.pelda > .pelda-cimke, .altalanos > .alt-cimke, .fogalmak > .fg-cimke { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: .1rem .7rem; margin-bottom: .6rem; color: var(--ink-fix); }
+.pelda > .pelda-cimke { background: var(--accent); }
+.pelda .szerep { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); margin: .6rem 0 .25rem; }
+.pelda .szerep:first-of-type { margin-top: 0; }
+.pelda .prompt-box { margin: 0 0 .2rem; box-shadow: none; font-size: .92rem; }
+.pelda .ai-valasz { border: 2px dashed var(--border-strong); border-radius: var(--radius); background: var(--surface-2); padding: .7rem .9rem; font-size: .95rem; margin: 0; max-width: none; }
+.pelda .ai-valasz p:last-child, .pelda .ai-valasz ul:last-child { margin-bottom: 0; }
+.pelda .megj { font-size: .82rem; color: var(--text-muted); margin: .5rem 0 0; max-width: none; }
+.altalanos { border: 2px dashed var(--ink); border-radius: var(--radius-lg); background: var(--elakadas-soft); padding: 1rem 1.1rem; margin: var(--space-2) 0; max-width: none; }
+.altalanos > .alt-cimke { background: var(--elakadas); }
+.altalanos h5 { margin: 0 0 .3rem; font-size: 1.05rem; font-weight: 800; }
+.altalanos p { margin: 0 0 .5rem; font-size: .95rem; max-width: none; } .altalanos p:last-child { margin-bottom: 0; }
+.altalanos .tanulsag { display: block; margin-top: .6rem; padding: .5rem .7rem; border-radius: 10px; background: var(--jegyezd); color: var(--ink-fix); border: 2px solid var(--ink); font-weight: 700; font-size: .95rem; }
+.altalanos .tanulsag::before { content: "Tanulság: "; font-weight: 800; }
+/* „Mutasd a mintát”: a kulcslépés mintapromptja csak kérésre nyílik */
+details.minta { border: 2px dashed var(--ink); border-radius: var(--radius); background: var(--surface); margin: var(--space-2) 0; max-width: none; }
+details.minta > summary { cursor: pointer; padding: .6rem .95rem; font-weight: 800; list-style: none; }
+details.minta > summary::before { content: "▸ "; } details.minta[open] > summary::before { content: "▾ "; }
+details.minta > summary::-webkit-details-marker { display: none; }
+details.minta > .minta-test { padding: 0 .95rem .9rem; }
+/* Blokkvégi összefoglaló: fontos fogalmak és megjegyzendők */
+.fogalmak { border: 2px solid var(--ink); border-radius: 22px; background: var(--surface); padding: 1.2rem 1.3rem; margin: var(--space-4) 0; box-shadow: var(--kemeny); max-width: none; }
+.fogalmak > .fg-cimke { background: var(--g3); }
+.fogalmak h3 { margin: 0 0 .8rem; font-size: 1.35rem; }
+.fogalmak dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr)); gap: .7rem; margin: 0 0 1rem; }
+.fogalmak dl > div { border: 2px solid var(--ink); border-radius: var(--radius); padding: .6rem .8rem; background: var(--elakadas-soft); }
+.fogalmak dt { font-weight: 800; font-size: 1rem; }
+.fogalmak dd { margin: .15rem 0 0; font-size: .92rem; color: var(--text-secondary); }
+.fogalmak .megjegyzendo { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; max-width: none; }
+.fogalmak .megjegyzendo li { margin: 0; padding: .55rem .8rem .55rem 2.4rem; border: 2px solid var(--ink); border-radius: var(--radius); background: var(--jegyezd-soft); font-weight: 600; position: relative; }
+.fogalmak .megjegyzendo li::before { content: "★"; position: absolute; left: .8rem; top: .5rem; font-weight: 800; }
+.fogalmak h4 { margin: 0 0 .5rem; }
 @media print { .gyakorlat.fokusz .lepes .lepes-test { display: block !important; } .fokusz-kapcsolo, .jelveny-sav { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 @media (max-width: 640px) {

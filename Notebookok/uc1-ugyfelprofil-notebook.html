@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ügyfélprofil use case 1: cégkereséstől az interaktív ügyfélprofilig · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Ügyfélprofil use case 1. Tartalom: a Prompt Workbook négy lépése (2026-11-12, V2); a négy prompt szó szerint szerepel. -->
+<body class="notebook v2" data-depth="1" data-current="uc1" data-jelveny="Ügyfélprofil-készítő">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="uc1" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>Ügyfélprofil use case 1 · Prompt Workbook</span><span class="badge all">Sales + BA</span></div>
+      <h1 id="cim">Cégkereséstől az interaktív ügyfélprofilig, négy rövid prompttal</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Megkeresed a Rondo Hullámkartongyártó Kft.-t, és felkészülsz egy első üzleti egyeztetésre: négy rövid prompttal jutsz el a cégkereséstől az Oriana arculatú, interaktív HTML ügyfélprofilig. A megkeresés a tréningben feltételezett helyzet.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">rövid kérések, ellenőrizhető eredmény</li>
+          <li data-csoport="1">a magyar cég elkülönítése a cégcsoporttól</li>
+          <li data-csoport="1">egy adat ellenőrzése több forrásban: év, mutató, mértékegység</li>
+          <li data-csoport="2">konkrét vizuális elvárások és referencia megadása</li>
+          <li data-csoport="2">a következő kérés pontosítása a látott eredmény alapján</li>
+          <li data-csoport="2">vizuális és működési ellenőrzés külön</li>
+        </ul>
+      </div>
+      <div class="meta"><span>Idő: 60 perc</span><span>Kimenet: Oriana HTML ügyfélprofil</span><span>Kinek: Sales + BA</span><span>Négy prompt, egy beszélgetés</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>egy cégnév: Rondo Hullámkartongyártó Kft.</li>
+          <li>internetes kutatásra és HTML-készítésre alkalmas AI-környezet</li>
+          <li>egy vizuális HTML-minta, amelyet a 3. lépés előtt csatolsz, ha a környezet támogatja</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>Oriana_Rondo_Ugyfelprofil.html</code>: önálló, mobilbarát ügyfélprofil Oriana arculattal</li>
+          <li>évválasztó, váltható diagramok, kiválasztható adatpont pontos értékkel és forrással</li>
+          <li>CSV-letöltés és nyomtatási nézet (CSV: tagolt szöveges táblázatfájl)</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> a célt, néhány konkrét vizuális elvárást és a referenciákat te adod meg; a részleteket az AI dolgozza ki. A következő kérést mindig a látott eredmény alapján pontosítod.</p></div>
+    </div>
+  </section>
+
+  <section id="inditas" aria-labelledby="inditas-cim">
+    <h2 id="inditas-cim">A gyakorlat indítása</h2>
+    <p class="lead"><b>Feladat:</b> keresd meg a Rondo Hullámkartongyártó Kft.-t, és készülj fel egy első üzleti egyeztetésre.</p>
+    <ol>
+      <li>Használj internetes kutatásra és HTML-készítésre alkalmas AI-környezetet.</li>
+      <li>A négy promptot <mark>ugyanabban a beszélgetésben</mark> küldd el, egymás után. Az „eddigi kutatás” és az „elkészült HTML” így az előző eredményre hivatkozik.</li>
+      <li>A 3. lépés előtt csatold a vizuális HTML-mintát a beszélgetéshez, ha a környezet támogatja. Ha nem, használd a webes referenciákat. A minta elrendezési referencia; az adatait külön ellenőrizni kell.</li>
+      <li>Nézd meg az eredményt minden lépés után. A következő kérést a látottak alapján is pontosíthatod.</li>
+    </ol>
+    <div class="grid-2">
+      <div class="card"><h3>Sales fókusz</h3><p>Mi történik a cégnél, hol lehet üzleti lehetőség, és mivel kezdjük a beszélgetést?</p></div>
+      <div class="card"><h3>BA fókusz</h3><p>Mely folyamatot érdemes feltárni, mire van bizonyíték, és mit kell még megkérdezni?</p></div>
+    </div>
+    <div class="callout jegyezd"><span class="callout-cim">A gyakorlat lényege</span>A célt, néhány konkrét vizuális elvárást és a referenciákat adod meg. A részleteket az AI dolgozza ki; a következő kérést <mark>a látott eredmény alapján</mark> pontosítod. BA: üzleti elemző.</div>
+  </section>
+
+  <section id="menetrend" aria-labelledby="menetrend-cim">
+    <h2 id="menetrend-cim">60 perces menetrend</h2>
+    <table>
+      <thead><tr><th>Idő</th><th>Gyakorlat</th></tr></thead>
+      <tbody>
+        <tr><td>0–15. perc</td><td><a href="#lepes-1">Cégkeresés és első üzleti kép</a></td></tr>
+        <tr><td>15–30. perc</td><td><a href="#lepes-2">Mélyítés, ellenőrzés és Oriana-kapcsolódás</a></td></tr>
+        <tr><td>30–45. perc</td><td><a href="#lepes-3">Oriana arculatú HTML ügyfélprofil</a></td></tr>
+        <tr><td>45–60. perc</td><td><a href="#lepes-4">Vizuális és interaktív finomítás</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábra</span>Ezt kell megértened</h2>
+    <p>Hogyan épül egymásra a négy prompt? Figyeld meg, hogy mind a négy <mark>ugyanabba a beszélgetésbe</mark> megy, és hogy minden kör után te nézed meg az eredményt. Lépésenként is végigkattinthatod; a felirat minden lépést egy mondatban elmond.</p>
+    <figure class="mozgo" data-jelenet="uc1-promptlanc">
+      <figcaption>A négy prompt lánca ugyanabban a beszélgetésben: egy cégnévvel kezdesz, és első üzleti képet kapsz; a második prompttal mélyíted a kutatást, és az árbevételt több forrásban ellenőrizteted; a harmadikkal, a csatolt HTML-minta alapján, elkészül az Oriana arculatú HTML ügyfélprofil; a negyedikkel a megnyitott oldalra adsz rövid visszajelzést, és interaktív finomítást kérsz. Minden lépés után megnézed az eredményt, és a következő kérést a látottak alapján pontosítod.</figcaption>
+    </figure>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 4 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">Kutatás <span class="when">0–30. perc</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Kutatás" data-rovid="Cégkeresés és első üzleti kép" data-ido="0–15. perc">
+        <header class="lepes-fej">
+          <div><h3>Cégkeresés és első üzleti kép</h3><span class="lepes-cimke"><span class="ido">0–15. perc</span> · Sales + BA · kezdj egy cégnévvel</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>AI-környezet: egy beszélgetés</b><small>internetes kutatásra és HTML-készítésre alkalmas környezet; mind a négy promptot ugyanebbe a beszélgetésbe küldöd, egymás után</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Kezdj</b> egy cégnévvel: küldd el az 1. promptot.</li>
+                <li><b>Nézd meg</b> az eredményt, mielőtt továbblépsz.</li>
+                <li><b>Nyiss meg</b> egy találatot, és ellenőrizd, hogy a magyar cégről szól-e.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Cégazonosítás, tömör üzleti helyzetkép és első források.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">1. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Keress rá a Rondo Hullámkartongyártó Kft.-re, és készíts rövid felkészítőt az Oriana sales és BA csapatának. Mivel foglalkozik, mekkora cég, hogyan alakult az árbevétele, adózott eredménye és létszáma az elmúlt három elérhető évben? Használd a cég honlapját, a CompanyWall.hu-t és a Cégadatok.hu-t. A magyar céget különítsd el a cégcsoporttól; hivatkozz a forrásokra, a feltételezéseket jelöld.</pre>
+              <p class="megj">A válasz futásonként más lehet. Azt nézd: megvan-e a cégazonosítás, a helyzetkép és a források.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Cégazonosítás: jogi személy és cégcsoport</h5>
+              <p>A kutatás első kérdése, hogy az adatok melyik cégről szólnak. A magyar jogi személy adatai nem keveredhetnek a cégcsoport adataival.</p>
+              <p>Itt: a prompt kéri, hogy az AI a magyar céget (Rondo Hullámkartongyártó Kft.) különítse el a cégcsoporttól, hivatkozzon a forrásokra, és jelölje a feltételezéseket.</p>
+              <span class="tanulsag">előbb azt ellenőrizd, hogy a megfelelő cégről van-e szó, csak utána a számokat.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megnyitottál egy találatot, és az <mark>a magyar cégről szól</mark>; a magyar jogi személy és a cégcsoport adatai elkülönülnek.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Ellenőrizd</span>A konkrét cég megkeresése az első feladat. Nyiss meg egy találatot, és ellenőrizd, hogy a magyar cégről szól-e.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-2" data-csoport="1" data-csoport-nev="Kutatás" data-rovid="Mélyítés és ellenőrzés" data-ido="15–30. perc">
+        <header class="lepes-fej">
+          <div><h3>Mélyítés, ellenőrzés és Oriana-kapcsolódás</h3><span class="lepes-cimke"><span class="ido">15–30. perc</span> · Sales + BA · kérdezz tovább az első eredményből</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés</b><small>a 2. prompt az első eredményre épít</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Kérdezz tovább</b> az első eredményből: küldd el a 2. promptot.</li>
+                <li><b>Válassz ki</b> egy adatot, és ellenőrizd két forrásban az évet és a mutatót is.</li>
+                <li><b>Nézd meg</b>, jelzi-e az eredmény az eltéréseket és az ellenőrzés korlátait.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Forrással és évvel jelölt diagramadatok, gyártási háttér, rendszerkörnyezet és öt kérdés az első egyeztetésre.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">2. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Mélyítsd a kutatást: gyártás, kapacitás, beruházások, vezetői interjúk, meglévő informatikai rendszerek és nyilvános visszajelzések. Gyűjts évhez köthető adatokat és valódi megoszlásokat a diagramokhoz. Az árbevételt ellenőrizd több oldalon, lehetőleg az eredeti beszámolóval: azonos évet, mutatót és mértékegységet vess össze; a nettó árbevételt különítsd el a teljes bevételtől. Jelezd az eltéréseket és az ellenőrzés korlátait; hiányzó adatot ne becsülj. Az Oriana honlapja alapján javasolj kapcsolódásokat és öt találkozókérdést.</pre>
+              <p class="megj">A válasz futásonként más lehet. Azt nézd: minden diagramadat mellett ott van-e a forrás és az év.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Nettó árbevétel és teljes bevétel</h5>
+              <p>Két külön mutató. Két szám csak akkor vethető össze, ha azonos évre, azonos mutatóra és azonos mértékegységre vonatkozik.</p>
+              <p>Itt: a prompt kéri, hogy az AI az árbevételt több oldalon ellenőrizze, lehetőleg az eredeti beszámolóval, és a nettó árbevételt különítse el a teljes bevételtől.</p>
+              <span class="tanulsag">két oldal egyezése még nem eredeti beszámoló-ellenőrzés.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>egy kiválasztott adatnál két forrásban megnézted <mark>az évet és a mutatót is</mark>; az évek, mutatók és mértékegységek összevethetők, a források megnyithatók.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Két oldal egyezése még <mark>nem eredeti beszámoló-ellenőrzés</mark>. A kapacitás és a termelési volumen külön adat. Az Oriana-kapcsolódás feltárandó lehetőség.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Két oldalon ugyanaz az árbevétel szerepel. Ellenőrzött adatnak számít?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: két oldal egyezése még nem eredeti beszámoló-ellenőrzés.">Igen, két oldal egyezése elég</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: az évet és a mutatót is össze kell vetni, és két oldal egyezése még nem eredeti beszámoló-ellenőrzés.">Még nem: az év és a mutató is számít, és ez nem az eredeti beszámoló</button></li>
+              <li><button type="button" data-visszajelzes="Nem: hiányzó adatot nem becsülünk, a meglévőt pedig forrásban ellenőrizzük.">Mindegy, a hiányt úgyis becsléssel pótoljuk</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: kutatás</h3>
+        <dl>
+          <div><dt>Cégazonosítás</dt><dd>Annak tisztázása, hogy az adatok melyik cégről szólnak: a magyar jogi személyről vagy a cégcsoportról.</dd></div>
+          <div><dt>Összevethető adat</dt><dd>Azonos év, azonos mutató, azonos mértékegység. Enélkül két szám nem hasonlítható össze.</dd></div>
+          <div><dt>Nettó árbevétel és teljes bevétel</dt><dd>Két külön mutató; az ellenőrzésnél el kell különíteni őket.</dd></div>
+          <div><dt>Eredeti beszámoló</dt><dd>Az árbevételt több oldalon, lehetőleg az eredeti beszámolóval kell ellenőrizni.</dd></div>
+          <div><dt>Feltételezés</dt><dd>A prompt kéri a jelölését; a kész profilban láthatóan el kell különülnie a tényektől.</dd></div>
+          <div><dt>BA</dt><dd>Üzleti elemző. A BA fókusza itt: mely folyamatot érdemes feltárni, mire van bizonyíték, és mit kell még megkérdezni.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>A magyar céget különítsd el a cégcsoporttól.</li>
+          <li>Két oldal egyezése még nem eredeti beszámoló-ellenőrzés.</li>
+          <li>Hiányzó adatot ne becsülj; az eltéréseket és az ellenőrzés korlátait jelezni kell.</li>
+          <li>A kapacitás és a termelési volumen külön adat.</li>
+        </ul>
+      </div>
+
+      <div class="lepes-csoport-cim" data-csoport="2">Ügyfélprofil <span class="when">30–60. perc</span></div>
+
+      <section class="lepes" id="lepes-3" data-csoport="2" data-csoport-nev="Ügyfélprofil" data-rovid="HTML ügyfélprofil" data-ido="30–45. perc">
+        <header class="lepes-fej">
+          <div><h3>Oriana arculatú HTML ügyfélprofil</h3><span class="lepes-cimke"><span class="ido">30–45. perc</span> · Sales + BA · a megjelenítéshez mutass referenciát</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a beszélgetés: előbb csatold a HTML-mintát</b><small>ha a környezet támogatja a csatolást; ha nem, használd a webes referenciákat</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Csatold</b> a vizuális HTML-mintát a beszélgetéshez, ha a környezet támogatja. A tananyagban: <a href="../01%20usecase%20Ugyfelprofil/Oriana_Rondo_Ugyfelprofil_2.html"><code>Oriana_Rondo_Ugyfelprofil_2.html</code></a> (a <code>01 usecase Ugyfelprofil</code> mappában).</li>
+                <li><b>Küldd el</b> a 3. promptot.</li>
+                <li><b>Nyisd meg</b> a kapott fájlt, és nézd meg: az oldal elején gyorsan láthatók-e a fontos számok és következtetések?</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Már az első változatban vizuális áttekintés: mutatókártyák, diagramok, üzleti jelzések és rövid elemzések Oriana arculattal.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">3. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Az eddigi kutatásból készíts magyar, Oriana arculatú HTML ügyfélprofilt. Kövesd a Similarweb dashboardjainak és a csatolt HTML-mintának a vizuális felépítését, ha elérhető. Elöl legyen négy mutatókártya változásjelzéssel, trenddiagramok, valódi megoszlás és három üzleti jelzés; utána rövid elemzések, lenyitható adattáblák és források. A gyártást kiemelt számokkal, a beruházásokat idővonallal mutasd. A logót és színeket az Oriana honlapjáról vedd. Mentsd önálló, mobilbarát Oriana_Rondo_Ugyfelprofil.html fájlba, és add meg a linkjét.</pre>
+              <p class="megj">A válasz egy HTML-fájl és a linkje. Hogy pontosan mi kerül rá, az a kutatásodtól függ.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Vizuális referencia</h5>
+              <p>Minta, amely megmutatja az AI-nak, milyen legyen az elrendezés. A minta elrendezési referencia; az adatait külön ellenőrizni kell.</p>
+              <p>Itt: a csatolt HTML-minta és a Similarweb dashboardjai adják a vizuális felépítést; a logót és a színeket az AI az Oriana honlapjáról veszi.</p>
+              <span class="tanulsag">a megjelenítést mutasd meg egy mintán; a mintából a formát veszed át, az adatot nem.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megvan az önálló <code>Oriana_Rondo_Ugyfelprofil.html</code> fájl; a számok, trendek és üzleti jelzések <mark>megelőzik a részletes szöveget</mark>; a hosszú táblák lenyithatók.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A referenciát a modell ténylegesen olvassa el. A megoszlás csak <mark>valódi bontásból</mark> készülhet; ha nincs adat, maradjon el. A Similarweb webforgalma nem árbevétel.</div>
+          <div class="callout tipp"><span class="callout-cim">A mintafájl neve</span>A tananyagban a minta <code>Oriana_Rondo_Ugyfelprofil_2.html</code> néven található; az útmutató eredeti szövege <code>Oriana_Rondo_Uzleti_Attekintes.html</code> néven említi. Ha nem tudod, melyiket csatold, kérdezd meg a trénert.</div>
+          <button type="button" class="fordito"><span class="f-elol">Nincs valódi bontás az adatokban. Mi legyen a megoszlás-diagrammal?</span><span class="f-hatul">Maradjon el: a megoszlás csak valódi bontásból készülhet.</span><small>Kattints a megfordításhoz</small></button>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-4" data-csoport="2" data-csoport-nev="Ügyfélprofil" data-rovid="Interaktív finomítás" data-ido="45–60. perc">
+        <header class="lepes-fej">
+          <div><h3>Vizuális és interaktív finomítás</h3><span class="lepes-cimke"><span class="ido">45–60. perc</span> · Sales + BA · a megnyitott oldalra adj rövid visszajelzést · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>A megnyitott HTML-oldal, majd ugyanaz a beszélgetés</b><small>az oldalt megnézed és kipróbálod; a visszajelzést a beszélgetésbe írod</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Küldd el</b> a 4. promptot: rövid visszajelzés a megnyitott oldalra.</li>
+                <li><b>Próbáld ki</b> a frissített fájlt: válts évet és mutatót, jelölj ki egy adatpontot, majd próbálj ki egy forráslinket és a CSV-letöltést.</li>
+                <li><b>Nézd meg</b>, kimondta-e a modell, mit nem tudott kipróbálni.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Évválasztásra frissülő áttekintés, váltható diagramok, pontos adatpontok, letölthető adatok és nyomtatási nézet.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">4. prompt · másolható</span>
+              <span class="szerep">Ezt küldöd el, szó szerint</span>
+              <pre class="prompt-box">Finomítsd a HTML-t a vizuális referenciákhoz mérve. Legyen évválasztó, frissülő mutatókártyák apró trendvonalakkal, mutató- és oszlop/vonal-váltás, valamint kiválasztható adatpont pontos értékkel és forrással. A beruházásoknál különítsd el a tényeket és terveket. Adj CSV-letöltést és nyomtatási nézetet. Hiányzó adatot ne rajzolj nullának. Ellenőrizd asztali és mobilnézetben a megjelenést, diagramadatokat, gombokat és forráslinkeket; jelezd, mit nem tudtál kipróbálni. Add vissza a frissített fájlt.</pre>
+              <p class="megj">A válasz a frissített fájl, és egy jelzés arról, mit nem tudott a modell kipróbálni.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Finomítás a látott eredmény alapján</h5>
+              <p>Nem előre írsz meg mindent: megnyitod az elkészült oldalt, és arra adsz rövid visszajelzést.</p>
+              <p>Itt: évválasztót, frissülő mutatókártyákat, mutató- és oszlop/vonal-váltást, kiválasztható adatpontot, CSV-letöltést és nyomtatási nézetet kérsz; a beruházásoknál a tények és a tervek külön látszanak.</p>
+              <span class="tanulsag">a következő kérést a látott eredmény alapján pontosítod.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>az év- és mutatóváltás a megfelelő adatokat mutatja; <mark>a hiányzó érték nem nulla</mark>; mobilon is olvasható; a forráslinkek és a letöltés kipróbálhatók; látszik, mi ellenőrzött, és mi maradt nyitott.</span></p>
+          <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A vizuális és a működési ellenőrzés <mark>külön eredmény</mark>: ha valamelyik nem volt elvégezhető, ezt a modell mondja ki.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Egy évre nincs adat. Mi látszik a diagramon?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a hiányzó adatot nem rajzoljuk nullának.">Nulla</button></li>
+              <li><button type="button" data-visszajelzes="Nem: hiányzó adatot nem becsülünk.">A szomszédos évekből becsült érték</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a hiányzó érték nem nulla, és nem is becsült érték; hiányként marad.">Hiány: sem nulla, sem becsült érték</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: ügyfélprofil</h3>
+        <dl>
+          <div><dt>Vizuális referencia</dt><dd>Minta az elrendezéshez: a csatolt HTML-minta és a Similarweb dashboardjai. Az adatait külön ellenőrizni kell.</dd></div>
+          <div><dt>Megoszlás</dt><dd>Csak valódi bontásból készülhet. Ha nincs adat, a diagram elmarad.</dd></div>
+          <div><dt>Tény és terv</dt><dd>A beruházásoknál külön kell látszaniuk.</dd></div>
+          <div><dt>Vizuális és működési ellenőrzés</dt><dd>Két külön eredmény: a megjelenés, illetve a diagramadatok, gombok és forráslinkek kipróbálása. Amit a modell nem tudott kipróbálni, azt kimondja.</dd></div>
+          <div><dt>CSV</dt><dd>Vesszővel vagy pontosvesszővel tagolt szöveges táblázatfájl; Excelben megnyitható.</dd></div>
+          <div><dt>Kutatási pillanatkép</dt><dd>Így nevezi az útmutató a kész HTML-t: egy adott kutatás eredményét rögzíti.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>A minta elrendezési referencia; az adatait külön ellenőrizni kell.</li>
+          <li>A Similarweb webforgalma nem árbevétel.</li>
+          <li>Hiányzó adatot ne rajzolj nullának.</li>
+          <li>A vizuális és a működési ellenőrzés külön eredmény.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény: közös ellenőrzés</h2>
+    <p class="lead">Pipáld ki a hat pontot a kész ügyfélprofilon.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div><b>A megfelelő cég:</b> a magyar jogi személy és a cégcsoport adatai elkülönülnek.</div></li>
+      <li data-id="v2"><div><b>Hiteles adatok:</b> az évek, mutatók és mértékegységek összevethetők, a források megnyithatók.</div></li>
+      <li data-id="v3"><div><b>Üzleti használhatóság:</b> a tények és a feltételezések láthatóan elkülönülnek; van releváns kérdés az ügyfélhez.</div></li>
+      <li data-id="v4"><div><b>Vizuális áttekintés:</b> a számok, trendek és üzleti jelzések megelőzik a részletes szöveget; a hosszú táblák lenyithatók.</div></li>
+      <li data-id="v5"><div><b>Működő felület:</b> az év- és mutatóváltás a megfelelő adatokat mutatja; a hiányzó érték nem nulla. Mobilon is olvasható, a forráslinkek és a letöltés kipróbálhatók.</div></li>
+      <li data-id="v6"><div><b>Őszinte ellenőrzés:</b> látszik, mely adatok és felületi funkciók ellenőrzöttek, és mi maradt nyitott.</div></li>
+    </ul>
+  </section>
+
+  <section id="fogalmak" aria-labelledby="fogalmak-cim">
+    <div class="fogalmak">
+      <span class="fg-cimke">Az egész gyakorlat</span>
+      <h3 id="fogalmak-cim">Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+        <div><dt>Sales fókusz</dt><dd>Mi történik a cégnél, hol lehet üzleti lehetőség, és mivel kezdjük a beszélgetést?</dd></div>
+        <div><dt>BA fókusz</dt><dd>Mely folyamatot érdemes feltárni, mire van bizonyíték, és mit kell még megkérdezni?</dd></div>
+        <div><dt>A négy prompt lánca</dt><dd>Cégkeresés, mélyítés és ellenőrzés, HTML ügyfélprofil, interaktív finomítás: mind ugyanabban a beszélgetésben.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo">
+        <li>Rövid kérések, konkrét vizuális elvárások, ellenőrizhető eredmény.</li>
+        <li>A négy promptot ugyanabban a beszélgetésben küldöd el, hogy mindegyik az előző eredményre épüljön.</li>
+        <li>Minden lépés után megnézed az eredményt; a következő kérést a látottak alapján pontosítod.</li>
+        <li>A kész HTML egy kutatási pillanatkép.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Tréning után</h2>
+    <div class="callout tipp"><span class="callout-cim">Merre tovább</span>A kész HTML egy kutatási pillanatkép. Az e-mailből induló automatikus kutatás és a CRM-integráció lehet a következő gyakorlat (CRM: ügyfélkapcsolat-kezelő rendszer).</div>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Erre épül</span><h3>Ügyfélprofil use case 2: ügyfélkutató ügynök az 1-es feladatból</h3><p>A kész Rondo HTML-ből és a kutatási anyagból skill és általános sablon készül, majd egy ügynök, amelynek elég egy cégnév.</p></div>
+      <a class="gomb" href="uc2-ugyfelprofil-agent-notebook.html">Tovább a 2. use case-re ▶</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · Prompt Workbook · A Rondo Hullámkartongyártó Kft. megkeresése a tréningben feltételezett helyzet. A minta-ügyfélprofil kutatási pillanatkép; az adatait külön ellenőrizni kell.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="../index.html" rel="prev">◀ Napi térkép</a>
+      <a href="../index.html#ugyfelprofil">Ügyfélprofil use case-ek</a>
+      <a href="uc2-ugyfelprofil-agent-notebook.html" rel="next">2. use case ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/uc.js"></script>
+</body>
+</html>

@@ -39,7 +39,8 @@
 .m-szereplo { transition: opacity .3s; }
 .m-szereplo.aktiv .m-doboz, .m-szereplo.forras .m-doboz { fill: var(--c-soft); }
 .m-szereplo.aktiv .m-arnyek { opacity: 1; fill: var(--c); stroke: var(--ink, #14183A); stroke-width: 3; }
-.m-szereplo.aktiv .m-ikon { animation: m-dolgozik 1.1s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+/* az ikon RAJZA billeg (a külső .m-ikon csoport transform attribútumát a CSS-animáció felülírná) */
+.m-szereplo.aktiv .m-ikon-rajz { animation: m-dolgozik 1.1s ease-in-out infinite; transform-origin: 12px 12px; }
 .m-ikon-hatter { fill: var(--c); stroke: var(--ink, #14183A); stroke-width: 1.4; }
 .m-ikon-rajz { fill: none; stroke: var(--ink-fix, #14183A); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .m-nev { font-size: 23px; font-weight: 800; fill: var(--text, #14183A); }

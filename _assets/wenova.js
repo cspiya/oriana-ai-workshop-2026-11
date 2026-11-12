@@ -269,7 +269,7 @@
     setFokusz(fokusz, false);
     setCur(0); frissit(); scrollSync();
     if (fokusz) { var elso = -1; lepesek.forEach(function (s, k2) { if (elso < 0 && !s.classList.contains('is-kesz')) elso = k2; }); setCur(elso < 0 ? n - 1 : elso); }
-    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); var k = lepesek.indexOf(t); if (k >= 0) setTimeout(function () { setCur(k); }, 50); }
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); var k = lepesek.indexOf(t); if (k >= 0) setTimeout(function () { setCur(k); lepesek[k].scrollIntoView({ block: "start" }); }, 50); }
   }
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }

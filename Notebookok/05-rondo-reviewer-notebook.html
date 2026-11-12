@@ -122,6 +122,25 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs. A két forma egymás mellett: a Skill szerkezete a Skill-mintán alapul, a brief a reviewer-brief sablon szerint készül.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Kezdjük az 5. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>„Az 1. lépésnél tartunk a 13 lépésből (A fázis); most: miért külön ellenőr, és milyen formában; utána: a reviewer-recept megírása; a fázis végén: függetlenségi próba friss beszélgetésben.”</p><p>Skill: újrahasználható recept, a vázat a <code>05-reviewer-SKILL-minta.md</code> adja. Reviewer-brief: szöveges recept a <code>05-reviewer-brief-sablon.md</code> szerint.</p><p>Melyik formában írod meg a receptet? A: Skill (ha a munkatérben elérhető; ajánlott, mert újrahasználható) · B: reviewer-brief (szöveges recept) · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">B</pre>
+          <p class="megj">Mindkét forma ugyanazt a módszert adja. Ha a Skill mentése két percen belül nem megy, a reviewer-brief a recept.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Skill és reviewer-brief</h5>
+          <p>Skill (<code>SKILL.md</code>): egy meghatározott feladathoz vagy munkafolyamathoz tartozó, újrahasználható utasítások és segédanyagok csomagja.</p>
+          <p>Reviewer-brief: a reviewernek szóló írásos feladatleírás: mit vizsgáljon, mely forrásokat kapja, milyen formában jelentsen.</p>
+          <span class="tanulsag">a recept nem a te fejedben van: bármelyik beszélgetés ugyanazt az ellenőrzést el tudja végezni.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a sablonok linkje megnyitható, és a választásod a következő lépés bemenete (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span><mark>A készítő nem ellenőrizheti önmagát</mark>: ugyanazt a vakfoltot viszi tovább. A recept azért érték, mert nem a te fejedben van, hanem bármikor, bárki és bármelyik beszélgetés ugyanazt az ellenőrzést el tudja végezni.</div><div class="fallback"><strong>Ha a Skill létrehozása vagy mentése két percen belül nem megy:</strong> a reviewer-brief a recept. A kiesett funkció az újrahasználható Skill, a módszer azonos.</div>
           <p class="why"><strong>Miért fontos:</strong> a recept teszi megismételhetővé a független ellenőrzést.</p>
@@ -138,6 +157,36 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>reviewer/SKILL.md</code> vagy <code>reviewer-brief.md</code>: szerep és határ, bemenet, menet, kimenet, súlyosság, PASS-szabály, R2, a függetlenség korlátja.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>a recept tárgya: KAPU II, az FDD-egység ellenőrzése a fejlesztésre adás előtt</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>a recept tárgya: az ajánlati számok és vállalások ellenőrzése</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">A kérésed eleje (félkész váz, a többit te írod)</span>
+          <pre class="prompt-box">Cél: független, újrahasználható ellenőrző recept a KAPU II ellenőrzéséhez (Sales-Account: az ajánlati számok és vállalások ellenőrzéséhez).
+Címzett: a GPT-6.1 Sol reviewer friss beszélgetésben.
+Forrás és határ: …
+Kimeneti séma: …
+Szabályok: …
+Ellenőrzés: …
+Mentés: …</pre>
+          <span class="szerep">Ezt kapod vissza (a forma)</span>
+          <div class="ai-valasz"><p>A reviewer-brief sablon eleje, amelyet az AI előtölt:</p><p><code># Reviewer-brief: &lt;artefaktumtípus&gt;</code><br><code>Szerep: független reviewer, nem javítasz.</code><br><code>Modell: GPT-6.1 Sol, közepes effort.</code><br><code>Bemenet: …</code></p><p>A tartalmat te írod a <code>kriteriumok.md</code> K-azonosítói alapján. Utána az értékelés: Cél ✅ · Címzett ✅ · Forrás és határ ⚠️ · … Egy javítási javaslat: …</p></div>
+          <p class="megj">Az <code>&lt;artefaktumtípus&gt;</code> helyére BA-sávon a KAPU II, Sales-Account sávon az ajánlati számok és vállalások ellenőrzése kerül. A megoldás vagy a hibák listája nem kerül a receptbe.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Reviewer és KAPU II</h5>
+          <p>Reviewer: a független ellenőr szerepe: nem javít, hanem a forrás és a kritériumok alapján ítél (PASS, FAIL, NEM ELLENŐRIZHETŐ) és hibákat jelez.</p>
+          <p>KAPU II (BA): az FDD-dokumentumcsomag ellenőrzése a fejlesztésre adás előtt: értékkészletek megléte, összhang és a teljes folyamat értelmezhetősége.</p>
+          <span class="tanulsag">a recept szűkre szabja, mit lát és mit tehet az ellenőr: ettől független.</span>
+          </div>
+          </div>
+          <details class="minta"><summary>Mutasd a mintát (a teljes mintaprompt)</summary><div class="minta-test"><pre class="prompt-box">Cél: egy független, újrahasználható ellenőrző recept
+Címzett: a GPT-6.1 Sol reviewer friss beszélgetésben
+Forrás és határ: a kriteriumok.md és a csomagban felsorolt források; a recept a tartalmi hibákat nem tartalmazza
+Kimeneti séma: a recept fejezetei (szerep és határ, bemenet, menet, kimenet, súlyosság, PASS-szabály, R2, függetlenség korlátja)
+Szabályok: a reviewer nem javít, nem találgat; ami nem ellenőrizhető, azt jelöli
+Ellenőrzés: a hét elem mindegyike a receptben megtalálható
+Mentés: Munka/05-Reviewer/reviewer/SKILL.md vagy Munka/05-Reviewer/reviewer-brief.md</pre></div></details>
           <p class="kesz-ha"><b>Kész, ha</b><span>a recept minden kötelező eleme megvan, és kimondja: a reviewer nem javít, a bemenet a <code>review/</code> csomagra korlátozott.</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A PASS csak teljes lefedettséggel, minden K teljesülésével és nyitott blocker vagy major nélkül adható; <mark>ami nem ellenőrizhető, az nem teljesített</mark>.</div><div class="callout figyelj"><span class="callout-cim">Figyelj</span>A megoldás vagy a hibák listája nem kerül a receptbe: a recept szűkre szabja, mit lát és mit tehet az ellenőr, ettől lesz független.</div><details class="tipp-letra"><summary>Ha nem megy: tipp-létra</summary>
             <ol class="ladder"><li><b>Rávezető kérdés</b>Ha valaki, aki sosem látta a munkát, ellenőrzi: mit kell tudnia, mit nem szabad látnia, és mit adjon vissza, hogy te el tudd dönteni, igaz-e?</li><li><b>Üres váz</b>Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés</li><li><b>Félkész prompt</b>„Írj reviewer-receptet a(z) … ellenőrzéséhez. Szerep: független reviewer, nem javít. Bemenet: a <code>review/</code> mappa; a maker beszélgetését, naplóját és önértékelését nem kapja. Kimenet: minden kritérium PASS / FAIL / NEM ELLENŐRIZHETŐ; a parancs és a tényleges eredmény; öt állítás forráshelye; rubrika 1–5; findings: ID, súlyosság, hely, bizonyíték, javasolt javítás. R2-ben a javított tételek újraellenőrzése. Mentés: <code>R&lt;n&gt;.md</code>, a vizsgált fájlok pontos verziójával.”</li><li><b>Teljes minta</b>„Mutasd a mintát”, vagy „Írd meg helyettem és futtasd”.</li></ol>
@@ -157,6 +206,22 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>review/</code> mappa és a <code>csomag-jegyzek.md</code>, valamint a <code>csomag-ellenorzes.txt</code>. Bemegy a v1 kötelező kimenetei, a <code>kriteriumok.md</code>, a forráslista nyers forrásai és a rögzített DNS-modul; nem megy be a brief, a terv, a napló, a maker saját mérései és semmilyen megoldókulcs.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>csomag-jegyzek.md</code> (részlet):</p><table><thead><tr><th>Fájl vagy anyag</th><th>Honnan</th><th>Bemegy?</th></tr></thead><tbody><tr><td>a <code>v1/</code> kötelező kimenetei</td><td><code>Munka/04-Agent/v1/</code></td><td>igen</td></tr><tr><td><code>kriteriumok.md</code></td><td><code>Munka/04-Agent/</code></td><td>igen</td></tr><tr><td>a forráslista nyers forrásai, például BA: <code>2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md</code></td><td><code>Tananyag/04 usecase RONDO/forrasok/</code></td><td>igen</td></tr><tr><td>a rögzített DNS-modul (<code>szabalyok/ba.md</code> vagy <code>szabalyok/sales.md</code>)</td><td>a DNS-verziód</td><td>igen</td></tr><tr><td><code>agent-brief.md</code>, <code>terv.md</code>, <code>naplo.md</code>, a maker <code>ellenorzes/</code> eredményei</td><td><code>Munka/04-Agent/</code></td><td>nem</td></tr></tbody></table><p><code>csomag-ellenorzes.txt</code>: 1. minden kötelező elem megvan ✅ · 2. kizárt fájl nincs benne ✅ · 3. forráslistán kívüli fájl nincs ✅. SHA256: ha a környezet számolja, különben „Nincs megadva”.</p><p>A csomag tartalma: A: jóváhagyom (ajánlott) · B: egy fájlt kivennék vagy hozzáadnék: írd le, melyiket és miért · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Review-csomag</h5>
+          <p>A reviewernek átadott mappa: a vizsgálandó kimenetek, a <code>kriteriumok.md</code>, a felsorolt nyers források és a rögzített DNS-verzió. A maker beszélgetése és önértékelése nem tartozik bele.</p>
+          <p>Itt: a <code>Munka/05-Reviewer/review/</code> mappa; másolat kerül bele, az eredeti fájlok nem mozdulnak.</p>
+          <span class="tanulsag">amit a reviewer nem lát, azt nem tudja átvenni.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve van, és a kizárt fájlok nincsenek a csomagban (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az eredeti <code>Munka/04-Agent</code> fájlokat nem mozgatjuk és nem módosítjuk: <mark>másolat kerül a csomagba</mark>. Ha a készítő magyarázata bent van, az ellenőr a magyarázatot ellenőrzi, nem a munkát.</div><div class="fallback"><strong>Ha nem fut kód:</strong> a csomag-ellenőrzés kézi jegyzékkel történik, soronként „bent / nincs bent” jelöléssel. A kiesett funkció a kódos ellenőrzés.</div>
           <div class="villamkerdes">
@@ -184,11 +249,39 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>csomag-jegyzek.md</code> „Függetlenség korlátja” sora.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod az új beszélgetésbe (GPT-6.1 Sol), még az indító előtt</span>
+          <pre class="prompt-box">Milyen fájlokat látsz, és milyen korábbi beszélgetésből vagy projektmemóriából tudsz bármit?
+Idézd a review/ mappa tartalmát.</pre>
+          <span class="szerep">Ezt várod vissza</span>
+          <div class="ai-valasz"><p>Elfogadható válasz: a felsorolt fájlok egyeznek a csomagjegyzékkel, és a reviewer korábbi munkáról nem tud.</p></div>
+          <span class="szerep">Vissza a tutor-beszélgetésbe (például: tiszta, a lista egyezik)</span>
+          <pre class="prompt-box">A</pre>
+          <span class="szerep">Ez kerül a jegyzékbe</span>
+          <div class="ai-valasz"><p>A <code>csomag-jegyzek.md</code> „Függetlenség korlátja” sora, például: ugyanaz a fiók, projektmemória; a reviewer a <code>review/</code> mappa fájljait látta.</p></div>
+          <p class="megj">A korlátot akkor is felírjuk, ha a próba sikeres. Ha a reviewer többet lát, páros emberi review egészíti ki.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a reviewer által felsorolt fájlok egyeznek a csomagjegyzékkel, és a függetlenség korlátja egy sorban rögzítve van (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A „friss beszélgetés” nem bűvszó</mark>: ugyanaz a fiók és a projektmemória korlát lehet. A korlátot akkor is felírjuk, ha a próba sikeres.</div><div class="fallback"><strong>Ha nem érhető el külön friss beszélgetés vagy review-projekt:</strong> a pár emberi review egészíti ki a gépit, és a korlát a jelentés fejlécébe kerül. A kiesett funkció az izolált gépi ellenőr.</div>
           <p class="why"><strong>Miért fontos:</strong> kimondjuk, mit látott az ellenőr, mert csak így tudod, mekkora súlyt adhatsz a jelentésének.</p>
         </div>
       </section>
+
+      <div class="fogalmak">
+      <span class="fg-cimke">Az A fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>Reviewer</dt><dd>A független ellenőr szerepe: nem javít, a forrás és a kritériumok alapján ítél, és hibákat jelez.</dd></div>
+      <div><dt>Skill</dt><dd>Újrahasználható utasítások és segédanyagok csomagja egy meghatározott feladathoz.</dd></div>
+      <div><dt>Reviewer-brief</dt><dd>A reviewernek szóló írásos feladatleírás: mit vizsgáljon, mely forrásokat kapja, milyen formában jelentsen.</dd></div>
+      <div><dt>Review-csomag</dt><dd>A reviewer egyetlen bemenete: a kimenetek, a <code>kriteriumok.md</code>, a nyers források és a rögzített DNS-verzió.</dd></div>
+      <div><dt>KAPU II</dt><dd>Az FDD-dokumentumcsomag ellenőrzése a fejlesztésre adás előtt: értékkészletek, összhang, a teljes folyamat értelmezhetősége.</dd></div>
+      <div><dt>A függetlenség korlátja</dt><dd>Egy sor arról, mit látott a reviewer: például ugyanaz a fiók, projektmemória.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A készítő nem ellenőrizheti önmagát: ugyanazt a vakfoltot viszi tovább.</li><li>A reviewer nem javít, és a bemenete a <code>review/</code> csomagra korlátozott.</li><li>Ha a készítő magyarázata bent van, az ellenőr a magyarázatot ellenőrzi, nem a munkát.</li><li>A „friss beszélgetés” nem bűvszó: a korlátot akkor is felírjuk, ha a próba sikeres.</li></ul>
+      </div>
 
       <div class="lepes-csoport-cim" data-csoport="2">B fázis · R1: az első független ellenőrzés <span class="when">13:45–14:15</span></div>
       <section class="lepes" id="lepes-5" data-csoport="2" data-csoport-nev="R1" data-rovid="Az R1 indítása" data-ido="kb. 2 perc">
@@ -202,6 +295,25 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A <code>kulso-korok-naplo.md</code> R1 kezdősora.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Folytassuk az 5. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>„5. gyakorlat, B fázis: R1.” A csomag-ellenőrzés újrafutott ✅, a recept és a kritériumok megvannak ✅. Kezdősor a <code>kulso-korok-naplo.md</code> fájlban: külső kör, R1.</p></div>
+          <span class="szerep">Te ezt írod az új beszélgetésbe a review-projektben (GPT-6.1 Sol)</span>
+          <pre class="prompt-box">RONDO 05 reviewer R1</pre>
+          <p class="megj">A külső körök naplója ugyanazt a sorszerkezetet használja, mint a <code>naplo.md</code>.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>R1 és R2</h5>
+          <p>R1: az első független ellenőrzési kör és annak jelentése. A maker első változatát vizsgálja a kritériumok és források alapján.</p>
+          <p>R2: a javítás utáni második független ellenőrzési kör és jelentés: a javított változatot és az R1 megállapításait is vizsgálja.</p>
+          <span class="tanulsag">az indító rövid, mert a munka a receptben és a csomagban van.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a csomag-ellenőrzés újrafutott és sikeres, a recept és a kritériumok megvannak (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>Az indító mondat rövid, mert a munka a receptben és a csomagban van; <mark>a reviewer annyit tud, amennyit ott talál</mark>.</div>
           <p class="why"><strong>Miért fontos:</strong> a függetlenség a rövid indítón és a szűk csomagon múlik.</p>
@@ -218,6 +330,22 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az <code>R1.md</code> a vizsgált fájlok pontos verziójával.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <div class="ai-valasz"><p>Semmit: a reviewer munkájába nem avatkozol be. Közben kijelölöd, melyik két forráshelyet keresed meg magad.</p></div>
+          <span class="szerep">Ezt kapod a futás végén (részlet)</span>
+          <div class="ai-valasz"><p>Az <code>R1.md</code> 2. szakasza (Kritériumok), a forma; a te eredményed más:</p><table><thead><tr><th>K</th><th>Eredmény</th><th>Bizonyíték (fájl és hely)</th></tr></thead><tbody><tr><td>K1</td><td>PASS</td><td>…</td></tr><tr><td>K2</td><td>FAIL</td><td>…</td></tr><tr><td>K3</td><td>NEM ELLENŐRIZHETŐ</td><td>az ellenőrzés nem futott</td></tr><tr><td>K4–K7</td><td>…</td><td>…</td></tr></tbody></table><p>A 3. szakasz (Determinisztikus ellenőrzés) sorai: ellenőrzés · parancs · tényleges eredmény. A fejlécben: a vizsgált fájlok pontos verziója és a függetlenség korlátja.</p></div>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>PASS, FAIL, NEM ELLENŐRIZHETŐ</h5>
+          <p>A reviewer ítélete egy kritériumra: PASS = teljesül, FAIL = nem teljesül; a harmadik érték a NEM ELLENŐRIZHETŐ, amely nem számít teljesítettnek.</p>
+          <p>Itt: ha egy ellenőrzés nem futott, a reviewer jelöli, és a kritérium „NEM ELLENŐRIZHETŐ”.</p>
+          <span class="tanulsag">a „nem ellenőrizhető” nem „valószínűleg jó”.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az <code>R1.md</code> létrejött, és tartalmazza a vizsgált fájlok pontos verzióját (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A gépi eredmény támogatás, <mark>nem bizonyítja a tartalmi helyességet</mark>; a rubrika nem váltja ki a forrást. Az <code>R1.md</code> elkészültéig a megállapításokra nem reagálsz.</div><div class="fallback"><strong>Ha a reviewer futás két percen belül nem indul:</strong> a pár emberi review készít R1-et kézzel a recept és a csomag alapján. A kiesett funkció a gépi független ellenőr.</div>
           <p class="why"><strong>Miért fontos:</strong> a reviewer jelentése is csak akkor érték, ha tudod, mit mér a gép, a forrás-visszakeresés és a rubrika.</p>
@@ -234,6 +362,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r1_visszakeres.md</code>: állítás, reviewer-idézet, forrás, egyezés.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>r1_visszakeres.md</code>, egy sor formája (például):</p><table><tbody><tr><th>Állítás</th><td>BA: R-06: a jóváhagyási lépések naplózása: ki, mikor, milyen döntést hozott, megjegyzéssel</td></tr><tr><th>Reviewer-idézet</th><td>„…”</td></tr><tr><th>Forrás</th><td><code>2026-11-05_RONDO_workshop_jegyzet_jovahagyas.md</code>, 26. sor, linkkel</td></tr><tr><th>Egyezés</th><td>✅ vagy ⚠️</td></tr></tbody></table><table><tbody><tr><th>Állítás</th><td>Sales-Account: M-07 Support-elérhetőség: telefon és e-mail, hétfő-péntek 8:00-17:00</td></tr><tr><th>Reviewer-idézet</th><td>„…”</td></tr><tr><th>Forrás</th><td><code>Muszaki_melleklet_2025_es_kert_valtozasok.md</code>, 25. sor, linkkel</td></tr><tr><th>Egyezés</th><td>✅ vagy ⚠️</td></tr></tbody></table><p>Az öt állítás: A: mind egyezik a forrással · B: eltérést látok: írd le, melyiknél · C: egynél nem található a hely · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">Az öt állítást a te <code>kriteriumok.md</code> fájlod 5. szakasza rögzíti; a példasor csak a formát mutatja, nem biztos, hogy a tieid között van. Kettőt te nyitsz meg a link alapján.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az öt hely mindegyike linkkel megnyitható (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az AI nem ítél helyetted, és ami nem található, azt kimondja. A reviewer jelentése is csak egy állítás, <mark>amelyet a forrás igazol vagy cáfol</mark>.</div>
           <p class="why"><strong>Miért fontos:</strong> a forrás-visszakeresés miatt nem a reviewer szavában bízunk, hanem a bizonyítékban.</p>
@@ -250,6 +386,23 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r1_dontes.md</code>: rövid döntési jegyzet az <code>R1.md</code> mellé.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p>Egy finding sora az <code>R1.md</code> 6. szakaszában, a sablon mezőivel:</p><table><tbody><tr><th>ID</th><td>F-01</td></tr><tr><th>Súlyosság</th><td>blocker / major / minor</td></tr><tr><th>Hely</th><td>a vizsgált fájl és hely</td></tr><tr><th>Bizonyíték</th><td>…</td></tr><tr><th>Javasolt javítás</th><td>…</td></tr></tbody></table><p>A rendezett listában mindegyik mellett a K-kapcsolat áll (K…). Teljesült: K… · nem teljesült: K… · nem ellenőrizhető: K…</p><p>A megállapításokat: A: elfogadom, javításra viszem a blockert és a majort (ajánlott) · B: egyet vitatok: írd le, melyiket · C: több információ kell · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">A bizonyíték és a javasolt javítás a te anyagodból jön, ezért itt „…” áll. A döntésed az <code>r1_dontes.md</code> fájlba kerül.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Finding (megállapítás)</h5>
+          <p>A reviewer tételes megállapítása öt mezővel: azonosító, súlyosság, hely, bizonyíték, javasolt javítás. A reviewer nem javít; csak megállapít, bizonyítékkal.</p>
+          <p>Itt: a findings száma egyezik az <code>R1.md</code>-vel, és minden finding K-hoz kötött.</p>
+          <span class="tanulsag">a jó ellenőrzés után sem dől el automatikusan, mit javítunk: a döntés a tiéd.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a findings száma egyezik az <code>R1.md</code>-vel, és minden finding K-hoz kötött (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Az AI nem mondja meg, melyik megállapítás a fontos, csak rendez és K-hoz kapcsol. A javítási kör kijelölését a 4. gyakorlat 16. lépése végzi.</div>
           <p class="why"><strong>Miért fontos:</strong> a jó ellenőrzés után sem dől el automatikusan, mit javítunk: ez döntés, és <mark>a döntés a tiéd</mark>.</p>
@@ -266,6 +419,23 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Külön fájl nincs; az összevetés soraihoz az <code>R1.md</code> helye tartozik.</p></div>
           </div>
           <div class="lanes"><div class="lane ba"><h3>BA</h3><ul><li>gépi: szerkezeti ellenőrzés, értékkészlet-lefedettség</li><li>rubrikás: használhatóság, egyértelműség</li></ul></div><div class="lane sa"><h3>Sales-Account</h3><ul><li>gépi: az összegek és a kedvezmény</li><li>rubrikás: ügyfélbiztonság, döntéshozói használhatóság</li></ul></div></div>
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod (a forma)</span>
+          <div class="ai-valasz"><table><thead><tr><th>Mit mért a gép</th><th>Mit mért a rubrika</th></tr></thead><tbody><tr><td>BA: szerkezeti ellenőrzés, értékkészlet-lefedettség: PASS / FAIL (<code>R1.md</code>, 3. szakasz)</td><td>BA: használhatóság, egyértelműség: … / 5 (<code>R1.md</code>, 5. szakasz)</td></tr><tr><td>Sales-Account: az összegek és a kedvezmény: PASS / FAIL</td><td>Sales-Account: ügyfélbiztonság, döntéshozói használhatóság: … / 5</td></tr></tbody></table><p>Melyik réteg mit bizonyít? Szükséges-e másik vélemény a nem ellenőrizhető vagy vitatott tételekhez? A: nem, az R2 megoldja · B: igen, a párom ránéz egy tételre (páros emberi review) · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">A különbséget az AI nem magyarázza el helyetted: te mondod meg, melyik réteg mit bizonyít.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Rubrika</h5>
+          <p>Tartalmi értékelés szempontrendszere, 1-5-ös pontozással és teljesítési küszöbbel; például a pontosságot és a használhatóságot értékeli.</p>
+          <p>Itt: a <code>kriteriumok.md</code> K6 sora: átlag legalább 4/5, egyik sem 3 alatt; a reviewer szempontonként 1-2 mondat indokot ír.</p>
+          <span class="tanulsag">a rubrika nem váltja ki a forrást.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az összevetés soraihoz tartozik az <code>R1.md</code> hely (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span><mark>Három réteg ellenőrzi egymást</mark>: a kód a szerkezetet, a forrás a tényeket, a rubrika a használhatóságot méri. A gépi ellenőrzés nem bizonyítja a szemantikai helyességet.</div>
           <div class="villamkerdes">
@@ -282,6 +452,20 @@
         </div>
       </section>
 
+      <div class="fogalmak">
+      <span class="fg-cimke">A B fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>R1</dt><dd>Az első független ellenőrzési kör és jelentése.</dd></div>
+      <div><dt>PASS, FAIL, NEM ELLENŐRIZHETŐ</dt><dd>A reviewer ítélete egy kritériumra; a harmadik érték nem számít teljesítettnek.</dd></div>
+      <div><dt>Finding (megállapítás)</dt><dd>Tételes megállapítás: azonosító, súlyosság, hely, bizonyíték, javasolt javítás.</dd></div>
+      <div><dt>Rubrika</dt><dd>Tartalmi értékelés szempontrendszere, 1-5-ös pontozással és teljesítési küszöbbel.</dd></div>
+      <div><dt>Három réteg</dt><dd>A kód a szerkezetet, a forrás a tényeket, a rubrika a használhatóságot méri.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A reviewer annyit tud, amennyit a receptben és a csomagban talál.</li><li>A reviewer jelentése is csak egy állítás, amelyet a forrás igazol vagy cáfol.</li><li>A gépi eredmény támogatás, nem bizonyítja a tartalmi helyességet.</li><li>Hogy mit javítunk, az döntés, és a döntés a tiéd.</li></ul>
+      </div>
+
       <div class="lepes-szunet"><span class="ido">14:35–14:50</span><p>Előtte 14:15–14:35: a 4. gyakorlat D fázisa (javítás az R1 alapján). Szünet 14:35–14:50; az R2 14:50-kor indul.</p></div>
 
       <div class="lepes-csoport-cim" data-csoport="3">C fázis · R2 és stop-döntés <span class="when">14:50–15:10</span></div>
@@ -295,6 +479,15 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A frissített <code>review/</code> és <code>csomag-jegyzek.md</code>: a <code>v2/</code> kötelező kimenetei és az <code>R1.md</code> bent, a korábbi állapot a jegyzékben megőrizve.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod a ChatGPT-be</span>
+          <pre class="prompt-box">Folytassuk az 5. gyakorlatot.</pre>
+          <span class="szerep">Ezt kapod vissza (részlet)</span>
+          <div class="ai-valasz"><p>„5. gyakorlat, C fázis: R2.” A frissített <code>csomag-jegyzek.md</code> új verziósora:</p><table><thead><tr><th>Fájl vagy anyag</th><th>Bemegy?</th></tr></thead><tbody><tr><td>a <code>v2/</code> kötelező kimenetei</td><td>igen</td></tr><tr><td><code>R1.md</code></td><td>igen</td></tr><tr><td><code>agent-brief.md</code>, <code>terv.md</code>, <code>naplo.md</code></td><td>nem (R2-ben is kizárt)</td></tr></tbody></table><p>A script újrafutott, a parancs és a tényleges eredmény idézve. <code>v1_v2_osszevetes.txt</code>: ✅ megvan, vagy ⚠️ most fut az újramérés.</p><p>Az R2 csomagja: A: jóváhagyom (ajánlott) · B: korrekció: írd le · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a script kimenete idézve van, a <code>v2/</code> fájljai és az <code>R1.md</code> bent vannak, a kizártak nincsenek, és a v1–v2 összevetés megvan, vagy az újramérés parancsa és tényleges eredménye idézett (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span><mark>A kizárt fájlok R2-ben is kizártak</mark>. Ha a javítás a szünetbe nyúlt, és a <code>v1_v2_osszevetes.txt</code> még nincs meg, az újramérés most fut, és itt születik a v2 továbbvitelének döntése (A: mehet az R2-re · B: tartalék v2, jelölve · más: írd le).</div><div class="fallback"><strong>Ha nincs <code>v2/</code> vagy nem fut kód:</strong> a tréneri tartalék v2 „B-terv” jelöléssel megy tovább; kód nélkül a csomagot kézi jegyzékkel ellenőrzöd. A kiesett funkció a kódos ellenőrzés.</div>
           <p class="why"><strong>Miért fontos:</strong> az R2 csak akkor második vélemény, ha ugyanolyan szűk és tiszta a bemenete, mint az R1-é.</p>
@@ -312,6 +505,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>R2.md</code> az R-jelentés sablon szerint, külön szakasszal az R1 tételeinek újraellenőrzéséről.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Te ezt írod az új beszélgetésbe a review-projektben (GPT-6.1 Sol)</span>
+          <pre class="prompt-box">RONDO 05 reviewer R2</pre>
+          <span class="szerep">Ezt kapod a futás végén (részlet)</span>
+          <div class="ai-valasz"><p>Az <code>R2.md</code> 7. szakasza (az R1 tételeinek újraellenőrzése), egy sor formája:</p><table><tbody><tr><th>R1 finding</th><td>F-01</td></tr><tr><th>Javítva?</th><td>igen / nem</td></tr><tr><th>Érintett függőség újraellenőrizve?</th><td>igen / nem</td></tr><tr><th>Megjegyzés</th><td>…</td></tr></tbody></table><p>A 8. szakasz (Verdikt): Lefedettség: teljes / részleges · Verdikt: PASS / FAIL.</p></div>
+          <p class="megj">A reviewer a receptet, a frissített csomagot és az R1-et olvassa. Nem javít, és nem dönt a lezárásról.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>az <code>R2.md</code> létrejött, és a vizsgált verziók fel vannak sorolva (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A reviewer nem javít, és ami nem ellenőrizhető, az nem teljesített. A második kör azt mutatja meg, hogy a javítás tényleg javított-e, és <mark>nem rontott-e el mást</mark>.</div><div class="fallback"><strong>Ha a reviewer futás két percen belül nem indul:</strong> a pár emberi review készíti az R2-t a recept és a csomag alapján; a tréneri tartalék R2 „B-terv” jelöléssel áll rendelkezésre.</div>
           <p class="why"><strong>Miért fontos:</strong> a javítás csak akkor igazolt, ha a független ellenőr látja is; nem elég, hogy a készítő szerint megtörtént.</p>
@@ -328,6 +529,14 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>r2_visszakeres.md</code>: finding-tábla és a két saját visszakeresés eredménye.</p></div>
           </div>
           
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>r2_visszakeres.md</code>, a finding-tábla egy sora (a forma):</p><table><tbody><tr><th>R1 finding</th><td>F-01</td></tr><tr><th>Javítva-e az R2 szerint</th><td>igen / nem</td></tr><tr><th>A <code>v2/</code> helye</th><td>fájl és hely, linkkel</td></tr><tr><th>Változott K</th><td>K…</td></tr></tbody></table><p>Két saját visszakeresés: két link az öt kijelölt állításból; a választ te olvasod ki a forrásból.</p><p>Az R2 eredményét: A: elfogadom · B: egy tételnél nem értek egyet: írd le, melyiknél · C: egynél nem dönthető el a forrásból · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például)</span>
+          <pre class="prompt-box">A</pre>
+          <p class="megj">Ha a javítás máshol rontott, vagy új hiba jött be, az is külön sorban látszik.</p>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>minden R1 finding sorában szerepel az R2 megállapítása és a hely (✅/⚠️).</span></p>
           <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A javítás ellenőrzése a legkockázatosabb pont: <mark>könnyű elhinni, hogy ami javított, az jó</mark>. A két saját visszakeresésnél az AI nem olvassa fel a választ.</div>
           <p class="why"><strong>Miért fontos:</strong> a saját kezű visszakeresés miatt a végső döntés a tiéd, és nem a reviewer szavára támaszkodik.</p>
@@ -344,13 +553,60 @@
             <div class="mit-kapsz"><h4>Mit kapsz</h4><p><code>stop-dontes.md</code>. BA-sávon lezárt vagy feltételes döntésnél a végleges FDD-egység másolata a <code>Munka/04-Agent/fdd/</code> mappába kerül, verziónévvel.</p></div>
           </div>
           
+          <div class="pelda-par">
+          <div class="pelda">
+          <span class="pelda-cimke">Példa: így néz ki itt</span>
+          <span class="szerep">Ezt kapod</span>
+          <div class="ai-valasz"><p><code>stop-dontes.md</code>, a sablon 2. és 3. táblája (a forma):</p><table><thead><tr><th>Stop-szabály</th><th>Teljesül?</th><th>Bizonyíték</th></tr></thead><tbody><tr><td>Minden K teljesült és nincs nyitott blocker/major</td><td>igen / nem</td><td>…</td></tr><tr><td>Elfogyott a körkeret</td><td>igen / nem</td><td>…</td></tr><tr><td>Két körben nincs javulás</td><td>igen / nem</td><td>…</td></tr><tr><td>Hiányzó döntés vagy jogosultság</td><td>igen / nem</td><td>…</td></tr></tbody></table><table><tbody><tr><th>Döntés</th><td>lezárt / feltételes / blokkolt</td></tr><tr><th>Indok</th><td>…</td></tr><tr><th>Nyitott tételek (feltételes esetén kötelező)</th><td>tétel, ki dönt vagy javít, mikorra: konkrét dátum vagy Nincs megadva</td></tr><tr><th>Ami a következő lépéshez kell</th><td>…</td></tr></tbody></table><p>A döntés: A: lezárt · B: feltételes · C: blokkolt · más: írd le.</p></div>
+          <span class="szerep">Te ezt válaszolod (például: feltételes)</span>
+          <pre class="prompt-box">B</pre>
+          <p class="megj">A számok a <code>naplo.md</code>, a <code>kulso-korok-naplo.md</code>, az <code>R1.md</code> és az <code>R2.md</code> fájlból idézettek. A döntést te hozod; az AI a bizonyítékot rendezi.</p>
+          </div>
+          <div class="altalanos">
+          <span class="alt-cimke">Mi ez általánosságban?</span>
+          <h5>Stop-döntés</h5>
+          <p>A javítási ciklus lezárásának indokolt, rögzített döntése: minden kritérium teljesült, elfogyott a körkeret, két körben nincs javulás, vagy hiányzik egy döntés.</p>
+          <p>Itt: a körkeret belső legfeljebb 2, külső legfeljebb 2 review; a harmadik review nem indul.</p>
+          <span class="tanulsag">a ciklus csak akkor ér véget, ha kimondod, miért.</span>
+          </div>
+          </div>
           <p class="kesz-ha"><b>Kész, ha</b><span>a számok egyeznek a naplóval és a jelentésekkel, és a mentett döntés idézett (✅/⚠️).</span></p>
           <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span><mark>Itt ér véget a „repeat until good”</mark>: a körkeret legfeljebb 2 belső kör és 2 review (R1, R2); harmadik review nem indul.</div><div class="callout figyelj"><span class="callout-cim">Figyelj</span>A „kész” nem küldési, publikálási vagy átadási engedély. Feltételes döntésnél a nyitott tételnek felelőse és határideje van, vagy „Nincs megadva”.</div><div class="fallback"><strong>Ha időhiány van:</strong> a harmadik review nem indul; a stop-döntés a meglévő két körre épül, a nyitott tételek feltételes döntésben szerepelnek.</div>
           <p class="why"><strong>Miért fontos:</strong> a jó eredmény nem végtelen javítás, hanem kimondott, bizonyítékkal alátámasztott lezárás: ami nyitva maradt, az látszik.</p>
         </div>
       </section>
 
+      <div class="fogalmak">
+      <span class="fg-cimke">A C fázis végén</span>
+      <h3>Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+      <div><dt>R2</dt><dd>A javítás utáni második független kör: a javított változatot és az R1 megállapításait is vizsgálja.</dd></div>
+      <div><dt>Verdikt</dt><dd>Az R-jelentés záró sora: PASS vagy FAIL, a lefedettséggel (teljes / részleges) együtt.</dd></div>
+      <div><dt>Stop-döntés</dt><dd>A javítási ciklus lezárásának indokolt, rögzített döntése: lezárt, feltételes vagy blokkolt.</dd></div>
+      <div><dt>Körkeret</dt><dd>Legfeljebb 2 belső kör és 2 review (R1, R2); harmadik review nem indul.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo"><li>A kizárt fájlok R2-ben is kizártak.</li><li>A javítás ellenőrzése a legkockázatosabb pont: könnyű elhinni, hogy ami javított, az jó.</li><li>Feltételes döntésnél a nyitott tételnek felelőse és határideje van, vagy „Nincs megadva”.</li><li>A „kész” nem küldési, publikálási vagy átadási engedély.</li></ul>
+      </div>
+
     </div>
+  </section>
+
+  <section id="fogalmak" aria-label="Fontos fogalmak és megjegyzendők">
+  <div class="fogalmak">
+  <span class="fg-cimke">A gyakorlat végén</span>
+  <h3>Fontos fogalmak és megjegyzendők</h3>
+  <dl>
+  <div><dt>Reviewer-recept</dt><dd>Skill vagy reviewer-brief: leírja, mit lát, mit tehet és mit ad vissza a független ellenőr.</dd></div>
+  <div><dt>Review-csomag</dt><dd>A reviewer szűk bemenete: kimenetek, kritériumok, nyers források, DNS-verzió; a maker magyarázata nélkül.</dd></div>
+  <div><dt>PASS, FAIL, NEM ELLENŐRIZHETŐ</dt><dd>Ítélet kritériumonként; PASS csak teljes lefedettséggel, minden K teljesülésével és nyitott blocker vagy major nélkül adható.</dd></div>
+  <div><dt>Finding</dt><dd>Tételes megállapítás: azonosító, súlyosság, hely, bizonyíték, javasolt javítás.</dd></div>
+  <div><dt>R1 és R2</dt><dd>Az első és a második független ellenőrzési kör; a második a javított tételeket és az érintett függőségeket nézi újra.</dd></div>
+  <div><dt>Stop-döntés</dt><dd>Kimondott lezárás: lezárt, feltételes vagy blokkolt, a teljesült stop-szabály megnevezésével.</dd></div>
+  </dl>
+  <h4>Jegyezd meg</h4>
+  <ul class="megjegyzendo"><li>A készítő nem ellenőrizheti önmagát.</li><li>A függetlenség a bemeneten múlik: amit a reviewer nem lát, azt nem tudja átvenni.</li><li>Három réteg ellenőrzi egymást: a kód a szerkezetet, a forrás a tényeket, a rubrika a használhatóságot méri.</li><li>Ami nem ellenőrizhető, az nem teljesített.</li></ul>
+  </div>
   </section>
 
   <section id="validalas" aria-labelledby="validalas-cim">

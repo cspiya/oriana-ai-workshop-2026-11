@@ -634,7 +634,7 @@
     { id: 'meg-link', nev: 'Beszélgetés megosztása linkkel', hol: ['03'], def: 'Munkatéri link, a munkatér tagjainak nyílik meg. Látszik-e B-nek a megosztás utáni új üzenet? Ezt a próba dönti el.' },
     { id: 'meg-projekt', nev: 'Közös projekt', hol: ['03'], def: 'Ha a munkatérben elérhető. Jogok: Chat vagy Edit; az Edit utasítást és fájlt módosíthat.' },
     { id: 'meg-space', nev: 'Space-oldal', hol: ['03'], def: 'Ha a munkatérben elérhető. Jogok: View, Comment, Edit; a hozzáférés öröklődik az oldalakra.' },
-    { id: 'app', nev: 'App-kapcsolat', hol: ['03'], def: 'Plugin- és appkapcsolat: azt látja, amit a felhasználó; a jogmátrixban külön oszlop: kell-e appengedély.' },
+    { id: 'app', nev: 'App-kapcsolat', hol: ['03'], def: 'Plugin- és appkapcsolat: a kapcsolt fiók jogával dolgozik, ami túlmehet a személyes hozzáféréseden; a jogmátrixban külön oszlop: kell-e appengedély.' },
     { id: 'csapat', nev: 'Csapatfeladat (Agents / Team Task)', hol: ['03', '07'], def: 'Egy csapatfeladat folyamatváza és az Agents előnézete; a kimenő és visszafordíthatatlan lépésnél ember dönt.' },
     { id: 'szabaly', nev: 'Hozzáférési szabály', hol: ['03'], def: 'A jogmátrix sorai: elem, megosztás módja, kinek, olvashat, kommentelhet, szerkeszthet, appengedély, a próba eredménye. A pár mondja ki: kik olvashatják, kik szerkeszthetik, ki dönt az új hozzáférésről.' }
   ];
@@ -654,7 +654,7 @@
         s += part(R[0], i, '', b, R[1]);
       });
       s += text(350, 324, 'minden sor a páros próba eredményével: olvasni, kommentelni, szerkeszteni próbál a társad', 'sub it', 11.5);
-      b = card(700, 50, 260, 70, 'App-kapcsolat', ['azt látja, amit a felhasználó', 'appengedély kell?'], 13) + arrow(830, 122, 830, 146, m);
+      b = card(700, 50, 260, 70, 'App-kapcsolat', ['a kapcsolt fiók jogával dolgozik', 'appengedély kell?'], 13) + arrow(830, 122, 830, 146, m);
       s += part('app', 3, '', b, 'App-kapcsolat');
       b = card(700, 150, 260, 70, 'Csapatfeladat', ['Agents / Team Task: folyamatváz', 'kimenő lépésnél ember dönt'], 13) + arrow(830, 222, 830, 246, m);
       s += part('csapat', 4, '', b, 'Csapatfeladat');
@@ -670,7 +670,7 @@
         ['olvas: ', 'kommentel: ', 'szerkeszt: '].forEach(function (c, k) { b += text(44, y + 38 + k * 14, c + R[3][k], 'sub', 10, 'start'); });
         s += part(R[0], i, '', b, R[1]);
       });
-      b = card(30, 300, 360, 56, 'App-kapcsolat', ['azt látja, amit a felhasználó · appengedély kell?'], 12) + arrow(210, 358, 210, 372, m);
+      b = card(30, 300, 360, 56, 'App-kapcsolat', ['a kapcsolt fiók jogával dolgozik · appengedély kell?'], 12) + arrow(210, 358, 210, 372, m);
       s += part('app', 3, '', b, 'App-kapcsolat');
       b = card(30, 376, 360, 56, 'Csapatfeladat (Agents / Team Task)', ['folyamatváz · kimenő lépésnél ember dönt'], 12) + arrow(210, 434, 210, 448, m);
       s += part('csapat', 4, '', b, 'Csapatfeladat');

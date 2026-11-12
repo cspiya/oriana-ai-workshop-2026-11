@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ügyfélprofil use case 2: ügyfélkutató ügynök az 1-es feladatból · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Ügyfélprofil use case 2. Tartalom: az ügyfélprofil agent Prompt Guide (2026-11-12) 0.0 + 7 lépése; a másolható szövegek szó szerint szerepelnek. -->
+<body class="notebook v2" data-depth="1" data-current="uc2" data-jelveny="Ügynök-építő">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" data-current="uc2" aria-label="Hol tartunk a napban"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="session-fejlec" id="cel" aria-labelledby="cim">
+    <div class="cim-blokk">
+      <div class="eyebrow"><span>Ügyfélprofil use case 2 · haladó workshop, 2. feladat</span><span class="badge all">Prompt Guide</span></div>
+      <h1 id="cim">Ügyfélkutató ügynök az 1-es feladatból</h1>
+      <div class="cel"><span class="cel-cimke">Cél</span><p>Az 1-es mappa saját kutatási anyagaiból és a kész Rondo HTML-ből elkészíted a skillt és az általános sablont, majd a ChatGPT ügynöklétrehozójában beállítod az ügynököt. Utána egy cégnév indítja a kutatást, az ellenőrzést, a javítást és a fájlátadást.</p></div>
+      <div class="gyakorolunk">
+        <h4>Mit gyakorolunk</h4>
+        <ul>
+          <li data-csoport="1">skill és általános sablon készítése egy kész munkából</li>
+          <li data-csoport="2">meglévő ügynök beállítása promptokkal</li>
+          <li data-csoport="2">tartós hozzárendelés és puszta feltöltés megkülönböztetése</li>
+          <li data-csoport="2">állandó utasítás és egyszeri kérés szétválasztása</li>
+          <li data-csoport="3">próba egyetlen cégnévvel</li>
+          <li data-csoport="3">a kész kimenet ellenőrzése, javítás körhatárral</li>
+        </ul>
+      </div>
+      <div class="meta"><span>0.0 + 7 lépés · mind másolható</span><span>Kimenet: letölthető HTML + JSON + CSV</span><span>Nincs előkészített fájl</span><span>Nincs SharePoint/MCP</span></div>
+    </div>
+    <div class="honnan-hova" aria-label="Honnan hová">
+      <div class="allapot honnan"><span class="cimke">Honnan indulsz</span>
+        <ul>
+          <li>az 1-es mappa saját kutatási anyagai és a kész Rondo HTML (<code>Oriana_Rondo_Ugyfelprofil.html</code>)</li>
+          <li>nincs előkészített skill, sablon vagy segédfájl: minden másolandó szöveg ezen az oldalon van</li>
+        </ul>
+      </div>
+      <div class="nyil" aria-hidden="true">→</div>
+      <div class="allapot hova"><span class="cimke">Hová jutsz</span>
+        <ul>
+          <li><code>SKILL.md</code> és <code>Forrasok/Oriana_Sablon_Ugyfelprofil.html</code></li>
+          <li>saját, beállított „Oriana ügyfélkutatás” ügynök</li>
+          <li>egy cégnévre: letölthető, sablonhű HTML, <code>kutatas.json</code> és CSV</li>
+        </ul>
+      </div>
+      <div class="miert" style="grid-column: 1 / -1;"><p><b>Miért fontos:</b> ha az ügynök beállítása rendben van, új beszélgetésben már csak egy cégnevet kell megadnod; a rutinlépésekhez nem kell közben utasítanod.</p></div>
+    </div>
+  </section>
+
+  <section id="hol" aria-labelledby="hol-cim">
+    <h2 id="hol-cim">Mi történik, és hol?</h2>
+    <p class="lead">Három helyszínen dolgozol. Minden lépés elején sötét sáv mutatja, melyikben vagy éppen.</p>
+    <table>
+      <thead><tr><th>Hely</th><th>Feladat</th><th>Mit viszel tovább?</th></tr></thead>
+      <tbody>
+        <tr><td>Helyi fájlokat elérő Work-beszélgetés</td><td>1. lépés: az 1-es feladatból skill és sablon létrehozása.</td><td>A most elkészített SKILL.md és Oriana_Sablon_Ugyfelprofil.html.</td></tr>
+        <tr><td>Work → üzenetmező melletti + → ügynöklétrehozó funkció</td><td>0.0: kézzel létrehozzuk az üres ügynököt. 2–4. lépés: a meglévő ügynök beállításait promptokkal készítjük el.</td><td>Próbára kész saját ügynök.</td></tr>
+        <tr><td>Az ügynök Preview / Előnézet vagy saját beszélgetése</td><td>5–7. lépés: cégnév, kimenet ellenőrzése, mentés és új próba.</td><td>Letölthető HTML + JSON + CSV.</td></tr>
+      </tbody>
+    </table>
+    <p>Először a 0.0 lépésben kézzel létrehozod és elnevezed az üres ügynököt. Ezt az ügynököt utána promptokkal állítod be és építed készre. Utána egy cégnév indítja a kutatást, ellenőrzést, javítást és fájlátadást; a rutinlépésekhez nem kell közben utasítanod.</p>
+    <div class="callout figyelj"><span class="callout-cim">Korlátok</span>Ez a Work-ben indított ChatGPT-ügynöklétrehozás, nem a fejlesztői API Agent Builder. A felületi elnevezés és elérhetőség <mark>munkatérfüggő</mark>. Ha az ügynöklétrehozás vagy a fájlkészítés nem elérhető, azt jelezni kell; <mark>egy prompt nem kapcsol be hiányzó jogosultságot</mark>. Nincs SharePoint/MCP, és az ügynök nem éri el automatikusan a helyi mappáidat.</div>
+  </section>
+
+  <section class="fejezet-abra" id="megertes" aria-labelledby="megertes-cim">
+    <h2 id="megertes-cim"><span class="cimke">Mozgó ábra</span>Ezt kell megértened</h2>
+    <p>Mi készül az egyes helyszíneken, és mi megy át egyikből a másikba? Figyeld meg, hogy a skill és a sablon <mark>a helyi Work-beszélgetésben készül</mark>, az ügynök beállítása a létrehozó beszélgetésben történik, a próbán pedig az ügynök már csak egy cégnevet kap.</p>
+    <figure class="mozgo" data-jelenet="uc2-harom-helyszin">
+      <figcaption>A három helyszín közti út: a 0.0 lépésben kézzel létrehozol egy üres ügynököt; a helyi fájlokat elérő Work-beszélgetésben elkészül a SKILL.md és a sablon; ezeket az ügynöklétrehozó beszélgetésben adod át, és promptokkal kéred a beállítást, a fájlok tartós hozzárendelését és az állandó utasítás rögzítését; végül az ügynök saját beszélgetésében egyetlen cégnévre elkészül a letölthető HTML, JSON és CSV, legfeljebb két javítási körrel. Ha hibát látsz, a javítást a létrehozó beszélgetésben kéred, új ügynök nélkül.</figcaption>
+    </figure>
+  </section>
+
+  <section id="lepes-0" aria-labelledby="lepes-0-cim">
+    <h2 id="lepes-0-cim">0.0 lépés: az ügynök kézi létrehozása</h2>
+    <p class="lead">Ezzel kezdesz. Rövid kézi lépés: <mark>a másolható blokk teendőlista, nem elküldendő prompt</mark>.</p>
+    <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>ChatGPT: Ügynökök / Agents rész</b><small>kézi felületi lépés: új, üres ügynök, csak névvel; a felületi elnevezés és elérhetőség munkatérfüggő</small></span></div>
+    <div class="lepes-racs">
+      <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+        <ul>
+          <li><b>Hozz létre</b> egy új, üres ügynököt.</li>
+          <li><b>Nevezd el</b>: Oriana ügyfélkutatás.</li>
+          <li>Ha már van saját ilyen ügynököd, azt <b>nyisd meg</b>, ne készíts másikat.</li>
+        </ul>
+      </div>
+      <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Egy üres, névvel ellátott ügynököt vagy vázlatot. A további lépésekben ezt állítod be promptokkal.</p></div>
+    </div>
+    <div class="pelda">
+      <span class="pelda-cimke">0.0 · másolható teendőlista</span>
+      <span class="szerep">Teendőlista: NEM elküldendő prompt. Ezt te végzed el kézzel a felületen.</span>
+      <pre class="prompt-box">0.0 – ÜGYNÖK KÉZI LÉTREHOZÁSA
+Nyisd meg a ChatGPT Ügynökök / Agents részét, és válaszd az új ügynök létrehozását; üres indulást, ha elérhető.
+Add meg a nevet: Oriana ügyfélkutatás.
+Egyelőre csak ezt az üres ügynököt készítsd elő. Ha már van saját ilyen ügynököd, azt nyisd meg, ne készíts másikat. A további lépésekben ezt állítjuk be promptokkal.</pre>
+      <p class="megj">A Másolás gomb csak arra való, hogy a teendők kéznél legyenek; ezt a blokkot ne küldd el promptként.</p>
+    </div>
+    <p class="kesz-ha"><b>Kész, ha</b><span>egyetlen saját, névvel ellátott ügynök/vázlat van előkészítve. Ezt használod a 2. lépéstől; <mark>nem hozol létre másodikat</mark>.</span></p>
+  </section>
+
+  <section class="gyakorlat" id="lepesek" aria-labelledby="lepesek-cim">
+    <h2 id="lepesek-cim">A gyakorlat 7 lépése</h2>
+    <aside class="lepes-sin" aria-label="Lépésvezető: hol tartok"></aside>
+    <div class="lepes-lista">
+
+      <div class="lepes-csoport-cim" data-csoport="1">Skill és sablon <span class="when">helyi Work-beszélgetés</span></div>
+
+      <section class="lepes" id="lepes-1" data-csoport="1" data-csoport-nev="Skill és sablon" data-rovid="Sablon és SKILL.md" data-ido="helyi Work">
+        <header class="lepes-fej">
+          <div><h3>Sablon és SKILL.md készítése az 1-es feladatból</h3><span class="lepes-cimke">helyi Work-beszélgetés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Helyi fájlokat elérő Work-beszélgetés</b><small>IDE: a beszélgetés üzenetmezőjébe másold a promptot</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nyisd meg</b> a saját helyi munkaterületedet. Az <code>01 usecase  Ugyfelprofil</code> mappában legyen az előző gyakorlat kutatási anyaga és végleges <code>Oriana_Rondo_Ugyfelprofil.html</code> fájlja. Ez az egyetlen bemenet.</li>
+                <li><b>Futtasd</b> itt a lenti promptot. Nem kell előre létrehozott SKILL.md, sablon vagy második feladatcsomag. Az eredeti HTML-t nem másoljuk és nem módosítjuk.</li>
+                <li>A futás végén <b>nyisd meg</b> a most elkészült <code>02 usecase Ugyfelprofil agent/SKILL.md</code> fájlt és a <code>Forrasok/Oriana_Sablon_Ugyfelprofil.html</code> sablont.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Az elvárt új szerkezetet, a két új fájl mentési linkjével:</p>
+<pre>02 usecase Ugyfelprofil agent/
+  SKILL.md
+  Forrasok/
+    Oriana_Sablon_Ugyfelprofil.html
+  Kimenetek/</pre>
+            </div>
+          </div>
+          <div class="pelda-par" style="grid-template-columns: 1fr;">
+            <div class="pelda">
+              <span class="pelda-cimke">1. lépés · másolható szöveg</span>
+              <span class="szerep">Ezt másolod a Work-beszélgetés üzenetmezőjébe</span>
+              <pre class="prompt-box">Olvasd be a saját „01 usecase  Ugyfelprofil” mappám kutatási anyagait és végleges Oriana_Rondo_Ugyfelprofil.html fájlját. Az eredetit ne másold és ne módosítsd; hiány esetén kérd el a tényleges helyét.
+Hozd létre mellette a „02 usecase Ugyfelprofil agent” mappát Forrasok és Kimenetek almappával.
+A Rondo HTML teljes topológiájából készíts egyetlen Forrasok/Oriana_Sablon_Ugyfelprofil.html sablont. Őrizd meg a DOM-ot, CSS-t, logót, szakaszokat, kártyákat, diagramokat, vezérlőket, forrásjegyzéket, CSV-exportot, mobil- és nyomtatási nézetet. Csak a cégspecifikus tartalmat cseréld kitöltési helyre/null értékre; hiányt ne rajzolj nullának.
+A 2-es mappa gyökerébe készíts önálló SKILL.md-t, name: oriana-ugyfelkutato és description YAML-fejléccel. Relatív sablonhivatkozása: Forrasok/Oriana_Sablon_Ugyfelprofil.html. Külső segédfájl nélkül írja le a cégnévtől a forrásolt magyar HTML + kutatas.json + CSV átadásáig tartó önálló folyamatot: cégazonosítás, három lezárt év, hivatalos honlap, CompanyWall, Cégadatok és lehetőség szerint eredeti beszámoló, működés/beruházás/IT, Oriana-kapcsolódások és öt találkozókérdés, sablonkitöltés, ellenőrzés, legfeljebb két javítási kör.
+Válassza külön a céget/csoportot, tényt/hipotézist, pénzügyi és létszámfogalmakat, tervet/tényt; ne becsüljön hiányt. Ne kérjen rutinjóváhagyást; csak valódi cégazonossági, fájl- vagy hozzáférési akadálynál álljon meg. Kész állapot a letölthető, teljes sablonhű HTML és adatfájlok, nem puszta összefoglaló.
+Ellenőrizd a két új fájlt és add a mentési linkjüket. Eltérő meglévő munkafájlnál készíts új változatot. Kutatást és ügynököt most ne indíts.</pre>
+              <p class="megj">A prompt a mappanevet két szóközzel írja („01 usecase  Ugyfelprofil”). Ha az asszisztens nem találja a mappát, a prompt szerint elkéri a tényleges helyét.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Skill (SKILL.md)</h5>
+              <p>Egy meghatározott feladathoz vagy munkafolyamathoz tartozó, újrahasználható utasítások és segédanyagok csomagja.</p>
+              <p>Itt: az <code>oriana-ugyfelkutato</code> nevű skill külső segédfájl nélkül írja le a teljes folyamatot a cégnévtől a forrásolt HTML + <code>kutatas.json</code> + CSV átadásáig.</p>
+              <h5>Sablon</h5>
+              <p>A kész Rondo HTML teljes szerkezetéből készült általános forma: minden megmarad, csak a cégspecifikus tartalom helyére kerül kitöltési hely vagy null érték.</p>
+              <span class="tanulsag">a skill mondja meg, mit csinál az ügynök; a sablon azt, milyen formában adja át.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a gyökérben megvan a SKILL.md, a Forrasok alatt egyetlen általános sablon, és a sablon megnyitható. <mark>Az eredeti az 1-es mappában változatlan.</mark></span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ebben a lépésben kutatást és ügynököt <mark>nem indítasz</mark>. A hiány nem rajzolható nullának: a sablonban a cégspecifikus tartalom helyén kitöltési hely vagy null érték áll.</div>
+          <div class="callout tipp"><span class="callout-cim">A mintafájl nem a te fájlod</span>A tananyag <code>01 usecase Ugyfelprofil</code> mappájában lévő <a href="../01%20usecase%20Ugyfelprofil/Oriana_Rondo_Ugyfelprofil_2.html"><code>Oriana_Rondo_Ugyfelprofil_2.html</code></a> vizuális referencia az 1. use case-hez. A prompt a saját, végleges <code>Oriana_Rondo_Ugyfelprofil.html</code> fájlodat keresi.</div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: skill és sablon</h3>
+        <dl>
+          <div><dt>Work</dt><dd>A ChatGPT-nek az a munkamódja, amelyben az AI a megnyitott munkamappában fájlokat olvas és ír, és több lépéses feladatot végez.</dd></div>
+          <div><dt>Skill (SKILL.md)</dt><dd>Egy meghatározott feladathoz vagy munkafolyamathoz tartozó, újrahasználható utasítások és segédanyagok csomagja.</dd></div>
+          <div><dt>Sablon</dt><dd>A kész Rondo HTML szerkezete cégspecifikus tartalom nélkül. Az ügynöknek ez a kötelező kimeneti forma.</dd></div>
+          <div><dt>Kész állapot</dt><dd>A letölthető, teljes, sablonhű HTML és az adatfájlok; nem puszta összefoglaló.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>Az egyetlen bemenet a saját 1-es feladatod anyaga; az eredeti HTML-t nem másoljuk és nem módosítjuk.</li>
+          <li>A sablon csak a cégspecifikus tartalmat cseréli kitöltési helyre; a hiányt nem rajzoljuk nullának.</li>
+          <li>Az új fájlok mind az 1. lépés eredményei; előkészített skill, sablon vagy archivált kimenet nincs.</li>
+        </ul>
+      </div>
+
+      <div class="lepes-csoport-cim" data-csoport="2">Beállítás promptokkal <span class="when">ügynöklétrehozó beszélgetés</span></div>
+
+      <section class="lepes" id="lepes-2" data-csoport="2" data-csoport-nev="Beállítás promptokkal" data-rovid="Meglévő ügynök beállítása" data-ido="létrehozó">
+        <header class="lepes-fej">
+          <div><h3>A már létrehozott ügynök beállítása prompttal</h3><span class="lepes-cimke">ügynöklétrehozó beszélgetés · a 0.0 lépés ügynökét használod</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Work-ben indított ügynökbeállító / Creator beszélgetés</b><small>a 0.0 lépés ügynökét használod, itt már nem hozol létre újat; ha az alsó + menüből indítod ezt a képességet, a promptban a meglévő ügynök beállítását kérd</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li>Az 1. lépésben elkészült skilllel és sablonnal <b>folytasd</b> a Work-ben indított ügynökbeállító / Creator beszélgetést.</li>
+                <li><b>Tedd elérhetővé</b> a két most elkészült fájlt. Ha a meglévő ügynököt nem azonosítja, add meg a 0.0 lépésben létrehozott saját ügynök hivatkozását.</li>
+                <li><b>Küldd el</b> az alábbi promptot, majd ugyanennek az ügynöknek a beállítását folytasd a következő lépésekben.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Előkészített konfigurációt a meglévő ügynökhöz, és jelzést arról, mit sikerült ténylegesen menteni, és mi igényel még kézi beállítást.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">2. lépés · másolható beállítási prompt</span>
+              <span class="szerep">Ezt küldöd el a létrehozó beszélgetésben</span>
+              <pre class="prompt-box">A 0.0 lépésben kézzel már létrehozott „Oriana ügyfélkutatás” ügynökömet állítsd be. Ne hozz létre másikat. Ha nem tudod egyértelműen azonosítani, először kérd el a meglévő ügynök hivatkozását.
+Olvasd be az 1. lépésben elkészített SKILL.md és Oriana_Sablon_Ugyfelprofil.html teljes tartalmát. A célt és munkamenetet a skillből, a kötelező kimeneti topológiát a sablonból vedd át. Tedd őket az ügynök későbbi futásaiban is elérhetővé, és állítsd be az elérhető webes kutatást és fájlkészítést.
+Egy cégnévre önálló kutatás, ellenőrzés és javítás után teljes, sablonhű HTML + JSON + CSV legyen a kimenet. Most csak a meglévő ügynök konfigurációját készítsd elő. Kutatást ne indíts, ne publikálj és ne ossz meg. Jelezd, mit sikerült ténylegesen mentened, és mi igényel még kézi beállítást.</pre>
+              <p class="megj">A visszajelzés a munkatered képességeitől függ; azt nézd, mit mentett ténylegesen.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Ügynök és ügynöklétrehozó</h5>
+              <p>Az ügynök (Agents) meghatározott feladatra beállítható munkatéri asszisztens, amely utasításokat, tudást, skilleket és kapcsolt appokat használ. Nem azonos az AGENTS.md fájllal.</p>
+              <p>Itt: az ügynököt nem mezőnként töltöd ki, hanem a Work-ben indított létrehozó (Creator) beszélgetést kéred meg promptokkal a beállításra. Ez nem a fejlesztői API Agent Builder.</p>
+              <span class="tanulsag">egy ügynököt építesz készre; ha nem azonosítható, a hivatkozását adod meg, nem újat készítesz.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a 0.0 lépés meglévő ügynökén dolgozol. A ténylegesen beállított elemek és a még hiányzó hozzáférések <mark>egyértelműek</mark>.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Ebben a lépésben csak a konfiguráció készül elő: kutatás, publikálás és megosztás nincs.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-3" data-csoport="2" data-csoport-nev="Beállítás promptokkal" data-rovid="Skill és sablon átadása" data-ido="létrehozó">
+        <header class="lepes-fej">
+          <div><h3>A skill és a sablon átadása prompttal</h3><span class="lepes-cimke">ügynöklétrehozó beszélgetés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a Work-ben indított ügynöklétrehozó beszélgetés</b><small>ha a létrehozó képesség még nem éri el a két fájlt, csatold őket a beszélgetéshez</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li>Ha a létrehozó képesség még nem éri el őket, <b>csatold</b> a beszélgetéshez az 1. lépésben készített <b>SKILL.md</b>-t és <b>Oriana_Sablon_Ugyfelprofil.html</b>-t, majd <b>küldd el</b> a lenti promptot. Nem kell előkészített vagy archivált anyag.</li>
+                <li>A létrehozó képességet <b>kéred meg</b> a fájlok, a készség és az elérhető képességek beállítására; a mezőket nem töltöd ki külön kézzel.</li>
+                <li>Ha a Creator a fájlhozzárendelést vagy egy képességet nem tud beállítani, csak az általa pontosan megnevezett szükséges felületi lépést <b>végezd el</b>.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Rövid visszaírást a célról és a sablon két tényleges szerkezeti eleméről, és pontos jelzést arról, mi igényel kézi feltöltést vagy hozzárendelést.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">3. lépés · másolható prompt</span>
+              <span class="szerep">Ezt küldöd el ugyanabban a létrehozó beszélgetésben</span>
+              <pre class="prompt-box">Itt a most elkészült SKILL.md és Oriana_Sablon_Ugyfelprofil.html. Olvasd el mindkettő teljes tartalmát, és rendeld őket a meglévő ügynök későbbi futásaihoz is, ha erre van lehetőséged. A cél a SKILL.md-ben, a kötelező forma a HTML-ben van.
+Írd vissza röviden a célt és a sablon két tényleges szerkezeti elemét. Állítsd be az elérhető webes kutatást és fájlkészítést. Ne tekintsd tartós hozzárendelésnek a puszta feltöltést ebbe a beszélgetésbe. Ha valami kézi feltöltést vagy hozzárendelést igényel, pontosan nevezd meg. Kutatást még ne indíts.</pre>
+              <p class="megj">A visszaírásból látod, hogy a létrehozó tényleg elolvasta-e a két fájlt.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Tartós hozzárendelés és puszta feltöltés</h5>
+              <p>Ha egy fájlt csak feltöltesz a beszélgetésbe, az még nem jelenti azt, hogy az ügynök a későbbi futásaiban is eléri.</p>
+              <p>Itt: a prompt kéri, hogy a létrehozó rendelje a két fájlt az ügynök későbbi futásaihoz is, és nevezze meg pontosan, ha ehhez kézi lépés kell.</p>
+              <span class="tanulsag">a feltöltés nem hozzárendelés; azt hidd el, amit a létrehozó ténylegesen elvégzettként jelez vissza.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a két fájl tartalma olvasható, és a Creator visszajelzi <mark>a ténylegesen elvégzett tartós hozzárendelést</mark> vagy a konkrét kézi hiányt.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>A prompt <mark>nem helyettesíti a jogosultságot</mark>. Ha valamit a Creator nem tud beállítani, csak az általa pontosan megnevezett felületi lépést végezd el.</div>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Feltöltötted a két fájlt a létrehozó beszélgetésbe. Az ügynök a későbbi futásaiban is eléri őket?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: a puszta feltöltés ebbe a beszélgetésbe nem tartós hozzárendelés.">Igen, a feltöltés elég</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: a Creator visszajelzése mondja meg, megtörtént-e a tartós hozzárendelés, vagy kézi lépés kell hozzá.">Csak akkor, ha a Creator visszajelzi a tartós hozzárendelést</button></li>
+              <li><button type="button" data-visszajelzes="Nem: automatikus helyi mappaszinkron nincs, és az ügynök nem éri el automatikusan a helyi mappáidat.">Igen, mert az ügynök látja a helyi mappámat</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-4" data-csoport="2" data-csoport-nev="Beállítás promptokkal" data-rovid="A működés rögzítése" data-ido="létrehozó">
+        <header class="lepes-fej">
+          <div><h3>A működés rögzítése prompttal</h3><span class="lepes-cimke">ügynöklétrehozó beszélgetés · nincs külön mezőbe másolás</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz a Work-ben indított létrehozó beszélgetés</b><small>nincs külön mezőbe másolás: a teljes promptot ide küldöd</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Másold</b> a lenti teljes promptot ugyanabba a létrehozó beszélgetésbe. Ez már a meglévő ügynök utasításait állíttatja be.</li>
+                <li><b>Ellenőrizd</b> a visszajelzést: a szabályok ténylegesen az ügynök konfigurációjába kerültek-e.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Visszajelzést arról, hogy a szabályok tartósan mentve vannak-e. Ha a létrehozó nem tud tartósan menteni, kimondja, és visszaadja a beillesztendő szöveget.</p></div>
+          </div>
+          <div class="pelda-par" style="grid-template-columns: 1fr;">
+            <div class="pelda">
+              <span class="pelda-cimke">4. lépés · másolható prompt</span>
+              <span class="szerep">Ezt küldöd el ugyanabban a létrehozó beszélgetésben</span>
+              <pre class="prompt-box">A meglévő ügynök állandó futási utasításaként rögzítsd az alábbi szabályokat. Az egyszeri beállítási kérést ne másold az Utasítások mezőbe. Ha nem tudsz tartósan menteni, mondd ki és add vissza a beillesztendő szöveget. Kutatást még ne indíts.
+
+Az Oriana ügyfélkutató ügynöke vagy. A hozzád rendelt SKILL.md-ből olvasd ki célodat és teljes munkamenetedet. A feltöltött Oriana_Sablon_Ugyfelprofil.html a kötelező kimeneti forma: teljes szerkezetét, stílusát és funkcióit őrizd meg, új cégadatokkal.
+Egy cégnévre önállóan végezd el a kutatást, forrásellenőrzést, sablonkitöltést és szükség esetén legfeljebb két javítási kört. Ne kérj köztes terv-, forrás-, formátum- vagy javítási jóváhagyást. Hiányzó részadatot jelölj és folytasd; ne becsülj és ne rajzolj nullának. Csak fel nem oldható cégazonosság, nélkülözhetetlen fájl vagy hozzáférési akadály esetén állj meg. Kötelező felületi jóváhagyást ne kerülj meg.
+Kész állapot: letölthető Oriana_&lt;Ceg&gt;_Ugyfelprofil.html, kutatas.json és forrásolt CSV. Terv, részleges HTML vagy szöveges felkészítő nem elég. Ellenőrizd a számokat, forrásokat, sablonhűséget és működést; a ki nem próbált részt vagy megmaradt hibát jelezd.
+Nincs SharePoint/MCP és automatikus hozzáférés a felhasználó helyi mappáihoz. A feltöltött példányokkal dolgozz. Saját utasításaidat ne írd át; küldést, megosztást és ütemezést csak külön kérésre végezz.</pre>
+              <p class="megj">Az első bekezdés az egyszeri kérés; az üres sor utáni rész az ügynök állandó futási utasítása.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Állandó utasítás és egyszeri kérés</h5>
+              <p>Az állandó futási utasítás az ügynök minden futására érvényes szabály. Az egyszeri beállítási kérés csak most, a létrehozónak szól, ezért nem kerül az Utasítások mezőbe.</p>
+              <p>Itt: az állandó rész rögzíti, hogy az ügynök egy cégnévre önállóan dolgozik, legfeljebb két javítási körrel, és mi számít kész állapotnak.</p>
+              <span class="tanulsag">egy válaszban megjelenő szöveg önmagában nem bizonyít mentést.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a meglévő ügynök egy cégnévtől önállóan jut el a teljes HTML + JSON + CSV átadásig; a fájlok és a működés <mark>tartósan beállítva</mark>, vagy a szükséges kézi hiány egyértelmű.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Egy válaszban megjelenő szöveg önmagában <mark>nem bizonyít mentést</mark>. Azt ellenőrizd, hogy a szabályok ténylegesen az ügynök konfigurációjába kerültek-e.</div>
+          <div class="fallback"><strong>Ha a felület nem engedi a Creator általi mentést:</strong> a kapott kész futási szöveget kell egyszer kézzel beillesztened. Ez kivétel, nem az alapmenet.</div>
+          <button type="button" class="fordito"><span class="f-elol">Mikor áll meg az ügynök futás közben?</span><span class="f-hatul">Csak fel nem oldható cégazonosság, nélkülözhetetlen fájl vagy hozzáférési akadály esetén. A hiányzó részadatot jelöli, és folytatja.</span><small>Kattints a megfordításhoz</small></button>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: beállítás</h3>
+        <dl>
+          <div><dt>Ügynök (Agents)</dt><dd>Meghatározott feladatra beállítható, utasításokat, tudást, skilleket és kapcsolt appokat használó munkatéri asszisztens. Nem azonos az AGENTS.md fájllal.</dd></div>
+          <div><dt>Ügynöklétrehozó (Creator)</dt><dd>A Work-ben indított beszélgetés, amelyet promptokkal kérsz meg a meglévő ügynök beállítására. Nem a fejlesztői API Agent Builder.</dd></div>
+          <div><dt>Tartós hozzárendelés</dt><dd>A fájl az ügynök későbbi futásaiban is elérhető. A puszta feltöltés a beszélgetésbe ezt nem jelenti.</dd></div>
+          <div><dt>Állandó futási utasítás</dt><dd>Az ügynök minden futására érvényes szabályok. Az egyszeri beállítási kérés nem része.</dd></div>
+          <div><dt>Javítási kör</dt><dd>Az ügynök szükség esetén önállóan javít, de legfeljebb két körben.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>Egy ügynököt építesz készre; másikat nem hozol létre.</li>
+          <li>A puszta feltöltés nem tartós hozzárendelés.</li>
+          <li>Egy válaszban megjelenő szöveg önmagában nem bizonyít mentést.</li>
+          <li>A prompt nem helyettesíti a jogosultságot.</li>
+        </ul>
+      </div>
+
+      <div class="lepes-csoport-cim" data-csoport="3">Próba és ellenőrzés <span class="when">az ügynök saját beszélgetése</span></div>
+
+      <section class="lepes" id="lepes-5" data-csoport="3" data-csoport-nev="Próba és ellenőrzés" data-rovid="Próba egy cégnévvel" data-ido="az ügynök">
+        <header class="lepes-fej">
+          <div><h3>Próba egyetlen cégnévvel</h3><span class="lepes-cimke">az ügynök Preview / Előnézet beszélgetése</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>Az ügynök Preview / Előnézet beszélgetése</b><small>IDE: az üzenetmezőbe másold a cégnevet; ha nincs ilyen nézet, az ügynök saját próbabeszélgetésébe</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Nyisd meg</b> az ügynök <b>Preview / Előnézet</b> nézetét, ha van ilyen, vagy a saját próbabeszélgetését.</li>
+                <li><b>Küldd el</b> csak az alábbi cégnevet. Ne add mellé újra a feladatleírást: ezzel teszteled, hogy a konfiguráció önmagában elég-e.</li>
+                <li>A futás alatt <b>ne küldj</b> rutinszerű „folytasd” üzenetet. Az ügynök a kész fájlokig dolgozzon. A kötelező felületi jóváhagyást viszont neked kell kezelned.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Letölthető, sablonhű HTML-t, <code>kutatas.json</code> fájlt és CSV-t, rövid korlátlistával.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">5. lépés · másolható szöveg</span>
+              <span class="szerep">Csak ennyit küldesz az ügynöknek</span>
+              <pre class="prompt-box">DHS Dräxlmaier Hungária Szolgáltató Kft.</pre>
+              <p class="megj">Feladatleírás nélkül: a többit az ügynök a beállításából tudja.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Próba, amely a beállítást teszteli</h5>
+              <p>Ha a kérés mellé újra odaírnád a feladatleírást, nem derülne ki, mit tud az ügynök magától.</p>
+              <p>Itt: egyetlen cégnév megy be, és a letölthető HTML + JSON + CSV a kész kimenet.</p>
+              <span class="tanulsag">puszta kutatási terv vagy összefoglaló nem kész kimenet.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>megérkezett a letölthető, sablonhű HTML, <code>kutatas.json</code> és CSV, rövid korlátlistával. <mark>Puszta kutatási terv vagy összefoglaló nem kész kimenet.</mark></span></p>
+          <div class="villamkerdes">
+            <span class="vk-cimke">Villámkérdés</span>
+            <p class="vk-kerdes">Mit küldesz az ügynöknek a próbán?</p>
+            <ul class="vk-valaszok">
+              <li><button type="button" data-visszajelzes="Nem: ha újra mellé adod a feladatleírást, nem derül ki, hogy a konfiguráció önmagában elég-e.">A cégnevet és mellé újra a teljes feladatleírást</button></li>
+              <li><button type="button" data-jo data-visszajelzes="Igen: csak a cégnév megy be; ezzel teszteled, hogy a konfiguráció önmagában elég-e.">Csak a cégnevet</button></li>
+              <li><button type="button" data-visszajelzes="Nem: a futás alatt ne küldj rutinszerű „folytasd” üzenetet; az ügynök a kész fájlokig dolgozzon.">A cégnevet, majd időnként egy „folytasd” üzenetet</button></li>
+            </ul>
+            <p class="vk-visszajelzes" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-6" data-csoport="3" data-csoport-nev="Próba és ellenőrzés" data-rovid="A kész eredmény ellenőrzése" data-ido="az ügynök">
+        <header class="lepes-fej">
+          <div><h3>A kész eredmény ellenőrzése</h3><span class="lepes-cimke">ugyanaz az ügynökbeszélgetés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Maradj itt</span><b>Ugyanaz az ügynökbeszélgetés</b><small>IDE: az üzenetmezőbe másold, ha a próba ellenőrzését vagy javítását kéred</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li><b>Töltsd le</b> a kapott HTML-t, JSON-t és CSV-t a saját helyi <code>Kimenetek/&lt;Ceg&gt;/&lt;YYYY-MM-DD&gt;</code> mappádba. Az ügynök ne állítsa, hogy közvetlenül ide mentett.</li>
+                <li><b>Nyisd meg</b> az 1. lépésben létrehozott általános sablont és az új profilt. Hasonlítsd össze a teljes szerkezetet; próbáld ki az év- és mutatóváltást, a pontos értékeket, a CSV-t és a nyomtatást.</li>
+                <li>Az alábbi promptot a teszt átvételéhez vagy hiba javításához <b>használd</b>.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>A végleges HTML + JSON + CSV letöltési linkjeit és a megmaradt korlátokat.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">6. lépés · másolható szöveg</span>
+              <span class="szerep">Ezt küldöd el, ha ellenőrzést vagy javítást kérsz</span>
+              <pre class="prompt-box">Végezd el a végső ellenőrzést a beolvasott sablonhoz és kutatási forrásokhoz mérve: teljes topológia, cégazonosság, pénzügyi évek/mutatók/egységek, hiányzó adatok, diagramok, vezérlők, forráslinkek, CSV, mobil- és nyomtatási nézet. A javítható hibát önállóan javítsd a megadott körhatáron belül. Add át a végleges HTML + JSON + CSV letöltési linkjeit és a megmaradt korlátokat. Ki nem próbált részt ne jelölj sikeresnek.</pre>
+              <p class="megj">A válaszban azt nézd: mit jelölt kipróbáltnak, és mit nem.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Végső ellenőrzés a sablonhoz és a forrásokhoz mérve</h5>
+              <p>Az ellenőrzés mércéje a beolvasott sablon és a kutatási források. A javítható hibát az ügynök a megadott körhatáron belül önállóan javítja.</p>
+              <p>Itt: a rendes futásban ezt az ellenőrzést az ügynöknek a SKILL.md és az Utasítások alapján magától kell elvégeznie; a prompt a teszt átvételéhez való.</p>
+              <span class="tanulsag">a ki nem próbált rész nem jelölhető sikeresnek.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>a végleges fájlok ténylegesen letölthetők, és a kívánt formában vannak. A nem végzett ellenőrzések és a megmaradt hibák láthatók; <mark>nincs átvett Rondo-adat</mark>.</span></p>
+          <div class="callout tipp"><span class="callout-cim">Ellenőrizd</span>Tedd egymás mellé a sablont és az új profilt: ugyanaz-e a teljes szerkezet? Próbáld ki az év- és mutatóváltást, a pontos értékeket, a CSV-t és a nyomtatást.</div>
+        </div>
+      </section>
+
+      <section class="lepes" id="lepes-7" data-csoport="3" data-csoport-nev="Próba és ellenőrzés" data-rovid="Kész állapot és új próba" data-ido="mindkét helyszín">
+        <header class="lepes-fej">
+          <div><h3>Promptolás a kész állapotig, majd új próba</h3><span class="lepes-cimke">létrehozó beszélgetés, majd az ügynök új beszélgetése · az utolsó lépés</span></div>
+        </header>
+        <div class="lepes-test">
+          <div class="valts"><span><span class="valts-cimke">Két helyszín</span><b>Létrehozó beszélgetés, majd a mentett ügynök saját beszélgetése</b><small>konfigurációjavítás a Work-ben indított létrehozó folyamatban; új cégnév a mentett ügynök saját beszélgetésében</small></span></div>
+          <div class="lepes-racs">
+            <div class="mit-csinalsz"><h4>Mit csinálsz</h4>
+              <ul>
+                <li>Ha az 5–6. lépés próbáján hibát látsz, ugyanabban a létrehozó beszélgetésben <b>kérd</b> a konkrét ügynök javítását. Írd le a konkrét eltérést: <b>mi történt, mi az elvárt eredmény</b>. Kérj javítást, majd próbáld újra; ne készíts új ügynököt.</li>
+                <li>A konfigurációt a lenti prompttal <b>ellenőriztesd</b>. A kötelező végső mentést vagy megerősítést a felületen végezd el, ha szükséges; a hozzáférés maradjon saját/privát.</li>
+                <li>A mentett ügynök új beszélgetésében <b>adj meg</b> egy másik cégnevet. Siker esetén a teljes folyamat új feladatleírás nélkül is végigfut.</li>
+                <li>Helyi skill- vagy sablonmódosításkor a két fájl új példányát a létrehozó beszélgetésben <b>add át</b>, és prompttal kérd az ügynök frissítését.</li>
+              </ul>
+            </div>
+            <div class="mit-kapsz"><h4>Mit kapsz</h4><p>Kimutatást arról, mi mentett állapot, és mi csak vázlat vagy még kézi lépés; majd egy új cégnévre a teljes kimenetet.</p></div>
+          </div>
+          <div class="pelda-par">
+            <div class="pelda">
+              <span class="pelda-cimke">7. lépés · másolható prompt</span>
+              <span class="szerep">Ezt küldöd el a létrehozó beszélgetésben</span>
+              <pre class="prompt-box">Végezd el a meglévő „Oriana ügyfélkutatás” ügynök végső konfiguráció-ellenőrzését. Ellenőrizd a célját, az állandó utasítást, a hozzárendelt SKILL.md és HTML-sablon elérését, valamint a kutatási és fájlkészítési képességeket. Ha találsz javítható konfigurációs hibát, javítsd és ellenőrizd újra; ne hozz létre másik ügynököt.
+Mondd meg, mi mentett állapot és mi csak vázlat vagy még kézi lépés. Ne állíts mentést bizonyíték nélkül, és ne publikálj vagy ossz meg az engedélyem nélkül. A cél, hogy új beszélgetésben már csak egy cégnevet kelljen megadnom.</pre>
+              <p class="megj">Utána a mentett ügynök új beszélgetésébe már csak egy másik cégnevet írsz.</p>
+            </div>
+            <div class="altalanos">
+              <span class="alt-cimke">Mi ez általánosságban?</span>
+              <h5>Mentett állapot és vázlat</h5>
+              <p>Amit a létrehozó egy válaszban leír, az lehet mentett állapot, lehet csak vázlat, és lehet még rád váró kézi lépés. A három nem ugyanaz.</p>
+              <p>Itt: a prompt kéri, hogy a létrehozó mondja meg, melyik melyik, és ne állítson mentést bizonyíték nélkül.</p>
+              <span class="tanulsag">akkor kész az ügynök, ha új beszélgetésben már csak egy cégnevet kell megadnod.</span>
+            </div>
+          </div>
+          <p class="kesz-ha"><b>Kész, ha</b><span>ugyanaz a mentett ügynök új beszélgetésben, <mark>egyetlen cégnévre</mark> elkészíti a teljes kimenetet. A nyitott hozzáférési vagy képességkorlátokat külön feljegyezted.</span></p>
+          <div class="callout figyelj"><span class="callout-cim">Figyelj</span>Automatikus helyi mappaszinkron <mark>nincs</mark>: ha helyben módosítod a skillt vagy a sablont, az ügynök csak akkor kapja meg, ha az új példányt átadod. Publikálás és megosztás csak a te engedélyeddel történhet.</div>
+        </div>
+      </section>
+
+      <div class="fogalmak">
+        <span class="fg-cimke">A blokk végén</span>
+        <h3>Fontos fogalmak és megjegyzendők: próba és ellenőrzés</h3>
+        <dl>
+          <div><dt>Preview / Előnézet</dt><dd>Az ügynök nézete, ahol a próbát futtatod, ha van ilyen; különben az ügynök saját próbabeszélgetése.</dd></div>
+          <div><dt>Kész kimenet</dt><dd>Letölthető, sablonhű HTML, <code>kutatas.json</code> és forrásolt CSV. Terv, részleges HTML vagy szöveges felkészítő nem elég.</dd></div>
+          <div><dt>JSON</dt><dd>Egyszerű, szöveges adatformátum rekordok tárolására és átadására.</dd></div>
+          <div><dt>CSV</dt><dd>Vesszővel vagy pontosvesszővel tagolt szöveges táblázatfájl; Excelben megnyitható.</dd></div>
+          <div><dt>Konkrét eltérés</dt><dd>A javítási kérés két része: mi történt, és mi az elvárt eredmény.</dd></div>
+        </dl>
+        <h4>Jegyezd meg</h4>
+        <ul class="megjegyzendo">
+          <li>A próbán csak a cégnevet küldöd el: ezzel teszteled, hogy a konfiguráció önmagában elég-e.</li>
+          <li>A ki nem próbált rész nem jelölhető sikeresnek.</li>
+          <li>Hibánál ugyanazt az ügynököt javíttatod; új ügynököt nem készítesz.</li>
+          <li>Automatikus helyi mappaszinkron nincs.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="emlekezteto" aria-labelledby="emlekezteto-cim">
+    <h2 id="emlekezteto-cim">Gyors emlékeztető: mit hová másolsz?</h2>
+    <table>
+      <thead><tr><th>Mit?</th><th>Hová?</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#lepes-0">0.0 teendőlista</a></td><td>Kézi felületi lépés: új, üres ügynök, csak névvel. Nem küldjük el promptként.</td></tr>
+        <tr><td><a href="#lepes-1">1. prompt</a></td><td>A helyi 1-es mappát elérő Work-beszélgetésbe.</td></tr>
+        <tr><td><a href="#lepes-2">2. beállítási prompt</a></td><td>A 0.0 lépésben kézzel létrehozott ügynök Work-ben indított beállító / Creator beszélgetésébe.</td></tr>
+        <tr><td>Az 1. lépésben készített SKILL.md + HTML-sablon</td><td>A Work-ben indított létrehozó folyamatnak adjuk át, ha még nem éri el őket. A 3. prompt ellenőrzi a tartós hozzárendelést.</td></tr>
+        <tr><td><a href="#lepes-3">3. ellenőrző prompt</a></td><td>Ugyanabba a Work-ben indított létrehozó beszélgetésbe; szükség esetén a két fájl csatolásával.</td></tr>
+        <tr><td><a href="#lepes-4">4. blokk</a></td><td>Ugyanabba a Work-ben indított létrehozó beszélgetésbe: ez kéri az állandó futási szabályok rögzítését.</td></tr>
+        <tr><td><a href="#lepes-5">5. cégnév</a>, majd szükség esetén a <a href="#lepes-6">6. prompt</a></td><td>Az ügynök saját próbabeszélgetésébe.</td></tr>
+        <tr><td><a href="#lepes-7">7. ellenőrző prompt</a></td><td>Ugyanabba a Work-ben indított létrehozó beszélgetésbe; kötelező végső megerősítés a felületen, ha szükséges.</td></tr>
+      </tbody>
+    </table>
+    <p>Az útmutató nem használ előkészített skillt, általános sablont, promptfájlt vagy archivált kimenetet. Az új fájlok mind az 1. lépés eredményei. A kiinduló anyag kizárólag a saját 1-es feladatod tartalma.</p>
+  </section>
+
+  <section id="validalas" aria-labelledby="validalas-cim">
+    <h2 id="validalas-cim">Mitől jó az eredmény</h2>
+    <p class="lead">A lépések „Kész, ha” feltételei egy helyen. Pipáld ki, mielőtt késznek tekinted az ügynököt.</p>
+    <ul class="checklist">
+      <li data-id="v1"><div>Egyetlen saját, névvel ellátott ügynök van („Oriana ügyfélkutatás”); második nem készült.</div></li>
+      <li data-id="v2"><div>A gyökérben megvan a <code>SKILL.md</code>, a <code>Forrasok</code> alatt egyetlen általános sablon, és a sablon megnyitható; az eredeti az 1-es mappában változatlan.</div></li>
+      <li data-id="v3"><div>A Creator visszajelezte a ténylegesen elvégzett tartós hozzárendelést vagy a konkrét kézi hiányt; a beállított elemek és a még hiányzó hozzáférések egyértelműek.</div></li>
+      <li data-id="v4"><div>Az ügynök egy cégnévtől önállóan jut el a teljes HTML + JSON + CSV átadásig.</div></li>
+      <li data-id="v5"><div>A végleges fájlok ténylegesen letölthetők, és a kívánt formában vannak; puszta kutatási terv vagy összefoglaló nem kész kimenet.</div></li>
+      <li data-id="v6"><div>A nem végzett ellenőrzések és a megmaradt hibák láthatók; nincs átvett Rondo-adat.</div></li>
+      <li data-id="v7"><div>Ugyanaz a mentett ügynök új beszélgetésben, egyetlen cégnévre elkészíti a teljes kimenetet; a nyitott hozzáférési vagy képességkorlátokat külön feljegyezted.</div></li>
+    </ul>
+  </section>
+
+  <section id="fogalmak" aria-labelledby="fogalmak-cim">
+    <div class="fogalmak">
+      <span class="fg-cimke">Az egész gyakorlat</span>
+      <h3 id="fogalmak-cim">Fontos fogalmak és megjegyzendők</h3>
+      <dl>
+        <div><dt>Három helyszín</dt><dd>Helyi fájlokat elérő Work-beszélgetés; a Work-ben indított ügynöklétrehozó beszélgetés; az ügynök Preview / Előnézet nézete vagy saját beszélgetése.</dd></div>
+        <div><dt>Munkatérfüggő elérhetőség</dt><dd>A felületi elnevezés és az elérhetőség a munkatértől függ. Ha az ügynöklétrehozás vagy a fájlkészítés nem elérhető, azt jelezni kell.</dd></div>
+        <div><dt>MCP</dt><dd>Model Context Protocol: nyílt szabvány, amellyel az AI-alkalmazás külső rendszerekhez, adatforrásokhoz és eszközökhöz kapcsolódik. Ebben a gyakorlatban nincs SharePoint/MCP: az ügynök a feltöltött példányokkal dolgozik.</dd></div>
+      </dl>
+      <h4>Jegyezd meg</h4>
+      <ul class="megjegyzendo">
+        <li>A 0.0 teendőlista kézi lépés; nem küldöd el promptként.</li>
+        <li>Egy prompt nem kapcsol be hiányzó jogosultságot.</li>
+        <li>A kész állapot a letölthető HTML + JSON + CSV; a terv vagy az összefoglaló nem az.</li>
+        <li>Akkor kész az ügynök, ha új beszélgetésben már csak egy cégnevet kell megadnod.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="vidd-haza" aria-labelledby="vidd-haza-cim">
+    <h2 id="vidd-haza-cim">Kapcsolódó oldalak</h2>
+    <div class="kovetkezo sav-all">
+      <div><span class="cimke">Ebből indul</span><h3>Ügyfélprofil use case 1: cégkereséstől az interaktív ügyfélprofilig</h3><p>Négy rövid prompt, amelyből a kutatási anyag és a kész Rondo HTML születik.</p></div>
+      <a class="gomb" href="uc1-ugyfelprofil-notebook.html">◀ Vissza az 1. use case-re</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · Önálló Prompt Guide · Minden másolandó szöveg ezen az oldalon van. Nem kell előkészített skill, sablon vagy segédfájl.</span><span><a href="../index.html">Napi térkép</a> · <a href="../START.html">Beállítás (START)</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="uc1-ugyfelprofil-notebook.html" rel="prev">◀ 1. use case</a>
+      <a href="../index.html#ugyfelprofil">Ügyfélprofil use case-ek</a>
+      <a href="../index.html" rel="next">Napi térkép ▶</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+<script src="../_assets/wenova-motion.js"></script>
+<script src="../_assets/jelenetek/uc.js"></script>
+</body>
+</html>
