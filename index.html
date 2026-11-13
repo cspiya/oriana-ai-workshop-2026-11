@@ -35,7 +35,7 @@
         <li><a href="#indulas"><b>▶</b>Indulás 5 lépésben</a></li>
         <li><a href="00 Eloadas/ai-tortenet-eloadas.html">Nyitó előadás</a></li>
         <li><a href="#blokkok">Gyakorlatok</a></li>
-        <li><a href="Notebookok/esettanulmany-kovetelmenyek.html">Esettanulmány</a></li>
+        <li><a href="#bonusz">Bónusz: esettanulmány</a></li>
         <li><a href="#kiegeszito">Kiegészítő gyakorlatok</a></li>
         <li><a href="#segedanyagok">Segédanyagok</a></li>
         <li><a href="#elakadas">Ha elakadsz</a></li>
@@ -108,6 +108,7 @@ Ha a letöltés vagy a kibontás elakad, a kipróbált parancsot itt találod, a
       <p>Az időpontok azt mutatják, hogyan zajlott a nap 2026. november 12-én; önálló feldolgozásnál a sorrend számít, az óra nem. A két sáv (<strong>BA</strong>: üzleti elemző, <strong>Sales-Account</strong>) a 4. és az 5. gyakorlatban, valamint 15:10-től a két szekcióban párhuzamosan halad; a sávot a <code>profil.md</code> rögzíti. 15:10-től a BA-szekció a 6b gyakorlaton, a Sales-Account szekció az Ügyfélprofil agenten dolgozik. A délelőtti Ügyfélprofil promptokkal blokk közös: sales és BA együtt dolgozik. A 4. és az 5. gyakorlat a RONDO kitalált projektjének forrásaiból dolgozik, a 7. gyakorlat a saját folyamatodból.</p>
     </div>
     <ol class="nap-blokkok">
+      <li class="blokk"><span class="ido">nyitó<small>kb. 20 perc</small></span><div><h3>Nyitó előadás: honnan jött az AI, és miért most? <span class="badge all">közös</span></h3><p>A workshop elején elhangzott előadás lapozható diákon, mindegyik mellett a kísérő magyarázattal: mi az AI, a három hajtóerő, hogyan tanul egy neurális háló, hogyan jósol egy nyelvi modell, és mit jelent ez a napi munkában. Beállítás nélkül, böngészőben végigjárható.</p><span class="who">Piya Csaba · 14 dia</span></div><a class="gomb" href="00 Eloadas/ai-tortenet-eloadas.html">Előadás</a></li>
       <li class="blokk"><span class="ido">09:00-09:40</span><div><h3>0. Saját feladat és munkamenet: „mire használom holnaptól” <span class="badge all">közös</span></h3><p>AI-alapok és célkártya (09:00-09:20), majd munkamenet, felület és újdonságok (09:20-09:40). Indítás: <span class="say">Kezdjük a 0. gyakorlatot.</span></p><span class="who">Csaba · 40 perc · GPT-6 Luna</span></div><a class="gomb" href="Notebookok/00-halado-setup-notebook.html">Notebook</a></li>
       <li class="blokk"><span class="ido">09:40-10:15</span><div><h3>1. Oriana DNS v0.1 és fiktív DNS-demó <span class="badge all">közös</span></h3><p>A cég közös alapja: verziózott, gazdával ellátott tudáscsomag, amelyet a ChatGPT is olvas. Csoportmunka, forrásellenőrzéssel. A valós DNS a saját gépeden és Oriana-fiókodban marad.</p><span class="who">Csaba (demó), csoportmunka · 35 perc · GPT-6 Luna</span></div><a class="gomb" href="Notebookok/01-dns-notebook.html">Notebook</a></li>
       <li class="blokk"><span class="ido">10:15-11:15</span><div><h3>Ügyfélprofil promptokkal: cégkereséstől az interaktív ügyfélprofilig <span class="badge all">közös</span></h3><p>Négy rövid prompt ugyanabban a beszélgetésben: cégkeresés és első üzleti kép, mélyítés és ellenőrzés több forrásban, Oriana arculatú HTML ügyfélprofil, vizuális és interaktív finomítás. Minden prompt kimásolható az oldalról.</p><span class="who">60 perc · kimenet: Oriana HTML ügyfélprofil</span></div><a class="gomb" href="Notebookok/uc1-ugyfelprofil-notebook.html">Notebook</a></li>
@@ -121,6 +122,24 @@ Ha a letöltés vagy a kibontás elakad, a kipróbált parancsot itt találod, a
       <li class="blokk"><span class="ido">16:05-16:30</span><div><h3>7. Saját folyamat átvitele és továbbvitele <span class="badge all">közös</span></h3><p>Saját brief (16:05), majd rögzítés és beszámoló (16:20): mit viszel át holnaptól, mi a következő lépés, mire vállalkozol.</p><span class="who">Csaba (közös), mindkét tréner · 25 perc · GPT-6 Luna</span></div><a class="gomb" href="Notebookok/07-sajat-atvitel-notebook.html">Notebook</a></li>
       <li class="blokk"><span class="ido">45 perc<small>saját projektre</small></span><div><h3>Projekt-szabályrendszer promptokkal: saját orchestrator, maker, reviewer és AGENTS.md <span class="badge all">közös</span></h3><p>Kilenc rövid prompttal összerakod a saját projekted szabálygyűjteményét BA vagy Sales munkára. Te a célt mondod, az AI kérdez és megírja a szabályokat; a végén eldöntöd, projektszabály marad-e, vagy javaslatként megy a céges DNS-be. Az oldal vezet: a promptokat onnan másolod.</p><span class="who">45 perc · GPT-6 Luna · kimenet: bemásolható szabálycsomag</span></div><a class="gomb" href="Notebookok/uc3-szabalyrendszer-notebook.html">Notebook</a></li>
     </ol>
+  </section>
+
+  <section id="bonusz" aria-labelledby="bonusz-cim">
+    <div class="szakasz-fej"><span class="matrica lila">Bónusz</span><h2 id="bonusz-cim">Esettanulmány: nagy követelményanyagból követhető specifikáció</h2>
+      <p>Hogyan lesz egy több száz oldalas, ügyfél által írt igényanyagból funkcionális specifikáció úgy, hogy semmi ne maradjon ki, és minden tétel visszakövethető legyen? Ez a bemutató rendszerszemlélettel válaszol: nem egy nagy prompt, hanem leltár, elemi követelmények, kapcsolatok, ellenőrzés és változáskövetés, amelyek együtt egy rendszert adnak.</p>
+    </div>
+    <div class="bonusz-doboz">
+      <a class="bonusz-kep" href="Notebookok/esettanulmany-kovetelmenyek.html"><img src="07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-1-nyito.jpg" alt="A ChatGPT bemutatójának nyitóképe" loading="lazy"><img src="07%20usecase%20Kovetelmenykovetes/kepek/claude-1-nyito.jpg" alt="A Claude bemutatójának nyitóképe" loading="lazy"></a>
+      <div>
+        <ul>
+          <li><strong>Az út:</strong> a workshop végén bediktált kérdéstől a profi kutatási megbízásig, négy lépésben.</li>
+          <li><strong>Két megoldás egymás mellett:</strong> ugyanazt a megbízást a ChatGPT és a Claude is megkapta; mindkét interaktív bemutató itt működik.</li>
+          <li><strong>A tanulság:</strong> mitől lett sokkal jobb az eredmény, és hogyan csináld ugyanezt a saját nehéz kérdéseddel.</li>
+        </ul>
+        <p class="bonusz-gombok"><a class="gomb" href="Notebookok/esettanulmany-kovetelmenyek.html">Az esettanulmány ▶</a> <a href="07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html">ChatGPT-bemutató</a> · <a href="07%20usecase%20Kovetelmenykovetes/claude/bemutato.html">Claude-bemutató</a></p>
+        <p class="bonusz-megj">Minden példaadat kitalált oktatási minta; a javasolt módszert valós környezetben még senki nem próbálta ki.</p>
+      </div>
+    </div>
   </section>
 
   <section id="kiegeszito" aria-labelledby="kiegeszito-cim">

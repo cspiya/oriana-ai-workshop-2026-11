@@ -14,6 +14,7 @@
 (function () {
   'use strict';
   var DAY = [
+    { id: 'ea', rovid: 'Előadás', t: 'nyitó', n: 'Nyitó előadás: honnan jött az AI, és miért most?', href: '00%20Eloadas/ai-tortenet-eloadas.html', sav: 'all', extra: true },
     { id: '00', rovid: 'Alapozás', t: '09:00', n: 'Saját feladat, AI-alapok', href: 'Notebookok/00-halado-setup-notebook.html', sav: 'all' },
     { id: '01', rovid: 'DNS', t: '09:40', n: 'Oriana DNS', href: 'Notebookok/01-dns-notebook.html', sav: 'all' },
     { id: 'uc1', rovid: 'Ügyfélprofil', t: '10:15', n: 'Ügyfélprofil promptokkal', href: 'Notebookok/uc1-ugyfelprofil-notebook.html', sav: 'all' },
@@ -25,7 +26,8 @@
     { id: '06b', rovid: 'BA-szekció', t: '15:10', n: 'BA-szekció: keresztreferencia, képernyőterv, dokumentáció kódból', href: 'Notebookok/06b-ba-utotag-notebook.html', sav: 'ba' },
     { id: 'uc2', rovid: 'Sales: ügynök', t: '15:10', n: 'Sales-Account szekció: Ügyfélprofil agent', href: 'Notebookok/uc2-ugyfelprofil-agent-notebook.html', sav: 'sa' },
     { id: '07', rovid: 'Saját folyamat', t: '16:05', n: 'Saját folyamat átvitele', href: 'Notebookok/07-sajat-atvitel-notebook.html', sav: 'all' },
-    { id: 'uc3', rovid: 'Projekt-szabályok', t: '45 perc', n: 'Projekt-szabályrendszer: saját orchestrator, maker, reviewer', href: 'Notebookok/uc3-szabalyrendszer-notebook.html', sav: 'all' }
+    { id: 'uc3', rovid: 'Projekt-szabályok', t: '45 perc', n: 'Projekt-szabályrendszer: saját orchestrator, maker, reviewer', href: 'Notebookok/uc3-szabalyrendszer-notebook.html', sav: 'all' },
+    { id: 'eset', rovid: 'Esettanulmány', t: 'bónusz', n: 'Bónusz esettanulmány: nagy követelményanyagból követhető specifikáció', href: 'Notebookok/esettanulmany-kovetelmenyek.html', sav: 'ba', extra: true }
   ];
   // Kiegészítő gyakorlatok: nincsenek a napi időrendben (2026-11-12-i döntés), de a tananyag részei és ugyanúgy indíthatók.
   var KIEG = [
@@ -446,7 +448,7 @@
     document.querySelectorAll('ul.jelveny-racs').forEach(function (ul) {
       if (ul.children.length) return;
       DAY.concat(KIEG).forEach(function (d) {
-        if (d.brk) return;
+        if (d.brk || d.extra) return; // az előadáshoz és az esettanulmányhoz nincs jelvény
         var megvan = false; try { megvan = localStorage.getItem('wenova-jelveny:' + d.id) === '1'; } catch (e) { megvan = false; }
         var li = document.createElement('li'); if (megvan) li.className = 'megvan';
         li.innerHTML = '<span class="jelveny' + (megvan ? ' megvan' : '') + '">' + (megvan ? CSILLAG : '?') + '</span><b>' + esc(JELVENY_NEV[d.id] || d.rovid || d.n) + '</b><a href="' + pre + d.href + '">' + esc((/^uc/.test(d.id) ? '' : d.id + ' · ') + (d.rovid || d.n)) + '</a><span class="sr-only">' + (megvan ? 'jelvény megszerezve' : 'még nincs meg') + '</span>';
