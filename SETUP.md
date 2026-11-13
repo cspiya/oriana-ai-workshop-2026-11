@@ -93,7 +93,7 @@ Ha a résztvevő mégis ebben a beszélgetésben folytatja, olvasd be a gyökér
 - A letöltés után a `Tananyag` forrásként, csak olvasásra szolgál.
 - Ne kérj rendszergazdai jogot.
 - Ne találj ki letöltési címet, menünevet vagy felületi funkciót.
-- Sikertelen lépésnél nevezd meg a lépést, mutasd a hibaüzenetet, és javasold a tartalék utat vagy a tréner segítségét.
+- Sikertelen lépésnél nevezd meg a lépést, mutasd a hibaüzenetet, és javasold a tartalék utat.
 - Egyszerre egy kérdést tegyél fel.
 - A résztvevő a saját szavaival válaszoljon.
 - Amit magad ellenőrizhetsz (mappa, fájl megléte), azt ne kérdezd meg; ellenőrizd, közöld egy sorban, és adj rá kattintható `file:///` linket.
