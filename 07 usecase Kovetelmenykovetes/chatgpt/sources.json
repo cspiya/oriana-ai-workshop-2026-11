@@ -1,0 +1,381 @@
+{
+  "research_date": "2026-11-12",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "ISO 29148 katalógus",
+      "url": "https://www.iso.org/standard/72089.html",
+      "publisher": "ISO",
+      "year": 2018,
+      "accessed": "2026-11-12",
+      "source_type": "standard_catalog",
+      "scope": "Hatókör és információs tételek",
+      "limitations": "Csak katalógus és kivonat; nem teljes szöveg vagy megfelelőségi értékelés."
+    },
+    {
+      "id": "S02",
+      "title": "NASA Systems Engineering Handbook",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "publisher": "NASA",
+      "year": 2016,
+      "accessed": "2026-11-12",
+      "source_type": "handbook",
+      "scope": "Appendix C: követelmények és kétirányú nyomon követés",
+      "limitations": "Rendszermérnöki útmutató, nem ügyfél-specifikus szabvány."
+    },
+    {
+      "id": "S03",
+      "title": "SWE-055 Requirements Validation",
+      "url": "https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695440/SWE-055%2B-%2BRequirements%2BValidation",
+      "publisher": "NASA",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "handbook",
+      "scope": "3.4, 3.9–3.10: validálás, mátrix, életciklus",
+      "limitations": "NASA-környezet; a hivatkozott oldal változhat."
+    },
+    {
+      "id": "S04",
+      "title": "driveItem delta",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-delta?view=graph-rest-1.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Lapozás, deltaLink, törlés, legutolsó állapot",
+      "limitations": "Nem eseménynapló, a köztes változatok nem mind látszanak."
+    },
+    {
+      "id": "S05",
+      "title": "Document Intelligence layout",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout?view=doc-intel-4.0.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Office page units, képek támogatási korlátja",
+      "limitations": "A szolgáltatásverzió, formátum és bemenet szerint változhat."
+    },
+    {
+      "id": "S06",
+      "title": "Document Intelligence limits",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/service-limits?view=doc-intel-4.0.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "v4.0 fájlformátumok, Office és képek korlátai",
+      "limitations": "Nem bizonyít teljes tartalmi kinyerést."
+    },
+    {
+      "id": "S07",
+      "title": "Work item Batch Update",
+      "url": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/workitembatchupdate?view=azure-devops-rest-7.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Batch önálló részeredmények",
+      "limitations": "Dokumentált batch API verziója 4.1; nem tranzakciós ígéret."
+    },
+    {
+      "id": "S08",
+      "title": "Work Items Update",
+      "url": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/update?view=azure-devops-rest-7.1",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "JSON Patch test /rev, mezők és kapcsolatok",
+      "limitations": "API-példák; jogosultság és projektszabályok befolyásolják."
+    },
+    {
+      "id": "S09",
+      "title": "List driveItem versions",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-list-versions?view=graph-rest-1.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Verziólista és megőrzési beállítások",
+      "limitations": "Régi verzió megőrzése konfigurációfüggő."
+    },
+    {
+      "id": "S10",
+      "title": "Download driveItem content",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-get-content?view=graph-rest-1.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Aktuális tartalom és if-none-match",
+      "limitations": "Feltételes olvasás nem zárolás."
+    },
+    {
+      "id": "S11",
+      "title": "Chunk documents for RAG",
+      "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Darabolás és bemeneti tokenkorlát",
+      "limitations": "Nem garantálja a teljes visszakeresést."
+    },
+    {
+      "id": "S12",
+      "title": "Open and add text to Word document",
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/word/how-to-open-and-add-text-to-a-word-processing-document",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Document/body/p/r/t hierarchia",
+      "limitations": "Egyszerű példa; nem kész teljes kinyerő."
+    },
+    {
+      "id": "S13",
+      "title": "Structure of a WordprocessingML document",
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/word/structure-of-a-wordprocessingml-document?tabs=cs",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Csomagrészek, stories, lábjegyzet és komment",
+      "limitations": "Részlista, nem a minden lehetséges objektum teljes feldolgozása."
+    },
+    {
+      "id": "S14",
+      "title": "Change text in a table",
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/word/how-to-change-text-in-a-table-in-a-word-processing-document",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Word táblázatstruktúra",
+      "limitations": "Példa, nem általános kinyerési garancia."
+    },
+    {
+      "id": "S15",
+      "title": "Accept all revisions",
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/word/how-to-accept-all-revisions-in-a-word-processing-document",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Módosításkövetés programozott kezelése",
+      "limitations": "Nem üzleti felhatalmazás a módosítások elfogadására."
+    },
+    {
+      "id": "S16",
+      "title": "Lost in the Middle",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "publisher": "ACL / MIT Press",
+      "year": 2024,
+      "accessed": "2026-11-12",
+      "source_type": "research_paper",
+      "scope": "Absztrakt: pozíciófüggés két vizsgált feladatban",
+      "limitations": "Régebbi modellek és feladatok; nem becsülhető belőle az ügyfélprojektre hibaarány."
+    },
+    {
+      "id": "S17",
+      "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/8b4add8b0aa8749d80a34ca5d941c355-Abstract-Conference.html",
+      "publisher": "ICLR",
+      "year": 2024,
+      "accessed": "2026-11-12",
+      "source_type": "research_paper",
+      "scope": "Absztrakt: külső visszajelzés nélküli önjavítás",
+      "limitations": "Az adott gondolkodási feladatokra és kísérleti modellekre vonatkozik."
+    },
+    {
+      "id": "S18",
+      "title": "Link work items to objects",
+      "url": "https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/add-link?view=azure-devops",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Work item és test kapcsolatok, jogosultságok",
+      "limitations": "Kapcsolat léte nem igazolja tartalmának helyességét."
+    },
+    {
+      "id": "S19",
+      "title": "Associate automated tests with test cases",
+      "url": "https://learn.microsoft.com/en-us/azure/devops/test/associate-automated-test-with-test-case?view=azure-devops",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Tesztkód–test case–követelmény kapcsolat",
+      "limitations": "Hozzáférés, támogatott keretrendszer és konfiguráció szükséges."
+    },
+    {
+      "id": "S20",
+      "title": "Download contents of a driveItemVersion",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitemversion-get-contents?view=graph-rest-1.0",
+      "publisher": "Microsoft",
+      "year": null,
+      "accessed": "2026-11-12",
+      "source_type": "documentation",
+      "scope": "Korábbi konkrét verzió tartalma",
+      "limitations": "Aktuális verzióhoz másik tartalomletöltési végpont kell."
+    },
+    {
+      "id": "S21",
+      "title": "RULER",
+      "url": "https://arxiv.org/abs/2404.06654",
+      "publisher": "Hsieh és szerzőtársai / arXiv",
+      "year": 2024,
+      "accessed": "2026-11-12",
+      "source_type": "research_paper",
+      "scope": "Absztrakt: szintetikus keresés, többlépcsős követés és aggregálás",
+      "limitations": "Szintetikus benchmark és adott modellek; nem ügyfél-dokumentumok mérési eredménye."
+    }
+  ],
+  "claims": [
+    {
+      "id": "A01",
+      "statement": "A 29148 katalógusa követelménymérnöki folyamatokat és információs tételeket ír le.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S01"
+      ],
+      "locator": "Abstract",
+      "qualification": "A teljes szabványt nem állítjuk elolvasottnak."
+    },
+    {
+      "id": "A02",
+      "statement": "A NASA kézikönyv kétirányú követelmény-nyomkövetést és egyedi hivatkozhatóságot kér.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S02",
+        "S03"
+      ],
+      "locator": "Appendix C; SWE-055 3.9",
+      "qualification": "A NASA útmutatója kontextusfüggő."
+    },
+    {
+      "id": "A03",
+      "statement": "Az Open XML több storyt és külön csomagrészt használ.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "locator": "Structure and parts",
+      "qualification": "Egy parser lefedettségét saját próba bizonyítja."
+    },
+    {
+      "id": "A04",
+      "statement": "A Document Intelligence DOCX beágyazott és csatolt képeket nem elemez a read/layout modellel.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S05",
+        "S06"
+      ],
+      "locator": "Office file input restrictions",
+      "qualification": "A többi objektumfajtát külön vizsgálni kell."
+    },
+    {
+      "id": "A05",
+      "statement": "A delta a legutolsó elemállapotot és törléseket közli, nem minden köztes változtatást.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S04"
+      ],
+      "locator": "Remarks",
+      "qualification": "Lapozás és delta token követése szükséges."
+    },
+    {
+      "id": "A06",
+      "statement": "A fájlverziók megőrzése beállításfüggő; korábbi verzió külön végponton tölthető.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S09",
+        "S20"
+      ],
+      "locator": "Remarks; download version",
+      "qualification": "Baseline-hoz megőrzési szabály és saját snapshot is szükséges lehet."
+    },
+    {
+      "id": "A07",
+      "statement": "A DevOps PATCH példa revision testet és kapcsolatváltoztatást mutat; batch esetén részhibák lehetnek.",
+      "evidence_class": "documented_capability",
+      "source_ids": [
+        "S07",
+        "S08"
+      ],
+      "locator": "REST semantics; sample requests",
+      "qualification": "Saját idempotens újrapróbálkozás és egyeztetés kell."
+    },
+    {
+      "id": "A08",
+      "statement": "A hosszú kontextus használata a vizsgált modellnél feladattól és pozíciótól függően romlott.",
+      "evidence_class": "research_result",
+      "source_ids": [
+        "S16",
+        "S21"
+      ],
+      "locator": "Abstract",
+      "qualification": "Nem általánosított hibaarány és nem a jelenlegi kiválasztott rendszer tesztje."
+    },
+    {
+      "id": "A09",
+      "statement": "A vizsgált érvelési feladatokban a belső önjavítás külső visszajelzés nélkül gyakran nem javított.",
+      "evidence_class": "research_result",
+      "source_ids": [
+        "S17"
+      ],
+      "locator": "Abstract",
+      "qualification": "Nem bizonyítja, hogy minden önellenőrzés haszontalan."
+    },
+    {
+      "id": "A10",
+      "statement": "A teljes szerkezeti elszámolás szükséges, de nem elegendő a jelentésbeli teljesség bizonyításához.",
+      "evidence_class": "inference",
+      "source_ids": [
+        "S02",
+        "S03",
+        "S13",
+        "S16"
+      ],
+      "locator": "Appendix C; 3.4; stories; abstract",
+      "qualification": "Projektben független emberi referencia és hibamérés szükséges."
+    },
+    {
+      "id": "A11",
+      "statement": "M365-first regiszter és AI-val támogatott fordítószerű folyamat javasolt.",
+      "evidence_class": "recommendation",
+      "source_ids": [
+        "S04",
+        "S08",
+        "S13",
+        "S18"
+      ],
+      "locator": "Műszaki lehetőségek alapján",
+      "qualification": "Egyedi integrációt és felelősi döntéseket igényel."
+    },
+    {
+      "id": "A12",
+      "statement": "A pilot célértékei javasolt döntési küszöbök, nem gyártói vagy iparági teljesítményadatok.",
+      "evidence_class": "recommendation",
+      "source_ids": [],
+      "locator": "Pilot",
+      "qualification": "A tényleges kockázatok és mintaméret alapján kalibrálandók."
+    },
+    {
+      "id": "A13",
+      "statement": "A visszakeresés önmagában nem tanúsítja a forrás teljes feldolgozását.",
+      "evidence_class": "inference",
+      "source_ids": [
+        "S11",
+        "S16",
+        "S21"
+      ],
+      "locator": "Chunking; benchmark abstracts",
+      "qualification": "A visszakeresés segédlet; elszámolás alapja a forrásleltár."
+    }
+  ]
+}

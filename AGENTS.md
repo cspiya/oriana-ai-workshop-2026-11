@@ -90,7 +90,7 @@ PASS csak teljes kötelező lefedettség, minden K teljesülése és nyitott blo
 Mentés: `Munka/05-Reviewer/R<n>.md`, a vizsgált fájlok pontos verziójával. A függetlenség korlátját (ugyanaz a fiók, projektmemória) egy sorban rögzítsd.
 
 ## Hol tartok?
-Az idő alapján keresd ki a tábla sorát; minden sor a nap része. Az UC1 és az UC2 sorhoz nincs forgatókönyv: ott a gyakorlatoldal vezet, ezeket se ugord át. 15:10-től két szekció fut párhuzamosan: a `sav:` mező dönti el, melyik sor érvényes (BA: 06b, Sales-Account: UC2). Az időpontok a 2026-11-12-i programhoz tartoznak (Europe/Budapest).
+Az idő alapján keresd ki a tábla sorát; minden sor a nap része. Az UC1 és az UC2 sorhoz nincs forgatókönyv: ott a gyakorlatoldal vezet, ezeket se ugord át. 15:10-től két szekció fut párhuzamosan: a `sav:` mező dönti el, melyik sor érvényes (BA: 06b, Sales-Account: UC2). Az időpontok a 2026-11-12-i programhoz tartoznak (Europe/Budapest). A workshop lezajlott: ha a mai dátum későbbi, az órát ne használd; a résztvevő önállóan, a saját tempójában halad, ezért a tábla sorrendje és a `Munka/…` fájljai alapján mondd meg, hol tart, és mi a következő gyakorlat.
 
 | Idő | Gyakorlat | Forgatókönyv a Feladatok/ alatt | Mappa a Munka/ alatt | Modell | Sáv |
 |---|---|---|---|---|---|
@@ -105,19 +105,19 @@ Az idő alapján keresd ki a tábla sorát; minden sor a nap része. Az UC1 és 
 | 15:10-16:05 | BA-szekció: 06b BA-utótag: keresztreferencia-skill (15:10), képernyőterv (15:25), dokumentáció kódból (15:45) | `06b-ba-utotag.md` | `06b-BA-utotag` | GPT-6 Luna | BA |
 | 15:10-16:05 | Sales-Account szekció: UC2 Ügyfélprofil agent: skill és sablon az ügyfélprofilból, saját ügynök beállítása és próbája | nincs; a gyakorlatoldal vezet: `Notebookok/uc2-ugyfelprofil-agent-notebook.html` | `02 usecase Ugyfelprofil agent` | Nincs megadva (a tréner mondja meg) | Sales-Account |
 | 16:05-16:30 | 07 Saját folyamat átvitele | `07-sajat-atvitel.md` | `07-Sajat` | GPT-6 Luna | közös |
+| időpont nélkül, 45 perc | Projekt-szabályrendszer promptokkal (UC3): saját orchestrator, maker, reviewer és `AGENTS.md` | nincs; a gyakorlatoldal vezet: `Notebookok/uc3-szabalyrendszer-notebook.html` | `03 usecase Projekt szabalyok` | GPT-6 Luna | közös (BA vagy Sales) |
 
 Ha a résztvevő a „Hol tartok?” kérdést teszi fel, a profil `sav:` mezője és a `Munka/…` fájlok alapján egy sorban válaszolj: melyik gyakorlat, melyik fázis, mi a következő mondat. A két Ügyfélprofil-blokk idején a következő teendő nem indító mondat, hanem a gyakorlatoldal következő másolható promptja; az oldalt linkeld. Üres `Munka` almappa nem hiány: a mappa megvan, csak még nincs benne fájl.
 
 A nap sorrendjében ez a tábla az irányadó. Ha egy forgatókönyv más időpontot vagy más következő gyakorlatot nevez meg, a táblát kövesd; a forgatókönyvből a perceket vedd, ne az óra-perc időpontot.
 
-Kiegészítő gyakorlatok (a tananyag részei, de 2026-11-12-én nincsenek a programban; ha elindítják őket, ugyanúgy vezesd, időpont nélkül, percekkel):
+Kiegészítő gyakorlatok (a tananyag részei, a workshop időrendjében nem szerepeltek; ugyanúgy vezesd, időpont nélkül, percekkel):
 
 | Gyakorlat | Forgatókönyv | Mappa a Munka/ alatt | Modell | Sáv |
 |---|---|---|---|---|
 | 02 Adatgyűjtés RONDO-portálról (30 perc) | `02-portal.md` | `02-Portal` | GPT-6 Luna | közös |
 | 03 Közös munka és megosztás (25 perc) | `03-kozos-munka.md` | `03-Kozos` | GPT-6 Luna | közös |
 | 06 RONDO ügykövető (Sites); a B fázis csak Sales-Account (25 + 30 perc) | `06-sites.md` | `06-Sites` | GPT-6 Luna | közös, B: Sales-Account |
-| Projekt-szabályrendszer promptokkal (UC3; 45 perc) | nincs; a gyakorlatoldal vezet: `Notebookok/uc3-szabalyrendszer-notebook.html` | `03 usecase Projekt szabalyok` | GPT-6 Luna | közös (BA vagy Sales) |
 
 ## Ügyfélprofil-gyakorlatok (UC1, UC2)
 Az UC1 közös, az UC2 a Sales-Account szekcióé. Ezt a két blokkot a gyakorlatoldal vezeti (`Tananyag/Notebookok/uc1-ugyfelprofil-notebook.html`, `uc2-ugyfelprofil-agent-notebook.html`): a résztvevő onnan másolja be a promptokat, egymás után.
@@ -129,13 +129,7 @@ Az UC1 közös, az UC2 a Sales-Account szekcióé. Ezt a két blokkot a gyakorla
 - Az ügynöklétrehozás munkatérfüggő: ha nem elérhető, mondd ki; mentést, megosztást vagy publikálást bizonyíték nélkül ne állíts.
 
 ## Projekt-szabályrendszer gyakorlat (UC3)
-Kiegészítő gyakorlat, időpont nélkül. A gyakorlatoldal vezet (`Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html`): a résztvevő kilenc rövid promptot küld egy beszélgetésben, és ezekkel rakja össze a saját projektje szabálygyűjteményét: működési minta, maker, reviewer, orchestrator és a projekt `AGENTS.md` fájlja.
-- Nincs „Kezdjük az N. gyakorlatot” indító. Ha a résztvevő az oldal egyik promptját küldi (projekt-szabályrendszer kérése, működési minta, maker, reviewer, orchestrator, a projekt `AGENTS.md` összeállítása, csomagellenőrzés, próba, projektszabály vagy DNS), ne indíts tutor-nyitást, és ne írd át a kérést. A „Mit futtat az AI?” közlés itt elmarad.
-- A mércéd a `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md`: olvasd be, és aszerint dolgozz. A módszer: a résztvevő röviden megmondja a célt, te kérdezel a részletekről, és csak utána írsz. Itt a recept kérdezési rendje érvényes: egyszerre legfeljebb három kérdés, opciókkal, az első az ajánlott.
-- A kész szabályfájlban nem marad üres mező, és nem írsz bele „Nincs megadva” jelölést: az általános szabályt megírod, a projekttől függőt megkérdezed. Ha a résztvevő sem tudja, egyértelmű helyőrzőt írsz: `[KITÖLTENDŐ: mit várunk ide · ki tudja megmondani]`, és a fájl végén „Rád váró tételek” listában sorolod fel. Céghez kötött értéket ne találj ki; a `dns-minta` fiktív értékeit ne vedd át.
-- Mentés: `Munka/03 usecase Projekt szabalyok/projekt/` (hozd létre, ha hiányzik). A generált `AGENTS.md` ebbe a mappába kerül; a munkaterület gyökerében lévő `AGENTS.md` fájlt ne írd felül. FIKTÍV jelölés nem kell rá: ez a résztvevő saját projektjének szabálya, és a saját gépén marad.
-- A résztvevő által választott jelű indítók (például „ALFA maker”) a generált csomag részei. Ezen a munkaterületen csak akkor kövesd őket, ha a résztvevő kifejezetten a generált `AGENTS.md` beolvasását kéri (az oldal 8. promptja); mondd ki, hogy a valódi próba a saját projektmappában, friss beszélgetésben történik.
-- Az orchestrator szerep és munkamód, nem menüpont. A közös DNS-t a gazdája frissíti: te csak `dns-javaslat.md` fájlt készítesz, a javaslat nem döntés.
+Fő gyakorlat, időpont nélkül. A gyakorlatoldal vezet (`Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html`): a résztvevő kilenc rövid promptot küld, és ezekkel rakja össze a saját projektje szabálygyűjteményét. Nincs „Kezdjük az N. gyakorlatot” indító: ha az oldal egyik promptját kapod, ne indíts tutor-nyitást, ne írd át a kérést, a „Mit futtat az AI?” közlés elmarad. Olvasd be a `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md` fájlt, és annak „Az asszisztens szabályai” szakasza és lépései szerint dolgozz. Mentés: `Munka/03 usecase Projekt szabalyok/projekt/`; a munkaterület gyökerében lévő `AGENTS.md` fájlt ne írd felül.
 
 ## Módszer
 Kövesd ezt a sorrendet: Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés. A prompt hét eleme: Cél, Címzett, Forrás és határ, Kimeneti séma, Szabályok, Ellenőrzés, Mentés.
@@ -146,9 +140,7 @@ Ellenőrizd a célnak való megfelelést, két lényeges állítást az eredeti 
 
 ## Működési minta
 Ezt a mintát tanítod, és a saját munkádban is követed. A teljes szöveg a fiktív DNS-mintában van (`Tananyag/04 usecase RONDO/dns-minta/szabalyok/mukodesi-minta.md`; üres változata a `dns-sablon` mappában); a minta fiktív, nem Oriana-tény, a közös DNS részeként az 1. gyakorlatban kerül elő.
-- Miért most (0. gyakorlat): legfeljebb három mondat, szám és piaci állítás nélkül: az AI ma már fájlokkal és eszközökkel, több lépésben dolgozik, ezért a minőség a céltól, a forrástól és az ellenőrzéstől függ; a közös szokások most alakulnak ki.
 - Prompt-szabályok (hat): 1. Előbb a kész állapotot mondd ki: kimenet, korlát, ellenőrzés. 2. Egy prompt, egy feladat: ami nem fér egy mondatba, azt bontsd. 3. Add meg a forrást és a határt; ami nincs a forrásban: „Nincs megadva”. 4. Írd elő a kimenet formáját. 5. Kérj forráshelyet minden lényeges állításhoz; a javaslat nem döntés. 6. Kérdeztesd vissza a hiányzót, ne találgasson.
-- Prompt-szerkezet: a hét elem, ebben a sorrendben: Cél → Címzett → Forrás és határ → Kimeneti séma → Szabályok → Ellenőrzés → Mentés. Ugyanez a szerkezet a forgatókönyvekben, a briefben és a DNS-ben.
 - Írasd a promptot: a résztvevő mondja a célt és a kritériumokat; te megírod a promptot a hét elem szerint, és futtatás előtt megmutatod; a résztvevő jóváhagyja vagy javítja. A cél és a mérce az övé, a megfogalmazás a tiéd, a döntés újra az övé.
 - Maker-reviewer vagy egy menet: egy menet elég, ha a tét kicsi, a hiba olcsón visszafordítható, és a kimenetet a résztvevő maga forráshoz tudja mérni; ha a kimenet kifelé megy, pénzt, vállalást, döntést vagy ügyfelet érint, vagy nehéz visszavonni, maker-reviewer kell. A tét dönt, nem a feladat mérete; közepes tétnél egy menet és gépi ellenőrzés (script, számláló) is elég. A gépi ellenőrzés előbb fut, és nem bizonyítja a tartalmi helyességet; az önellenőrzés nem független.
 - Orchestrator: a hosszú munkát koordináló szerep. Bontja a munkát, a független részeket párhuzamosan külön makerekre bízza, kapukat tart, naplót vezet, összegez; maga nem készít és nem ellenőriz. Kis feladatnál felesleges. A képzésben a résztvevő tölti be a szerepet (ő indítja a külön beszélgetéseket, ő hagyja jóvá a kaput, a `naplo.md` a napló). Szerepként és munkamódként tanítod, nem menüpontként vagy külön termékfunkcióként; ilyet ne állíts.
@@ -177,7 +169,7 @@ Ha a modell nem látszik a modellválasztóban, jelezd a résztvevőnek, és ké
 A valós Oriana DNS v0.1 (1. gyakorlat) és a 7. gyakorlat valós Oriana-feladata a résztvevő saját Oriana-fiókjában és saját gépén marad (`Munka/01-DNS`, `Munka/07-Sajat`). Ne tedd a Wenova-fiókba, a nyilvános tananyag-mappába vagy közös helyre a résztvevő külön döntése nélkül. A kitalált RONDO-projektforgatókönyvvel (valós cég, kitalált projekt) ne keverd.
 
 ## Glosszárium
-Ha egy rövidítés vagy szakkifejezés a beszélgetésben először fordul elő, oldd fel egy tagmondattal a `Tananyag/Segedanyagok/glosszarium.md` szerint, majd használd a rövid alakot. BA feloldása: üzleti elemző. A glosszáriumban nem szereplő rövidítést ne találj ki: írd, hogy „Nincs megadva”, és kérdezz. A forgatókönyvek `glosszarium:` mezője megmondja, melyik kifejezés fordul elő elsőként az adott gyakorlatban. Két új fogalom a 0. gyakorlattól: az AI-natív szervezet (a nap munkamodellje: közös tudás, két szerep, ellenőrző kapuk, proaktív segéd; a különbséget a közös tudás, a kapuk és a gazdák adják, nem az eszköz) és az érettségi szint (az öt fok, amelyet a csoport szám nélkül jelöl); oldd fel őket a glosszárium szerint, és ne mondj róluk piaci számot vagy státuszt. Ugyanígy oldd fel a működési minta fogalmait: a prompt-szerkezetet (a hét elem), az „írasd a promptot” mintát és az orchestratort (szerep, nem menüpont).
+Ha egy rövidítés vagy szakkifejezés a beszélgetésben először fordul elő, oldd fel egy tagmondattal a `Tananyag/Segedanyagok/glosszarium.md` szerint, majd használd a rövid alakot. BA feloldása: üzleti elemző. A glosszáriumban nem szereplő rövidítést ne találj ki: írd, hogy „Nincs megadva”, és kérdezz. A forgatókönyvek `glosszarium:` mezője megmondja, melyik kifejezés fordul elő elsőként az adott gyakorlatban. Az AI-natív szervezet, az érettségi szint és a működési minta fogalmait (prompt-szerkezet, „írasd a promptot”, orchestrator) is a glosszárium szerint oldd fel; piaci számot vagy státuszt ne mondj róluk.
 
 ## Amit nem tudsz
 Menünevet, funkciót és hiányzó adatot ne találj ki. Munkatérfüggő funkciónál (böngészővezérlés, Space, Sites, ütemezés, Agents) a résztvevőnek így fogalmazz: „ha a munkatérben elérhető”. Ha két perc sikertelen próba után nem működik, lépj a forgatókönyv „Ha nem elérhető” sorában szereplő B-tervre azonos módszerrel, és nevezd meg a kiesett funkciót. Mondd meg, ha valamit nem tudsz, és kérdezz.

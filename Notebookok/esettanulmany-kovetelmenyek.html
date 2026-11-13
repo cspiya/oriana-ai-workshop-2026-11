@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esettanulmány: nagy követelményanyagból követhető specifikáció · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+<style>
+.et-bevezeto { max-width: 64rem; }
+.et-szakasz { scroll-margin-top: 5rem; }
+.et-szakasz > h2 { display: flex; align-items: center; gap: .8rem; font-size: 1.7rem; }
+.et-szam { flex: 0 0 auto; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 2px solid var(--ink); background: var(--jegyezd); color: var(--ink-fix); font-weight: 800; display: grid; place-items: center; font-size: 1.2rem; }
+.et-lepcso { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .7rem; counter-reset: l; max-width: none; }
+.et-lepcso > li { counter-increment: l; border: 2px solid var(--ink); border-radius: 14px; padding: .8rem 1rem .8rem 3.6rem; position: relative; background: var(--surface); margin: 0; }
+.et-lepcso > li::before { content: counter(l); position: absolute; left: .8rem; top: .75rem; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--ink); background: var(--accent); color: var(--ink-fix); font-weight: 800; display: grid; place-items: center; }
+.et-lepcso b { display: block; font-size: 1.05rem; }
+.et-lepcso p { margin: .3rem 0 0; max-width: 80ch; }
+.et-lepcso .et-ered { display: block; margin-top: .4rem; font-size: .9rem; color: var(--text-secondary); }
+.et-ket { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1rem 0; align-items: start; }
+.et-k { border: 2px solid var(--ink); border-radius: 18px; background: var(--surface); padding: 1rem 1.1rem; box-shadow: var(--kemeny-kis); min-width: 0; }
+.et-k h3 { margin: 0 0 .4rem; font-size: 1.15rem; }
+.et-k p, .et-k li { font-size: .95rem; }
+.et-k ul { padding-left: 1.2rem; margin: .4rem 0 0; }
+.et-k .et-szo { display: inline-block; font-family: var(--mono); font-weight: 800; font-size: .8rem; border: 2px solid var(--ink); border-radius: 999px; padding: .05rem .6rem; background: var(--jegyezd-soft); margin-bottom: .5rem; }
+.et-k pre.prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .82rem; max-height: 26rem; overflow-y: auto; }
+.et-m { display: inline-block; font-weight: 800; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: .05rem .7rem; }
+.et-m.g { background: var(--kesz-soft); color: var(--kesz-deep); } .et-m.c { background: var(--accent-soft); color: var(--accent-deep); }
+.et-par { margin: 1.6rem 0; }
+.et-par h4 { margin: 0; font-size: 1.1rem; }
+.et-par .et-mit { margin: .2rem 0 0; color: var(--text-secondary); max-width: 90ch; }
+.et-par figure { margin: 0; min-width: 0; }
+.et-par figcaption { margin-bottom: .4rem; }
+.et-par img, .et-vazlat img { display: block; width: 100%; height: auto; border: 2px solid var(--ink); border-radius: 12px; background: #fff; }
+.et-vazlat { max-width: 30rem; margin: .8rem 0 0; }
+.et-vazlat figcaption { font-size: .85rem; color: var(--text-secondary); margin-top: .3rem; }
+.et-tabla { overflow-x: auto; }
+.et-tabla table { width: 100%; } .et-tabla th { text-align: left; } .et-tabla td.sz { font-family: var(--mono); font-weight: 700; white-space: nowrap; }
+.et-elo { border: 2px solid var(--ink); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.et-elo .et-elo-fej { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .5rem .8rem; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
+.et-elo iframe { display: block; width: 100%; height: 34rem; border: 0; background: #fff; }
+.et-forras { font-size: .88rem; color: var(--text-muted); max-width: 90ch; }
+.et-merleg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1rem 0; }
+@media (max-width: 860px) { .et-ket, .et-merleg { grid-template-columns: 1fr; } .et-elo iframe { height: 26rem; } }
+</style>
+</head>
+<!-- Esettanulmány a workshop végéről. Források: a kiinduló ChatGPT-beszélgetés exportja (a szövegek szó szerint, eszköznapló nélkül), a ChatGPT kutatási csomagja és a Claude bemutatója;
+     a számok a két eredmény beágyazott adataiból számolva, 2026-11-13-án. Az összehasonlítást Claude írta: az oldal ezt kimondja. -->
+<body class="notebook v2" data-depth="1">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><small>Oriana × Wenova · 2026.11.12</small>ChatGPT-workshop</a>
+    <nav class="napi-nav" aria-label="A nap blokkjai"><ul class="daymap" aria-label="A gyakorlatok"></ul></nav>
+    <div class="topbar-tools"></div>
+  </div>
+</header>
+
+<main class="lap">
+
+  <section class="et-bevezeto" id="cel">
+    <div class="eyebrow"><span>Esettanulmány · a workshop végéről</span><span class="badge ba">BA</span></div>
+    <h1>Nagy követelményanyagból követhető specifikáció: egy kérdés útja a bediktált prompttól két modell kutatásáig</h1>
+    <p class="hero-sub">A workshop végén egy üzleti elemző kolléga kérdésére már nem jutott idő: hogyan lehet jól kezelni a nagy igényhalmazokat, amelyek jellemzően terjedelmes Word- és Excel-dokumentumokban érkeznek, beágyazott képekkel? A gyors, bediktált kérdésre kapott válasz nem volt elég jó. Ez az oldal azt mutatja meg, hogyan lett belőle négy lépésben két alapos, működő bemutató, és mit tanulhatsz ebből a saját nehéz kérdéseidhez.</p>
+    <nav class="ugro auto" aria-label="Ezen az oldalon">
+      <a href="#ut">Az út négy lépésben</a>
+      <a href="#prompt">A két prompt egymás mellett</a>
+      <a href="#mitol">Mitől lett jobb</a>
+      <a href="#egymas-mellett" class="fo">A két eredmény egymás mellett</a>
+      <a href="#elemzes">Összehasonlító elemzés</a>
+      <a href="#tanulsag">Mit vigyél magaddal</a>
+    </nav>
+    <div class="callout figyelj"><span class="callout-cim">Olvasd így</span>Ez egyetlen feladat egy-egy futása a két modellel, nem mérés és nem verseny. Minden példaadat kitalált (FIKTÍV OKTATÁSI MINTA); a javasolt módszert és eszközöket valós környezetben senki nem próbálta ki. Az összehasonlítást Claude írta, tehát az egyik résztvevő: ezért a megállapítások mellett ott vannak a számok és a működő bemutatók, hogy magad is megnézhesd.</div>
+  </section>
+
+  <section class="et-szakasz" id="ut" aria-labelledby="ut-cim">
+    <h2 id="ut-cim"><span class="et-szam">1</span>Az út négy lépésben</h2>
+    <ol class="et-lepcso">
+      <li><b>Bediktált kérdés, egy menetben</b>
+        <p>A kérdést élőszóban diktáltuk be, elírásokkal együtt, cél, forrás és kimeneti forma nélkül. A ChatGPT keresett a weben, egyszer visszakérdezett a környezetre, majd hosszú, szakmailag rendben lévő, de nagyon tömény szöveges választ adott.</p>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/02-elso-valasz.md">az első válasz szövege</a> (kb. 1300 szó, hat lépés, két táblázat). Jó nyersanyag, de a teremben senki nem tudta volna végigolvasni.</span></li>
+      <li><b>„Így nagyon tömény”: kérés vizuális változatra</b>
+        <p>Ugyanabban a beszélgetésben kértünk grafikus, dinamikus ábrás bemutatót. Készült egy négy nézetből álló kis interaktív ábra: áttekinthető, de a mélység és a bizonyíték hiányzott mögüle.</p>
+        <figure class="et-vazlat"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/elso-vazlat.jpg" alt="Az első gyors vázlat: hat lépésből álló folyamatábra négy füllel" loading="lazy"><figcaption>Az első gyors vázlat „Folyamat” nézete (képernyőkép).</figcaption></figure></li>
+      <li><b>Írasd meg a megbízást: prompt a prompthoz</b>
+        <p>Nem mi írtuk meg a profi promptot. Azt kértük a ChatGPT-től, hogy készítsen átadási dokumentumot egy másik beszélgetésnek, és kifejezetten azt, hogy a saját megoldásából semmit ne írjon bele: csak a problémát és az elvárt eredményt.</p>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/03-kutatasi-megbizas.md">a kutatási megbízás</a> (kb. 900 szó, hat fejezet).</span></li>
+      <li><b>Ugyanaz a megbízás két modellnek</b>
+        <p>A megbízást változtatás nélkül megkapta egy új ChatGPT-beszélgetés és a Claude is. Mindkettő önállóan kutatott, fiktív példát épített, és működő, interaktív bemutatót adott át.</p>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html">a ChatGPT bemutatója</a> és <a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html">a Claude bemutatója</a>. A tréner közlése szerint a ChatGPT-ben a GPT-6.1 Astra, a Claude-ban a Fable 5.2 modell dolgozott.</span></li>
+    </ol>
+  </section>
+
+  <section class="et-szakasz" id="prompt" aria-labelledby="prompt-cim">
+    <h2 id="prompt-cim"><span class="et-szam">2</span>A két prompt egymás mellett</h2>
+    <p>Balra az, amit bediktáltunk. Jobbra az, amit a ChatGPT írt belőle a kérésünkre. Mindkettő szó szerint szerepel.</p>
+    <div class="et-ket">
+      <div class="et-k"><span class="et-szo">1. lépés · 117 szó</span><h3>A bediktált kérdés</h3>
+        <pre class="prompt-box">Nagyon nagy méretű követelményleírásokat, amiket az úgyféle állít össze Word-dokumentumban, hogyan tudjuk átelakítani funkcionális specifikációkkal úgy, hogy utána az visszavalítható legyen: a funkcionális specifikációban szereplő egyes specifikációs tételek mely követelményekből eredeznek, és megfelelnek-e annak a követelménynek a specifikációban szereplő leírások Javasolj erre egy földalapozási módszertant és eszközkészletet. . Tehát a jelenlegi tapasztalat az, hogy nagyon nagy dokumentumok esetén, ha csak beadjuk neki, mondjuk egy ChatGPT-projektnek a nagy dokumentumot, hogy készítsen belőle funkcionális specifikációt, akkor nagyon sok mindent kihagy vagy rosszul ír meg. Ha ráeresztünk egy reviewert, akkor mindig talál újabb és újabb problémákat, és 10-15 kört is kell futtatni ahhoz, hogy egy jó minőségű dokumentum álljon elő. Iparági best practice-eket néznek, hogy ezt hogy kell megcsinálni jól.</pre>
+        <ul><li>A probléma benne van, a tapasztalat is (10–15 kör).</li><li>Nincs benne, milyen formában kérjük a választ, és mikor tekintjük késznek.</li><li>Nincs benne a környezet; erre a modell kérdezett vissza.</li><li>Az elírások (például „földalapozási módszertant”) a diktálásból maradtak.</li></ul>
+      </div>
+      <div class="et-k"><span class="et-szo">3. lépés · 909 szó</span><h3>A megbízás, amelyet a ChatGPT írt</h3>
+        <pre class="prompt-box">## Feladat
+
+Végezz önálló, forrásokkal alátámasztott kutatást arról, hogyan lehet nagy méretű, ügyfelek által összeállított Word-követelményleírásokból megbízható, ellenőrizhető és változáskövethető funkcionális specifikációt készíteni mesterséges intelligencia támogatásával.
+
+A kutatás alapján javasolj módszertant és eszközkészletet, majd mutasd be a megoldást közérthető, grafikus prezentációként vagy interaktív vizuális dashboardként. A bemutató konkrét példákon vezesse végig az információ átalakulását.
+
+A feladatkiírás kizárólag a problémát és az elvárt eredményt rögzíti. A feldolgozási módszert és a megoldás felépítését neked kell kidolgoznod.
+
+## Kiinduló helyzet
+
+Az ügyfelek nagy terjedelmű Word-dokumentumokban adják át az igényeiket. Ezekből funkcionális specifikációt kell készíteni, amely megfelelően és hiánytalanul írja le az elvárt működést.
+
+A jelenlegi tapasztalat szerint, ha a teljes dokumentumot egyszerűen feltöltjük például egy ChatGPT-projektbe, és funkcionális specifikáció készítését kérjük, az eredményből sok részlet kimarad, illetve több követelmény hibás értelmezéssel kerül bele.
+
+Külön ellenőr alkalmazásakor újabb és újabb problémák kerülnek elő. Előfordul, hogy 10–15 ellenőrzési és javítási kör szükséges az elfogadható eredményhez. Olyan megközelítést keresünk, amelynek minősége és teljessége átláthatóan ellenőrizhető.
+
+A jelenlegi munkakörnyezet Microsoft 365: Word, SharePoint és Azure DevOps. Vizsgáld a javaslat illeszthetőségét ehhez a környezethez. Ha további eszközt javasolsz, indokold annak szükségességét.
+
+Konkrét ügyféldokumentum nincs mellékelve. A bemutatáshoz készíts egyértelműen fiktív példákat. A dokumentumok pontos méretét, szerkezetét és a szervezeti adottságokat ne kezeld ismert tényként.
+
+## A megoldással szembeni elvárások
+
+A javaslat adjon érdemi választ az alábbiakra:
+
+- **Teljes forráslefedettség:** hogyan biztosítható és ellenőrizhető, hogy az eredeti anyag minden állítását és kérését feldolgoztuk? Minden elemről megállapítható legyen, mi lett a sorsa, akkor is, ha nem került belőle közvetlenül funkció a specifikációba.
+- **Pontos értelmezés:** hogyan maradnak meg a feltételek, kivételek, korlátozások és az egymástól távol szereplő, de összetartozó információk?
+- **Visszakövethetőség:** egy specifikációtételről megállapítható legyen, mely eredeti igényekből származik. Egy eredeti igényből kiindulva pedig látható legyen, hol és hogyan dolgoztuk azt ki.
+- **Tartalmi megfelelés:** hogyan ellenőrizhető, hogy a specifikáció ténylegesen megfelel az eredeti követelménynek? A puszta hivatkozás megléte önmagában nem elegendő.
+- **Ellentmondások és hiányok:** hogyan derülnek ki az eredeti igények közötti ellentmondások, többértelműségek és hiányzó információk? Mi történik velük a tisztázásig, és ki dönthet róluk?
+- **Változáskövetés:** egy forrásbeli módosításnál hogyan állapítható meg, mely követelmények, specifikációrészek és ellenőrzések érintettek?
+- **Konzisztens egész:** hogyan állítható elő egy adott állapothoz tartozó, egymással összhangban lévő teljes követelményrendszer és funkcionális specifikáció?
+- **Fenntartható ellenőrzés:** hogyan mérhető a minőség, és hogyan kerülhető el, hogy az ellenőrzési folyamat végtelen javítási körökké váljon?
+
+Különítsd el azt, ami ténylegesen bizonyítható, attól, ami csak valószínűsíthető. Mutasd meg a teljesség ellenőrzésének korlátait is; ne ígérj bizonyíték nélküli hibamentességet.
+
+## Kutatási feladat
+
+Keress iparági bevált gyakorlatokat, releváns szabványokat, kutatási eredményeket és dokumentált eszközképességeket.
+
+Vizsgáld meg:
+
+- Milyen okok vezethetnek a nagy dokumentumok feldolgozásakor kihagyásokhoz és félreértelmezésekhez?
+- Milyen módszerek alkalmasak ezek megelőzésére, felismerésére és javítására?
+- Milyen munkát végezhet megbízhatóan az automatizálás, és hol szükséges emberi értelmezés vagy döntés?
+- Milyen megoldási alternatívák vannak, és milyen feltételek mellett melyiket érdemes választani?
+- Milyen eszközök támogatják a javasolt működést, és milyen fejlesztés, integráció vagy szervezeti változás szükséges hozzájuk?
+- Milyen próbafeldolgozással és mérőszámokkal lehetne ellenőrizni, hogy a javaslat valóban javít a jelenlegi gyakorlaton?
+
+Elsődleges, ellenőrizhető forrásokra támaszkodj. A fontos állításokhoz adj hivatkozást. Válaszd szét a dokumentált képességeket, a gyártói állításokat, a saját következtetéseidet és a kipróbálást igénylő feltételezéseket.
+
+A kutatás eredményeként foglalj állást: adj indokolt, megvalósítható ajánlást, ne csak eszközlistát.
+
+## Vizuális bemutatás
+
+A fő átadandó eredmény egy jól érthető, áttekinthető vizuális bemutató legyen. Kerüld a hosszú szövegblokkokat és a túlzsúfolt diákat.
+
+Az ábrákból derüljön ki:
+
+- Mely rendszerek és szereplők vesznek részt a folyamatban?
+- Milyen lépések követik egymást, és hol vannak elágazások vagy visszatérések?
+- Az egyes lépéseknek mi a bemenete és a kimenete?
+- Pontosan milyen átalakítás történik az adatokon?
+- Milyen kapcsolatokat kell megőrizni az eredeti forrás és az abból készülő információk között?
+- Melyik lépésben milyen szabályokat kell betartani?
+- Hol és hogyan történik ellenőrzés, javítás és emberi döntés?
+- Hogyan terjed tovább egy változás hatása?
+
+Lehetőleg használj dinamikus vagy interaktív ábrákat. A néző tudja végigkövetni egy konkrét igény útját, megvizsgálni a kapcsolatait, és összehasonlítani egy módosítás előtti és utáni állapotot. Az interakció a megértést segítse.
+
+A bemutató adjon először könnyen befogadható áttekintést, majd tegye elérhetővé a részleteket. Ha a választott prezentációs formátum nem támogat dinamikus ábrákat, a működést egymást követő, jól összehasonlítható állapotokkal szemléltesd.
+
+## Végigvezetett példák
+
+Ugyanazt a fiktív példát vezesd végig a megoldás lényeges pontjain. Legyen látható az eredeti ügyfélmegfogalmazás, az értelmezés eredménye, a funkcionális kidolgozás, a kapcsolatok és az ellenőrzés bizonyítéka.
+
+A példák mutassák meg legalább:
+
+- Egy egyértelmű követelmény teljes útját.
+- Egy feltételt vagy kivételt tartalmazó igény feldolgozását.
+- Több dokumentumrészből összeálló igény kezelését.
+- Két egymásnak ellentmondó eredeti igény felismerését és további sorsát.
+- Egy hiányzó információ kezelését találgatás nélkül.
+- Egy eredeti kérés sorsát, amely nem kerül közvetlenül a funkcionális specifikációba.
+- Egy későbbi ügyfélmódosítás hatását és az új, konzisztens állapot előállítását.
+
+Az egyedi példák mellett azt is szemléltesd, hogyan működik a megközelítés a teljes nagy dokumentum szintjén: miből derül ki, hogy semmi nem maradt feldolgozatlan vagy elszámolatlan.
+
+## Az átadás akkor teljes, ha
+
+A bemutató alapján egy szakmai résztvevő meg tudja érteni, hogy mit kell csinálni az egyes lépésekben, milyen információ készül, hogyan kapcsolódik az eredeti forráshoz, és milyen bizonyíték alapján fogadható el.
+
+Az eredmény tartalmazza a kutatásból levezetett ajánlást, az eszközök szerepét, a vizuális folyamatbemutatást, a végigvezetett példákat, valamint a bevezetéshez javasolt első próba és értékelés módját.
+
+A teljes forrásfeldolgozás, a tartalmi helyesség, a változáskövetés és a konzisztencia ellenőrzésének módja legyen bemutatva. A fennmaradó bizonytalanságok és az emberi döntést igénylő pontok legyenek egyértelműek.
+</pre>
+      </div>
+    </div>
+    <p>A megbízást ezzel a kéréssel írattuk meg (szó szerint, szintén diktálva):</p>
+    <pre class="prompt-box">Csinálj ebből egy professzionális handoff dokumentumot, amit átadok egy másik sessionnek, hogy még egyszer csinálja meg ezt a kutatást, és találja ki a megoldást, és utána vizualizálja is. Tehát ne írj bele semmit abból, hogy te mit találtál ki, csak az eredeti problémát fogalmazd meg, és még azt tedd hozzá, hogy ezt vizuálisan, prezentáció formában, megfelelő ábrákkal, lehetőleg dinamikus ábrákkal, hogyan kapcsolódnak a rendszerek, a lépések egymáshoz, milyen folyamatok vannak, melyik lépésben mit kell csinálni, hogyan alakítsd át az adatot az egyik lépésből a másikban, mi az input és az output, és milyen szabályokat kell betartani, és ezt lehetőleg konkrét példákon keresztül vezetve, azért, hogy jól lehessen érteni, hogy akkor mit is csinál egy-egy adott követelmény során, hogy mit is csinál egy nagy dokumentummal, hogyan lesz belőle használható és később jól nyomon követhető követelményhalmaz, ami validálható és ellenőrizhető, hogy megfelel-e az eredeti igényeknek, és a változásai nyomon követhető, és bármikor konzisztens egész követelményrendszer előállítható belőle, és az egymásnak ellentmondó eredeti igényeket is felderíti, és nem hagy ki semmit abból, ami az eredeti forrásanyagban volt, tehát minden állítás és kérés, az lekövethető, hogy hogyan lett az funkcionális specifikációban megvalósítva, vagy mi lett a sorsa neki.</pre>
+    <div class="et-tabla"><table>
+      <thead><tr><th>A megbízás fejezete</th><th>Mit rögzít</th><th>A prompt hét eleméből</th></tr></thead>
+      <tbody>
+        <tr><td>Feladat</td><td>Kutatás, ajánlás és vizuális bemutató; a megoldást a címzettnek kell kidolgoznia.</td><td>Cél</td></tr>
+        <tr><td>Kiinduló helyzet</td><td>A mostani gyakorlat és a tapasztalt hiba; a környezet (Microsoft 365); mi nincs megadva, és mit nem szabad ténynek venni.</td><td>Forrás és határ</td></tr>
+        <tr><td>A megoldással szembeni elvárások</td><td>Nyolc kérdés, amelyre érdemi válasz kell: lefedettség, értelmezés, visszakövethetőség, tartalmi megfelelés, ellentmondások, változás, konzisztencia, fenntartható ellenőrzés.</td><td>Szabályok, Ellenőrzés</td></tr>
+        <tr><td>Kutatási feladat</td><td>Hat kutatási kérdés; elsődleges források; külön jelölve a dokumentált képesség, a gyártói állítás, a következtetés és a feltételezés.</td><td>Szabályok</td></tr>
+        <tr><td>Vizuális bemutatás, végigvezetett példák</td><td>Mit kell tudnia az ábráknak; hét kötelező példaeset ugyanazon a fiktív mintán.</td><td>Kimeneti séma, Címzett</td></tr>
+        <tr><td>Az átadás akkor teljes, ha…</td><td>Mikor fogadható el az eredmény; a bizonytalanságok és az emberi döntési pontok legyenek kimondva.</td><td>Ellenőrzés</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout figyelj"><span class="callout-cim">Ami kimaradt</span>A kolléga kérdésében Excel-dokumentumok és beágyazott képek is szerepeltek. A bediktált kérdés csak Wordöt említett, ezért a megbízás is csak Wordről szól. Az eredmények így alakultak: a beágyazott képek feldolgozási korlátját mindkét kutatás megtalálta és kezeli, az Excel mint bemenet egyikben sem szerepel. Amit a megbízás nem mond ki, azt az eredmény sem fogja tartalmazni.</div>
+  </section>
+
+  <section class="et-szakasz" id="mitol" aria-labelledby="mitol-cim">
+    <h2 id="mitol-cim"><span class="et-szam">3</span>Mitől lett sokkal jobb az eredmény</h2>
+    <div class="et-merleg">
+      <div class="et-k"><h3>A kész állapot ki lett mondva</h3><p>Az első kérdés csak azt mondta: „javasolj módszertant”. A megbízás megmondja, milyen kimenet kell, mit kell tudnia, és mikor teljes az átadás. Ez a hat prompt-szabály közül az első: előbb a kész állapot.</p></div>
+      <div class="et-k"><h3>A megoldás nem került bele</h3><p>Azt kértük, hogy a megbízás csak a problémát rögzítse. Így a két új futás nem az első válasz ötleteit csiszolta tovább, hanem önállóan kutatott; ezért lehet a két eredményt egymáshoz mérni.</p></div>
+      <div class="et-k"><h3>Ellenőrizhető elvárások</h3><p>Nyolc megnevezett elvárás és hét kötelező példaeset: mindkét eredményen meg lehet nézni, megvan-e. A „jó minőségű” helyett számon kérhető lista.</p></div>
+      <div class="et-k"><h3>A bizonyíték szintje is követelmény</h3><p>A megbízás előírja, hogy a dokumentált tény, a gyártói állítás, a saját következtetés és a feltételezés külön legyen jelölve, és hogy a módszer korlátai is szerepeljenek. Mindkét eredmény így készült.</p></div>
+      <div class="et-k"><h3>A promptot a modell írta</h3><p>Egy 900 szavas megbízást diktálva nem írtunk volna meg. A célt és a mércét mi mondtuk, a megfogalmazás a modellé, az elfogadás újra a miénk: ez az „írasd a promptot” minta.</p></div>
+      <div class="et-k"><h3>Több kör, több modell</h3><p>Nem az első választ javítgattuk tizenötször. Új beszélgetés indult tiszta megbízással, és két különböző modell dolgozott rajta: ahol a kettő egyezik, abban jobban megbízhatunk; ahol eltér, ott van a döntenivaló.</p></div>
+    </div>
+  </section>
+
+  <section class="et-szakasz" id="egymas-mellett" aria-labelledby="em-cim">
+    <h2 id="em-cim"><span class="et-szam">4</span>A két eredmény egymás mellett</h2>
+    <p>Mindkét bemutató itt, a tananyagban működik, internet nélkül is. A képekre kattintva a teljes bemutató nyílik meg.</p>
+
+    <h3>Élőben</h3>
+    <div class="et-ket">
+      <div class="et-elo"><div class="et-elo-fej"><span class="et-m g">ChatGPT</span><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html">Megnyitás teljes oldalon ↗</a></div><iframe src="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html" title="A ChatGPT bemutatója: Forrástól a követhető specifikációig" loading="lazy"></iframe></div>
+      <div class="et-elo"><div class="et-elo-fej"><span class="et-m c">Claude</span><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html">Megnyitás teljes oldalon ↗</a></div><iframe src="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html" title="A Claude bemutatója: Forrásegység-főkönyv" loading="lazy"></iframe></div>
+    </div>
+
+    <h3>Számokban</h3>
+    <div class="et-tabla"><table>
+      <thead><tr><th>Szempont</th><th><span class="et-m g">ChatGPT</span></th><th><span class="et-m c">Claude</span></th></tr></thead>
+      <tbody>
+        <tr><td>A bemutató formája</td><td>egy hosszú, görgethető oldal hét fejezettel</td><td>hat külön nézet felső menüvel</td></tr>
+        <tr><td>A bemutató mérete</td><td class="sz">kb. 87 KB</td><td class="sz">kb. 1 MB</td></tr>
+        <tr><td>Megnyitott források</td><td class="sz">21</td><td class="sz">75</td></tr>
+        <tr><td>Forráshoz kötött állítások</td><td class="sz">13</td><td class="sz">113</td></tr>
+        <tr><td>A fiktív példa</td><td>beszerzési igénylés: 15 forrásblokk, 28 elemi állítás</td><td>gépkölcsönző foglalási rendszere: 66 forrásegység, 38 követelmény, 18 specifikációtétel</td></tr>
+        <tr><td>Rögzített kapcsolatok a példában</td><td class="sz">42 (az első állapotban)</td><td class="sz">179, mellettük 429 ellenőrzési rekord</td></tr>
+        <tr><td>Végigvezetett példaesetek</td><td class="sz">7</td><td class="sz">7</td></tr>
+        <tr><td>Rögzített állapotok</td><td>3 (feltárt, döntés utáni, változás utáni)</td><td>2 alapállapot, köztük külön „gyanús jelölés” nézet</td></tr>
+        <tr><td>Gépi ellenőrzés a példaadaton</td><td>sémaellenőrzés és keresztellenőrzések; 8 szándékos hibából 8-at jelzett</td><td>49 ellenőrzés; 53 szándékos hibából 53-at, 24 további módosításból 23-at jelzett, egyet nem</td></tr>
+        <tr><td>Kísérő anyag a csomagban</td><td>kutatási jelentés (kb. 28 KB), forrásjegyzék, példaadat, megbízás és napló</td><td>a bemutató önmagában; a szöveges jelentésre hivatkozik, de az nincs mellette</td></tr>
+      </tbody>
+    </table></div>
+    <p class="et-forras">A számok a két eredménybe ágyazott adatokból származnak (2026. november 13-i számolás). A „jelzett hibák” a modellek saját ellenőrző programjainak eredményei a saját fiktív adatukon; mi nem futtattuk újra őket.</p>
+
+    <h3>Nézetről nézetre</h3>
+      <div class="et-par">
+        <h4>Nyitás és ajánlás</h4>
+        <p class="et-mit">Mindkettő ugyanazt az alapgondolatot javasolja: nem egyetlen prompt, hanem tételes, elszámolható folyamat. A ChatGPT négy lépésben, nagy betűkkel vezet be; a Claude az ajánlással és egy tízlépéses, kattintható folyamatábrával kezd.</p>
+        <div class="et-ket">
+          <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-1-nyito.jpg" alt="A ChatGPT bemutatója: Nyitás és ajánlás" loading="lazy"></a></figure>
+          <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-1-nyito.jpg" alt="A Claude bemutatója: Nyitás és ajánlás" loading="lazy"></a></figure>
+        </div>
+      </div>
+      <div class="et-par">
+        <h4>Egy igény útja</h4>
+        <p class="et-mit">A ChatGPT egy lenyíló listából választható esetet négy oszlopban mutat: forrás, elemi értelmezés, követelmény és specifikáció, teszt. A Claude esetenként öt lépésen vezet végig, az eredeti ügyfélmondattól az ellenőrzés bizonyítékáig.</p>
+        <div class="et-ket">
+          <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-2-igeny.jpg" alt="A ChatGPT bemutatója: Egy igény útja" loading="lazy"></a></figure>
+          <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-2-igeny.jpg" alt="A Claude bemutatója: Egy igény útja" loading="lazy"></a></figure>
+        </div>
+      </div>
+      <div class="et-par">
+        <h4>Egy ügyfélmódosítás hatása</h4>
+        <p class="et-mit">A ChatGPT két állapotot állít egymás mellé egy megváltozott határértékkel, és felsorolja az érintett tételeket. A Claude a teljes dokumentum térképén jelöli a módosított, törölt és új egységeket, majd a régi és az új megfogalmazást páronként mutatja.</p>
+        <div class="et-ket">
+          <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-3-valtozas.jpg" alt="A ChatGPT bemutatója: Egy ügyfélmódosítás hatása" loading="lazy"></a></figure>
+          <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-3-valtozas.jpg" alt="A Claude bemutatója: Egy ügyfélmódosítás hatása" loading="lazy"></a></figure>
+        </div>
+      </div>
+      <div class="et-par">
+        <h4>A teljes dokumentum elszámolása</h4>
+        <p class="et-mit">A kérdés: miből látszik, hogy semmi nem maradt ki? A ChatGPT egy összesítő sort és lenyitható leltárt ad. A Claude fejezetenként minden forrásegységet kirajzol, a besorolásával együtt.</p>
+        <div class="et-ket">
+          <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-4-dokumentum.jpg" alt="A ChatGPT bemutatója: A teljes dokumentum elszámolása" loading="lazy"></a></figure>
+          <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-4-dokumentum.jpg" alt="A Claude bemutatója: A teljes dokumentum elszámolása" loading="lazy"></a></figure>
+        </div>
+      </div>
+      <div class="et-par">
+        <h4>Források és bizonyíték</h4>
+        <p class="et-mit">A ChatGPT három kategóriát és lenyitható forráslistát ad. A Claude állításonként jelöli a bizonyíték osztályát: 63 dokumentált, 3 gyártói állítás, 39 saját következtetés, 8 kipróbálást igénylő feltételezés.</p>
+        <div class="et-ket">
+          <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-5-forrasok.jpg" alt="A ChatGPT bemutatója: Források és bizonyíték" loading="lazy"></a></figure>
+          <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-5-forrasok.jpg" alt="A Claude bemutatója: Források és bizonyíték" loading="lazy"></a></figure>
+        </div>
+      </div>
+  </section>
+
+  <section class="et-szakasz" id="elemzes" aria-labelledby="elemzes-cim">
+    <h2 id="elemzes-cim"><span class="et-szam">5</span>Összehasonlító elemzés</h2>
+
+    <h3>Amiben a kettő egyezik</h3>
+    <p>Ez a legerősebb tanulság: két modell, egymástól függetlenül, ugyanarra a szerkezetre jutott.</p>
+    <ul>
+      <li><b>Előbb leltár, utána írás.</b> A Word-dokumentumot program bontja azonosítóval ellátott egységekre, és minden egység kötelezően kap egy „sorsot”: követelmény lett belőle, háttér, nyitott kérdés, vagy máshová tartozik.</li>
+      <li><b>Elemi követelmények, szó szerinti forrásrészlettel.</b> A specifikáció a nyilvántartásból készül, nem közvetlenül a nagy dokumentumból.</li>
+      <li><b>Kétirányú kapcsolatok és rögzített állapotok.</b> Forrás, követelmény, specifikációtétel és ellenőrzés között; módosításkor a korábbi ellenőrzés nem öröklődik, hanem elavul.</li>
+      <li><b>A bizonyítható és a valószínűsíthető szétválasztása.</b> Program bizonyítja a szerkezetet (minden egység elszámolva, nincs gazdátlan tétel); a tartalmi helyességet csak ellenőrzés és mintavétel valószínűsíti. Egyik sem ígér hibamentességet.</li>
+      <li><b>Véges ellenőrzés.</b> Mindkettő legfeljebb két javítási kört enged (a Claude tételenként, a ChatGPT a próbafeldolgozásban); ami utána is nyitott, abból emberi döntés lesz. Ez a válasz a 10–15 körre.</li>
+      <li><b>Mérhető próba a bevezetés előtt.</b> Mindkettő pilotot javasol előre rögzített mérőszámokkal, és kimondja, hogy a célértékek javaslatok, nem iparági tények.</li>
+    </ul>
+
+    <h3>Amiben különböznek</h3>
+    <div class="et-tabla"><table>
+      <thead><tr><th>Szempont</th><th><span class="et-m g">ChatGPT</span></th><th><span class="et-m c">Claude</span></th></tr></thead>
+      <tbody>
+        <tr><td>Első benyomás</td><td>Gyorsan befogadható: nagy címek, kevés szöveg, néhány perc alatt végigolvasható.</td><td>Sűrű munkaanyag: sok azonosító, jelölés és részlet; idő kell hozzá.</td></tr>
+        <tr><td>Kinek való elsőre</td><td>Vezetőnek, vagy aki először találkozik a témával.</td><td>Annak az elemzőnek, aki holnap meg is akarja csinálni.</td></tr>
+        <tr><td>A példa mélysége</td><td>Kicsi, áttekinthető minta: egy esetnél egyszerre látszik a teljes lánc.</td><td>Egy teljes, tízfejezetes fiktív dokumentum: látszik, hogyan működik a módszer nagyobb léptékben.</td></tr>
+        <tr><td>Hol legyen a nyilvántartás</td><td>A forrás a SharePointon, a nyilvántartás verziózott csomagban (például Gitben), az Azure DevOps a jóváhagyott feladatok és tesztek helye.</td><td>Lépcsőzetesen: a pilotban a nyilvántartás a kódtárban él, az Azure Boards csak a kérdéseket és a döntéseket kapja; a tartós megoldásról a pilot után ember dönt hét alternatíva közül.</td></tr>
+        <tr><td>A saját munka ellenőrzése</td><td>Orchestrator, külön kutató, adat- és vizuális maker; a napló szerint a csomag külön reviewerhez került, de a reviewer jelentése nincs az átvett csomagban.</td><td>A bemutatóban nincs nyoma, hogyan szerveződött a munka. A saját ellenőrző programjának gyengéit viszont megmutatja: melyik szándékos hibát nem vette észre.</td></tr>
+        <tr><td>Kísérő dokumentum</td><td>Külön olvasható kutatási jelentés és forrásjegyzék.</td><td>Minden egy fájlban; a szöveges jelentés hiányzik mellőle.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Mérleg</h3>
+    <div class="et-merleg">
+      <div class="et-k"><span class="et-m g">ChatGPT</span><h3>Erőssége</h3><p>Tömör, jól tagolt, gyorsan érthető. A csomag átlátható: megbízás, napló, jelentés és adat külön fájlban. Egy megbeszélés elejére ez a jobb belépő.</p></div>
+      <div class="et-k"><span class="et-m c">Claude</span><h3>Erőssége</h3><p>Mélység és bizonyíték: több forrás, állításonként jelölt bizonyítékszint, nagyobb példa, a dokumentum szintű elszámolás kirajzolva. Munkaanyagnak ez az erősebb.</p></div>
+      <div class="et-k"><h3>Közös korlát</h3><p>Egyik sem dolgozott valódi ügyféldokumentummal; az eszközleképezést senki nem próbálta ki; az Excel-bemenet kimaradt. A következő lépés mindkettő szerint egy kis, mért próba saját dokumentumon.</p></div>
+    </div>
+    <p class="et-forras">Az elemzés korlátja: modellenként egy futás, azonos megbízással, eltérő felületen és eltérő munkamódban. Ebből nem következik, hogy az egyik modell általában jobb a másiknál. A forrásokat és az állításokat mi nem ellenőriztük vissza; a két bemutató a saját forráslistáját tartalmazza.</p>
+  </section>
+
+  <section class="et-szakasz" id="tanulsag" aria-labelledby="tanulsag-cim">
+    <h2 id="tanulsag-cim"><span class="et-szam">6</span>Mit vigyél magaddal</h2>
+    <ol class="et-lepcso">
+      <li><b>Nehéz kérdésnél az első válasz nyersanyag</b><p>Diktáld be nyugodtan a kérdést, ahogy eszedbe jut. A válaszból megtudod, mit ért a modell a problémán, és mi hiányzik a kérdésedből.</p></li>
+      <li><b>Írasd meg a megbízást, a megoldás nélkül</b><p>Kérd meg a modellt, hogy az addigiakból írjon átadási megbízást egy új beszélgetésnek: csak a problémát, az elvárásokat, a kimenet formáját és az elfogadás feltételét. Olvasd el, és javítsd, ami hiányzik belőle; nálunk az Excel maradt ki.</p></li>
+      <li><b>Új beszélgetésben futtasd</b><p>A tiszta megbízás új beszélgetésben nem cipeli az előző kör tévedéseit. Hosszú kutatáshoz erősebb modell és több idő kell; ez tokenben is sokba kerül, ezért csak akkor éri meg, ha a kérdés tétje nagy.</p></li>
+      <li><b>Fontos kérdésnél kérj második véleményt</b><p>Ugyanazt a megbízást add oda egy másik modellnek vagy eszköznek. Ahol egyeznek, ott szilárdabb a talaj; ahol eltérnek, azt neked kell eldöntened.</p></li>
+      <li><b>Az eredményt mérd a megbízáshoz</b><p>A megbízás elvárásai adják az ellenőrzőlistát: megvan-e mind a nyolc elvárás, mind a hét példa, jelölve van-e a bizonyíték szintje, ki vannak-e mondva a korlátok.</p></li>
+    </ol>
+    <div class="callout jegyezd"><span class="callout-cim">Jegyezd meg</span>A jobb eredményt nem egy ügyesebb mondat hozta, hanem az, hogy a kész állapot, az elvárások és az elfogadás feltétele le lett írva, mielőtt a munka elindult. Ugyanez a sorrend, mint a nap gyakorlataiban: Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés.</div>
+    <p>A fájlok egy helyen: <a href="../07%20usecase%20Kovetelmenykovetes/README.md">07 usecase Kovetelmenykovetes</a>. Kapcsolódó gyakorlatok: <a href="06b-ba-utotag-notebook.html">6b. BA-utótag</a> (keresztreferencia, dokumentáció) és <a href="uc3-szabalyrendszer-notebook.html">Projekt-szabályrendszer promptokkal</a>.</p>
+  </section>
+
+  <footer>
+    <div class="lab-sor"><span>Oriana × Wenova · 2026.11.12 · Esettanulmány · Minden példaadat kitalált oktatási minta; a javaslatok nem Oriana-döntések.</span><span><a href="../index.html">Főoldal</a> · <a href="../Segedanyagok/glosszarium.html">Glosszárium</a></span></div>
+    <div class="pager">
+      <a href="uc3-szabalyrendszer-notebook.html" rel="prev">◀ Projekt-szabályrendszer</a>
+      <a href="../index.html">Főoldal</a>
+      <a href="06b-ba-utotag-notebook.html">6b. BA-utótag</a>
+    </div>
+  </footer>
+</main>
+<script src="../_assets/wenova.js"></script>
+</body>
+</html>

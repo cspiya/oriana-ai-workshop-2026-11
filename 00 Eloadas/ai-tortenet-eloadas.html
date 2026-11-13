@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honnan jött az AI, és miért most? · nyitó előadás · Oriana × Wenova 2026.11.12</title>
+<link rel="stylesheet" href="../_assets/wenova.css">
+<link rel="stylesheet" href="../_assets/wenova-lapok.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
+</head>
+<!-- Lapozható előadás kísérő magyarázattal (önálló feldolgozásra). Navigáció: ← → szóköz, PgUp/PgDn, Home/End; O = áttekintés, F = teljes képernyő.
+     Forrás: a 2026. szeptemberi alapozó előadás sűrített változata, ahogy a 2026-11-12-i workshop nyitásaként elhangzott. -->
+<body class="deck kisero-deck" data-depth="1" data-footer="Oriana × Wenova · Honnan jött az AI, és miért most?">
+<div class="slides">
+  <section class="slide title" id="cim">
+<div class="dia">
+<img class="deck-logo" src="../_assets/logo/wenova-szovedjegy.png" alt="Wenova">
+<div class="slide-eyebrow">Oriana × Wenova · haladó ChatGPT-workshop · nyitó előadás</div>
+<h1>Honnan jött az AI, és miért most?</h1>
+<p>Rövid, gyakorlatias alapozás: mi a mesterséges intelligencia, mi hajtja, hogyan működik laikus szemmel, és mit jelent ez a napi munkádban.</p>
+<p class="small">Piya Csaba · elhangzott 2026. november 12-én · kb. 20 perc</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Ez az előadás nyitotta a workshopot. Itt önállóan is végigmehetsz rajta: balra a dia, itt jobbra az, amit a dia mellé élőszóban elmondtunk.</p>
+<p>Léptetés: a jobbra és balra nyíl vagy a szóköz, illetve lent a ◀ ▶ gomb. Az <b>Áttekintés</b> gomb egyszerre mutatja az összes diát.</p>
+<p>Nem megyünk akadémiai mélységbe. A cél annyi közös fogalom, hogy a gyakorlatokban legyen mire visszahivatkozni.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="mi-az-ai">
+<div class="dia">
+<div class="slide-eyebrow">Fogalmak</div>
+<h2>Mi az intelligencia, és mi az AI?</h2>
+<div class="cols ketto">
+<div class="card"><h3>Intelligencia</h3><p>Új helyzetben célhoz vezető viselkedés: tanulás, mintázatfelismerés, döntés, alkalmazkodás.</p></div>
+<div class="card"><h3>Mesterséges intelligencia (AI)</h3><p>Gép, amely ezekből valamit utánoz. Matematika, adat és számítási kapacitás.</p></div>
+</div>
+<ul><li>Nem úgy gondolkodik, mint az ember.</li><li>Nem tudat: statisztikai mintázatok, nagyon nagy léptékben.</li><li>Eszköz: attól lesz erős, ahogyan használod.</li></ul>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Az „intelligencia” szóra nincs egyetlen elfogadott meghatározás; ez egy használható munkadefiníció. A teremben azzal kezdtük: szerintetek mitől intelligens valami?</p>
+<p>A mesterséges intelligencia nem varázslat és nem gondolkodó lény. A mai rendszerek hatalmas mennyiségű példából tanult mintázatokat alkalmaznak.</p>
+<p>Ebből következik a nap alapállása: az AI eszköz. Az eredmény minősége azon múlik, milyen célt, forrást és ellenőrzést adsz mellé.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="miert-most">
+<div class="dia">
+<div class="slide-eyebrow">Miért most</div>
+<h2>Az ötlet 70 éves. Mi változott?</h2>
+<p>Három dolog ért össze egyszerre:</p>
+<div class="cols harom">
+<div class="card"><h3>1. Hardver</h3><p>nagyságrendekkel több számítási kapacitás</p></div>
+<div class="card"><h3>2. Adat</h3><p>nagyságrendekkel több tanítóadat</p></div>
+<div class="card"><h3>3. Algoritmusok</h3><p>két áttörés: 2012 és 2017</p></div>
+</div>
+<p class="takeaway">A kérdés nem az, mi az AI, hanem az, hogy miért most került mindenki kezébe.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>A mesterséges intelligencia mint kutatási terület az 1950-es években indult. Évtizedekig ígéret maradt, mert hiányzott hozzá a gép, az adat vagy a módszer.</p>
+<p>Az elmúlt nagyjából tizenöt évben mindhárom egyszerre lett elérhető. A következő három dia egy-egy ábrával mutatja meg ezeket.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="hardver">
+<div class="dia">
+<div class="slide-eyebrow">1. hajtóerő</div>
+<h2>Hardver: a számítási kapacitás robbanása</h2>
+<svg class="abra-svg" viewBox="0 0 760 330" role="img" aria-label="A tanításhoz használt számítási kapacitás növekedése 2012 és 2026 között, logaritmikus skálán"><line x1="92" y1="272.0" x2="736" y2="272.0" class="racs"/><text x="82" y="276.0" text-anchor="end" class="tengely">10¹⁷</text><line x1="92" y1="221.2" x2="736" y2="221.2" class="racs"/><text x="82" y="225.2" text-anchor="end" class="tengely">10¹⁹</text><line x1="92" y1="170.4" x2="736" y2="170.4" class="racs"/><text x="82" y="174.4" text-anchor="end" class="tengely">10²¹</text><line x1="92" y1="119.6" x2="736" y2="119.6" class="racs"/><text x="82" y="123.6" text-anchor="end" class="tengely">10²³</text><line x1="92" y1="68.8" x2="736" y2="68.8" class="racs"/><text x="82" y="72.8" text-anchor="end" class="tengely">10²⁵</text><line x1="92" y1="18.0" x2="736" y2="18.0" class="racs"/><text x="82" y="22.0" text-anchor="end" class="tengely">10²⁷</text><polygon points="92.0,272.0 92.0,254.9 220.8,170.4 349.6,107.1 478.4,60.6 607.2,25.6 736.0,10.4 736.0,272.0" fill="var(--accent)" opacity=".14"/><polyline points="92.0,254.9 220.8,170.4 349.6,107.1 478.4,60.6 607.2,25.6 736.0,10.4" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"/><circle cx="92.0" cy="254.9" r="7" fill="var(--accent)" class="pont"/><text x="92.0" y="294" text-anchor="start" class="xfel">AlexNet</text><text x="92.0" y="312" text-anchor="start" class="xfel2">2012</text><circle cx="220.8" cy="170.4" r="7" fill="var(--accent)" class="pont"/><text x="220.8" y="294" text-anchor="middle" class="xfel">GPT-2</text><text x="220.8" y="312" text-anchor="middle" class="xfel2">2019</text><circle cx="349.6" cy="107.1" r="7" fill="var(--accent)" class="pont"/><text x="349.6" y="294" text-anchor="middle" class="xfel">GPT-3</text><text x="349.6" y="312" text-anchor="middle" class="xfel2">2020</text><circle cx="478.4" cy="60.6" r="7" fill="var(--accent)" class="pont"/><text x="478.4" y="294" text-anchor="middle" class="xfel">GPT-4</text><text x="478.4" y="312" text-anchor="middle" class="xfel2">2023</text><circle cx="607.2" cy="25.6" r="7" fill="var(--accent)" class="pont"/><text x="607.2" y="294" text-anchor="middle" class="xfel">élvonal</text><text x="607.2" y="312" text-anchor="middle" class="xfel2">2025</text><circle cx="736.0" cy="10.4" r="7" fill="var(--accent)" class="pont"/><text x="736.0" y="294" text-anchor="end" class="xfel">élvonal</text><text x="736.0" y="312" text-anchor="end" class="xfel2">2026 (becslés)</text></svg>
+<p class="small">A modell tanításához használt számítási műveletek száma (FLOP), logaritmikus skálán: egy osztás százszoros növekedés. Nagyságrendi értékek az Epoch AI trendadatai alapján; a 2026-os pont a trendből becsült.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>A vezető modellek tanításához használt számítási kapacitás nagyjából évente négy-ötszörösére nőtt. Ez jóval gyorsabb, mint a processzorok klasszikus fejlődési üteme (Moore-törvény).</p>
+<p>A motor a grafikus processzor (GPU) lett, amelyet eredetileg játékok grafikájához fejlesztettek. Ami tíz éve szuperszámítógép volt, az ma felhőszolgáltatásként bérelhető.</p>
+<p>Az ábra tengelye logaritmikus: az egyenletesnek látszó emelkedés valójában sok nagyságrendnyi ugrás. Élő adatok: <a href="https://epoch.ai/trends">epoch.ai/trends</a>.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="adat">
+<div class="dia">
+<div class="slide-eyebrow">2. hajtóerő</div>
+<h2>Adat: több szöveg, mint amit ember végigolvashat</h2>
+<svg class="abra-svg" viewBox="0 0 760 330" role="img" aria-label="A tanítóadat mennyiségének növekedése modellenként, tokenben, logaritmikus skálán"><line x1="92" y1="272.0" x2="736" y2="272.0" class="racs"/><text x="82" y="276.0" text-anchor="end" class="tengely">100 milliárd</text><line x1="92" y1="187.3" x2="736" y2="187.3" class="racs"/><text x="82" y="191.3" text-anchor="end" class="tengely">1 billió</text><line x1="92" y1="102.7" x2="736" y2="102.7" class="racs"/><text x="82" y="106.7" text-anchor="end" class="tengely">10 billió</text><line x1="92" y1="18.0" x2="736" y2="18.0" class="racs"/><text x="82" y="22.0" text-anchor="end" class="tengely">100 billió</text><polygon points="92.0,272.0 92.0,231.6 253.0,175.0 414.0,161.8 575.0,87.8 736.0,62.3 736.0,272.0" fill="var(--kesz)" opacity=".14"/><polyline points="92.0,231.6 253.0,175.0 414.0,161.8 575.0,87.8 736.0,62.3" fill="none" stroke="var(--kesz)" stroke-width="4" stroke-linejoin="round"/><circle cx="92.0" cy="231.6" r="7" fill="var(--kesz)" class="pont"/><text x="92.0" y="294" text-anchor="start" class="xfel">GPT-3</text><text x="92.0" y="312" text-anchor="start" class="xfel2">2020</text><circle cx="253.0" cy="175.0" r="7" fill="var(--kesz)" class="pont"/><text x="253.0" y="294" text-anchor="middle" class="xfel">Chinchilla</text><text x="253.0" y="312" text-anchor="middle" class="xfel2">2022</text><circle cx="414.0" cy="161.8" r="7" fill="var(--kesz)" class="pont"/><text x="414.0" y="294" text-anchor="middle" class="xfel">Llama 2</text><text x="414.0" y="312" text-anchor="middle" class="xfel2">2023</text><circle cx="575.0" cy="87.8" r="7" fill="var(--kesz)" class="pont"/><text x="575.0" y="294" text-anchor="middle" class="xfel">Llama 3</text><text x="575.0" y="312" text-anchor="middle" class="xfel2">2024</text><circle cx="736.0" cy="62.3" r="7" fill="var(--kesz)" class="pont"/><text x="736.0" y="294" text-anchor="end" class="xfel">élvonal</text><text x="736.0" y="312" text-anchor="end" class="xfel2">2025–26</text></svg>
+<p class="small">A tanítóadat mennyisége tokenben, logaritmikus skálán. Nagyságrendi értékek (Epoch AI, Our World in Data). 1 token nagyjából háromnegyed szó. Magyarul: milliárd = 10⁹, billió = 10¹².</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>A nyelvi modellek az elérhető szövegek óriási részét „elolvassák”: weboldalakat, könyveket, programkódot. A GPT-3 2020-ban nagyjából 300 milliárd tokenen tanult; a mai élvonalbeli modellek ennek sokszorosán, több tízbillió tokenen.</p>
+<p>Vigyázz a fordítással: az angol „billion” magyarul milliárd, a „trillion” magyarul billió.</p>
+<p>A jó minőségű szöveg mára szűkös erőforrás lett. Ezért is számít, hogy a saját munkádban milyen forrást adsz a modell kezébe.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="algoritmus">
+<div class="dia">
+<div class="slide-eyebrow">3. hajtóerő</div>
+<h2>Algoritmusok: két áttörés és egy termék</h2>
+<svg class="abra-svg" viewBox="0 0 900 190" role="img" aria-label="Idővonal: 2012 AlexNet, 2017 Transformer, 2022 ChatGPT">
+<line x1="40" y1="60" x2="860" y2="60" class="racs" stroke-width="4"/>
+<g><circle cx="150" cy="60" r="11" fill="var(--accent)" class="pont"/><text x="150" y="36" text-anchor="middle" class="ev">2012</text><text x="150" y="98" text-anchor="middle" class="nev">AlexNet</text><text x="150" y="122" text-anchor="middle" class="xfel2">mély neurális háló nyeri</text><text x="150" y="141" text-anchor="middle" class="xfel2">az ImageNet képfelismerő versenyt</text></g>
+<g><circle cx="450" cy="60" r="11" fill="var(--accent)" class="pont"/><text x="450" y="36" text-anchor="middle" class="ev">2017</text><text x="450" y="98" text-anchor="middle" class="nev">Transformer</text><text x="450" y="122" text-anchor="middle" class="xfel2">„Attention Is All You Need”:</text><text x="450" y="141" text-anchor="middle" class="xfel2">a mai nyelvi modellek motorja</text></g>
+<g><circle cx="750" cy="60" r="11" fill="var(--kesz)" class="pont"/><text x="750" y="36" text-anchor="middle" class="ev">2022</text><text x="750" y="98" text-anchor="middle" class="nev">ChatGPT</text><text x="750" y="122" text-anchor="middle" class="xfel2">nem új tudomány:</text><text x="750" y="141" text-anchor="middle" class="xfel2">használhatóvá tett termék</text></g>
+</svg>
+<p class="takeaway">A ChatGPT 5 nap alatt érte el az egymillió, két hónap alatt a százmillió felhasználót (UBS-elemzés, Reuters).</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p><b>2012, AlexNet:</b> egy sokrétegű neurális háló nagy fölénnyel megnyerte a képfelismerő versenyt. Innen lett a deep learning (mélytanulás) a fő irány.</p>
+<p><b>2017, Transformer:</b> ez a felépítés a mai nyelvi modellek alapja. A GPT rövidítés harmadik betűje is ezt jelöli: Generative Pre-trained Transformer.</p>
+<p><b>2022, ChatGPT:</b> tudományos értelemben nem volt új. Az újdonság az volt, hogy bárki által használható termék lett belőle, és ez indította el a mostani hullámot.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="fajtak">
+<div class="dia">
+<div class="slide-eyebrow">Térkép</div>
+<h2>Az AI fajtái egymásba épülnek</h2>
+<div class="cols abra-szoveg">
+<svg class="abra-svg keskeny" viewBox="0 0 360 330" role="img" aria-label="Egymásba épülő halmazok: AI, gépi tanulás, deep learning, generatív AI, nagy nyelvi modell">
+<rect x="4" y="4" width="352" height="322" rx="16" class="h1"/><text x="180" y="28" text-anchor="middle" class="hc">AI · mesterséges intelligencia (1950–)</text>
+<rect x="30" y="40" width="300" height="274" rx="14" class="h2"/><text x="180" y="62" text-anchor="middle" class="hc">Gépi tanulás (ML)</text>
+<rect x="56" y="74" width="248" height="228" rx="12" class="h3"/><text x="180" y="96" text-anchor="middle" class="hc">Deep learning (2012–)</text>
+<rect x="82" y="108" width="196" height="182" rx="10" class="h4"/><text x="180" y="130" text-anchor="middle" class="hc">Generatív AI</text>
+<rect x="108" y="142" width="144" height="136" rx="9" class="h5"/><text x="180" y="204" text-anchor="middle" class="hl">LLM</text><text x="180" y="226" text-anchor="middle" class="xfel2">nagy nyelvi modell:</text><text x="180" y="244" text-anchor="middle" class="xfel2">ChatGPT, Claude, Gemini</text>
+</svg>
+<ul><li><b>AI:</b> a gép intelligens viselkedést mutat</li><li><b>Gépi tanulás:</b> példákból tanul, nem előre megírt szabályból</li><li><b>Deep learning:</b> sokrétegű neurális hálók</li><li><b>Generatív AI:</b> új tartalmat hoz létre</li><li><b>LLM:</b> nagy nyelvi modell</li></ul>
+</div>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Ezek nem külön világok. Minden belső kör a külső egy szűkebb, újabb megvalósítása.</p>
+<p>A nagy nyelvi modell (LLM) tehát generatív AI, amely deep learningre épül. Amikor a workshopon „az AI”-ról beszélünk, szinte mindig ilyen modellt értünk alatta: a ChatGPT mögött a GPT-6 modellcsalád áll.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="szuk-altalanos">
+<div class="dia">
+<div class="slide-eyebrow">Hol tartunk</div>
+<h2>Szűk AI és általános AI</h2>
+<div class="cmp">
+<div class="good"><h3>Szűk AI: létezik</h3><ul><li>adott feladatkörre készült</li><li>levélszemétszűrő, sakkprogram, képfelismerő</li><li>a mai ChatGPT is ide tartozik: nagyon széles, de szűk AI</li></ul></div>
+<div class="bad"><h3>Általános AI (AGI): nem létezik</h3><ul><li>bármilyen szellemi feladat, emberi szinten</li><li>kutatási és vitatéma</li><li>a napi üzleti munkához nem ez a kérdés</li></ul></div>
+</div>
+<p class="takeaway">A mai modellek sokoldalúak, de nem tévedhetetlenek. Szakértői döntésnél kell az emberi ellenőrzés.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>A sajtóban a kettő gyakran összemosódik. A gyakorlati különbség: a mai modell sokféle feladatot old meg meglepően jól, de nem tudja megbízhatóan, hogy mit nem tud.</p>
+<p>Ezért a tananyag minden gyakorlatában ott az ellenőrzés: az egyik beszélgetés készít, egy másik, független ellenőriz, a döntés pedig nálad marad.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="halo">
+<div class="dia">
+<div class="slide-eyebrow">Hogyan működik</div>
+<h2>Neurális háló: négy fogalom</h2>
+<div class="cols abra-szoveg">
+<svg class="abra-svg keskeny" viewBox="0 0 360 300" role="img" aria-label="Egyszerű neurális háló: két bemenet, négy rejtett neuron, egy kimenet">
+<g class="el1"><line x1="60" y1="110" x2="180" y2="55"/><line x1="60" y1="110" x2="180" y2="120"/><line x1="60" y1="110" x2="180" y2="185"/><line x1="60" y1="110" x2="180" y2="250"/><line x1="60" y1="195" x2="180" y2="55"/><line x1="60" y1="195" x2="180" y2="120"/><line x1="60" y1="195" x2="180" y2="185"/><line x1="60" y1="195" x2="180" y2="250"/></g>
+<g class="el2"><line x1="180" y1="55" x2="305" y2="150"/><line x1="180" y1="120" x2="305" y2="150"/><line x1="180" y1="185" x2="305" y2="150"/><line x1="180" y1="250" x2="305" y2="150"/></g>
+<circle cx="60" cy="110" r="19" class="nb"/><text x="60" y="115" text-anchor="middle" class="nt">X₁</text><circle cx="60" cy="195" r="19" class="nb"/><text x="60" y="200" text-anchor="middle" class="nt">X₂</text><text x="60" y="246" text-anchor="middle" class="xfel2">bemenet</text>
+<circle cx="180" cy="55" r="15" class="nr"/><circle cx="180" cy="120" r="15" class="nr"/><circle cx="180" cy="185" r="15" class="nr"/><circle cx="180" cy="250" r="15" class="nr"/><text x="180" y="288" text-anchor="middle" class="xfel2">rejtett réteg: neuronok</text>
+<circle cx="305" cy="150" r="22" class="nk"/><text x="305" y="155" text-anchor="middle" class="nt">cél</text><text x="305" y="196" text-anchor="middle" class="xfel2">kimenet</text>
+</svg>
+<ul><li><b>Bemenet:</b> amit a háló kap. Lehet kettő, lehet sok ezer jellemző.</li><li><b>Kimenet (cél):</b> amire tanítjuk, például egy kategória.</li><li><b>Tanító és ellenőrző adat:</b> az egyiken tanul, a másikon mérjük, hogy általánosít-e.</li><li><b>Súlyok:</b> a kapcsolatok erőssége. A tanulás a súlyok hangolása.</li></ul>
+</div>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Egy „neuron” itt egyszerű matematikai függvény: a bemenetek súlyozott összegéből eldönti, ad-e tovább jelet. A háló ilyenek sokaságából áll, rétegekbe rendezve.</p>
+<p>A tanító és az ellenőrző adat szétválasztása azért fontos, hogy a háló ne csak „bemagolja” a példákat, hanem olyan adaton is jól működjön, amelyet még sosem látott.</p>
+<p>Ugyanez a gondolat tér vissza a munkamódszerünkben: aki készít, az ne maga ellenőrizze az eredményét.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="tanulas">
+<div class="dia">
+<div class="slide-eyebrow">Hogyan működik</div>
+<h2>Hogyan tanul egy háló? Nézd meg élőben</h2>
+<div class="cols ketto">
+<div class="card"><h3>Kipróbálható</h3><p><a href="https://playground.tensorflow.org">TensorFlow Playground</a>: indítsd el a tanítást, és figyeld, ahogy a háló megtanulja szétválasztani a kék és a narancs pontokat.</p></div>
+<div class="card"><h3>Videó</h3><p><a href="https://www.youtube.com/watch?v=aircAruvnKk">3Blue1Brown: But what is a Neural Network?</a> Közérthető, rajzos magyarázat (angolul).</p></div>
+</div>
+<p class="takeaway">Tanulás: a súlyok apránkénti hangolása nagyon sok példa alapján.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Az előadáson a Playgroundot élőben mutattuk meg, nagyjából egy percig. A pontok két koordinátája a két bemenet, a színük a cél.</p>
+<p>Amit érdemes megfigyelni: a háló az elején vaktában tippel, majd minden körben egy kicsit igazít a súlyokon, amíg a határvonal rá nem simul a pontokra.</p>
+<p>A linkek külső oldalakra visznek, ezért internetkapcsolat kell hozzájuk.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="llm">
+<div class="dia">
+<div class="slide-eyebrow">Hogyan működik</div>
+<h2>A nyelvi modell egy dolgot csinál: megjósolja a következő szót</h2>
+<div class="joslat"><div class="mondat">Magyarország fővárosa <span class="lyuk">___</span></div>
+<div class="savok"><div><span>Budapest</span><i style="width:92%"></i></div><div><span>egy</span><i style="width:9%"></i></div><div><span>Debrecen</span><i style="width:5%"></i></div><div><span>nagy</span><i style="width:3%"></i></div></div>
+<p class="small">Szemléltető ábra: a sávok hossza nem mért érték, csak az elvet mutatja.</p></div>
+<p class="takeaway">Egy válasz több száz ilyen jóslás egymás után. Ami értésnek tűnik, az mintázat, hatalmas léptékben.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>A modell a szöveget tokenekre (szódarabokra) bontja, és minden lépésben azt számolja ki, melyik token a legvalószínűbb folytatás. Ezt ismétli, amíg a válasz el nem készül.</p>
+<p>Ebből következik a legfontosabb gyakorlati tudnivaló: a modell akkor is folytatja a szöveget, ha nincs mögötte tény. A hihetően hangzó, de téves állítást nevezzük hallucinációnak.</p>
+<p>Ha bele szeretnél nézni: <a href="https://poloclub.github.io/transformer-explainer/">Transformer Explainer</a> (interaktív), <a href="https://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> (rajzos magyarázat), <a href="https://bbycroft.net/llm">LLM Visualization</a> (egy működő modell térben). Mindhárom angol nyelvű.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="keszul">
+<div class="dia">
+<div class="slide-eyebrow">Hogyan készül</div>
+<h2>Egy mai nyelvi modell három fázisban készül</h2>
+<div class="cols harom">
+<div class="card"><h3>1. Előtanítás</h3><p>Rengeteg szöveg végigolvasása egy feladattal: tippeld meg a következő szót. Hónapok, óriási költség.</p></div>
+<div class="card"><h3>2. Finomhangolás</h3><p>Példapárokon tanul: jó kérdés, jó válasz. Hangnem, formátum, hasznosság.</p></div>
+<div class="card"><h3>3. Emberi visszajelzés</h3><p>Értékelők rangsorolják a válaszokat; a modell a jobbnak ítélt irányba tanul tovább.</p></div>
+</div>
+<p class="takeaway">A képességeket az előtanítás adja, a viselkedést a második és a harmadik fázis.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Az első fázis (pre-training) eredménye egy nyers alapmodell: sokat „tud”, de még nem jó beszélgetőtárs.</p>
+<p>A második (fine-tuning) és a harmadik fázis (emberi visszajelzésen alapuló megerősítéses tanulás, angol rövidítéssel RLHF) alakítja ki azt, hogy a modell segítőkészen, érthetően és a kért formában válaszoljon.</p>
+<p>Fontos következmény: a modell tudása a tanítás lezárásakor megáll. Ami azóta történt, vagy ami a céged belső ügye, azt csak akkor tudja, ha forrásként megkapja.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="tanulsag">
+<div class="dia">
+<div class="slide-eyebrow">Mit viszünk ebből a munkába</div>
+<h2>Három következmény a napi munkára</h2>
+<div class="cols harom">
+<div class="card"><h3>Hallucináció → forrás és ellenőrzés</h3><p>A modell mindig ad választ. Minden tényt, számot, dátumot az eredeti forrásban ellenőrzünk.</p></div>
+<div class="card"><h3>A hat lépés</h3><p>Cél → Forrás → Utasítás → Ellenőrzés → Javítás → Rögzítés.</p></div>
+<div class="card"><h3>Rendszer az eszköz köré</h3><p>Közös tudás, két szerep, ellenőrző kapuk, mentett eredmény.</p></div>
+</div>
+<p class="takeaway">Egy szinttel a felszínes csevegés fölé.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Ez a dia köti össze az elméletet a gyakorlatokkal. Mivel a modell valószínű folytatást ír, nem igazolt tényt, a forrás megadása és az ellenőrzés nem udvariassági kör, hanem a módszer része.</p>
+<p>A hat lépést minden gyakorlatban viszontlátod. A „rendszer az eszköz köré” pedig a nap fő gondolata: a különbséget nem az adja, melyik modellt használod, hanem az, hogy van-e közös tudás, független ellenőrzés és kimondott megállási szabály.</p>
+</aside>
+  </section>
+
+  <section class="slide" id="tovabb">
+<div class="dia">
+<div class="slide-eyebrow">Merre tovább</div>
+<h2>Innen a gyakorlatok jönnek</h2>
+<div class="cols ketto">
+<div class="card"><h3>Mivel dolgozunk?</h3><p><a href="../Notebookok/chatgpt-terkep.html">ChatGPT Business térkép</a>: Chat és Work, helyi és felhős munka, modellek, skill, plugin, agent, csapatmunka, tokenkeret.</p></div>
+<div class="card"><h3>Az első gyakorlat</h3><p><a href="../Notebookok/00-halado-setup-notebook.html">0. gyakorlat: saját feladat és munkamenet</a>. Előtte: <a href="../index.html#indulas">indulás 5 lépésben</a>.</p></div>
+</div>
+<p class="takeaway">Most már ugyanazokat a fogalmakat használjuk.</p>
+</div>
+<aside class="kisero" aria-label="Kísérő magyarázat"><span class="kisero-cim">Kísérő magyarázat</span>
+<p>Az előadás után a workshopon a ChatGPT Business felépítését néztük át, majd mindenki kiválasztotta azt a saját, visszatérő feladatát, amelyre a módszert használni fogja.</p>
+<p>Önálló feldolgozásnál ugyanez a sorrend javasolt: a térkép elolvasása, a munkaterület beállítása, majd a 0. gyakorlat.</p>
+<p>Vissza a nyitóoldalra: <a href="../index.html">a tananyag főoldala</a>.</p>
+</aside>
+  </section>
+
+</div>
+<script src="../_assets/wenova.js"></script>
+</body>
+</html>

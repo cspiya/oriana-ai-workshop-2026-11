@@ -12,6 +12,7 @@ Blokkonként egy rövid, offline HTML-itiner a 2026.11.12-i workshophoz. A noteb
 | 6b (BA-szekció) | 15:10 | `06b-ba-utotag-notebook.html` | három BA-recept: dokumentum, drótváz, dokumentáció kódból |
 | Ügyfélprofil agent (Sales-Account szekció) | 15:10 | `uc2-ugyfelprofil-agent-notebook.html` | a három helyszín közti út az ügynök beállításáig (mozgó ábra) |
 | 7 | 16:05 | `07-sajat-atvitel-notebook.html` | a nap térképe a végén (Á1) és a lépcső 30 napra (Á2) |
+| Projekt-szabályrendszer promptokkal | 45 perc, időpont nélkül | `uc3-szabalyrendszer-notebook.html` | három mozgó ábra: így áll össze a szabálygyűjtemény; így dolgozik utána (három szerep, három kapu); projektszabály vagy céges DNS |
 
 15:10-16:05 között két szekció dolgozik párhuzamosan: a BA-szekció a 6b gyakorlaton (vezeti: Piya Csaba), a Sales-Account szekció az Ügyfélprofil agenten (vezeti: Kemény Krisztián). A két Ügyfélprofil-blokkhoz nincs forgatókönyv: az oldal vezet, másolható promptokkal. Szünetek: 11:15-11:25, 12:30-13:15 (ebéd), 14:35-14:50.
 
@@ -22,7 +23,6 @@ Kiegészítő gyakorlatok: nincsenek a napi időrendben, de a tananyag részei, 
 | 2 | 30 perc | `02-portal-notebook.html` | portál API nélkül: kézi út vagy böngésző-agent, dry run → alkalmazás → visszaolvasás |
 | 3 | 25 perc | `03-kozos-munka-notebook.html` | megosztási jogok mátrixa, app-kapcsolat, csapatfeladat, hozzáférési szabály |
 | 6 | 25 + 30 perc | `06-sites-notebook.html` | ügykövető: adat → app → jogosultság → megosztás |
-| Projekt-szabályrendszer promptokkal | 45 perc | `uc3-szabalyrendszer-notebook.html` | három mozgó ábra: így áll össze a szabálygyűjtemény; így dolgozik utána (három szerep, három kapu); projektszabály vagy céges DNS |
 
 ## Szerkezet (design system v2)
 
@@ -42,3 +42,7 @@ Megnyitás: dupla kattintás a fájlra, böngészőben, internet nélkül. A kö
 ## Előadás-jegyzet
 
 `chatgpt-terkep.html`: ChatGPT Business térkép a nap elejére: Chat és Work, Work Local és Cloud, felületek, modellek; projekt, skill, plugin, kapcsolat, agent, Sites, Space; csapatmunka, a közös DNS gazdája és frissítése (két másolható prompttal); token és keret, mért fogyasztási adatokkal.
+
+## Esettanulmány
+
+`esettanulmany-kovetelmenyek.html`: nagy követelményanyagból követhető specifikáció. Egy bediktált kérdés útja a profi kutatási megbízásig, majd ugyanaz a megbízás két modellnek; a ChatGPT és a Claude működő bemutatója egymás mellett, összehasonlító elemzéssel. A fájlok: `07 usecase Kovetelmenykovetes/`.

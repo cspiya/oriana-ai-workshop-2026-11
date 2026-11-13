@@ -16,8 +16,25 @@ Ez az utasítás neked szól, amikor a résztvevő `Oriana AI-workshop` projektj
 
 Ha a résztvevő a meglévő `Tananyag` megtartását választotta, ellenőrizd a tananyagot, majd folytasd a 2. lépéssel, hogy a hiányzó munkamappák is elkészüljenek. Egyébként a következő utakat próbáld sorrendben. Minden letöltés és írás előtt mondd el, mit töltesz le és hová.
 
-1. Töltsd le a tananyag ZIP-jét a rögzített rövid linkről: `https://is.gd/oriana1112` (átirányít a ZIP-re; bejelentkezés nem kell). Ha az átirányítást nem követed, a rögzített hosszú link: `https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`. Egyetlen ZIP-et tölts le, ne egyenként a fájlokat. Más ZIP-URL-t ne találj ki; ha egyik link sem működik, a tartalék a 6. pont. A böngészhető tananyag-oldal: https://is.gd/oriana1112anyag.
-2. Várd meg a letöltés befejezését. A böngésző letöltési eseménye vagy listája alapján azonosítsd az új ZIP pontos helyét, jellemzően a felhasználó **Letöltések (Downloads)** mappájában. Ne válassz pusztán fájlnév alapján egy korábbi ZIP-et. Ha nem férsz hozzá, kérd a ZIP áthelyezését a projektmappába. A letöltött fájlt ZIP-ként ellenőrizd; HTML- vagy bejelentkezési oldalt ne próbálj kicsomagolni.
+1. **Fő út: parancssor, közvetlenül a projektmappába.** Ne a böngészővel tölts le. A projektmappában futtasd ezt a PowerShell-parancssort (ha kell, a résztvevő egyszeri engedélyével):
+
+   ```powershell
+   $mappa = (Get-Location).Path
+   $zip = Join-Path $mappa 'workshop-material.zip'
+   $tmp = Join-Path $mappa '_tananyag-tmp'
+   if (Test-Path (Join-Path $mappa 'Tananyag')) { throw 'Már van Tananyag mappa: előbb kérdezd meg a résztvevőt.' }
+   if (-not (Test-Path $zip)) { Invoke-WebRequest -Uri 'https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip' -OutFile $zip -UseBasicParsing }
+   if (Test-Path $tmp) { throw 'A _tananyag-tmp mappa már létezik: nézd meg, mi van benne.' }
+   Expand-Archive -LiteralPath $zip -DestinationPath $tmp
+   $gyoker = @(Get-ChildItem -LiteralPath $tmp -Directory)
+   if ($gyoker.Count -ne 1 -or -not (Test-Path (Join-Path $gyoker[0].FullName 'SETUP.md'))) { throw 'A ZIP szerkezete nem a várt: egy külső mappa, benne SETUP.md.' }
+   Move-Item -LiteralPath $gyoker[0].FullName -Destination (Join-Path $mappa 'Tananyag')
+   Remove-Item -LiteralPath $tmp
+   Get-ChildItem -LiteralPath (Join-Path $mappa 'Tananyag') | Select-Object -ExpandProperty Name
+   ```
+
+   A parancssor a projektmappában lévő `workshop-material.zip` fájlt használja, ha a résztvevő már odatette; különben letölti. A végén a `Tananyag` mappa közvetlen tartalmát listázza: itt kell lennie az `index.html`, a `SETUP.md`, az `AGENTS.md` fájlnak és a `Feladatok` mappának. Ha ez megvan, ugorj az 5. pontra. Más ZIP-URL-t ne találj ki. Rövid link ugyanerre a ZIP-re: `https://is.gd/oriana1112`; a böngészhető tananyag-oldal: https://is.gd/oriana1112anyag.
+2. **Ha a parancssor nem futtatható**, töltsd le a ZIP-et a böngészővel ugyanerről a címről. Várd meg a letöltés befejezését, és a letöltési esemény vagy lista alapján azonosítsd az új ZIP pontos helyét, jellemzően a felhasználó **Letöltések (Downloads)** mappájában. Ne válassz pusztán fájlnév alapján egy korábbi ZIP-et. Ha nem férsz hozzá, kérd a ZIP áthelyezését a projektmappába. A letöltött fájlt ZIP-ként ellenőrizd; HTML- vagy bejelentkezési oldalt ne próbálj kicsomagolni.
 3. Bontsd ki a ZIP-et a projektmappán belüli új, ideiglenes almappába. Kicsomagolás előtt ellenőrizd, hogy egyetlen bejegyzés célútvonala sem mutat ezen kívülre. Keresd meg azt az egyetlen tananyaggyökeret, amelyben együtt van a `README.md`, `SETUP.md`, `AGENTS.md`, `index.html` és a `Feladatok` mappa. Ha hiányzik vagy több ilyen gyökér van, ne találgass; nevezd meg az eltérést.
 4. Ennek a tananyaggyökérnek a **teljes tartalmát** helyezd a `Tananyag` mappába. Hagyd el a ZIP által hozzáadott külső mappaszintet (a GitHub ZIP-je egyetlen `oriana-ai-workshop-2026-11-main/` mappát ad; ha más külső mappa van, például `02_Production`, azt is), de őrizd meg az összes belső almappát és fájlt. Helyes: `Tananyag/index.html`, `Tananyag/Feladatok/00-halado-setup.md`; hibás: `Tananyag/02_Production/index.html` vagy `Tananyag/Tananyag/index.html`. Frissítéskor a régi Tananyagot csak a kért jóváhagyás után, az új ZIP ellenőrzését követően cseréld le; törlés előtt ellenőrizd a teljes célútvonalat.
 5. Olvasd el a kibontott `Tananyag/SETUP.md` fájlt, majd folytasd a 2. lépéssel. Csak a sikeres ellenőrzés után takarítsd el a saját ideiglenes kibontási mappát, a teljes útvonal ellenőrzésével. A Letöltések mappából ne törölj.
@@ -50,7 +67,7 @@ Másold a `Tananyag\AGENTS.md` fájlt változtatás nélkül a megadott mappa gy
 Ellenőrizd a felsorolt elemek tényleges meglétét. Az eredményt legfeljebb 15 soros fában mutasd meg:
 
 - Gyökér: `AGENTS.md`, `Tananyag\`, `Munka\`.
-- `Tananyag\`: közvetlenül `README.md`, `SETUP.md`, `index.html`, `START.html`, `napi-attekintes.html`, `AGENTS.md`, `Notebookok\`, `00 Eloadas\`, `Feladatok\`, `AI-asszisztens\`, `Segedanyagok\`, `04 usecase RONDO\`, `_assets\`; nincs külső csomagolómappa.
+- `Tananyag\`: közvetlenül `README.md`, `SETUP.md`, `index.html`, `START.html`, `napi-attekintes.html`, `AGENTS.md`, `Notebookok\`, `00 Eloadas\`, `Feladatok\`, `AI-asszisztens\`, `Segedanyagok\`, `04 usecase RONDO\`, `_assets\`; nincs külső csomagolómappa (nincs `Tananyag\oriana-ai-workshop-2026-11-main\` és nincs `Tananyag\Tananyag\`).
 - `Tananyag\Feladatok\`: `00-halado-setup.md`, `01-dns.md`, `02-portal.md`, `03-kozos-munka.md`, `mellekletek\`.
 - `Tananyag\Feladatok\`: `04-rondo-agent.md`, `05-rondo-reviewer.md`, `06-sites.md`, `06b-ba-utotag.md`, `07-sajat-atvitel.md`.
 - `Munka\`: `00-Alapozas`, `01-DNS`, `02-Portal`, `03-Kozos`, `04-Agent`, `05-Reviewer`, `06-Sites`, `06b-BA-utotag`, `07-Sajat`.
@@ -59,7 +76,7 @@ Ha bármi hiányzik, nevezd meg pontosan. Hiányos munkaterületet ne jelents k�
 
 ## 5. lépés - Visszajelzés a résztvevőnek
 
-Legfeljebb nyolc sorban, kattintható linkekkel közöld, mi készült el: a [Wenova-AI-workshop](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/) gyökérben az [AGENTS.md](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/AGENTS.md), a letöltött [Tananyag](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Tananyag/) és a [Munka](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/) mappa az almappáival (a linkekben a tényleges útvonalat használd, előre perjelekkel, szóköz helyett `%20`).
+Legfeljebb tíz sorban, kattintható linkekkel közöld, mi készült el, és mondd ki a két mappa szerepét: a `Tananyag` mappából csak olvasunk, a `Munka` mappába dolgozunk. A felsorolás: a [Wenova-AI-workshop](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/) gyökérben az [AGENTS.md](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/AGENTS.md), a letöltött [Tananyag](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Tananyag/) és a [Munka](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Munka/) mappa az almappáival (a linkekben a tényleges útvonalat használd, előre perjelekkel, szóköz helyett `%20`).
 
 Ha minden a helyén van, add meg a napi térkép kattintható linkjét: [Tananyag/index.html](file:///C:/Users/<felhasználónév>/Wenova-AI-workshop/Tananyag/index.html). Ez a fő út. Opcionálisan, ha a környezet engedi, megnyithatod a résztvevő böngészőjében is a `Start-Process "<a mappa teljes útvonala>\Tananyag\index.html"` PowerShell-paranccsal; a linket ilyenkor is írd ki. Ha a helyi `file:///` navigáció blokkolt, az normális biztonsági korlátozás, nem hiba: ne próbálkozz újra, hanem kérd meg a résztvevőt, hogy a linket böngészőben kézzel nyissa meg.
 

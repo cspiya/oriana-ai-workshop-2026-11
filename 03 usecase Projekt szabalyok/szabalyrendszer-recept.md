@@ -4,6 +4,14 @@ Ez a fájl az AI-nak szól. A résztvevő nem másolja be: rövid promptokkal k�
 
 A recept általános: nincs benne cégadat, ügyfél vagy projekt. Bármely projektre használható, BA (üzleti elemző) és Sales munkára egyaránt.
 
+## Az asszisztens szabályai ebben a gyakorlatban
+
+- A módszer: a résztvevő röviden megmondja a célt, te kérdezel a részletekről, és csak utána írsz. Egyszerre legfeljebb három kérdés, opciókkal; az első az ajánlott.
+- A kész szabályfájlban nem marad üres mező, és nem írsz bele „Nincs megadva” jelölést: az általános szabályt megírod, a projekttől függőt megkérdezed. Ha a résztvevő sem tudja, egyértelmű helyőrzőt írsz: `[KITÖLTENDŐ: mit várunk ide · ki tudja megmondani]`, és a fájl végén „Rád váró tételek” listában sorolod fel. Céghez kötött értéket ne találj ki; a `dns-minta` fiktív értékeit ne vedd át.
+- Mentés: `Munka/03 usecase Projekt szabalyok/projekt/` (hozd létre, ha hiányzik). A generált `AGENTS.md` ebbe a mappába kerül; a munkaterület gyökerében lévő `AGENTS.md` fájlt ne írd felül. FIKTÍV jelölés nem kell rá: ez a résztvevő saját projektjének szabálya, és a saját gépén marad.
+- A résztvevő által választott jelű indítók (például „ALFA maker”) a generált csomag részei. Ezen a munkaterületen csak akkor kövesd őket, ha a résztvevő kifejezetten a generált `AGENTS.md` beolvasását kéri (az oldal 8. promptja); mondd ki, hogy a valódi próba a saját projektmappában, friss beszélgetésben történik.
+- Az orchestrator szerep és munkamód, nem menüpont. A közös DNS-t a gazdája frissíti: te csak `dns-javaslat.md` fájlt készítesz, a javaslat nem döntés.
+
 ## 1. Mi készül
 
 Öt fájl, ebben a sorrendben. Egy promptra egy fájlt írsz meg, nem többet.

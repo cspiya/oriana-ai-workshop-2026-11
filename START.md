@@ -1,8 +1,8 @@
-# Indulás 3 lépésben, 5 perc
+# Indulás: egy mappa, egy projekt, egy üzenet (kb. 5 perc)
 
-**A teljes tananyag egy helyen:** [https://is.gd/oriana1112anyag](https://is.gd/oriana1112anyag) (böngészhető oldal; a workshop előtti feltöltés után érhető el).
+**A tananyag böngészhető oldala:** [https://is.gd/oriana1112anyag](https://is.gd/oriana1112anyag). Ez az oldal megnyílik a böngészőben; a ZIP-link viszont letöltést indít, az nem hiba.
 
-Egy üres mappát hozol létre, egy lokális ChatGPT-projektet állítasz rá, és a projektben egy üzenettel az AI kialakítja a munkaterületet. Érkezéskor, 09:00 előtt végezd el; a nap 2026-11-12-én 09:00-kor indul.
+Egy üres mappát hozol létre, egy lokális ChatGPT-projektet állítasz rá, és a projektben egy üzenettel az AI kialakítja a munkaterületet. A workshop 2026-11-12-én lezajlott; ugyanezzel a három lépéssel bármikor beállíthatod a saját gépeden.
 
 A képek a ChatGPT asztali alkalmazás magyar felületéről készültek (2026. november). A Windows saját ablakai (Fájlkezelő, mappaválasztó) a Windows nyelvén jelennek meg.
 
@@ -55,12 +55,17 @@ Projektutasítást ebben a ChatGPT-változatban nem kell (és nem is lehet) mega
 A projekt létrehozása után rögtön a projekt új beszélgetésében vagy; később a projekt sorának jobb szélén, a ceruza ikonnal nyitsz újat. A helyi projekt beszélgetései Work (ügynök) módban futnak, külön módválasztó nincs. Az üzenetmező fölött a projekt neve látszik. Illeszd be és küldd el:
 
 ```text
-Töltsd le a workshop tananyagát innen: https://is.gd/oriana1112 (egy ZIP). Bontsd ki a Wenova-AI-workshop mappa Tananyag almappájába úgy, hogy a külső mappát kihagyod, majd kövesd a Tananyag/SETUP.md lépéseit.
+Alakítsd ki a workshop munkaterületét ebben a mappában.
+1. Töltsd le parancssorból a tananyag ZIP-jét a mappába workshop-material.zip néven innen: https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip
+2. Bontsd ki a Tananyag almappába úgy, hogy a ZIP külső mappaszintjét kihagyod.
+3. Kövesd a Tananyag/SETUP.md lépéseit: hozd létre a Munka mappát, és másold a gyökérbe az AGENTS.md fájlt.
 ```
 
 ![Az indító üzenet a projekt üzenetmezőjében, fölötte a projekt neve, jobbra a küldés gomb.](_assets/start-kepek/07-indito-uzenet.png)
 
-A rövid link (https://is.gd/oriana1112) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: `https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`; tartalékként a repó oldalán (https://github.com/cspiya/oriana-ai-workshop-2026-11) a Code → Download ZIP. Az AI a ZIP-et a Wenova-AI-workshop mappába tölti le, a külső `oriana-ai-workshop-2026-11-main` mappát kihagyja, a belső almappákat megőrzi.
+Az üzenetben a ZIP közvetlen címe áll, átirányítás nélkül. Az AI a ZIP-et parancssorból a `Wenova-AI-workshop` mappába tölti le (nem a böngésző Letöltések mappájába), a külső `oriana-ai-workshop-2026-11-main` mappát kihagyja, a belső almappákat megőrzi. Rövid link ugyanerre a ZIP-re: https://is.gd/oriana1112.
+
+*A lenti kép a workshop előtti, rövidebb üzenetet mutatja; a fenti szöveget küldd el.*
 
 Munka közben a ChatGPT engedélyt kér (**Engedélyezed…?**): a végigfutáskor a letöltéshez és egy záró ellenőrző parancshoz kért. Nézd meg, hogy a `Wenova-AI-workshop` mappában dolgozik, és kattints az **Egyszeri engedélyezés** gombra. A **Kibontás** linkkel a teljes parancsot is megnézheted.
 
@@ -74,7 +79,7 @@ Ha az AI kérdez, például hogy frissítse-e a meglévő Tananyagot, a saját s
 
 ## Mi történik ezután
 
-- Az AI a tananyagot a rövid linkről (ZIP) tölti le, majd a tartalmát a `Tananyag` almappába bontja ki, fölösleges külső mappaszint nélkül. A letöltött ZIP (`workshop-material.zip`) a mappa gyökerében maradhat.
+- Az AI a tananyag ZIP-jét letölti, majd a tartalmát a `Tananyag` almappába bontja ki, fölösleges külső mappaszint nélkül. A letöltött ZIP (`workshop-material.zip`) a mappa gyökerében maradhat.
 - Létrehozza a `Munka` mappát és a kilenc gyakorlat-almappát (`00-Alapozas`, `01-DNS`, `02-Portal`, `03-Kozos`, `04-Agent`, `05-Reviewer`, `06-Sites`, `06b-BA-utotag`, `07-Sajat`).
 - Bemásolja az `AGENTS.md` fájlt a `Wenova-AI-workshop` mappa gyökerébe.
 - Ellenőrzi, és kattintható linkekkel felsorolja, mi készült el (a végigfutáskor kb. 3 perc alatt).
@@ -93,6 +98,15 @@ Ha a visszajelzés a projekt utasításmezőjébe illesztendő három sort is ja
 
 **Így ellenőrzöd:** A `Wenova-AI-workshop` mappában ott van a `Tananyag` és a `Munka`, valamint az `AGENTS.md`, a `Tananyag\index.html` pedig megnyílik.
 
+## A két mappa: honnan olvasunk, hová dolgozunk
+
+A beállítás végén a `Wenova-AI-workshop` mappában két almappa van, és ezt a kettőt érdemes megjegyezni:
+
+- **`Tananyag`: innen csak olvasunk.** Ez a letöltött anyag: gyakorlatoldalak, forgatókönyvek, mintaforrások. Ne írj bele, és az asszisztens sem ír bele.
+- **`Munka`: ide dolgozunk.** Minden, ami a gyakorlatokban készül, ide kerül, gyakorlatonként külön almappába. Ez a tiéd, megmarad.
+
+Mellettük a gyökérben ott az `AGENTS.md`: ebből tudja az asszisztens, hogyan vezesse a gyakorlatokat.
+
 ## Az első gyakorlat
 
 Ugyanebben a projektben nyiss egy **új** beszélgetést (a projekt sorának jobb szélén, a ceruza ikonnal), és abban írd be: „Kezdjük a 0. gyakorlatot.” Az új beszélgetés az elején automatikusan beolvassa a mappa gyökerébe került `AGENTS.md` szabályait; a beállító beszélgetés indulásakor ez a fájl még nem létezett. Az AI a gyakorlat céljával kezd, majd egy kérdést tesz fel. A nap többi gyakorlatát is itt indítod: „Kezdjük az N. gyakorlatot” (N = 0…7, illetve „Kezdjük a 6b gyakorlatot”), több fázisú gyakorlatnál „Folytassuk az N. gyakorlatot”.
@@ -108,9 +122,11 @@ Ugyanebben a projektben nyiss egy **új** beszélgetést (a projekt sorának job
 - A Work nem ír a mappába: a mappa hozzáadásakor a „Megbízol ebben a mappában?” kérdésre a Mappa megbízhatónak jelölése gombbal kell felelni; ha kimaradt, vedd ki és add hozzá újra a mappát (a projekt ··· menüjében, Projekt szerkesztése).
 - A projektben nem tudod hozzáadni a mappát, vagy a Work nem látja: a ChatGPT asztali alkalmazást használd, ne a webes felületet; ellenőrizd, hogy a projekt lokális (helyi mappás), nem megosztott.
 - Elutasítottál egy engedélykérést: írd be, hogy „Folytasd, most engedélyezem”, és a következő kérésnél kattints az Egyszeri engedélyezés gombra.
-- A rövid link nem működik (a ChatGPT nem követi az átirányítást): írd az üzenetbe a hosszú ZIP-linket (`https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`), vagy a repó oldalán (https://github.com/cspiya/oriana-ai-workshop-2026-11) a Code → Download ZIP útját.
-- Nincs hálózat, vagy a GitHub nem elérhető: a trénertől kapott ZIP-et tedd a mappába, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet.”
-- Az AI elakad egy parancsnál: kérd meg, hogy mondja meg, melyik lépésnél akadt el, és szólj a trénernek.
+- Az AI nem tudja letölteni a ZIP-et, vagy a letöltött fájlt nem találja: töltsd le te a böngészőben (`https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip`; a böngésző a Letöltések mappába teszi), húzd át a ZIP-et a `Wenova-AI-workshop` mappába kicsomagolás nélkül, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet a benne lévő SETUP.md szerint.”
+- A linkre kattintva nem oldal nyílt meg, hanem letöltődött egy ZIP: ez a ZIP-link rendes működése. A böngészhető oldal címe: https://is.gd/oriana1112anyag.
+- A `Tananyag` mappában még egy `oriana-ai-workshop-2026-11-main` mappa van, és abban a tartalom: írd be: „A Tananyag mappában egy fölösleges külső mappaszint maradt; emeld ki a tartalmát közvetlenül a Tananyag mappába.”
+- Az AI egyáltalán nem tud fájlokkal dolgozni: kézzel is megy. Bontsd ki a ZIP-et, a kibontott `oriana-ai-workshop-2026-11-main` mappát nevezd át `Tananyag` névre, tedd a `Wenova-AI-workshop` mappába, hozz létre mellé egy üres `Munka` mappát, és a `Tananyag\AGENTS.md` fájlt másold a `Wenova-AI-workshop` mappába is.
+- Az AI elakad egy parancsnál: kérd meg, hogy mondja meg, melyik lépésnél akadt el és mi a hibaüzenet, majd kérd, hogy próbálja a SETUP.md tartalék útját.
 - Új beszélgetést nyitottál, és az AI nem követi a szabályokat: írd be: „Olvasd el az AGENTS.md fájlt, és aszerint dolgozz.”
 
 ## Trénereknek: mit ellenőrizz körbejárva

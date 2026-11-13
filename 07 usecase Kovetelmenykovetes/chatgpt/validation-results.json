@@ -1,0 +1,12 @@
+{
+  "schema": "PASS",
+  "schema_engine": "jsonschema 4.26.0 Draft202012Validator",
+  "release": {
+    "B0": "BLOCKED",
+    "B1": "DEMO_ONLY",
+    "B2": "DEMO_ONLY"
+  },
+  "errors": [],
+  "cross_checks": "PASS",
+  "scope": "Structural and explicit example invariants only; not semantic completeness or execution of defined tests."
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>START: indulás 3 lépésben · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
+<title>START: indulás képekkel · Oriana × Wenova ChatGPT-workshop 2026.11.12</title>
 <link rel="stylesheet" href="_assets/wenova.css">
 <link rel="stylesheet" href="_assets/wenova-lapok.css">
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
@@ -22,15 +22,16 @@
 
   
   <header class="nyito">
-  <div class="eyebrow"><span>Oriana × Wenova · 2026. november 12. · érkezéskor, 09:00 előtt</span></div>
-  <h1>Indulás <mark>3 lépésben</mark>, 5 perc</h1>
-  <p class="hero-sub">Egy üres mappát hozol létre, egy lokális ChatGPT-projektet állítasz rá, és a projektben egy üzenettel az AI kialakítja a munkaterületet. Markdown-változat: <a href="START.md">START.md</a>.</p>
+  <div class="eyebrow"><span>Oriana × Wenova · a munkaterület beállítása a saját gépeden</span></div>
+  <h1>Egy mappa, egy projekt, <mark>egy üzenet</mark></h1>
+  <p class="hero-sub">Egy üres mappát hozol létre, egy lokális ChatGPT-projektet állítasz rá, és a projektben egy üzenettel az AI kialakítja a munkaterületet; kb. 5 perc. A végén két mappád lesz: a <strong>Tananyag</strong> mappából csak olvasunk, a <strong>Munka</strong> mappába dolgozunk. Markdown-változat: <a href="START.md">START.md</a>.</p>
   <div class="meta"><span>Mappa: <code>C:\Users\&lt;felhasználónév&gt;\Wenova-AI-workshop</code></span><span>Felület: ChatGPT asztali alkalmazás, lokális projekt + Work</span><span>Modell: GPT-6 Luna</span></div>
   <ul class="ugro" aria-label="Ezen az oldalon">
     <li><a href="#lepes-1"><b>1</b>Hozz létre egy üres mappát</a></li>
     <li><a href="#lepes-2"><b>2</b>Lokális projekt a mappával</a></li>
     <li><a href="#lepes-3"><b>3</b>Új beszélgetés és az egy üzenet</a></li>
     <li><a href="#mi-tortenik">Mi történik ezután</a></li>
+    <li><a href="#ket-mappa">A két mappa</a></li>
     <li><a href="#elso-gyakorlat">Az első gyakorlat</a></li>
     <li><a href="#ha-nem-megy">Ha nem megy</a></li>
     <li><a href="#trenereknek">Trénereknek: mit ellenőrizz körbejárva</a></li>
@@ -38,7 +39,7 @@
   </header>
 
   <section id="egy-helyen" class="link-doboz" aria-label="A teljes tananyag egy helyen">
-  <p><strong>A teljes tananyag egy helyen:</strong> <a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a> (böngészhető oldal; a workshop előtti feltöltés után érhető el).</p>
+  <p><strong>A tananyag böngészhető oldala:</strong> <a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a>. Ez megnyílik a böngészőben; a ZIP-link viszont letöltést indít, az nem hiba.</p>
   <p>A képek a ChatGPT asztali alkalmazás magyar felületéről készültek (2026. november). A Windows saját ablakai (Fájlkezelő, mappaválasztó) a Windows nyelvén jelennek meg. Bármelyik képre kattintva nagyobb méretben is megnézheted.</p>
   </section>
 
@@ -89,9 +90,12 @@
     <div>
       <h3>Indíts új beszélgetést a projektben, és küldd el ezt az egy üzenetet</h3>
       <p>A projekt létrehozása után rögtön a projekt új beszélgetésében vagy; később a projekt sorának jobb szélén, a ceruza ikonnal nyitsz újat. A helyi projekt beszélgetései Work (ügynök) módban futnak, külön módválasztó nincs. Az üzenetmező fölött a projekt neve látszik. Illeszd be és küldd el:</p>
-      <pre class="prompt-box">Töltsd le a workshop tananyagát innen: https://is.gd/oriana1112 (egy ZIP). Bontsd ki a Wenova-AI-workshop mappa Tananyag almappájába úgy, hogy a külső mappát kihagyod, majd kövesd a Tananyag/SETUP.md lépéseit.</pre>
+      <pre class="prompt-box">Alakítsd ki a workshop munkaterületét ebben a mappában.
+1. Töltsd le parancssorból a tananyag ZIP-jét a mappába workshop-material.zip néven innen: https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip
+2. Bontsd ki a Tananyag almappába úgy, hogy a ZIP külső mappaszintjét kihagyod.
+3. Kövesd a Tananyag/SETUP.md lépéseit: hozd létre a Munka mappát, és másold a gyökérbe az AGENTS.md fájlt.</pre>
       <figure class="kepernyo" style="max-width:580px"><button type="button"><img src="_assets/start-kepek/07-indito-uzenet.png" alt="Az indító üzenet a projekt üzenetmezőjében, fölötte a projekt neve, jobbra a küldés gomb." width="580" height="240" loading="lazy"></button></figure>
-      <p>A rövid link (<a href="https://is.gd/oriana1112">https://is.gd/oriana1112</a>) a tananyag ZIP-jére mutat, átirányítással. Ha a ChatGPT nem követi az átirányítást, használd a hosszú linket: <a href="https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip">https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</a>; tartalékként a repó oldalán (<a href="https://github.com/cspiya/oriana-ai-workshop-2026-11">https://github.com/cspiya/oriana-ai-workshop-2026-11</a>) a Code → Download ZIP. Az AI a ZIP-et a <code>Wenova-AI-workshop</code> mappába tölti le, a külső <code>oriana-ai-workshop-2026-11-main</code> mappát kihagyja, a belső almappákat megőrzi.</p>
+      <p>Az üzenetben a ZIP közvetlen címe áll, átirányítás nélkül. Az AI a ZIP-et parancssorból a <code>Wenova-AI-workshop</code> mappába tölti le (nem a böngésző Letöltések mappájába), a külső <code>oriana-ai-workshop-2026-11-main</code> mappát kihagyja, a belső almappákat megőrzi. Rövid link ugyanerre a ZIP-re: <a href="https://is.gd/oriana1112">https://is.gd/oriana1112</a>. A fenti kép a workshop előtti, rövidebb üzenetet mutatja; a keretben álló szöveget küldd el.</p>
       <p>Munka közben a ChatGPT engedélyt kér (<strong>Engedélyezed…?</strong>): a végigfutáskor a letöltéshez és egy záró ellenőrző parancshoz kért. Nézd meg, hogy a <code>Wenova-AI-workshop</code> mappában dolgozik, és kattints az <strong>Egyszeri engedélyezés</strong> gombra. A <strong>Kibontás</strong> linkkel a teljes parancsot is megnézheted.</p>
       <div class="kep-sor">
         <figure class="kepernyo" style="max-width:550px"><button type="button"><img src="_assets/start-kepek/08a-engedely-letoltes.png" alt="Engedélykérés a ZIP letöltéséhez, az Egyszeri engedélyezés gombbal." width="550" height="244" loading="lazy"></button></figure>
@@ -105,7 +109,7 @@
   <section id="mi-tortenik" class="folytatas">
     <h2>Mi történik ezután</h2>
     <ul>
-      <li>Az AI a tananyagot a rövid linkről (ZIP) tölti le, majd a tartalmát a <code>Tananyag</code> almappába bontja ki, fölösleges külső mappaszint nélkül. A letöltött ZIP (<code>workshop-material.zip</code>) a mappa gyökerében maradhat.</li>
+      <li>Az AI a tananyag ZIP-jét letölti, majd a tartalmát a <code>Tananyag</code> almappába bontja ki, fölösleges külső mappaszint nélkül. A letöltött ZIP (<code>workshop-material.zip</code>) a mappa gyökerében maradhat.</li>
       <li>Létrehozza a <code>Munka</code> mappát és a kilenc gyakorlat-almappát (<code>00-Alapozas</code>, <code>01-DNS</code>, <code>02-Portal</code>, <code>03-Kozos</code>, <code>04-Agent</code>, <code>05-Reviewer</code>, <code>06-Sites</code>, <code>06b-BA-utotag</code>, <code>07-Sajat</code>).</li>
       <li>A <code>Tananyag\AGENTS.md</code> fájlt bemásolja a <code>Wenova-AI-workshop</code> mappa gyökerébe.</li>
       <li>Ellenőrzi, és kattintható linkekkel felsorolja, mi készült el (a végigfutáskor kb. 3 perc alatt).</li>
@@ -119,6 +123,15 @@
       <div class="valts"><span><span class="valts-cimke">Most válts ide</span><b>A ChatGPT beépített böngészőpanelje</b><small>a napi térkép: <code>Tananyag\index.html</code>, az AI által írt linkre kattintva</small></span></div>
       <figure class="kepernyo" style="max-width:799px"><button type="button"><img src="_assets/start-kepek/09c-napi-terkep.png" alt="A napi térkép (Tananyag/index.html) a ChatGPT beépített böngészőpaneljében." width="799" height="880" loading="lazy"></button><figcaption>A kép a napi térkép korábbi változatát mutatja: a kinézet és a napirend azóta megújult. Az érvényes program a megnyíló oldalon áll.</figcaption></figure>
     <p class="check"><strong>Így ellenőrzöd:</strong> <span>A <code>Wenova-AI-workshop</code> mappában ott van a <code>Tananyag</code> és a <code>Munka</code> mappa, valamint az <code>AGENTS.md</code>, a <code>Tananyag\index.html</code> pedig megnyílik.</span></p>
+  </section>
+
+  <section id="ket-mappa" class="folytatas">
+    <h2>A két mappa: honnan olvasunk, hová dolgozunk</h2>
+    <div class="mappa-ket">
+      <div class="mappa olvas"><span class="mappa-nev">Tananyag</span><strong>Innen csak olvasunk.</strong><span>A letöltött anyag: gyakorlatoldalak, forgatókönyvek, mintaforrások. Ne írj bele, és az asszisztens sem ír bele.</span></div>
+      <div class="mappa ir"><span class="mappa-nev">Munka</span><strong>Ide dolgozunk.</strong><span>Minden, ami a gyakorlatokban készül, ide kerül, gyakorlatonként külön almappába. Ez a tiéd, megmarad.</span></div>
+    </div>
+    <p>Mellettük a gyökérben ott az <code>AGENTS.md</code>: ebből tudja az asszisztens, hogyan vezesse a gyakorlatokat.</p>
   </section>
 
   <section id="elso-gyakorlat" class="folytatas">
@@ -139,9 +152,11 @@
         <li>A Work nem ír a mappába → A mappa hozzáadásakor a „Megbízol ebben a mappában?” kérdésre a Mappa megbízhatónak jelölése gombbal kell felelni; ha kimaradt, vedd ki és add hozzá újra a mappát (a projekt ··· menüjében, Projekt szerkesztése).</li>
         <li>A projektben nem tudod hozzáadni a mappát, vagy a Work nem látja → A ChatGPT asztali alkalmazást használd, ne a webes felületet; ellenőrizd, hogy a projekt lokális (helyi mappás), nem megosztott.</li>
         <li>Elutasítottál egy engedélykérést → Írd be, hogy „Folytasd, most engedélyezem”, és a következő kérésnél kattints az Egyszeri engedélyezés gombra.</li>
-        <li>A rövid link nem működik (a ChatGPT nem követi az átirányítást) → Írd az üzenetbe a hosszú ZIP-linket (<code>https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip</code>), vagy a repó oldalán (<a href="https://github.com/cspiya/oriana-ai-workshop-2026-11">https://github.com/cspiya/oriana-ai-workshop-2026-11</a>) a Code → Download ZIP útját.</li>
-        <li>Nincs hálózat vagy a GitHub nem érhető el → A trénertől kapott ZIP-et tedd a <code>Wenova-AI-workshop</code> mappába, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet.”</li>
-        <li>Az AI elakad egy parancsnál → Kérd meg, hogy nevezze meg, melyik lépésnél akadt el, és szólj a trénernek.</li>
+        <li>Az AI nem tudja letölteni a ZIP-et, vagy a letöltött fájlt nem találja → Töltsd le te a böngészőben: <a href="https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip">a tananyag ZIP-ként</a> (a böngésző a Letöltések mappába teszi). Húzd át a ZIP-et a <code>Wenova-AI-workshop</code> mappába kicsomagolás nélkül, majd írd be: „A ZIP a mappában van, ebből alakítsd ki a munkaterületet a benne lévő SETUP.md szerint.”</li>
+        <li>A linkre kattintva nem oldal nyílt meg, hanem letöltődött egy ZIP → Ez a ZIP-link rendes működése. A böngészhető oldal címe: <a href="https://is.gd/oriana1112anyag">https://is.gd/oriana1112anyag</a>.</li>
+        <li>A <code>Tananyag</code> mappában még egy <code>oriana-ai-workshop-2026-11-main</code> mappa van, és abban a tartalom → Írd be: „A Tananyag mappában egy fölösleges külső mappaszint maradt; emeld ki a tartalmát közvetlenül a Tananyag mappába.”</li>
+        <li>Az AI egyáltalán nem tud fájlokkal dolgozni → Kézzel is megy. Bontsd ki a ZIP-et, a kibontott <code>oriana-ai-workshop-2026-11-main</code> mappát nevezd át <code>Tananyag</code> névre, tedd a <code>Wenova-AI-workshop</code> mappába, hozz létre mellé egy üres <code>Munka</code> mappát, és a <code>Tananyag\AGENTS.md</code> fájlt másold a <code>Wenova-AI-workshop</code> mappába is.</li>
+        <li>Az AI elakad egy parancsnál → Kérd meg, hogy nevezze meg, melyik lépésnél akadt el és mi a hibaüzenet, majd kérd, hogy próbálja a SETUP.md tartalék útját.</li>
         <li>Új beszélgetést nyitottál, és az AI nem követi a szabályokat → Írd be: „Olvasd el az AGENTS.md fájlt, és aszerint dolgozz.”</li>
       </ul>
     </div>

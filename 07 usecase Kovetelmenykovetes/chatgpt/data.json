@@ -1,0 +1,2331 @@
+{
+  "label": "FIKTÍV OKTATÁSI MINTA",
+  "source": {
+    "file": "fictive-source.md",
+    "sha256": "03993e0d8852530547bc59c8ea400ecedac1a9f4d043f885693cacd78fbc6155"
+  },
+  "cases": [
+    {
+      "id": "C1",
+      "title": "Egyszerű igény"
+    },
+    {
+      "id": "C2",
+      "title": "Feltétel és kivétel"
+    },
+    {
+      "id": "C3",
+      "title": "Távoli részek összeállítása"
+    },
+    {
+      "id": "C4",
+      "title": "Két forrás konfliktusa"
+    },
+    {
+      "id": "C5",
+      "title": "Hiányos üzleti adat"
+    },
+    {
+      "id": "C6",
+      "title": "Oktatás: nem képernyőfunkció"
+    },
+    {
+      "id": "C7",
+      "title": "Változás"
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "B0",
+      "label": "Feltárt állapot",
+      "release": "BLOCKED",
+      "blocks": [
+        {
+          "id": "B0-BLK-00",
+          "locator": "L1-L3",
+          "text": "# FIKTÍV OKTATÁSI MINTA – beszerzési forrás\n\nA következő blokkok fiktív, Word-szerű forrásszerkezetet szemléltetnek.",
+          "atom_ids": []
+        },
+        {
+          "id": "B0-BLK-01",
+          "locator": "L5-L7",
+          "text": "## 1. blokk · C1\nA beszerzési igény rögzíthető.\nA kérelmező megadja az igény tárgyát.",
+          "atom_ids": [
+            "B0-A-01",
+            "B0-A-02"
+          ]
+        },
+        {
+          "id": "B0-BLK-02",
+          "locator": "L9-L11",
+          "text": "## 2. blokk · C1\nAz igény egyedi azonosítót kap.\nA rögzítés visszaigazolást ad.",
+          "atom_ids": [
+            "B0-A-03",
+            "B0-A-04"
+          ]
+        },
+        {
+          "id": "B0-BLK-03",
+          "locator": "L13-L15",
+          "text": "## 3. blokk · C2\n100000 HUF felett vezetői jóváhagyás szükséges.\nSürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "atom_ids": [
+            "B0-A-05",
+            "B0-A-06"
+          ]
+        },
+        {
+          "id": "B0-BLK-04",
+          "locator": "L17-L19",
+          "text": "## 4. blokk · C2\nA sürgősség okát rögzíteni kell.\nA jóváhagyás időpontját rögzíteni kell.",
+          "atom_ids": [
+            "B0-A-07",
+            "B0-A-08"
+          ]
+        },
+        {
+          "id": "B0-BLK-05",
+          "locator": "L21-L23",
+          "text": "## 5. blokk · C3\nA kérelmező a költséghelyet megadja.\nAz összeg pénzneme HUF.",
+          "atom_ids": [
+            "B0-A-09",
+            "B0-A-10"
+          ]
+        },
+        {
+          "id": "B0-BLK-06",
+          "locator": "L25-L27",
+          "text": "## 6. blokk · C3\nA költséghely vezetője ellenőrzi a keretet.\nA keretellenőrzés eredményét meg kell őrizni.",
+          "atom_ids": [
+            "B0-A-11",
+            "B0-A-12"
+          ]
+        },
+        {
+          "id": "B0-BLK-07",
+          "locator": "L29-L31",
+          "text": "## 7. blokk · C4\nA pénzügyi szabályzat szerint a limit 100000 HUF.\nA beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "atom_ids": [
+            "B0-A-13",
+            "B0-A-14"
+          ]
+        },
+        {
+          "id": "B0-BLK-08",
+          "locator": "L33-L35",
+          "text": "## 8. blokk · C4\nA két limit eltérése tisztázandó.\nA források érvényességi sorrendje nincs megadva.",
+          "atom_ids": [
+            "B0-A-15",
+            "B0-A-16"
+          ]
+        },
+        {
+          "id": "B0-BLK-09",
+          "locator": "L37-L39",
+          "text": "## 9. blokk · C5\nA sürgős ügyek maximális utólagos határideje nincs megadva.\nA határidőről üzleti döntés szükséges.",
+          "atom_ids": [
+            "B0-A-17",
+            "B0-A-18"
+          ]
+        },
+        {
+          "id": "B0-BLK-10",
+          "locator": "L41-L43",
+          "text": "## 10. blokk · C5\nA hiányzó határidő nem becsülhető.\nA függő tételt nyitva kell tartani.",
+          "atom_ids": [
+            "B0-A-19",
+            "B0-A-20"
+          ]
+        },
+        {
+          "id": "B0-BLK-11",
+          "locator": "L45-L47",
+          "text": "## 11. blokk · C6\nA felhasználók oktatást kérnek.\nAz oktatási igény nem képernyőfunkció.",
+          "atom_ids": [
+            "B0-A-21",
+            "B0-A-22"
+          ]
+        },
+        {
+          "id": "B0-BLK-12",
+          "locator": "L49-L51",
+          "text": "## 12. blokk · C6\nAz oktatási anyag elkészítése külön feladat.\nAz oktatási időpont nincs megadva.",
+          "atom_ids": [
+            "B0-A-23",
+            "B0-A-24"
+          ]
+        },
+        {
+          "id": "B0-BLK-13",
+          "locator": "L53-L55",
+          "text": "## 13. blokk · C7\nMódosítási kérelem: a limit 200000 HUF legyen.\nA módosítás érinti a jóváhagyási szabályt.",
+          "atom_ids": [
+            "B0-A-25",
+            "B0-A-26"
+          ]
+        },
+        {
+          "id": "B0-BLK-14",
+          "locator": "L57-L59",
+          "text": "## 14. blokk · C7\nA módosítás érinti a tesztdefiníciót.\nA korábbi felülvizsgálat a módosítás után elavul.",
+          "atom_ids": [
+            "B0-A-27",
+            "B0-A-28"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "B0-A-01",
+          "block_id": "B0-BLK-01",
+          "quote": "A beszerzési igény rögzíthető.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-02",
+          "block_id": "B0-BLK-01",
+          "quote": "A kérelmező megadja az igény tárgyát.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-03",
+          "block_id": "B0-BLK-02",
+          "quote": "Az igény egyedi azonosítót kap.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-04",
+          "block_id": "B0-BLK-02",
+          "quote": "A rögzítés visszaigazolást ad.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-05",
+          "block_id": "B0-BLK-03",
+          "quote": "100000 HUF felett vezetői jóváhagyás szükséges.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-06",
+          "block_id": "B0-BLK-03",
+          "quote": "Sürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-07",
+          "block_id": "B0-BLK-04",
+          "quote": "A sürgősség okát rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-08",
+          "block_id": "B0-BLK-04",
+          "quote": "A jóváhagyás időpontját rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-09",
+          "block_id": "B0-BLK-05",
+          "quote": "A kérelmező a költséghelyet megadja.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-10",
+          "block_id": "B0-BLK-05",
+          "quote": "Az összeg pénzneme HUF.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-11",
+          "block_id": "B0-BLK-06",
+          "quote": "A költséghely vezetője ellenőrzi a keretet.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-12",
+          "block_id": "B0-BLK-06",
+          "quote": "A keretellenőrzés eredményét meg kell őrizni.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B0-A-13",
+          "block_id": "B0-BLK-07",
+          "quote": "A pénzügyi szabályzat szerint a limit 100000 HUF.",
+          "case_id": "C4",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-14",
+          "block_id": "B0-BLK-07",
+          "quote": "A beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "case_id": "C4",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-15",
+          "block_id": "B0-BLK-08",
+          "quote": "A két limit eltérése tisztázandó.",
+          "case_id": "C4",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-16",
+          "block_id": "B0-BLK-08",
+          "quote": "A források érvényességi sorrendje nincs megadva.",
+          "case_id": "C4",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-17",
+          "block_id": "B0-BLK-09",
+          "quote": "A sürgős ügyek maximális utólagos határideje nincs megadva.",
+          "case_id": "C5",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-18",
+          "block_id": "B0-BLK-09",
+          "quote": "A határidőről üzleti döntés szükséges.",
+          "case_id": "C5",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-19",
+          "block_id": "B0-BLK-10",
+          "quote": "A hiányzó határidő nem becsülhető.",
+          "case_id": "C5",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-20",
+          "block_id": "B0-BLK-10",
+          "quote": "A függő tételt nyitva kell tartani.",
+          "case_id": "C5",
+          "disposition": "deferred",
+          "reason": "Nyitott üzleti kérdés."
+        },
+        {
+          "id": "B0-A-21",
+          "block_id": "B0-BLK-11",
+          "quote": "A felhasználók oktatást kérnek.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B0-A-22",
+          "block_id": "B0-BLK-11",
+          "quote": "Az oktatási igény nem képernyőfunkció.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B0-A-23",
+          "block_id": "B0-BLK-12",
+          "quote": "Az oktatási anyag elkészítése külön feladat.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B0-A-24",
+          "block_id": "B0-BLK-12",
+          "quote": "Az oktatási időpont nincs megadva.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B0-A-25",
+          "block_id": "B0-BLK-13",
+          "quote": "Módosítási kérelem: a limit 200000 HUF legyen.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B0-A-26",
+          "block_id": "B0-BLK-13",
+          "quote": "A módosítás érinti a jóváhagyási szabályt.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B0-A-27",
+          "block_id": "B0-BLK-14",
+          "quote": "A módosítás érinti a tesztdefiníciót.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B0-A-28",
+          "block_id": "B0-BLK-14",
+          "quote": "A korábbi felülvizsgálat a módosítás után elavul.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "B0-REQ-01",
+          "type": "requirement",
+          "case_id": "C1",
+          "version": "B0",
+          "text": "Az igény tárgya rögzíthető, egyedi azonosítóval és visszaigazolással."
+        },
+        {
+          "id": "B0-SPEC-01",
+          "type": "spec",
+          "case_id": "C1",
+          "version": "B0",
+          "text": "Igény mentésekor azonosító keletkezik, visszaigazolás jelenik meg. Szereplő: kérelmező; bemenet: tárgy; kiváltó: rögzítés. Eredmény: azonosító és visszaigazolás. Hibakezelés és további kötelező mezők: Nincs megadva."
+        },
+        {
+          "id": "B0-TEST-01",
+          "type": "test",
+          "case_id": "C1",
+          "version": "B0",
+          "text": "Definíció: igény mentése után azonosító és visszaigazolás ellenőrzése. Adott egy tárgy; amikor az igényt rögzítik, akkor azonosító és visszaigazolás keletkezik."
+        },
+        {
+          "id": "B0-REQ-02",
+          "type": "requirement",
+          "case_id": "C2",
+          "version": "B0",
+          "text": "100000 HUF felett vezetői jóváhagyás, sürgős esetben indok és utólagos döntés."
+        },
+        {
+          "id": "B0-SPEC-02",
+          "type": "spec",
+          "case_id": "C2",
+          "version": "B0",
+          "text": "Összeg > 100000 HUF: vezetői jóváhagyás; sürgős kivételnél indok és határidő: Nincs megadva; blokkolt. Szereplő: kérelmező és vezető; bemenet: összeg, sürgősség és sürgősségi indok. Kivétel: sürgős esetben utólagos vezetői jóváhagyás, időpont rögzítése. Hibaüzenet: Nincs megadva."
+        },
+        {
+          "id": "B0-TEST-02",
+          "type": "test",
+          "case_id": "C2",
+          "version": "B0",
+          "text": "Definíció: 100000, 100001 HUF, sürgős/nem sürgős és határidő vizsgálata. Adott 100000 HUF, amikor nem sürgős az ügy, akkor a forrás szerint a felette szabály nem lép életbe; 100001 HUF-nál igen. Sürgős esetben indok és utólagos jóváhagyás rögzítése."
+        },
+        {
+          "id": "B0-REQ-03",
+          "type": "requirement",
+          "case_id": "C3",
+          "version": "B0",
+          "text": "A HUF összeg, költséghely és a vezetői keretellenőrzés együttesen szükséges."
+        },
+        {
+          "id": "B0-SPEC-03",
+          "type": "spec",
+          "case_id": "C3",
+          "version": "B0",
+          "text": "A költséghelyhez kapcsolt keretellenőrzés eredményét meg kell őrizni. Szereplő: kérelmező és költséghely vezető; bemenet: költséghely, HUF összeg; kiváltó: keret ellenőrzése; eredmény: az ellenőrzés megőrzött eredménye. Hibakezelés: Nincs megadva."
+        },
+        {
+          "id": "B0-TEST-03",
+          "type": "test",
+          "case_id": "C3",
+          "version": "B0",
+          "text": "Definíció: távoli forrásrészek együttes lefedettsége és az eredmény megőrzése. Adott költséghely és HUF összeg; amikor a vezető ellenőrzi a keretet, akkor az eredmény megőrzendő."
+        },
+        {
+          "id": "B0-REQ-04",
+          "type": "requirement",
+          "case_id": "C4",
+          "version": "B0",
+          "text": "A 100000 és 150000 HUF közötti eltérést döntéssel kell rendezni."
+        },
+        {
+          "id": "B0-SPEC-04",
+          "type": "spec",
+          "case_id": "C4",
+          "version": "B0",
+          "text": "Nyitott konfliktus blokkol Szereplő: fiktív üzleti gazda; bemenet: két eltérő forrás; eredmény: mindkét forrás és döntés megőrzése; B0 esetén blokkolás."
+        },
+        {
+          "id": "B0-TEST-04",
+          "type": "test",
+          "case_id": "C4",
+          "version": "B0",
+          "text": "Definíció: két forrás megőrzése és a döntéshez kötött feloldás ellenőrzése. Adott két eltérő limit; amikor nincs döntés, akkor a kiadás blokkolt; fiktív döntésnél a döntés nyomon követhető."
+        },
+        {
+          "id": "B0-REQ-05",
+          "type": "requirement",
+          "case_id": "C5",
+          "version": "B0",
+          "text": "A sürgős utólagos döntés határideje hiányzik a forrásból."
+        },
+        {
+          "id": "B0-SPEC-05",
+          "type": "spec",
+          "case_id": "C5",
+          "version": "B0",
+          "text": "Határidő: Nincs megadva; blokkolt. Szereplő: fiktív üzleti gazda; bemenet: hiányzó időkorlát; eredmény: nyitott tétel, B1/B2 esetén fiktív döntéssel kitöltve."
+        },
+        {
+          "id": "B0-TEST-05",
+          "type": "test",
+          "case_id": "C5",
+          "version": "B0",
+          "text": "Definíció: hiányzó értékre nincs számított alapérték; fiktív döntés után nyomon követés. Adott hiányzó határidő; amikor nincs döntés, akkor az érték Nincs megadva, és a kiadás blokkolt."
+        },
+        {
+          "id": "B0-REQ-06",
+          "type": "requirement",
+          "case_id": "C6",
+          "version": "B0",
+          "text": "Az oktatási igény külön nem funkcionális feladat; időpont Nincs megadva."
+        },
+        {
+          "id": "B0-SPEC-06",
+          "type": "spec",
+          "case_id": "C6",
+          "version": "B0",
+          "text": "Nem készül belőle képernyőfunkció; sorsa külön oktatási feladat. Szereplő: oktatás gazdája Nincs megadva; bemenet: oktatási kérés; eredmény: külön feladat, nem képernyőfunkció."
+        },
+        {
+          "id": "B0-TEST-06",
+          "type": "test",
+          "case_id": "C6",
+          "version": "B0",
+          "text": "Definíció: az oktatás sorsa rögzített, nem funkcióként szerepel. Adott oktatási kérés; amikor besorolják, akkor önálló nem funkcionális feladatként követhető."
+        },
+        {
+          "id": "B0-REQ-07",
+          "type": "requirement",
+          "case_id": "C7",
+          "version": "B0",
+          "text": "Változási kérelem: 200000 HUF; a jóváhagyás és teszt érintett."
+        },
+        {
+          "id": "B0-SPEC-07",
+          "type": "spec",
+          "case_id": "C7",
+          "version": "B0",
+          "text": "Későbbi kérelem, e baseline-ból kizárva. Szereplő: fiktív ügyfélképviselő; bemenet: változási kérelem; eredmény: új baseline és a korábbi szimulált felülvizsgálat elavul."
+        },
+        {
+          "id": "B0-TEST-07",
+          "type": "test",
+          "case_id": "C7",
+          "version": "B0",
+          "text": "Definíció: változás hatása a forrás, követelmény, specifikáció és teszt között; nem futtatási eredmény. Adott a fiktív módosítás; amikor a küszöb változik, akkor a szabály és tesztdefiníció új verziót kap, a régi review elavul."
+        }
+      ],
+      "edges": [
+        {
+          "from": "B0-A-01",
+          "to": "B0-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-02",
+          "to": "B0-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-03",
+          "to": "B0-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-04",
+          "to": "B0-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-01",
+          "to": "B0-SPEC-01",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-01",
+          "to": "B0-TEST-01",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-05",
+          "to": "B0-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-06",
+          "to": "B0-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-07",
+          "to": "B0-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-08",
+          "to": "B0-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-02",
+          "to": "B0-SPEC-02",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-02",
+          "to": "B0-TEST-02",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-09",
+          "to": "B0-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-10",
+          "to": "B0-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-11",
+          "to": "B0-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-12",
+          "to": "B0-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-03",
+          "to": "B0-SPEC-03",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-03",
+          "to": "B0-TEST-03",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-13",
+          "to": "B0-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-14",
+          "to": "B0-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-15",
+          "to": "B0-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-16",
+          "to": "B0-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-04",
+          "to": "B0-SPEC-04",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-04",
+          "to": "B0-TEST-04",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-17",
+          "to": "B0-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-18",
+          "to": "B0-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-19",
+          "to": "B0-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-20",
+          "to": "B0-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-05",
+          "to": "B0-SPEC-05",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-05",
+          "to": "B0-TEST-05",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-21",
+          "to": "B0-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-22",
+          "to": "B0-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-23",
+          "to": "B0-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-24",
+          "to": "B0-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-06",
+          "to": "B0-SPEC-06",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-06",
+          "to": "B0-TEST-06",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B0-A-25",
+          "to": "B0-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-26",
+          "to": "B0-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-27",
+          "to": "B0-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-A-28",
+          "to": "B0-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B0-REQ-07",
+          "to": "B0-SPEC-07",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B0-SPEC-07",
+          "to": "B0-TEST-07",
+          "kind": "verified_by"
+        }
+      ],
+      "issues": [
+        {
+          "id": "B0-ISS-01",
+          "severity": "blocker",
+          "status": "open",
+          "text": "A 100000 és 150000 HUF ütközésének feloldása."
+        },
+        {
+          "id": "B0-ISS-02",
+          "severity": "blocker",
+          "status": "open",
+          "text": "A sürgős utólagos jóváhagyás határideje."
+        }
+      ],
+      "decisions": [],
+      "reviews": [],
+      "rule": {
+        "operator": ">",
+        "threshold_huf": 100000,
+        "exception": "urgent_post_approval",
+        "deadline_workdays": null,
+        "approver_role": "vezető"
+      },
+      "test_execution": "NOT_RUN"
+    },
+    {
+      "id": "B1",
+      "label": "Fiktív döntés utáni baseline",
+      "release": "DEMO_ONLY",
+      "blocks": [
+        {
+          "id": "B1-BLK-00",
+          "locator": "L1-L3",
+          "text": "# FIKTÍV OKTATÁSI MINTA – beszerzési forrás\n\nA következő blokkok fiktív, Word-szerű forrásszerkezetet szemléltetnek.",
+          "atom_ids": []
+        },
+        {
+          "id": "B1-BLK-01",
+          "locator": "L5-L7",
+          "text": "## 1. blokk · C1\nA beszerzési igény rögzíthető.\nA kérelmező megadja az igény tárgyát.",
+          "atom_ids": [
+            "B1-A-01",
+            "B1-A-02"
+          ]
+        },
+        {
+          "id": "B1-BLK-02",
+          "locator": "L9-L11",
+          "text": "## 2. blokk · C1\nAz igény egyedi azonosítót kap.\nA rögzítés visszaigazolást ad.",
+          "atom_ids": [
+            "B1-A-03",
+            "B1-A-04"
+          ]
+        },
+        {
+          "id": "B1-BLK-03",
+          "locator": "L13-L15",
+          "text": "## 3. blokk · C2\n100000 HUF felett vezetői jóváhagyás szükséges.\nSürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "atom_ids": [
+            "B1-A-05",
+            "B1-A-06"
+          ]
+        },
+        {
+          "id": "B1-BLK-04",
+          "locator": "L17-L19",
+          "text": "## 4. blokk · C2\nA sürgősség okát rögzíteni kell.\nA jóváhagyás időpontját rögzíteni kell.",
+          "atom_ids": [
+            "B1-A-07",
+            "B1-A-08"
+          ]
+        },
+        {
+          "id": "B1-BLK-05",
+          "locator": "L21-L23",
+          "text": "## 5. blokk · C3\nA kérelmező a költséghelyet megadja.\nAz összeg pénzneme HUF.",
+          "atom_ids": [
+            "B1-A-09",
+            "B1-A-10"
+          ]
+        },
+        {
+          "id": "B1-BLK-06",
+          "locator": "L25-L27",
+          "text": "## 6. blokk · C3\nA költséghely vezetője ellenőrzi a keretet.\nA keretellenőrzés eredményét meg kell őrizni.",
+          "atom_ids": [
+            "B1-A-11",
+            "B1-A-12"
+          ]
+        },
+        {
+          "id": "B1-BLK-07",
+          "locator": "L29-L31",
+          "text": "## 7. blokk · C4\nA pénzügyi szabályzat szerint a limit 100000 HUF.\nA beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "atom_ids": [
+            "B1-A-13",
+            "B1-A-14"
+          ]
+        },
+        {
+          "id": "B1-BLK-08",
+          "locator": "L33-L35",
+          "text": "## 8. blokk · C4\nA két limit eltérése tisztázandó.\nA források érvényességi sorrendje nincs megadva.",
+          "atom_ids": [
+            "B1-A-15",
+            "B1-A-16"
+          ]
+        },
+        {
+          "id": "B1-BLK-09",
+          "locator": "L37-L39",
+          "text": "## 9. blokk · C5\nA sürgős ügyek maximális utólagos határideje nincs megadva.\nA határidőről üzleti döntés szükséges.",
+          "atom_ids": [
+            "B1-A-17",
+            "B1-A-18"
+          ]
+        },
+        {
+          "id": "B1-BLK-10",
+          "locator": "L41-L43",
+          "text": "## 10. blokk · C5\nA hiányzó határidő nem becsülhető.\nA függő tételt nyitva kell tartani.",
+          "atom_ids": [
+            "B1-A-19",
+            "B1-A-20"
+          ]
+        },
+        {
+          "id": "B1-BLK-11",
+          "locator": "L45-L47",
+          "text": "## 11. blokk · C6\nA felhasználók oktatást kérnek.\nAz oktatási igény nem képernyőfunkció.",
+          "atom_ids": [
+            "B1-A-21",
+            "B1-A-22"
+          ]
+        },
+        {
+          "id": "B1-BLK-12",
+          "locator": "L49-L51",
+          "text": "## 12. blokk · C6\nAz oktatási anyag elkészítése külön feladat.\nAz oktatási időpont nincs megadva.",
+          "atom_ids": [
+            "B1-A-23",
+            "B1-A-24"
+          ]
+        },
+        {
+          "id": "B1-BLK-13",
+          "locator": "L53-L55",
+          "text": "## 13. blokk · C7\nMódosítási kérelem: a limit 200000 HUF legyen.\nA módosítás érinti a jóváhagyási szabályt.",
+          "atom_ids": [
+            "B1-A-25",
+            "B1-A-26"
+          ]
+        },
+        {
+          "id": "B1-BLK-14",
+          "locator": "L57-L59",
+          "text": "## 14. blokk · C7\nA módosítás érinti a tesztdefiníciót.\nA korábbi felülvizsgálat a módosítás után elavul.",
+          "atom_ids": [
+            "B1-A-27",
+            "B1-A-28"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "B1-A-01",
+          "block_id": "B1-BLK-01",
+          "quote": "A beszerzési igény rögzíthető.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-02",
+          "block_id": "B1-BLK-01",
+          "quote": "A kérelmező megadja az igény tárgyát.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-03",
+          "block_id": "B1-BLK-02",
+          "quote": "Az igény egyedi azonosítót kap.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-04",
+          "block_id": "B1-BLK-02",
+          "quote": "A rögzítés visszaigazolást ad.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-05",
+          "block_id": "B1-BLK-03",
+          "quote": "100000 HUF felett vezetői jóváhagyás szükséges.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-06",
+          "block_id": "B1-BLK-03",
+          "quote": "Sürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-07",
+          "block_id": "B1-BLK-04",
+          "quote": "A sürgősség okát rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-08",
+          "block_id": "B1-BLK-04",
+          "quote": "A jóváhagyás időpontját rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-09",
+          "block_id": "B1-BLK-05",
+          "quote": "A kérelmező a költséghelyet megadja.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-10",
+          "block_id": "B1-BLK-05",
+          "quote": "Az összeg pénzneme HUF.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-11",
+          "block_id": "B1-BLK-06",
+          "quote": "A költséghely vezetője ellenőrzi a keretet.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-12",
+          "block_id": "B1-BLK-06",
+          "quote": "A keretellenőrzés eredményét meg kell őrizni.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-13",
+          "block_id": "B1-BLK-07",
+          "quote": "A pénzügyi szabályzat szerint a limit 100000 HUF.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-14",
+          "block_id": "B1-BLK-07",
+          "quote": "A beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-15",
+          "block_id": "B1-BLK-08",
+          "quote": "A két limit eltérése tisztázandó.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-16",
+          "block_id": "B1-BLK-08",
+          "quote": "A források érvényességi sorrendje nincs megadva.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-17",
+          "block_id": "B1-BLK-09",
+          "quote": "A sürgős ügyek maximális utólagos határideje nincs megadva.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-18",
+          "block_id": "B1-BLK-09",
+          "quote": "A határidőről üzleti döntés szükséges.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-19",
+          "block_id": "B1-BLK-10",
+          "quote": "A hiányzó határidő nem becsülhető.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-20",
+          "block_id": "B1-BLK-10",
+          "quote": "A függő tételt nyitva kell tartani.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B1-A-21",
+          "block_id": "B1-BLK-11",
+          "quote": "A felhasználók oktatást kérnek.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B1-A-22",
+          "block_id": "B1-BLK-11",
+          "quote": "Az oktatási igény nem képernyőfunkció.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B1-A-23",
+          "block_id": "B1-BLK-12",
+          "quote": "Az oktatási anyag elkészítése külön feladat.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B1-A-24",
+          "block_id": "B1-BLK-12",
+          "quote": "Az oktatási időpont nincs megadva.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B1-A-25",
+          "block_id": "B1-BLK-13",
+          "quote": "Módosítási kérelem: a limit 200000 HUF legyen.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B1-A-26",
+          "block_id": "B1-BLK-13",
+          "quote": "A módosítás érinti a jóváhagyási szabályt.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B1-A-27",
+          "block_id": "B1-BLK-14",
+          "quote": "A módosítás érinti a tesztdefiníciót.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        },
+        {
+          "id": "B1-A-28",
+          "block_id": "B1-BLK-14",
+          "quote": "A korábbi felülvizsgálat a módosítás után elavul.",
+          "case_id": "C7",
+          "disposition": "excluded",
+          "reason": "Későbbi változat kérelme."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "B1-REQ-01",
+          "type": "requirement",
+          "case_id": "C1",
+          "version": "B1",
+          "text": "Az igény tárgya rögzíthető, egyedi azonosítóval és visszaigazolással."
+        },
+        {
+          "id": "B1-SPEC-01",
+          "type": "spec",
+          "case_id": "C1",
+          "version": "B1",
+          "text": "Igény mentésekor azonosító keletkezik, visszaigazolás jelenik meg. Szereplő: kérelmező; bemenet: tárgy; kiváltó: rögzítés. Eredmény: azonosító és visszaigazolás. Hibakezelés és további kötelező mezők: Nincs megadva."
+        },
+        {
+          "id": "B1-TEST-01",
+          "type": "test",
+          "case_id": "C1",
+          "version": "B1",
+          "text": "Definíció: igény mentése után azonosító és visszaigazolás ellenőrzése. Adott egy tárgy; amikor az igényt rögzítik, akkor azonosító és visszaigazolás keletkezik."
+        },
+        {
+          "id": "B1-REQ-02",
+          "type": "requirement",
+          "case_id": "C2",
+          "version": "B1",
+          "text": "100000 HUF felett vezetői jóváhagyás, sürgős esetben indok és utólagos döntés."
+        },
+        {
+          "id": "B1-SPEC-02",
+          "type": "spec",
+          "case_id": "C2",
+          "version": "B1",
+          "text": "Összeg > 100000 HUF: vezetői jóváhagyás; sürgős kivételnél indok és határidő: 2 munkanap (fiktív döntés). Szereplő: kérelmező és vezető; bemenet: összeg, sürgősség és sürgősségi indok. Kivétel: sürgős esetben utólagos vezetői jóváhagyás, időpont rögzítése. Hibaüzenet: Nincs megadva."
+        },
+        {
+          "id": "B1-TEST-02",
+          "type": "test",
+          "case_id": "C2",
+          "version": "B1",
+          "text": "Definíció: 100000, 100001 HUF, sürgős/nem sürgős és határidő vizsgálata. Adott 100000 HUF, amikor nem sürgős az ügy, akkor a forrás szerint a felette szabály nem lép életbe; 100001 HUF-nál igen. Sürgős esetben indok és utólagos jóváhagyás rögzítése."
+        },
+        {
+          "id": "B1-REQ-03",
+          "type": "requirement",
+          "case_id": "C3",
+          "version": "B1",
+          "text": "A HUF összeg, költséghely és a vezetői keretellenőrzés együttesen szükséges."
+        },
+        {
+          "id": "B1-SPEC-03",
+          "type": "spec",
+          "case_id": "C3",
+          "version": "B1",
+          "text": "A költséghelyhez kapcsolt keretellenőrzés eredményét meg kell őrizni. Szereplő: kérelmező és költséghely vezető; bemenet: költséghely, HUF összeg; kiváltó: keret ellenőrzése; eredmény: az ellenőrzés megőrzött eredménye. Hibakezelés: Nincs megadva."
+        },
+        {
+          "id": "B1-TEST-03",
+          "type": "test",
+          "case_id": "C3",
+          "version": "B1",
+          "text": "Definíció: távoli forrásrészek együttes lefedettsége és az eredmény megőrzése. Adott költséghely és HUF összeg; amikor a vezető ellenőrzi a keretet, akkor az eredmény megőrzendő."
+        },
+        {
+          "id": "B1-REQ-04",
+          "type": "requirement",
+          "case_id": "C4",
+          "version": "B1",
+          "text": "A 100000 és 150000 HUF közötti eltérést döntéssel kell rendezni."
+        },
+        {
+          "id": "B1-SPEC-04",
+          "type": "spec",
+          "case_id": "C4",
+          "version": "B1",
+          "text": "Fiktív gazdai döntés: 100000 HUF induló limit; B2 változása külön döntés. Szereplő: fiktív üzleti gazda; bemenet: két eltérő forrás; eredmény: mindkét forrás és döntés megőrzése; B0 esetén blokkolás."
+        },
+        {
+          "id": "B1-TEST-04",
+          "type": "test",
+          "case_id": "C4",
+          "version": "B1",
+          "text": "Definíció: két forrás megőrzése és a döntéshez kötött feloldás ellenőrzése. Adott két eltérő limit; amikor nincs döntés, akkor a kiadás blokkolt; fiktív döntésnél a döntés nyomon követhető."
+        },
+        {
+          "id": "B1-REQ-05",
+          "type": "requirement",
+          "case_id": "C5",
+          "version": "B1",
+          "text": "A sürgős utólagos döntés határideje hiányzik a forrásból."
+        },
+        {
+          "id": "B1-SPEC-05",
+          "type": "spec",
+          "case_id": "C5",
+          "version": "B1",
+          "text": "Határidő: 2 munkanap (fiktív döntés). Szereplő: fiktív üzleti gazda; bemenet: hiányzó időkorlát; eredmény: nyitott tétel, B1/B2 esetén fiktív döntéssel kitöltve."
+        },
+        {
+          "id": "B1-TEST-05",
+          "type": "test",
+          "case_id": "C5",
+          "version": "B1",
+          "text": "Definíció: hiányzó értékre nincs számított alapérték; fiktív döntés után nyomon követés. Adott hiányzó határidő; amikor nincs döntés, akkor az érték Nincs megadva, és a kiadás blokkolt."
+        },
+        {
+          "id": "B1-REQ-06",
+          "type": "requirement",
+          "case_id": "C6",
+          "version": "B1",
+          "text": "Az oktatási igény külön nem funkcionális feladat; időpont Nincs megadva."
+        },
+        {
+          "id": "B1-SPEC-06",
+          "type": "spec",
+          "case_id": "C6",
+          "version": "B1",
+          "text": "Nem készül belőle képernyőfunkció; sorsa külön oktatási feladat. Szereplő: oktatás gazdája Nincs megadva; bemenet: oktatási kérés; eredmény: külön feladat, nem képernyőfunkció."
+        },
+        {
+          "id": "B1-TEST-06",
+          "type": "test",
+          "case_id": "C6",
+          "version": "B1",
+          "text": "Definíció: az oktatás sorsa rögzített, nem funkcióként szerepel. Adott oktatási kérés; amikor besorolják, akkor önálló nem funkcionális feladatként követhető."
+        },
+        {
+          "id": "B1-REQ-07",
+          "type": "requirement",
+          "case_id": "C7",
+          "version": "B1",
+          "text": "Változási kérelem: 200000 HUF; a jóváhagyás és teszt érintett."
+        },
+        {
+          "id": "B1-SPEC-07",
+          "type": "spec",
+          "case_id": "C7",
+          "version": "B1",
+          "text": "Későbbi kérelem, e baseline-ból kizárva. Szereplő: fiktív ügyfélképviselő; bemenet: változási kérelem; eredmény: új baseline és a korábbi szimulált felülvizsgálat elavul."
+        },
+        {
+          "id": "B1-TEST-07",
+          "type": "test",
+          "case_id": "C7",
+          "version": "B1",
+          "text": "Definíció: változás hatása a forrás, követelmény, specifikáció és teszt között; nem futtatási eredmény. Adott a fiktív módosítás; amikor a küszöb változik, akkor a szabály és tesztdefiníció új verziót kap, a régi review elavul."
+        }
+      ],
+      "edges": [
+        {
+          "from": "B1-A-01",
+          "to": "B1-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-02",
+          "to": "B1-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-03",
+          "to": "B1-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-04",
+          "to": "B1-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-01",
+          "to": "B1-SPEC-01",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-01",
+          "to": "B1-TEST-01",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-05",
+          "to": "B1-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-06",
+          "to": "B1-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-07",
+          "to": "B1-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-08",
+          "to": "B1-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-02",
+          "to": "B1-SPEC-02",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-02",
+          "to": "B1-TEST-02",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-09",
+          "to": "B1-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-10",
+          "to": "B1-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-11",
+          "to": "B1-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-12",
+          "to": "B1-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-03",
+          "to": "B1-SPEC-03",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-03",
+          "to": "B1-TEST-03",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-13",
+          "to": "B1-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-14",
+          "to": "B1-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-15",
+          "to": "B1-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-16",
+          "to": "B1-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-04",
+          "to": "B1-SPEC-04",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-04",
+          "to": "B1-TEST-04",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-17",
+          "to": "B1-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-18",
+          "to": "B1-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-19",
+          "to": "B1-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-20",
+          "to": "B1-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-05",
+          "to": "B1-SPEC-05",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-05",
+          "to": "B1-TEST-05",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-21",
+          "to": "B1-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-22",
+          "to": "B1-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-23",
+          "to": "B1-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-24",
+          "to": "B1-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-06",
+          "to": "B1-SPEC-06",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-06",
+          "to": "B1-TEST-06",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B1-A-25",
+          "to": "B1-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-26",
+          "to": "B1-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-27",
+          "to": "B1-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-A-28",
+          "to": "B1-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B1-REQ-07",
+          "to": "B1-SPEC-07",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B1-SPEC-07",
+          "to": "B1-TEST-07",
+          "kind": "verified_by"
+        }
+      ],
+      "issues": [
+        {
+          "id": "B1-ISS-01",
+          "severity": "blocker",
+          "status": "resolved",
+          "text": "A 100000 és 150000 HUF ütközésének feloldása."
+        },
+        {
+          "id": "B1-ISS-02",
+          "severity": "blocker",
+          "status": "resolved",
+          "text": "A sürgős utólagos jóváhagyás határideje."
+        }
+      ],
+      "decisions": [
+        {
+          "id": "B1-DEC-01",
+          "role": "fiktív üzleti gazda",
+          "time": "2026-11-12T10:00:00Z",
+          "text": "Hipotetikus döntés: a pénzügyi limit és 2 munkanapos határidő érvényes a demonstrációban."
+        }
+      ],
+      "reviews": [
+        {
+          "id": "B1-REV-01",
+          "status": "simulated_current",
+          "text": "Szimulált elfogadás; nem valós reviewer vagy jóváhagyás."
+        }
+      ],
+      "rule": {
+        "operator": ">",
+        "threshold_huf": 100000,
+        "exception": "urgent_post_approval",
+        "deadline_workdays": 2,
+        "approver_role": "vezető"
+      },
+      "test_execution": "NOT_RUN"
+    },
+    {
+      "id": "B2",
+      "label": "Fiktív változás utáni baseline",
+      "release": "DEMO_ONLY",
+      "blocks": [
+        {
+          "id": "B2-BLK-00",
+          "locator": "L1-L3",
+          "text": "# FIKTÍV OKTATÁSI MINTA – beszerzési forrás\n\nA következő blokkok fiktív, Word-szerű forrásszerkezetet szemléltetnek.",
+          "atom_ids": []
+        },
+        {
+          "id": "B2-BLK-01",
+          "locator": "L5-L7",
+          "text": "## 1. blokk · C1\nA beszerzési igény rögzíthető.\nA kérelmező megadja az igény tárgyát.",
+          "atom_ids": [
+            "B2-A-01",
+            "B2-A-02"
+          ]
+        },
+        {
+          "id": "B2-BLK-02",
+          "locator": "L9-L11",
+          "text": "## 2. blokk · C1\nAz igény egyedi azonosítót kap.\nA rögzítés visszaigazolást ad.",
+          "atom_ids": [
+            "B2-A-03",
+            "B2-A-04"
+          ]
+        },
+        {
+          "id": "B2-BLK-03",
+          "locator": "L13-L15",
+          "text": "## 3. blokk · C2\n100000 HUF felett vezetői jóváhagyás szükséges.\nSürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "atom_ids": [
+            "B2-A-05",
+            "B2-A-06"
+          ]
+        },
+        {
+          "id": "B2-BLK-04",
+          "locator": "L17-L19",
+          "text": "## 4. blokk · C2\nA sürgősség okát rögzíteni kell.\nA jóváhagyás időpontját rögzíteni kell.",
+          "atom_ids": [
+            "B2-A-07",
+            "B2-A-08"
+          ]
+        },
+        {
+          "id": "B2-BLK-05",
+          "locator": "L21-L23",
+          "text": "## 5. blokk · C3\nA kérelmező a költséghelyet megadja.\nAz összeg pénzneme HUF.",
+          "atom_ids": [
+            "B2-A-09",
+            "B2-A-10"
+          ]
+        },
+        {
+          "id": "B2-BLK-06",
+          "locator": "L25-L27",
+          "text": "## 6. blokk · C3\nA költséghely vezetője ellenőrzi a keretet.\nA keretellenőrzés eredményét meg kell őrizni.",
+          "atom_ids": [
+            "B2-A-11",
+            "B2-A-12"
+          ]
+        },
+        {
+          "id": "B2-BLK-07",
+          "locator": "L29-L31",
+          "text": "## 7. blokk · C4\nA pénzügyi szabályzat szerint a limit 100000 HUF.\nA beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "atom_ids": [
+            "B2-A-13",
+            "B2-A-14"
+          ]
+        },
+        {
+          "id": "B2-BLK-08",
+          "locator": "L33-L35",
+          "text": "## 8. blokk · C4\nA két limit eltérése tisztázandó.\nA források érvényességi sorrendje nincs megadva.",
+          "atom_ids": [
+            "B2-A-15",
+            "B2-A-16"
+          ]
+        },
+        {
+          "id": "B2-BLK-09",
+          "locator": "L37-L39",
+          "text": "## 9. blokk · C5\nA sürgős ügyek maximális utólagos határideje nincs megadva.\nA határidőről üzleti döntés szükséges.",
+          "atom_ids": [
+            "B2-A-17",
+            "B2-A-18"
+          ]
+        },
+        {
+          "id": "B2-BLK-10",
+          "locator": "L41-L43",
+          "text": "## 10. blokk · C5\nA hiányzó határidő nem becsülhető.\nA függő tételt nyitva kell tartani.",
+          "atom_ids": [
+            "B2-A-19",
+            "B2-A-20"
+          ]
+        },
+        {
+          "id": "B2-BLK-11",
+          "locator": "L45-L47",
+          "text": "## 11. blokk · C6\nA felhasználók oktatást kérnek.\nAz oktatási igény nem képernyőfunkció.",
+          "atom_ids": [
+            "B2-A-21",
+            "B2-A-22"
+          ]
+        },
+        {
+          "id": "B2-BLK-12",
+          "locator": "L49-L51",
+          "text": "## 12. blokk · C6\nAz oktatási anyag elkészítése külön feladat.\nAz oktatási időpont nincs megadva.",
+          "atom_ids": [
+            "B2-A-23",
+            "B2-A-24"
+          ]
+        },
+        {
+          "id": "B2-BLK-13",
+          "locator": "L53-L55",
+          "text": "## 13. blokk · C7\nMódosítási kérelem: a limit 200000 HUF legyen.\nA módosítás érinti a jóváhagyási szabályt.",
+          "atom_ids": [
+            "B2-A-25",
+            "B2-A-26"
+          ]
+        },
+        {
+          "id": "B2-BLK-14",
+          "locator": "L57-L59",
+          "text": "## 14. blokk · C7\nA módosítás érinti a tesztdefiníciót.\nA korábbi felülvizsgálat a módosítás után elavul.",
+          "atom_ids": [
+            "B2-A-27",
+            "B2-A-28"
+          ]
+        }
+      ],
+      "atoms": [
+        {
+          "id": "B2-A-01",
+          "block_id": "B2-BLK-01",
+          "quote": "A beszerzési igény rögzíthető.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-02",
+          "block_id": "B2-BLK-01",
+          "quote": "A kérelmező megadja az igény tárgyát.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-03",
+          "block_id": "B2-BLK-02",
+          "quote": "Az igény egyedi azonosítót kap.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-04",
+          "block_id": "B2-BLK-02",
+          "quote": "A rögzítés visszaigazolást ad.",
+          "case_id": "C1",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-05",
+          "block_id": "B2-BLK-03",
+          "quote": "100000 HUF felett vezetői jóváhagyás szükséges.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-06",
+          "block_id": "B2-BLK-03",
+          "quote": "Sürgős beszerzésnél a vezető utólag is jóváhagyhat.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-07",
+          "block_id": "B2-BLK-04",
+          "quote": "A sürgősség okát rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-08",
+          "block_id": "B2-BLK-04",
+          "quote": "A jóváhagyás időpontját rögzíteni kell.",
+          "case_id": "C2",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-09",
+          "block_id": "B2-BLK-05",
+          "quote": "A kérelmező a költséghelyet megadja.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-10",
+          "block_id": "B2-BLK-05",
+          "quote": "Az összeg pénzneme HUF.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-11",
+          "block_id": "B2-BLK-06",
+          "quote": "A költséghely vezetője ellenőrzi a keretet.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-12",
+          "block_id": "B2-BLK-06",
+          "quote": "A keretellenőrzés eredményét meg kell őrizni.",
+          "case_id": "C3",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-13",
+          "block_id": "B2-BLK-07",
+          "quote": "A pénzügyi szabályzat szerint a limit 100000 HUF.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-14",
+          "block_id": "B2-BLK-07",
+          "quote": "A beszerzési tájékoztató szerint a limit 150000 HUF.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-15",
+          "block_id": "B2-BLK-08",
+          "quote": "A két limit eltérése tisztázandó.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-16",
+          "block_id": "B2-BLK-08",
+          "quote": "A források érvényességi sorrendje nincs megadva.",
+          "case_id": "C4",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-17",
+          "block_id": "B2-BLK-09",
+          "quote": "A sürgős ügyek maximális utólagos határideje nincs megadva.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-18",
+          "block_id": "B2-BLK-09",
+          "quote": "A határidőről üzleti döntés szükséges.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-19",
+          "block_id": "B2-BLK-10",
+          "quote": "A hiányzó határidő nem becsülhető.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-20",
+          "block_id": "B2-BLK-10",
+          "quote": "A függő tételt nyitva kell tartani.",
+          "case_id": "C5",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-21",
+          "block_id": "B2-BLK-11",
+          "quote": "A felhasználók oktatást kérnek.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B2-A-22",
+          "block_id": "B2-BLK-11",
+          "quote": "Az oktatási igény nem képernyőfunkció.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B2-A-23",
+          "block_id": "B2-BLK-12",
+          "quote": "Az oktatási anyag elkészítése külön feladat.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B2-A-24",
+          "block_id": "B2-BLK-12",
+          "quote": "Az oktatási időpont nincs megadva.",
+          "case_id": "C6",
+          "disposition": "nonfunctional",
+          "reason": "Külön oktatási feladat."
+        },
+        {
+          "id": "B2-A-25",
+          "block_id": "B2-BLK-13",
+          "quote": "Módosítási kérelem: a limit 200000 HUF legyen.",
+          "case_id": "C7",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-26",
+          "block_id": "B2-BLK-13",
+          "quote": "A módosítás érinti a jóváhagyási szabályt.",
+          "case_id": "C7",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-27",
+          "block_id": "B2-BLK-14",
+          "quote": "A módosítás érinti a tesztdefiníciót.",
+          "case_id": "C7",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        },
+        {
+          "id": "B2-A-28",
+          "block_id": "B2-BLK-14",
+          "quote": "A korábbi felülvizsgálat a módosítás után elavul.",
+          "case_id": "C7",
+          "disposition": "accepted",
+          "reason": "Fiktív demonstrációs feldolgozás."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "B2-REQ-01",
+          "type": "requirement",
+          "case_id": "C1",
+          "version": "B2",
+          "text": "Az igény tárgya rögzíthető, egyedi azonosítóval és visszaigazolással."
+        },
+        {
+          "id": "B2-SPEC-01",
+          "type": "spec",
+          "case_id": "C1",
+          "version": "B2",
+          "text": "Igény mentésekor azonosító keletkezik, visszaigazolás jelenik meg. Szereplő: kérelmező; bemenet: tárgy; kiváltó: rögzítés. Eredmény: azonosító és visszaigazolás. Hibakezelés és további kötelező mezők: Nincs megadva."
+        },
+        {
+          "id": "B2-TEST-01",
+          "type": "test",
+          "case_id": "C1",
+          "version": "B2",
+          "text": "Definíció: igény mentése után azonosító és visszaigazolás ellenőrzése. Adott egy tárgy; amikor az igényt rögzítik, akkor azonosító és visszaigazolás keletkezik."
+        },
+        {
+          "id": "B2-REQ-02",
+          "type": "requirement",
+          "case_id": "C2",
+          "version": "B2",
+          "text": "200000 HUF felett vezetői jóváhagyás, sürgős esetben indok és utólagos döntés."
+        },
+        {
+          "id": "B2-SPEC-02",
+          "type": "spec",
+          "case_id": "C2",
+          "version": "B2",
+          "text": "Összeg > 200000 HUF: vezetői jóváhagyás; sürgős kivételnél indok és határidő: 2 munkanap (fiktív döntés). Szereplő: kérelmező és vezető; bemenet: összeg, sürgősség és sürgősségi indok. Kivétel: sürgős esetben utólagos vezetői jóváhagyás, időpont rögzítése. Hibaüzenet: Nincs megadva."
+        },
+        {
+          "id": "B2-TEST-02",
+          "type": "test",
+          "case_id": "C2",
+          "version": "B2",
+          "text": "Definíció: 200000, 200001 HUF, sürgős/nem sürgős és határidő vizsgálata. Adott 200000 HUF, amikor nem sürgős az ügy, akkor a forrás szerint a felette szabály nem lép életbe; 200001 HUF-nál igen. Sürgős esetben indok és utólagos jóváhagyás rögzítése."
+        },
+        {
+          "id": "B2-REQ-03",
+          "type": "requirement",
+          "case_id": "C3",
+          "version": "B2",
+          "text": "A HUF összeg, költséghely és a vezetői keretellenőrzés együttesen szükséges."
+        },
+        {
+          "id": "B2-SPEC-03",
+          "type": "spec",
+          "case_id": "C3",
+          "version": "B2",
+          "text": "A költséghelyhez kapcsolt keretellenőrzés eredményét meg kell őrizni. Szereplő: kérelmező és költséghely vezető; bemenet: költséghely, HUF összeg; kiváltó: keret ellenőrzése; eredmény: az ellenőrzés megőrzött eredménye. Hibakezelés: Nincs megadva."
+        },
+        {
+          "id": "B2-TEST-03",
+          "type": "test",
+          "case_id": "C3",
+          "version": "B2",
+          "text": "Definíció: távoli forrásrészek együttes lefedettsége és az eredmény megőrzése. Adott költséghely és HUF összeg; amikor a vezető ellenőrzi a keretet, akkor az eredmény megőrzendő."
+        },
+        {
+          "id": "B2-REQ-04",
+          "type": "requirement",
+          "case_id": "C4",
+          "version": "B2",
+          "text": "A 100000 és 150000 HUF közötti eltérést döntéssel kell rendezni."
+        },
+        {
+          "id": "B2-SPEC-04",
+          "type": "spec",
+          "case_id": "C4",
+          "version": "B2",
+          "text": "Fiktív gazdai döntés: 100000 HUF induló limit; B2 változása külön döntés. Szereplő: fiktív üzleti gazda; bemenet: két eltérő forrás; eredmény: mindkét forrás és döntés megőrzése; B0 esetén blokkolás."
+        },
+        {
+          "id": "B2-TEST-04",
+          "type": "test",
+          "case_id": "C4",
+          "version": "B2",
+          "text": "Definíció: két forrás megőrzése és a döntéshez kötött feloldás ellenőrzése. Adott két eltérő limit; amikor nincs döntés, akkor a kiadás blokkolt; fiktív döntésnél a döntés nyomon követhető."
+        },
+        {
+          "id": "B2-REQ-05",
+          "type": "requirement",
+          "case_id": "C5",
+          "version": "B2",
+          "text": "A sürgős utólagos döntés határideje hiányzik a forrásból."
+        },
+        {
+          "id": "B2-SPEC-05",
+          "type": "spec",
+          "case_id": "C5",
+          "version": "B2",
+          "text": "Határidő: 2 munkanap (fiktív döntés). Szereplő: fiktív üzleti gazda; bemenet: hiányzó időkorlát; eredmény: nyitott tétel, B1/B2 esetén fiktív döntéssel kitöltve."
+        },
+        {
+          "id": "B2-TEST-05",
+          "type": "test",
+          "case_id": "C5",
+          "version": "B2",
+          "text": "Definíció: hiányzó értékre nincs számított alapérték; fiktív döntés után nyomon követés. Adott hiányzó határidő; amikor nincs döntés, akkor az érték Nincs megadva, és a kiadás blokkolt."
+        },
+        {
+          "id": "B2-REQ-06",
+          "type": "requirement",
+          "case_id": "C6",
+          "version": "B2",
+          "text": "Az oktatási igény külön nem funkcionális feladat; időpont Nincs megadva."
+        },
+        {
+          "id": "B2-SPEC-06",
+          "type": "spec",
+          "case_id": "C6",
+          "version": "B2",
+          "text": "Nem készül belőle képernyőfunkció; sorsa külön oktatási feladat. Szereplő: oktatás gazdája Nincs megadva; bemenet: oktatási kérés; eredmény: külön feladat, nem képernyőfunkció."
+        },
+        {
+          "id": "B2-TEST-06",
+          "type": "test",
+          "case_id": "C6",
+          "version": "B2",
+          "text": "Definíció: az oktatás sorsa rögzített, nem funkcióként szerepel. Adott oktatási kérés; amikor besorolják, akkor önálló nem funkcionális feladatként követhető."
+        },
+        {
+          "id": "B2-REQ-07",
+          "type": "requirement",
+          "case_id": "C7",
+          "version": "B2",
+          "text": "Változási kérelem: 200000 HUF; a jóváhagyás és teszt érintett."
+        },
+        {
+          "id": "B2-SPEC-07",
+          "type": "spec",
+          "case_id": "C7",
+          "version": "B2",
+          "text": "Fiktív döntés nyomán 200000 HUF; a B1 review elavult, új szimuláció szerepel. Szereplő: fiktív ügyfélképviselő; bemenet: változási kérelem; eredmény: új baseline és a korábbi szimulált felülvizsgálat elavul."
+        },
+        {
+          "id": "B2-TEST-07",
+          "type": "test",
+          "case_id": "C7",
+          "version": "B2",
+          "text": "Definíció: változás hatása a forrás, követelmény, specifikáció és teszt között; nem futtatási eredmény. Adott a fiktív módosítás; amikor a küszöb változik, akkor a szabály és tesztdefiníció új verziót kap, a régi review elavul."
+        }
+      ],
+      "edges": [
+        {
+          "from": "B2-A-01",
+          "to": "B2-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-02",
+          "to": "B2-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-03",
+          "to": "B2-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-04",
+          "to": "B2-REQ-01",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-01",
+          "to": "B2-SPEC-01",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-01",
+          "to": "B2-TEST-01",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-05",
+          "to": "B2-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-06",
+          "to": "B2-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-07",
+          "to": "B2-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-08",
+          "to": "B2-REQ-02",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-02",
+          "to": "B2-SPEC-02",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-02",
+          "to": "B2-TEST-02",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-09",
+          "to": "B2-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-10",
+          "to": "B2-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-11",
+          "to": "B2-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-12",
+          "to": "B2-REQ-03",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-03",
+          "to": "B2-SPEC-03",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-03",
+          "to": "B2-TEST-03",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-13",
+          "to": "B2-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-14",
+          "to": "B2-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-15",
+          "to": "B2-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-16",
+          "to": "B2-REQ-04",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-04",
+          "to": "B2-SPEC-04",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-04",
+          "to": "B2-TEST-04",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-17",
+          "to": "B2-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-18",
+          "to": "B2-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-19",
+          "to": "B2-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-20",
+          "to": "B2-REQ-05",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-05",
+          "to": "B2-SPEC-05",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-05",
+          "to": "B2-TEST-05",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-21",
+          "to": "B2-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-22",
+          "to": "B2-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-23",
+          "to": "B2-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-24",
+          "to": "B2-REQ-06",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-06",
+          "to": "B2-SPEC-06",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-06",
+          "to": "B2-TEST-06",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-25",
+          "to": "B2-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-26",
+          "to": "B2-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-27",
+          "to": "B2-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-A-28",
+          "to": "B2-REQ-07",
+          "kind": "derived_into"
+        },
+        {
+          "from": "B2-REQ-07",
+          "to": "B2-SPEC-07",
+          "kind": "specified_by"
+        },
+        {
+          "from": "B2-SPEC-07",
+          "to": "B2-TEST-07",
+          "kind": "verified_by"
+        },
+        {
+          "from": "B2-A-25",
+          "to": "B2-REQ-02",
+          "kind": "impacts"
+        }
+      ],
+      "issues": [
+        {
+          "id": "B2-ISS-01",
+          "severity": "blocker",
+          "status": "resolved",
+          "text": "A 100000 és 150000 HUF ütközésének feloldása."
+        },
+        {
+          "id": "B2-ISS-02",
+          "severity": "blocker",
+          "status": "resolved",
+          "text": "A sürgős utólagos jóváhagyás határideje."
+        }
+      ],
+      "decisions": [
+        {
+          "id": "B2-DEC-01",
+          "role": "fiktív üzleti gazda",
+          "time": "2026-11-12T10:00:00Z",
+          "text": "Hipotetikus döntés: a pénzügyi limit és 2 munkanapos határidő érvényes a demonstrációban."
+        },
+        {
+          "id": "B2-DEC-02",
+          "role": "fiktív ügyfélképviselő",
+          "time": "2026-11-12T11:00:00Z",
+          "text": "Hipotetikus változtatás: limit 200000 HUF."
+        }
+      ],
+      "reviews": [
+        {
+          "id": "B2-REV-01",
+          "status": "simulated_current",
+          "text": "Szimulált elfogadás; nem valós reviewer vagy jóváhagyás."
+        },
+        {
+          "id": "B2-REV-OLD",
+          "status": "stale",
+          "text": "B1 szimulált review a változás miatt érvénytelen; új szimulált bizonyíték fent."
+        }
+      ],
+      "rule": {
+        "operator": ">",
+        "threshold_huf": 200000,
+        "exception": "urgent_post_approval",
+        "deadline_workdays": 2,
+        "approver_role": "vezető"
+      },
+      "test_execution": "NOT_RUN"
+    }
+  ]
+}

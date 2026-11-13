@@ -15,6 +15,7 @@ Vezeti (megerősített kiosztás): a 04 és az 05 gyakorlatot Kemény Krisztián
 | 15:10-15:25 (A), 15:25-15:45 (B), 15:45-16:05 (C) | BA-szekció: 06b BA-utótag: keresztreferencia-skill, képernyőterv, dokumentáció kódból | BA | `references/feladatok/06b-ba-utotag.md` | `Tananyag/Notebookok/06b-ba-utotag-notebook.html` | `Munka/06b-BA-utotag` | GPT-6 Luna |
 | 15:10-16:05 | Sales-Account szekció: Ügyfélprofil agent: skill és sablon az ügyfélprofilból, majd saját ügynök beállítása és próbája | Sales-Account | nincs forgatókönyv: a gyakorlatoldal vezet, másolható promptokkal | `Tananyag/Notebookok/uc2-ugyfelprofil-agent-notebook.html` | `Munka/02 usecase Ugyfelprofil agent` | Nincs megadva (a tréner mondja meg) |
 | 16:05-16:30 | 07 Saját folyamat átvitele | közös | `references/feladatok/07-sajat-atvitel.md` | `Tananyag/Notebookok/07-sajat-atvitel-notebook.html` | `Munka/07-Sajat` | GPT-6 Luna |
+| időpont nélkül, 45 perc | Projekt-szabályrendszer promptokkal (UC3): saját orchestrator, maker, reviewer és AGENTS.md | közös (BA vagy Sales) | nincs; a gyakorlatoldal vezet, a mérce: `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md` | `Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html` | `Munka/03 usecase Projekt szabalyok` | GPT-6 Luna |
 
 ## Kiegészítő gyakorlatok (nincsenek a napi időrendben)
 
@@ -25,7 +26,6 @@ Ezek a tananyag részei, de 2026-11-12-én nem szerepelnek a programban. Ha a r�
 | 02 Adatgyűjtés RONDO-portálról (30 perc) | közös | `references/feladatok/02-portal.md` | `Tananyag/Notebookok/02-portal-notebook.html` | `Munka/02-Portal` | GPT-6 Luna |
 | 03 Közös munka és megosztás (25 perc) | közös | `references/feladatok/03-kozos-munka.md` | `Tananyag/Notebookok/03-kozos-munka-notebook.html` | `Munka/03-Kozos` | GPT-6 Luna |
 | 06 Ügyállapot-követés (Sites); B csak Sales-Account (25 + 30 perc) | közös, B: Sales-Account | `references/feladatok/06-sites.md` | `Tananyag/Notebookok/06-sites-notebook.html` | `Munka/06-Sites` | GPT-6 Luna |
-| Projekt-szabályrendszer promptokkal (UC3; 45 perc) | közös (BA vagy Sales) | nincs; a gyakorlatoldal vezet, a mérce: `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md` | `Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html` | `Munka/03 usecase Projekt szabalyok` | GPT-6 Luna |
 
 ## Idő → gyakorlat
 

@@ -16,8 +16,9 @@ Az AI-nak: ha a résztvevő a GitHub-linket adja meg és a munkaterület kialak�
 - [napi-attekintes.html](napi-attekintes.html): a nap eredményközpontú áttekintője (mit viszel haza, két sáv, a nap íve, felkészülés).
 - `Feladatok/`: forgatókönyvek az AI-nak, gyakorlatonként egy fájl; `Feladatok/mellekletek/` a sablonok és feladatleírások.
 - `Notebookok/`: rövid itinerek, gyakorlatonként egy.
-- `00 Eloadas/`: a nyitó előadás diái.
-- `03 usecase Projekt szabalyok/`: a szabályrendszer-recept a „Projekt-szabályrendszer promptokkal” kiegészítő gyakorlathoz (`Notebookok/uc3-szabalyrendszer-notebook.html`): saját projekt szabálygyűjteménye kilenc rövid prompttal.
+- `00 Eloadas/`: a nyitó előadás: `ai-tortenet-eloadas.html` (honnan jött az AI, és miért most; lapozható, kísérő magyarázattal), valamint a 0. gyakorlat diái.
+- `07 usecase Kovetelmenykovetes/`: esettanulmány a workshop végéről: ugyanaz a kutatási megbízás két modellnek, a két működő bemutatóval; az oldala: `Notebookok/esettanulmany-kovetelmenyek.html`.
+- `03 usecase Projekt szabalyok/`: a szabályrendszer-recept a „Projekt-szabályrendszer promptokkal” gyakorlathoz (`Notebookok/uc3-szabalyrendszer-notebook.html`): saját projekt szabálygyűjteménye kilenc rövid prompttal.
 - `04 usecase RONDO/`: a kitalált RONDO-eset forrásai (BA és Sales-Account), a DNS-minta és -sablon, a portál és a Sites-prototípus.
 - `AI-asszisztens/`: projektutasítás és az opcionális `workshop-navigator` Skill ([áttekintés](AI-asszisztens/README.md)).
 - `Segedanyagok/`: [glosszárium](Segedanyagok/glosszarium.md) és az Oriana modellhasználati irányelve; lista: [Segedanyagok/README.md](Segedanyagok/README.md).
