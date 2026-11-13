@@ -78,16 +78,16 @@
     <ol class="et-lepcso">
       <li><b>Bediktált kérdés, egy menetben</b>
         <p>A kérdést élőszóban diktáltuk be, elírásokkal együtt, cél, forrás és kimeneti forma nélkül. A ChatGPT keresett a weben, egyszer visszakérdezett a környezetre, majd hosszú, szakmailag rendben lévő, de nagyon tömény szöveges választ adott.</p>
-        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/02-elso-valasz.md">az első válasz szövege</a> (kb. 1300 szó, hat lépés, két táblázat). Jó nyersanyag, de a teremben senki nem tudta volna végigolvasni.</span></li>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/02-elso-valasz.md">az első válasz szövege</a> (kb. 1300 szó, hat lépés, három táblázat). Jó nyersanyag, de a teremben senki nem tudta volna végigolvasni.</span></li>
       <li><b>„Így nagyon tömény”: kérés vizuális változatra</b>
         <p>Ugyanabban a beszélgetésben kértünk grafikus, dinamikus ábrás bemutatót. Készült egy négy nézetből álló kis interaktív ábra: áttekinthető, de a mélység és a bizonyíték hiányzott mögüle.</p>
         <figure class="et-vazlat"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/elso-vazlat.jpg" alt="Az első gyors vázlat: hat lépésből álló folyamatábra négy füllel" loading="lazy"><figcaption>Az első gyors vázlat „Folyamat” nézete (képernyőkép).</figcaption></figure></li>
       <li><b>Írasd meg a megbízást: prompt a prompthoz</b>
         <p>Nem mi írtuk meg a profi promptot. Azt kértük a ChatGPT-től, hogy készítsen átadási dokumentumot egy másik beszélgetésnek, és kifejezetten azt, hogy a saját megoldásából semmit ne írjon bele: csak a problémát és az elvárt eredményt.</p>
-        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/03-kutatasi-megbizas.md">a kutatási megbízás</a> (kb. 900 szó, hat fejezet).</span></li>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/03-kutatasi-megbizas.md">a kutatási megbízás</a> (kb. 900 szó, hét fejezet).</span></li>
       <li><b>Ugyanaz a megbízás két modellnek</b>
         <p>A megbízást változtatás nélkül megkapta egy új ChatGPT-beszélgetés és a Claude is. Mindkettő önállóan kutatott, fiktív példát épített, és működő, interaktív bemutatót adott át.</p>
-        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html">a ChatGPT bemutatója</a> és <a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html">a Claude bemutatója</a>. A tréner közlése szerint a ChatGPT-ben a GPT-6.1 Astra, a Claude-ban a Fable 5.2 modell dolgozott.</span></li>
+        <span class="et-ered">Eredmény: <a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html">a ChatGPT bemutatója</a> és <a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html">a Claude bemutatója</a>. A tréner közlése szerint a ChatGPT-ben a GPT-6.1 Astra, a Claude-ban a Fable 5.2 modell dolgozott. Ez a workshop utáni, külön futás volt: a tananyag gyakorlataihoz az Astra nem kell.</span></li>
     </ol>
   </section>
 
@@ -239,19 +239,20 @@ A teljes forrásfeldolgozás, a tartalmi helyesség, a változáskövetés és a
     <div class="et-tabla"><table>
       <thead><tr><th>Szempont</th><th><span class="et-m g">ChatGPT</span></th><th><span class="et-m c">Claude</span></th></tr></thead>
       <tbody>
-        <tr><td>A bemutató formája</td><td>egy hosszú, görgethető oldal hét fejezettel</td><td>hat külön nézet felső menüvel</td></tr>
+        <tr><td>A bemutató formája</td><td>egy hosszú, görgethető oldal: nyitó rész és hat fejezet</td><td>hat külön nézet felső menüvel</td></tr>
         <tr><td>A bemutató mérete</td><td class="sz">kb. 87 KB</td><td class="sz">kb. 1 MB</td></tr>
         <tr><td>Megnyitott források</td><td class="sz">21</td><td class="sz">75</td></tr>
         <tr><td>Forráshoz kötött állítások</td><td class="sz">13</td><td class="sz">113</td></tr>
-        <tr><td>A fiktív példa</td><td>beszerzési igénylés: 15 forrásblokk, 28 elemi állítás</td><td>gépkölcsönző foglalási rendszere: 66 forrásegység, 38 követelmény, 18 specifikációtétel</td></tr>
-        <tr><td>Rögzített kapcsolatok a példában</td><td class="sz">42 (az első állapotban)</td><td class="sz">179, mellettük 429 ellenőrzési rekord</td></tr>
+        <tr><td>A fiktív példa</td><td>beszerzési igénylés: 15 forrásblokk, 28 elemi állítás</td><td>gépkölcsönző foglalási rendszere: 61 forrásegység, 32 követelmény, 13 specifikációtétel</td></tr>
+        <tr><td>Rögzített kapcsolatok a példában</td><td class="sz">42</td><td class="sz">129, mellettük 311 ellenőrzési rekord</td></tr>
         <tr><td>Végigvezetett példaesetek</td><td class="sz">7</td><td class="sz">7</td></tr>
         <tr><td>Rögzített állapotok</td><td>3 (feltárt, döntés utáni, változás utáni)</td><td>2 alapállapot, köztük külön „gyanús jelölés” nézet</td></tr>
-        <tr><td>Gépi ellenőrzés a példaadaton</td><td>sémaellenőrzés és keresztellenőrzések; 8 szándékos hibából 8-at jelzett</td><td>49 ellenőrzés; 53 szándékos hibából 53-at, 24 további módosításból 23-at jelzett, egyet nem</td></tr>
+        <tr><td>Gépi ellenőrzés a példaadaton</td><td>sémaellenőrzés és keresztellenőrzések; 8 szándékos hibából 8-at jelzett</td><td>49 ellenőrzés; 53 saját szándékos hibából 53-at jelzett. Egy független ellenőr 24 rontásából 21-et a szabályok, további 2-t csak a fájlok ujjlenyomata jelzett, egyet semmi; az első változat még hármat nem vett észre.</td></tr>
+        <tr><td>Melyik változatot látjuk</td><td>az első, befagyasztott változat; a napló szerint ezután került külön reviewerhez</td><td>a második változat, egy független ellenőr köre után javítva</td></tr>
         <tr><td>Kísérő anyag a csomagban</td><td>kutatási jelentés (kb. 28 KB), forrásjegyzék, példaadat, megbízás és napló</td><td>a bemutató önmagában; a szöveges jelentésre hivatkozik, de az nincs mellette</td></tr>
       </tbody>
     </table></div>
-    <p class="et-forras">A számok a két eredménybe ágyazott adatokból származnak (2026. november 13-i számolás). A „jelzett hibák” a modellek saját ellenőrző programjainak eredményei a saját fiktív adatukon; mi nem futtattuk újra őket.</p>
+    <p class="et-forras">A számok a két eredmény adatfájljaiból származnak (2026. november 13-i számolás); a példa darabszámai mindkét oszlopban az első rögzített állapotra vonatkoznak. A „jelzett hibák” a modellek saját ellenőrző programjainak eredményei a saját fiktív adatukon (a ChatGPT-nél a <code>mutation-tests.json</code> fájlból); mi nem futtattuk újra őket.</p>
 
     <h3>Nézetről nézetre</h3>
       <div class="et-par">
@@ -264,7 +265,7 @@ A teljes forrásfeldolgozás, a tartalmi helyesség, a változáskövetés és a
       </div>
       <div class="et-par">
         <h4>Egy igény útja</h4>
-        <p class="et-mit">A ChatGPT egy lenyíló listából választható esetet négy oszlopban mutat: forrás, elemi értelmezés, követelmény és specifikáció, teszt. A Claude esetenként öt lépésen vezet végig, az eredeti ügyfélmondattól az ellenőrzés bizonyítékáig.</p>
+        <p class="et-mit">A ChatGPT egy lenyíló listából választható esetet négy oszlopban mutat: forrás, elemi értelmezés, követelmény és specifikáció, teszt. A Claude esetenként öt-hét lépésen vezet végig, az eredeti ügyfélmondattól az ellenőrzés bizonyítékáig.</p>
         <div class="et-ket">
           <figure><figcaption><span class="et-m g">ChatGPT</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/chatgpt/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/chatgpt-2-igeny.jpg" alt="A ChatGPT bemutatója: Egy igény útja" loading="lazy"></a></figure>
           <figure><figcaption><span class="et-m c">Claude</span></figcaption><a href="../07%20usecase%20Kovetelmenykovetes/claude/bemutato.html"><img src="../07%20usecase%20Kovetelmenykovetes/kepek/claude-2-igeny.jpg" alt="A Claude bemutatója: Egy igény útja" loading="lazy"></a></figure>
@@ -318,7 +319,7 @@ A teljes forrásfeldolgozás, a tartalmi helyesség, a változáskövetés és a
         <tr><td>Kinek való elsőre</td><td>Vezetőnek, vagy aki először találkozik a témával.</td><td>Annak az elemzőnek, aki holnap meg is akarja csinálni.</td></tr>
         <tr><td>A példa mélysége</td><td>Kicsi, áttekinthető minta: egy esetnél egyszerre látszik a teljes lánc.</td><td>Egy teljes, tízfejezetes fiktív dokumentum: látszik, hogyan működik a módszer nagyobb léptékben.</td></tr>
         <tr><td>Hol legyen a nyilvántartás</td><td>A forrás a SharePointon, a nyilvántartás verziózott csomagban (például Gitben), az Azure DevOps a jóváhagyott feladatok és tesztek helye.</td><td>Lépcsőzetesen: a pilotban a nyilvántartás a kódtárban él, az Azure Boards csak a kérdéseket és a döntéseket kapja; a tartós megoldásról a pilot után ember dönt hét alternatíva közül.</td></tr>
-        <tr><td>A saját munka ellenőrzése</td><td>Orchestrator, külön kutató, adat- és vizuális maker; a napló szerint a csomag külön reviewerhez került, de a reviewer jelentése nincs az átvett csomagban.</td><td>A bemutatóban nincs nyoma, hogyan szerveződött a munka. A saját ellenőrző programjának gyengéit viszont megmutatja: melyik szándékos hibát nem vette észre.</td></tr>
+        <tr><td>A saját munka ellenőrzése</td><td>Orchestrator, külön kutató, adat- és vizuális maker; a napló szerint a csomag külön reviewerhez került, de a reviewer jelentése nincs az átvett csomagban.</td><td>A beágyazott adatok szerint ez már a második változat: egy független ellenőr szándékos rontásokkal tesztelte az ellenőrző programot, és az ajánlás is módosult az első változathoz képest. A bemutató megmutatja, melyik rontást nem vette észre a program az első és a javított változatban.</td></tr>
         <tr><td>Kísérő dokumentum</td><td>Külön olvasható kutatási jelentés és forrásjegyzék.</td><td>Minden egy fájlban; a szöveges jelentés hiányzik mellőle.</td></tr>
       </tbody>
     </table></div>
@@ -326,10 +327,10 @@ A teljes forrásfeldolgozás, a tartalmi helyesség, a változáskövetés és a
     <h3>Mérleg</h3>
     <div class="et-merleg">
       <div class="et-k"><span class="et-m g">ChatGPT</span><h3>Erőssége</h3><p>Tömör, jól tagolt, gyorsan érthető. A csomag átlátható: megbízás, napló, jelentés és adat külön fájlban. Egy megbeszélés elejére ez a jobb belépő.</p></div>
-      <div class="et-k"><span class="et-m c">Claude</span><h3>Erőssége</h3><p>Mélység és bizonyíték: több forrás, állításonként jelölt bizonyítékszint, nagyobb példa, a dokumentum szintű elszámolás kirajzolva. Munkaanyagnak ez az erősebb.</p></div>
+      <div class="et-k"><span class="et-m c">Claude</span><h3>Erőssége</h3><p>Mélység és bizonyíték: több forrás, állításonként jelölt bizonyítékszint, nagyobb példa, a dokumentum szintű elszámolás kirajzolva. Munkaanyagnak ez az erősebb; igaz, ez már egy ellenőrzési kör utáni változat.</p></div>
       <div class="et-k"><h3>Közös korlát</h3><p>Egyik sem dolgozott valódi ügyféldokumentummal; az eszközleképezést senki nem próbálta ki; az Excel-bemenet kimaradt. A következő lépés mindkettő szerint egy kis, mért próba saját dokumentumon.</p></div>
     </div>
-    <p class="et-forras">Az elemzés korlátja: modellenként egy futás, azonos megbízással, eltérő felületen és eltérő munkamódban. Ebből nem következik, hogy az egyik modell általában jobb a másiknál. A forrásokat és az állításokat mi nem ellenőriztük vissza; a két bemutató a saját forráslistáját tartalmazza.</p>
+    <p class="et-forras">Az elemzés korlátja: modellenként egy eredmény, azonos megbízással, eltérő felületen és eltérő munkamódban. A két eredmény nem ugyanabban az érettségi állapotban van: a ChatGPT csomagja az első, még reviewer előtti változat, a Claude bemutatója egy ellenőrzési kör utáni, javított változat. A mélységbeli különbség egy része ebből is adódhat. Ebből nem következik, hogy az egyik modell általában jobb a másiknál. A forrásokat és az állításokat mi nem ellenőriztük vissza; a két bemutató a saját forráslistáját tartalmazza.</p>
   </section>
 
   <section class="et-szakasz" id="tanulsag" aria-labelledby="tanulsag-cim">

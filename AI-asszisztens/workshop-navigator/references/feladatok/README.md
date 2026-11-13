@@ -16,7 +16,7 @@ A résztvevő a ChatGPT-projektben azt írja: „Kezdjük az N. gyakorlatot” (
 | `06b-ba-utotag.md` | 6b. BA-utótag (BA-szekció) | 15:10-15:25, 15:25-15:45, 15:45-16:05 | BA | `Munka/06b-BA-utotag` |
 | `07-sajat-atvitel.md` | 7. Saját folyamat átvitele | 16:05-16:30 | közös | `Munka/07-Sajat` |
 
-A 2., a 3. és a 6. gyakorlat kiegészítő: 2026-11-12-én nincs a napi időrendben, de a tananyag része, és ugyanúgy indítható; időpont helyett csak percek tartoznak hozzá. A nap sorrendjében az `AGENTS.md` „Hol tartok?” táblája az irányadó: ha egy forgatókönyv indítása vagy zárása más időpontot vagy más következő gyakorlatot nevez meg, a táblát kell követni.
+A 2., a 3. és a 6. gyakorlat kiegészítő: a 2026-11-12-i napi időrendben nem szerepelt, de a tananyag része, és ugyanúgy indítható; időpont helyett csak percek tartoznak hozzá. A nap sorrendjében az `AGENTS.md` „Hol tartok?” táblája az irányadó: ha egy forgatókönyv indítása vagy zárása más időpontot vagy más következő gyakorlatot nevez meg, a táblát kell követni.
 
 Forgatókönyv nélküli fő gyakorlat a „Projekt-szabályrendszer promptokkal” (45 perc, időpont nélkül): a `Notebookok/uc3-szabalyrendszer-notebook.html` vezet kilenc rövid prompttal, az AI mércéje a `03 usecase Projekt szabalyok/szabalyrendszer-recept.md`. A résztvevő ezzel rakja össze a saját projektje szabálygyűjteményét (működési minta, maker, reviewer, orchestrator, projekt `AGENTS.md`); a viselkedési szabályok az `AGENTS.md` „Projekt-szabályrendszer gyakorlat (UC3)” szakaszában vannak.
 

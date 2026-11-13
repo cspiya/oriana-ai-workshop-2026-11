@@ -59,13 +59,13 @@ Alakítsd ki a workshop munkaterületét ebben a mappában.
 1. Töltsd le parancssorból a tananyag ZIP-jét a mappába workshop-material.zip néven innen: https://github.com/cspiya/oriana-ai-workshop-2026-11/archive/refs/heads/main.zip
 2. Bontsd ki a Tananyag almappába úgy, hogy a ZIP külső mappaszintjét kihagyod.
 3. Kövesd a Tananyag/SETUP.md lépéseit: hozd létre a Munka mappát, és másold a gyökérbe az AGENTS.md fájlt.
+Ha a letöltés vagy a kibontás elakad, a kipróbált parancsot itt találod, az 1. lépésben: https://raw.githubusercontent.com/cspiya/oriana-ai-workshop-2026-11/main/SETUP.md
 ```
 
 ![Az indító üzenet a projekt üzenetmezőjében, fölötte a projekt neve, jobbra a küldés gomb.](_assets/start-kepek/07-indito-uzenet.png)
+*A kép a workshop előtti, rövidebb üzenetet mutatja; a keretben álló szöveget küldd el.*
 
 Az üzenetben a ZIP közvetlen címe áll, átirányítás nélkül. Az AI a ZIP-et parancssorból a `Wenova-AI-workshop` mappába tölti le (nem a böngésző Letöltések mappájába), a külső `oriana-ai-workshop-2026-11-main` mappát kihagyja, a belső almappákat megőrzi. Rövid link ugyanerre a ZIP-re: https://is.gd/oriana1112.
-
-*A lenti kép a workshop előtti, rövidebb üzenetet mutatja; a fenti szöveget küldd el.*
 
 Munka közben a ChatGPT engedélyt kér (**Engedélyezed…?**): a végigfutáskor a letöltéshez és egy záró ellenőrző parancshoz kért. Nézd meg, hogy a `Wenova-AI-workshop` mappában dolgozik, és kattints az **Egyszeri engedélyezés** gombra. A **Kibontás** linkkel a teljes parancsot is megnézheted.
 

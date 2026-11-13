@@ -1,0 +1,64 @@
+{
+  "dangling_ref": {
+    "expected_code": "DANGLING",
+    "detected": true,
+    "errors": [
+      "DANGLING: B0-A-01 -> B0-REQ-MISSING",
+      "ORPHAN_ATOM: B0-A-01"
+    ]
+  },
+  "dropped_atom": {
+    "expected_code": "INVENTORY",
+    "detected": true,
+    "errors": [
+      "INVENTORY: B0 expected 15 blocks and 28 atoms",
+      "BLOCK_ATOM: B0-BLK-14 B0-A-28",
+      "ATOM_INVENTORY: B0",
+      "DANGLING: B0-A-28 -> B0-REQ-07"
+    ]
+  },
+  "source_hash_mismatch": {
+    "expected_code": "HASH",
+    "detected": true,
+    "errors": [
+      "HASH: source SHA256 mismatch"
+    ]
+  },
+  "mixed_baseline": {
+    "expected_code": "VERSION_OR_CASE",
+    "detected": true,
+    "errors": [
+      "VERSION_OR_CASE: B0-REQ-01"
+    ]
+  },
+  "unresolved_blocker_released": {
+    "expected_code": "BLOCKER_GATE",
+    "detected": true,
+    "errors": [
+      "BLOCKER_GATE: B0",
+      "EVIDENCE_GATE: B0",
+      "B0_GATE: B0"
+    ]
+  },
+  "wrong_condition_explicit_scope": {
+    "expected_code": "EXAMPLE_RULE",
+    "detected": true,
+    "errors": [
+      "EXAMPLE_RULE: B1 differs from explicit example rule"
+    ]
+  },
+  "wrong_actor_explicit_scope": {
+    "expected_code": "EXAMPLE_RULE",
+    "detected": true,
+    "errors": [
+      "EXAMPLE_RULE: B1 differs from explicit example rule"
+    ]
+  },
+  "wrong_exception_explicit_scope": {
+    "expected_code": "EXAMPLE_RULE",
+    "detected": true,
+    "errors": [
+      "EXAMPLE_RULE: B1 differs from explicit example rule"
+    ]
+  }
+}

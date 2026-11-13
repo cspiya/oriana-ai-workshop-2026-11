@@ -6,7 +6,7 @@ A 2026-11-12-i (csütörtök, 09:00-16:30) workshop tananyaga az Oriana munkatá
 
 ## Első lépés résztvevőknek
 
-Nyisd meg a [START.md](START.md) fájlt (böngészőben: [START.html](START.html)). Három lépés: létrehozol egy üres `C:\Users\<felhasználónév>\Wenova-AI-workshop` mappát, odaadod a ChatGPT asztali alkalmazás Work felületének, és elküldöd az ott megadott egyetlen, rövid üzenetet (rövid ZIP-link). A többit az AI végzi a [SETUP.md](SETUP.md) utasításai szerint: a teljes tananyagot ZIP-ként letölti, majd külső csomagolómappa (`oriana-ai-workshop-2026-11-main/`) nélkül a `Tananyag` almappába bontja ki, létrehozza a `Munka` mappát a kilenc almappával, és megmondja a következő lépést. Ezután a napi térkép: [index.html](index.html) (a `Tananyag\index.html`), első üzenet: „Kezdjük a 0. gyakorlatot.”
+Nyisd meg a [START.md](START.md) fájlt (böngészőben: [START.html](START.html)). Három lépés: létrehozol egy üres `C:\Users\<felhasználónév>\Wenova-AI-workshop` mappát, odaadod a ChatGPT asztali alkalmazás Work felületének, és elküldöd az ott megadott egyetlen üzenetet (benne a tananyag ZIP-jének közvetlen címe). A többit az AI végzi a [SETUP.md](SETUP.md) utasításai szerint: a teljes tananyagot ZIP-ként letölti, majd külső csomagolómappa (`oriana-ai-workshop-2026-11-main/`) nélkül a `Tananyag` almappába bontja ki, létrehozza a `Munka` mappát a kilenc almappával, és megmondja a következő lépést. Ezután a napi térkép: [index.html](index.html) (a `Tananyag\index.html`), első üzenet: „Kezdjük a 0. gyakorlatot.”
 
 Az AI-nak: ha a résztvevő a GitHub-linket adja meg és a munkaterület kialakítását kéri, a `SETUP.md` fájlt kövesd; a gyakorlatok alatt az [AGENTS.md](AGENTS.md) szabályai érvényesek.
 

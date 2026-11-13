@@ -17,9 +17,9 @@ Vezeti (megerősített kiosztás): a 04 és az 05 gyakorlatot Kemény Krisztián
 | 16:05-16:30 | 07 Saját folyamat átvitele | közös | `references/feladatok/07-sajat-atvitel.md` | `Tananyag/Notebookok/07-sajat-atvitel-notebook.html` | `Munka/07-Sajat` | GPT-6 Luna |
 | időpont nélkül, 45 perc | Projekt-szabályrendszer promptokkal (UC3): saját orchestrator, maker, reviewer és AGENTS.md | közös (BA vagy Sales) | nincs; a gyakorlatoldal vezet, a mérce: `Tananyag/03 usecase Projekt szabalyok/szabalyrendszer-recept.md` | `Tananyag/Notebookok/uc3-szabalyrendszer-notebook.html` | `Munka/03 usecase Projekt szabalyok` | GPT-6 Luna |
 
-## Kiegészítő gyakorlatok (nincsenek a napi időrendben)
+## Kiegészítő gyakorlatok (nem szerepeltek a napi időrendben)
 
-Ezek a tananyag részei, de 2026-11-12-én nem szerepelnek a programban. Ha a résztvevő a tréner kérésére vagy a nap után elindítja őket, ugyanúgy vezesd, mint a többit; időpontot ne mondj hozzájuk, csak perceket.
+Ezek a tananyag részei, de a 2026-11-12-i programban nem szerepeltek. Ha a résztvevő elindítja őket, ugyanúgy vezesd, mint a többit; időpontot ne mondj hozzájuk, csak perceket.
 
 | Gyakorlat | Sáv | Forgatókönyv | Notebook | Munkamappa | Modell |
 |---|---|---|---|---|---|
