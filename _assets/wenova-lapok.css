@@ -382,3 +382,16 @@ body.deck.kisero-deck .deck-bar button[data-a="notes"] { display: none; }
 @media (max-width: 860px) { .bonusz-doboz { grid-template-columns: 1fr; } .bonusz-kep img { height: 11rem; } }
 .bonusz-gombok .gomb { display: inline-block; padding: .5rem 1.1rem; border: 2px solid var(--ink); border-radius: 12px; background: var(--accent); color: var(--ink-fix); font-weight: 800; text-decoration: none; box-shadow: var(--kemeny-kis); }
 .bonusz-gombok .gomb:hover { background: var(--jegyezd); }
+
+/* Kísérő magyarázatos előadás telefonon: a lap görget, a nyitódián a logó nem lóg a címkére. */
+@media (max-width: 900px), (max-height: 520px) {
+  body.deck.kisero-deck section.slide { padding: 1.2rem 4vw 5.4rem; overflow: visible; }
+  body.deck.kisero-deck section.slide.title { padding-top: 4.5rem; }
+  body.deck.kisero-deck .dia { padding: 0; }
+  body.deck.kisero-deck .kisero { max-height: none; }
+  body.deck.kisero-deck .abra-svg, body.deck.kisero-deck .abra-svg.keskeny { max-height: none; }
+}
+/* Keskeny képernyőn a hosszú, törhetetlen sorok (útvonal, indító mondat) nem tolják szét a lapot; a diák vezérlősávjában hely marad a témaváltónak. */
+.indulo-lepesek { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 900px) { .say { white-space: normal; overflow-wrap: anywhere; } }
+@media (max-width: 900px), (max-height: 520px) { body.deck .deck-bar { padding-right: 7.6rem; } }

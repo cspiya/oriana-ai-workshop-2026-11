@@ -8,7 +8,7 @@
 <script>(function(){try{var q=new URLSearchParams(location.search).get('tema'),t=q||localStorage.getItem('wenova-tema');document.documentElement.setAttribute('data-theme',t==='dark'||t==='system'?t:'light');}catch(e){}})();</script>
 <style>
 .pl-bevezeto { max-width: 62rem; }
-.pl-ugro { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: .4rem .8rem; }
+.pl-ugro { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr)); gap: .4rem .8rem; }
 .pl-ugro a { display: block; padding: .45rem .7rem; border: 2px solid var(--ink, #14183A); border-radius: 12px; background: var(--surface, #fff); text-decoration: none; color: inherit; }
 .pl-ugro a:hover { background: var(--accent-soft, #E3EAFF); }
 .pl-lepes { border: 2px solid var(--ink, #14183A); border-radius: 20px; background: var(--surface, #fff); padding: 1.2rem 1.4rem; margin-bottom: 1.4rem; scroll-margin-top: 5rem; box-shadow: 4px 4px 0 var(--ink, #14183A); }

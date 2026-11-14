@@ -1032,3 +1032,4 @@ details.minta > .minta-test { padding: 0 .95rem .9rem; }
 @media (max-width: 640px) { .cel { grid-template-columns: minmax(0, 1fr); gap: .3rem; } .cel .cel-cimke { padding-top: 0; } }
 /* Telefonon a ragadó lépéssáv egyetlen sor: csak a lépésszámok (ugrás), a Vissza/Előre a lépések alján van. */
 @media (max-width: 900px) { .lepes-sin .sin-fej { display: none; } .lepes-sin { padding-top: .35rem; padding-bottom: .3rem; } .lepes { scroll-margin-top: 4.2rem; } }
+@media (max-width: 640px) { .kovetkezo { grid-template-columns: minmax(0, 1fr); } .kovetkezo a.gomb { white-space: normal; text-align: center; } }
