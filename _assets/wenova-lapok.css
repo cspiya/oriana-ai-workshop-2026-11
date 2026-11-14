@@ -272,10 +272,19 @@ body.deck .mozgo-fej { padding: .5rem 1.2rem; } body.deck .mozgo-vezerlo { paddi
 body.deck .mozgo-szin svg { max-height: 44vh; }
 @media (max-height: 900px) { body.deck .mozgo { zoom: .76; } }
 @media (max-height: 700px) { body.deck .mozgo { zoom: .62; } }
-@media (max-width: 900px) {
-  body.deck section.slide { padding: 3vh 5vw 6.4rem; overflow-y: auto; }
+/* Telefonon (álló és fekvő) a dia nem belső görgetődoboz: a lap maga görget, így a böngésző sávjai és az alsó vezérlősáv nem takarnak ki tartalmat. */
+@media (max-width: 900px), (max-height: 520px) {
+  body.deck { height: auto; min-height: 100vh; min-height: 100dvh; overflow: visible; overflow-x: hidden; }
+  body.deck .slides { height: auto; }
+  body.deck section.slide { position: relative; inset: auto; min-height: 100vh; min-height: 100dvh; padding: 1.2rem 5vw 5.4rem; overflow: visible; }
   body.deck section.slide.active { justify-content: flex-start; }
-  body.deck section.slide.title { padding-right: 5vw; justify-content: center; }
+  body.deck .tema-valto.lebeg { top: auto; bottom: .42rem; right: .6rem; box-shadow: none; }
+  body.deck.show-notes .notes { overflow-y: auto; }
+  body.deck .mozgo { zoom: 1; }
+  body.deck .mozgo-szin svg, body.deck .abra .abra-svg, body.deck #nap-terkepe .abra .abra-svg { max-height: none; min-height: 0; }
+}
+@media (max-width: 900px) {
+  body.deck section.slide.title { padding-right: 5vw; padding-top: 4.5rem; justify-content: center; }
   body.deck .deck-emblema { display: none; }
   body.deck .deck-logo { left: 5vw; top: 3vh; }
   body.deck .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }

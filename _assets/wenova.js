@@ -347,7 +347,7 @@
       counter.textContent = (idx + 1) + ' / ' + slides.length;
       prog.style.width = ((idx + 1) / slides.length * 100) + '%';
       var h = slides[idx].id || ('s' + (idx + 1)); history.replaceState(null, '', '#' + h);
-      slides[idx].scrollTop = 0;
+      slides[idx].scrollTop = 0; window.scrollTo(0, 0);
     }
     bar = document.createElement('div'); bar.className = 'deck-bar';
     var t = document.title || '';
@@ -383,8 +383,11 @@
     var start = 0; if (location.hash) { var id = location.hash.slice(1); slides.forEach(function (s, k) { if (s.id === id || 's' + (k + 1) === id) start = k; }); }
     show(start);
     // érintés
-    var x0 = null; document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; });
-    document.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1)); x0 = null; });
+    // Lapozás csak határozott vízszintes húzásra: a függőleges görgetés és az oldalra görgethető elemek (tábla, ábra) húzása nem lapoz.
+    var x0 = null, y0 = 0;
+    function oldalraGordul(el) { for (; el && el !== document.body; el = el.parentElement) { if (el.scrollWidth > el.clientWidth + 4 && /auto|scroll/.test(getComputedStyle(el).overflowX)) return true; } return false; }
+    document.addEventListener('touchstart', function (e) { if (e.touches.length !== 1 || oldalraGordul(e.target)) { x0 = null; return; } x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; if (Math.abs(dx) > 70 && Math.abs(dx) > 2.5 * Math.abs(dy)) show(idx + (dx < 0 ? 1 : -1)); x0 = null; }, { passive: true });
   }
 
   /* ---------- Oldalsáv (v1 notebookok) ---------- */

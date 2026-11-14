@@ -1018,3 +1018,17 @@ details.minta > .minta-test { padding: 0 .95rem .9rem; }
   .step { grid-template-columns: 1fr; }
   .lepes-fej h3 { font-size: 1.2rem; }
 }
+
+/* ============================== MOBIL: a felső sáv nem ragad a képernyő tetejére ============================== */
+/* Telefonon (álló és fekvő) a napi navigáció a lap tetején marad, és görgetéskor kiúszik: a tartalomé a teljes képernyő. */
+@media (max-width: 900px), (max-height: 520px) {
+  :root { --topbar-h: 0rem; }
+  .topbar { position: static; }
+  .topbar .brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-height: 520px) { .lepes-sin { position: static; } }
+/* Telefonon a képernyőnél szélesebb táblázat a saját keretében görget oldalra, nem vágódik le. */
+@media (max-width: 900px) { body.v2 table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } body.v2 .tabla-gorget table { display: table; max-width: none; overflow: visible; } }
+@media (max-width: 640px) { .cel { grid-template-columns: minmax(0, 1fr); gap: .3rem; } .cel .cel-cimke { padding-top: 0; } }
+/* Telefonon a ragadó lépéssáv egyetlen sor: csak a lépésszámok (ugrás), a Vissza/Előre a lépések alján van. */
+@media (max-width: 900px) { .lepes-sin .sin-fej { display: none; } .lepes-sin { padding-top: .35rem; padding-bottom: .3rem; } .lepes { scroll-margin-top: 4.2rem; } }
